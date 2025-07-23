@@ -7,7 +7,16 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "1",
   "title": "Introduction",
-  "body": " Introduction   We will be studying combinatorics, which is the art of counting. We will be addressing the following seven questions.   Enumeration    "
+  "body": " Introduction   We will be studying combinatorics, which is the art of counting. We will be addressing the following eight foundational questions of combinatorics:   Enumeration: How many ____ are there?  Classification: Which objects have ____ property?  Expectation: How likely is ____?  Optimization: What is the best ____?  Sampling and Construction: How do I generate examples of ____?  Existence: Does ____ exist?  Estimation: Approximately how many ____ are there?  Ethics: What are the ethical implications that arise when applying ____ to the physical, biological, health, or social sciences?    "
+},
+{
+  "id": "sec-section-name",
+  "level": "1",
+  "url": "sec-section-name.html",
+  "type": "Section",
+  "number": "2.1",
+  "title": "Exercises",
+  "body": " Exercises  Explain exercises.  "
 }
 ]
 
