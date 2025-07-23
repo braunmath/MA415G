@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This frontmatter division will contain all content before the -->
+<!-- first chapter. Fill in and comment/uncomment to see how this -->
+<!-- works. -->
+
+<frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="frontmatter">
+  <bibinfo>
+  
+    <author>
+      <personname>Benjamin Braun</personname>
+      <department>Department of Mathematics</department>
+      <institution>University of Kentucky</institution>
+    </author>
+    <date>
+      <today />
+    </date>
+
+  
+  </bibinfo>
+
+  <titlepage>
+    <titlepage-items/>
+  </titlepage>
+
+
+</frontmatter>
+
