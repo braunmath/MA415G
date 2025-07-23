@@ -8,15 +8,6 @@ var ptx_lunr_docs = [
   "number": "1",
   "title": "Introduction",
   "body": " Introduction   We will be studying combinatorics, which is the art of counting. We will be addressing the following seven questions.   Enumeration    "
-},
-{
-  "id": "backmatter-2",
-  "level": "1",
-  "url": "backmatter-2.html",
-  "type": "Colophon",
-  "number": "",
-  "title": "Colophon",
-  "body": " This book was authored in PreTeXt .  "
 }
 ]
 
