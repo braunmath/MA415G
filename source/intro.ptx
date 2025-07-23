@@ -5,9 +5,16 @@
 
   <!--  <introduction>  -->
     <p> We will be studying combinatorics, which is the art of counting. 
-        We will be addressing the following seven questions. </p>
+        We will be addressing the following eight foundational questions of combinatorics: </p>
         <ul>
-        <li>Enumeration</li>
+        <li>Enumeration: How many ____ are there?</li>
+<li>Classification: Which objects have ____ property?</li>
+<li>Expectation: How likely is ____?</li>
+<li>Optimization: What is the best ____?</li>
+<li>Sampling and Construction: How do I generate examples of ____?</li>
+<li>Existence: Does ____ exist?</li>
+<li>Estimation: Approximately how many ____ are there?</li>
+<li>Ethics: What are the ethical implications that arise when applying ____ to the physical, biological, health, or social sciences?</li>
         </ul>
 
   <!--  </introduction>  -->

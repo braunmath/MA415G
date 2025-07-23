@@ -12,7 +12,8 @@
 
     <!-- Include chapters -->
     <xi:include href="./intro.ptx" />
-    
+    <xi:include href="./enumeration.ptx" />
+
     <!-- Include backmatter -->
     <!--   <xi:include href="./backmatter.ptx" />  -->
 
