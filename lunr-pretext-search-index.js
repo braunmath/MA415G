@@ -53,6 +53,69 @@ var ptx_lunr_docs = [
   "number": "2.1",
   "title": "Binomial Coefficients",
   "body": " Binomial Coefficients  Explain exercises.  "
+},
+{
+  "id": "ch-classification",
+  "level": "1",
+  "url": "ch-classification.html",
+  "type": "Chapter",
+  "number": "3",
+  "title": "Classification",
+  "body": " Classification  "
+},
+{
+  "id": "ch-expectation",
+  "level": "1",
+  "url": "ch-expectation.html",
+  "type": "Chapter",
+  "number": "4",
+  "title": "Expectation",
+  "body": " Expectation  "
+},
+{
+  "id": "ch-optimization",
+  "level": "1",
+  "url": "ch-optimization.html",
+  "type": "Chapter",
+  "number": "5",
+  "title": "Optimization",
+  "body": " Optimization  "
+},
+{
+  "id": "ch-ethics",
+  "level": "1",
+  "url": "ch-ethics.html",
+  "type": "Chapter",
+  "number": "6",
+  "title": "Ethics",
+  "body": " Ethics  "
+},
+{
+  "id": "ch-samplingandconstruction",
+  "level": "1",
+  "url": "ch-samplingandconstruction.html",
+  "type": "Chapter",
+  "number": "7",
+  "title": "Sampling and Construction",
+  "body": " Sampling and Construction  "
+},
+{
+  "id": "ch-existence",
+  "level": "1",
+  "url": "ch-existence.html",
+  "type": "Chapter",
+  "number": "8",
+  "title": "Existence",
+  "body": " Existence  "
+},
+{
+  "id": "ch-estimation",
+  "level": "1",
+  "url": "ch-estimation.html",
+  "type": "Chapter",
+  "number": "9",
+  "title": "Estimation",
+  "body": " Estimation  "
 }
 ]
 
