@@ -13,6 +13,14 @@
     <!-- Include chapters -->
     <xi:include href="./intro.ptx" />
     <xi:include href="./enumeration.ptx" />
+    <!--
+    <xi:include href="./classification.ptx" />
+    <xi:include href="./expectation.ptx" />
+    <xi:include href="./optimization.ptx" />
+    <xi:include href="./ethics.ptx" />
+    <xi:include href="./samplingandconstruction.ptx" />
+    <xi:include href="./existence.ptx" />
+    <xi:include href="./estimation.ptx" /> -->
 
     <!-- Include backmatter -->
     <!--   <xi:include href="./backmatter.ptx" />  -->

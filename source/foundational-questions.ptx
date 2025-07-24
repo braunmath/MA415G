@@ -1,0 +1,45 @@
+<section xml:id="sec-foundational-questions">
+      <title>Eight Foundational Questions</title>
+      <p> We will be studying combinatorics and graph theory. 
+      We will be addressing the following eight foundational questions of combinatorics and graph theory:
+      <ol>
+        <li>Enumeration: How many ____ are there?</li>
+        <li>Classification: Which objects have ____ property?</li>
+        <li>Expectation: How likely is ____?</li>
+        <li>Optimization: What is the best ____?</li>
+        <li>Sampling and Construction: How do I generate examples of ____?</li>
+        <li>Existence: Does ____ exist?</li>
+        <li>Estimation: Approximately how many ____ are there?</li>
+        <li>Ethics: What are the ethical implications that arise when applying ____ to the physical, biological, health, or social sciences?</li>
+      </ol>
+    </p>
+
+    <p>
+      Rules for small group discussions:
+      <ul>
+        <li>
+          <p>
+            First, begin the discussion by going around your group and having each person give a 10-second answer to the question.
+          </p>
+        </li>
+        <li>
+          <p>
+            Second, go around the group again and give a 10-second follow-up answer. This allows everyone to have a chance to offer their thoughts before the general discussion begins.
+          </p>
+        </li>
+        <li>
+          <p>
+            Third, have a general discussion.
+          </p>
+        </li>
+      </ul>
+    </p>
+
+<exercise>
+  <p>What is an example of an enumeration problem you have seen in a previous course?</p>
+</exercise>
+<exercise>
+  <p>What is an example of an optimization problem you have seen in a previous course?</p>
+</exercise>
+
+</section>
