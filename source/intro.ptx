@@ -3,21 +3,20 @@
 <chapter xml:id="ch-chapter-title" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Introduction</title>
 
-  <!--  <introduction>  -->
-    <p> We will be studying combinatorics, which is the art of counting. 
-        We will be addressing the following eight foundational questions of combinatorics: </p>
+    <p> We will be studying combinatorics and graph theory. 
+        We will be addressing the following eight foundational questions of combinatorics and graph theory:
         <ol>
-        <li>Enumeration: How many ____ are there?</li>
-<li>Classification: Which objects have ____ property?</li>
-<li>Expectation: How likely is ____?</li>
-<li>Optimization: What is the best ____?</li>
-<li>Sampling and Construction: How do I generate examples of ____?</li>
-<li>Existence: Does ____ exist?</li>
-<li>Estimation: Approximately how many ____ are there?</li>
-<li>Ethics: What are the ethical implications that arise when applying ____ to the physical, biological, health, or social sciences?</li>
+          <li>Enumeration: How many ____ are there?</li>
+          <li>Classification: Which objects have ____ property?</li>
+          <li>Expectation: How likely is ____?</li>
+          <li>Optimization: What is the best ____?</li>
+          <li>Sampling and Construction: How do I generate examples of ____?</li>
+          <li>Existence: Does ____ exist?</li>
+          <li>Estimation: Approximately how many ____ are there?</li>
+          <li>Ethics: What are the ethical implications that arise when applying ____ to the physical, biological, health, or social sciences?</li>
         </ol>
+      </p>
 
-  <!--  </introduction>  -->
 
 
 </chapter>
