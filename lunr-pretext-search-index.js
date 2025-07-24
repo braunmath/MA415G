@@ -34,7 +34,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.2",
   "title": "Proofs",
-  "body": " Proofs  The idea of mathematical proof is generally misunderstood by students. This is partially because it is not well-understood even by professional mathematicians. The key issue is that different people have different answers to the following three questions:  What is Mathematics?  What is the purpose of Mathematics?  What are the criteria for Mathematics to be good or bad?     How would you answer each of these three questions?   "
+  "body": " Proofs  The idea of mathematical proof is generally misunderstood by students. This is partially because it is not well-understood even by professional mathematicians. The key issue is that different people have different answers to the following three questions:  What is Mathematics?  What is the purpose of Mathematics?  What are the criteria for Mathematics to be good or bad?     How would you answer the second question?   "
 },
 {
   "id": "sec-Proofs-3",
@@ -43,7 +43,7 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "1.2.1",
   "title": "",
-  "body": " How would you answer each of these three questions?  "
+  "body": " How would you answer the second question?  "
 },
 {
   "id": "sec-binomial-coefficients",
