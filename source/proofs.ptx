@@ -1,7 +1,8 @@
 <section xml:id="sec-Proofs">
     <title>Proofs</title>
     <p>
-    The idea of <i>mathematical proof</i> is generally misunderstood by students.
+    Some of you have had good experiences with proofs in the past, and some of you have had bad experiences with proofs, and some of you have not really had to engage in reading and writing proofs.
+    In general, the idea of <i>mathematical proof</i> is generally misunderstood by students.
     This is partially because it is not well-understood even by professional mathematicians.
     The key issue is that different people have different answers to the following three questions:
         <ol> 
@@ -15,5 +16,28 @@
         How would you answer the second question?
     </p>
     </exercise>
+
+    <p>
+        In this class, we will use two frameworks to guide our answers to these questions in the context of combinatorics and graph theory.
+        The first framework is <i>Formal Functionalism</i>, a philosophy of Mathematics described by Saunders MacLane.
+        His starting point is:
+        <blockquote>
+            <p>
+                [Mathematical] activities... involve counting, timing, measuring, and moving, using numbers, intervals, distances, and shapes.
+                Facts about these operations and ideas are gradually assembled, calculations are made, until finally there develops an extensive body of knowledge, based on a few central ideas and providing formal rules for calculation.
+                Eventually this body of knowledge is organized by a formal system of concepts, axioms, definitions, and proofs.
+            </p>
+        </blockquote>
+    The following table is from MacLane's book "Mathematics: Form and Function", illustrating this progression for different human activities.
+    </p>
+
+<figure xml:id="fig-maclane">
+    <caption>Table of human activities from MacLane's book.</caption>
+    <image source="images/maclane.jpg" width="70%"/>
+</figure>
+
+    <p>
+        The second framework is David Tall's <i>Three Worlds of mathematics</i> framework.
+    </p>
 
 </section>
