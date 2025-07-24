@@ -4,7 +4,7 @@
     <definition xml:id="def-subset">
         <statement>
             <p>
-                Given a set <m>A</m>, a <m>subset</m> of <m>A</m> is a set of elements of <m>A</m>.
+                Given a set <m>A</m>, a <em>subset</em> of <m>A</m> is a set of elements of <m>A</m>.
                 The collection of all subsets of <m>A</m> is called the <em>power set</em> of <m>A</m> and is denoted by <m>2^A</m>.
                 We write <m>[n]:=\{1,2,\ldots,n\}</m> to denote the set of integers between <m>1</m> and <m>n</m>.
             </p>
