@@ -151,11 +151,11 @@
 
 <proof>
     <p>
-        We know that <m>2^n</m> is the cardinality of all subsets of <m>[n]</m>.
+        We know that <m>2^n</m> is the cardinality of the power set of <m>[n]</m>.
         Further, we know that in the sum 
         <me>\sum_{k=0}^n\binom{n}{k}</me>
         each subset is counted once by a unique summand.
-        Thus, each of these expressions counts the cardinality of all subsets of <m>[n]</m>, hence they are equal.
+        Thus, each of these expressions counts the cardinality of the power set of <m>[n]</m>, hence they are equal.
     </p>
 </proof>
 
