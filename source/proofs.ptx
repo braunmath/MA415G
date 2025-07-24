@@ -2,7 +2,7 @@
     <title>Proofs</title>
     <p>
     Some of you have had good experiences with proofs in the past, and some of you have had bad experiences with proofs, and some of you have not really had to engage in reading and writing proofs.
-    In general, the idea of <i>mathematical proof</i> is generally misunderstood by students.
+    In general, the idea of <em>mathematical proof</em> is generally misunderstood by students.
     This is partially because it is not well-understood even by professional mathematicians.
     The key issue is that different people have different answers to the following three questions:
         <ol> 
@@ -19,7 +19,7 @@
 
     <p>
         In this class, we will use two frameworks to guide our answers to these questions in the context of combinatorics and graph theory.
-        The first framework is <i>Formal Functionalism</i>, a philosophy of Mathematics described by Saunders MacLane.
+        The first framework is <em>Formal Functionalism</em>, a philosophy of Mathematics described by Saunders MacLane.
         His starting point is:
         <blockquote>
             <p>
@@ -37,11 +37,18 @@
 </figure>
 
     <p>
-        The second framework is David Tall's <i>Three Worlds of mathematics</i> framework.
-        <figure xml:id="fig-tall">
-    <caption>Figure illustrating Tall's Three Worlds framework.</caption>
-    <image source="worlds-of-mathematics.png" />
-</figure>
+        The second framework is David Tall's <em>Three Worlds of mathematics</em> framework.
+        Tall asserts that there are three different ways of doing mathematics, three "worlds", and each is related but independent.
+        These worlds are the <em>Embodied</em>, <em>Symbolic</em>, and <em>Formal</em> worlds of mathematics.        
     </p>
+
+<figure xml:id="fig-tall">
+    <caption>Figure illustrating Tall's Three Worlds framework, from <url href="https://math4teaching.com/the-three-worlds-of-mathematicscs/">this page</url>.</caption>
+    <image source="worlds-of-mathematics.png" width="75%"/>
+</figure>
+
+<p>
+    As we proceed to learn about combinatorics and graph theory, we will also discuss the ways in which various concepts are related to simple everyday activities (as in MacLane's table) and we will also discuss how our work fits within Tall's Three Worlds.
+</p>
 
 </section>
