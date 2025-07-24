@@ -34,7 +34,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.2",
   "title": "Proofs",
-  "body": " Proofs  The idea of mathematical proof is generally misunderstood by students. This is partially because it is not well-understood even by professional mathematicians. The key issue is that different people have different answers to the following three questions:  What is Mathematics?  What is the purpose of Mathematics?  What are the criteria for Mathematics to be good or bad?     How would you answer the second question?   "
+  "body": " Proofs  Some of you have had good experiences with proofs in the past, and some of you have had bad experiences with proofs, and some of you have not really had to engage in reading and writing proofs. In general, the idea of mathematical proof is generally misunderstood by students. This is partially because it is not well-understood even by professional mathematicians. The key issue is that different people have different answers to the following three questions:  What is Mathematics?  What is the purpose of Mathematics?  What are the criteria for Mathematics to be good or bad?     How would you answer the second question?   In this class, we will use two frameworks to guide our answers to these questions in the context of combinatorics and graph theory. The first framework is Formal Functionalism , a philosophy of Mathematics described by Saunders MacLane. His starting point is:  [Mathematical] activities... involve counting, timing, measuring, and moving, using numbers, intervals, distances, and shapes. Facts about these operations and ideas are gradually assembled, calculations are made, until finally there develops an extensive body of knowledge, based on a few central ideas and providing formal rules for calculation. Eventually this body of knowledge is organized by a formal system of concepts, axioms, definitions, and proofs.  The following table is from MacLane's book \"Mathematics: Form and Function\", illustrating this progression for different human activities.   Table of human activities from MacLane's book.    The second framework is David Tall's Three Worlds of mathematics framework. Tall asserts that there are three different ways of doing mathematics, three \"worlds\", and each is related but independent. These worlds are the Embodied , Symbolic , and Formal worlds of mathematics.   Figure illustrating Tall's Three Worlds framework, from this page .    As we proceed to learn about combinatorics and graph theory, we will also discuss the ways in which various concepts are related to simple everyday activities (as in MacLane's table) and we will also discuss how our work fits within Tall's Three Worlds.  "
 },
 {
   "id": "sec-Proofs-3",
@@ -44,6 +44,24 @@ var ptx_lunr_docs = [
   "number": "1.2.1",
   "title": "",
   "body": " How would you answer the second question?  "
+},
+{
+  "id": "fig-maclane",
+  "level": "2",
+  "url": "sec-Proofs.html#fig-maclane",
+  "type": "Figure",
+  "number": "1.2.2",
+  "title": "",
+  "body": " Table of human activities from MacLane's book.   "
+},
+{
+  "id": "fig-tall",
+  "level": "2",
+  "url": "sec-Proofs.html#fig-tall",
+  "type": "Figure",
+  "number": "1.2.3",
+  "title": "",
+  "body": " Figure illustrating Tall's Three Worlds framework, from this page .   "
 },
 {
   "id": "sec-binomial-coefficients",
