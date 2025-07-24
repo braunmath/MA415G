@@ -101,14 +101,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.1';
+eBookConfig.runestone_version = '7.9.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.787a04695534ef1e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.014cb392a13bd045.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.cc203fa52565b593.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.014cb392a13bd045.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -130,7 +130,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-foundational-questions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="introduction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="enumeration.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
-</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} \newcommand{\Bin}{\mathrm{Bin}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -149,7 +149,11 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="enumeration.html" class="internal"><span class="codenumber">2</span> <span class="title">Enumeration</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-binomial-coefficients.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Binomial Coefficients</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-binarystrings.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Binary Strings</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-binomialcoefficients.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pauseforenumerationreflection.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Pause for Reflection</span></a></div></li>
+</ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-classification.html" class="internal"><span class="codenumber">3</span> <span class="title">Classification</span></a></div></li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-expectation.html" class="internal"><span class="codenumber">4</span> <span class="title">Expectation</span></a></div></li>
@@ -163,7 +167,7 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.2</span><span class="space"> </span><span class="title">Proofs</span>
 </h2>
 <div class="para logical" id="sec-Proofs-2">
-<div class="para">Some of you have had good experiences with proofs in the past, and some of you have had bad experiences with proofs, and some of you have not really had to engage in reading and writing proofs. In general, the idea of <em class="emphasis">mathematical proof</em> is generally misunderstood by students. This is partially because it is not well-understood even by professional mathematicians. The key issue is that different people have different answers to the following three questions:</div>
+<div class="para">Some of you have had good experiences with proofs in the past, and some of you have had bad experiences with proofs, and some of you have not really had to engage in reading and writing proofs. In general, the idea of <em class="emphasis">mathematical proof</em> is misunderstood by students. This is partially because the concept of proof is subtle and subject to human interpretation, which leads to disagreements even among professional mathematicians (though there are many aspects of proof that are widely agreed on!). The key issue is that different people have different answers to the following three questions:</div>
 <ol class="decimal" id="sec-Proofs-2-2">
 <li id="sec-Proofs-2-2-1">
 <div class="para" id="p-derived-sec-Proofs-2-2-1">What is Mathematics?</div>
@@ -191,7 +195,7 @@ eBookConfig.enable_chatcodes =  false;
 </blockquote> The following table is from MacLane’s book "Mathematics: Form and Function", illustrating this progression for different human activities.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Proofs-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-maclane"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/maclane.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.2<span class="period">.</span></span><span class="space"> </span>Table of human activities from MacLane’s book.<div class="autopermalink" data-description="Figure 1.2.2"><a href="#fig-maclane" title="Copy heading and permalink for Figure 1.2.2" aria-label="Copy heading and permalink for Figure 1.2.2">🔗</a></div></figcaption></figure><div class="para" id="sec-Proofs-6">The second framework is David Tall’s <em class="emphasis">Three Worlds of mathematics</em> framework. Tall asserts that there are three different ways of doing mathematics, three "worlds", and each is related but independent. These worlds are the <em class="emphasis">Embodied</em>, <em class="emphasis">Symbolic</em>, and <em class="emphasis">Formal</em> worlds of mathematics.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Proofs-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.2<span class="period">.</span></span><span class="space"> </span>Table of human activities from MacLane’s book.<div class="autopermalink" data-description="Figure 1.2.2"><a href="#fig-maclane" title="Copy heading and permalink for Figure 1.2.2" aria-label="Copy heading and permalink for Figure 1.2.2">🔗</a></div></figcaption></figure><div class="para" id="sec-Proofs-6">The second framework is David Tall’s <em class="emphasis">Three Worlds of Mathematics</em> framework. Tall asserts that there are three different ways of doing mathematics, three "worlds", and each is related but independent. These worlds are the <em class="emphasis">Embodied</em>, <em class="emphasis">Symbolic</em>, and <em class="emphasis">Formal</em> worlds of mathematics.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Proofs-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-tall"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/worlds-of-mathematics.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.3<span class="period">.</span></span><span class="space"> </span>Figure illustrating Tall’s Three Worlds framework, from <a class="external" href="https://math4teaching.com/the-three-worlds-of-mathematicscs/" target="_blank">this page</a><details class="ptx-footnote" aria-live="polite" id="fig-tall-1-2"><summary class="ptx-footnote__number" title="Footnote 1.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="fig-tall-1-2"><code class="code-inline tex2jax_ignore">math4teaching.com/the-three-worlds-of-mathematicscs/</code></div></details>.<div class="autopermalink" data-description="Figure 1.2.3"><a href="#fig-tall" title="Copy heading and permalink for Figure 1.2.3" aria-label="Copy heading and permalink for Figure 1.2.3">🔗</a></div></figcaption></figure><div class="para" id="sec-Proofs-8">As we proceed to learn about combinatorics and graph theory, we will also discuss the ways in which various concepts are related to simple everyday activities (as in MacLane’s table) and we will also discuss how our work fits within Tall’s Three Worlds.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Proofs-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
