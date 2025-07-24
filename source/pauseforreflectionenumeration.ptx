@@ -1,0 +1,24 @@
+<section xml:id="sec-pauseforenumerationreflection">
+    <title>Pause for Reflection</title>
+
+    <p>
+        We have now done some math. 
+        Let's reflect a bit on how this math fits into the philosophical and psychological frameworks for Mathematics due to MacLane and Tall.
+    </p>
+
+    <exercise>
+        <p>
+            Recall the Table from MacLane's book given in <xref ref="fig-maclane"/>.
+            Which of the items in the table have we been engaged with, either consciously or subconsciously, so far?
+        </p>
+    </exercise>
+    
+
+    <exercise>
+        <p>
+            Recall the picture representing Tall's Three Worlds framework given in <xref ref="fig-tall"/>.
+            Where in these three worlds of mathematics have we been situated so far with the math we have done?
+        </p>
+    </exercise>
+
+</section>

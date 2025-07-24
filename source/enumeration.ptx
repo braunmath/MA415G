@@ -8,6 +8,8 @@
   </introduction>
 
   <!-- include sections -->
-  <xi:include href="binomial-coefficients.ptx" />
+  <xi:include href="binarystrings.ptx" />
+  <xi:include href="binomialcoefficients.ptx" />
+  <xi:include href="pauseforreflectionenumeration.ptx" />
 
 </chapter>

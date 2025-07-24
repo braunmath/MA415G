@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-binarystrings">
+  <title>Binary Strings</title>
+
+  <definition xml:id="def-binarystring">
+    <statement>
+      <p>
+        A <em>binary string</em> of length <m>n</m> is an ordered list of <m>n</m> values which are either <m>0</m> or <m>1</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+  We can define binary strings another way, using products of sets.
+  When we define notation, we will use the symbol "<m>:=</m>"" to indicate that it is a definition.
+  This helps to distinguish between when we are defining new notation and when we are proving equality between two objects.
+  </p>
+
+  <definition xml:id="def-setproduct">
+    <statement>
+      <p>
+        Given two sets <m>A</m> and <m>B</m>, the <em>product</em> of these two sets is defined to be
+        <me>
+          A\times B := \{(a,b):a\in A, b\in B\}
+        </me>
+        which is the set of all ordered pairs where the first element is from <m>A</m> and the second element is from <m>B</m>.
+        The <em>size</em>, or <em>cardinality</em>, of a set is the number of elements in that set, which we denote by <m>|A|</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+  We can iterate products, so for example, <m>A^n</m> consists of all ordered lists consisting of <m>n</m> elements from <m>A</m>.
+  </p>
+
+  <exercise>
+    <p>List the binary strings in <m>\{0,1\}^4</m>.</p>
+  </exercise>
+
+  <exercise>
+    <p>
+      How do you know that your list is complete?
+    </p>
+  </exercise>
+
+<exercise>
+  <p>
+    Suppose that you were asked to make a list of all the binary strings in <m>\{0,1\}^{10}</m>. 
+    <ol>
+      <li>
+        <p>
+          What would your strategy be for listing them?
+          In other words, how would you <em>systematically list</em> all possible binary strings?
+        </p>
+      </li>
+      <li>
+        <p>
+          How do you know that your strategy would result in a complete list of all binary strings of length <m>10</m>?
+        </p>
+      </li>
+    </ol>
+  </p>
+</exercise>
+
+These exercises lead us to the following observation.
+
+<theorem xml:id="thm-binarystringenumeration">
+  <statement>
+    <p>
+      There are <m>2^n</m> binary strings of length <m>n</m>.
+    </p>
+  </statement>
+</theorem>
+
+<p>
+    We will give two proofs. 
+    The first proof uses <em>combinatorial reasoning</em>.
+    Combinatorial reasoning is where you make an argument based on the structure of the <em>set of outcomes</em> that you are studying -- in this case, we are considering the set of binary strings.
+  </p>
+
+<proof>
+  <title>Combinatorial Reasoning Proof of <xref ref="thm-binarystringenumeration"/> </title>
+  
+  
+  <p>
+    A binary string is a list of entries <m>(a_1,a_2,\ldots,a_n)</m>. 
+    Each <m>a_i</m> is either <m>0</m> or <m>1</m>. 
+    Thus, there are <m>n</m> independent choices to make of either <m>0</m> or <m>1</m>, one choice for each entry, to determine the binary string.
+    This gives
+    <me>
+     2 \cdot 2 \cdots 2 \cdot 2 = 2^n
+    </me>
+    outcomes, hence our result is proved.    
+  </p>
+</proof>
+
+<exercise>
+  <p>Discuss the combinatorial reasoning proof with your group. 
+  Does the proof make sense? Why or why not?</p>
+</exercise>
+
+<p>
+The second proof is a proof using <em>recursion</em>.
+In a <em>recursive proof</em>, we establish a logical argument that uses a known structure to produce a new structure.
+For this proof, we will need the following.
+</p>
+
+  <fact xml:id="fact-multiplicationprinciple">
+    <statement>
+      <p>
+        The <em>multiplication principle</em> states that for two finite sets <m>A</m> and <m>B</m> we have
+        <me>
+          |A\times B| = |A|\times |B| \, .
+        </me>
+      </p>
+    </statement>
+  </fact>
+
+  <p>
+  We will also need the following definitions. 
+  We use <m>\emptyset=\{\}</m>, called the <em>empty set</em>, to denote a set with no elements.
+  </p>
+
+  <definition xml:id="def-union">
+    <statement>
+      <p>
+        Given two sets <m>A</m> and <m>B</m>, the <em>union</em> of these two sets is defined to be 
+        <me>
+          A\cup B := \{x: x\in A \text{ and/or } x\in B\} \, .
+        </me>
+        The <em>intersection</em> of these two sets is defined to be 
+        <me>
+          A\cap B := \{x: x\in A \text{ and } x\in B\} \, .
+        </me>
+        If <m>A\cap B = \emptyset</m>, then we write the union as <m>A\uplus B</m> and call it a <em>disjoint union</em>.
+      </p>
+    </statement>
+  </definition>
+
+<proof>
+  <title>Recursive Proof of <xref ref="thm-binarystringenumeration"/></title>
+    <p>
+    Let <m>\Bin(n)</m> denote the set of binary strings of length <m>n</m>.
+    Our goal is to prove that <m>|\Bin(n)|=2^n</m>.
+    It is straightforward to check that <m>|\Bin(1)|=2</m> and <m>|\Bin(2)|=4=2^2</m> and <m>|\Bin(3)|=8=2^3</m>.
+    </p>
+    <p>
+      Our strategy will be to show that if we know <m>|\Bin(n)|=2^n</m>, then we can prove <m>|\Bin(n+1)|=2^{n+1}</m>.
+      If we show this general statement, then using <m>|\Bin(3)|=8=2^3</m>, we can conclude that <m>|\Bin(4)|=2^3</m>.
+      Then, knowing <m>|\Bin(4)|=2^4</m>, we can conclude that <m>|\Bin(5)|=2^5</m>.
+      This chain of logical implications continues, so that we have our desired result for any length of binary strings.
+    </p>
+    <p>
+      Our strategy is the following observation: 
+      <mdn> 
+           <mrow xml:id="eq-bindisjoint"> \amp \Bin(n+1) = \{1\}\times \Bin(n) \uplus \{0\}\times \Bin(n) </mrow>
+      </mdn>
+
+        Once we know that <xref ref="eq-bindisjoint"/> holds, then the result follows because
+
+        <md>
+    <mrow>|\Bin(n+1)| \amp = |\{1\}\times \Bin(n) \uplus \{0\}\times \Bin(n)| </mrow>
+    <mrow> \amp = |\{1\}\times \Bin(n)| + |\{0\}\times \Bin(n)|</mrow>
+    <mrow> \amp = 1\times |\Bin(n)| + 1\times |\Bin(n)|</mrow>
+    <mrow> \amp = 2\cdot \Bin(n) = 2\cdot 2^{n}=2^{n+1}</mrow>
+    </md>
+      </p>
+</proof>
+
+    <exercise>
+      <p>
+        Check that <xref ref="eq-bindisjoint"/> is true when <m>n=3</m>.
+        Work together to generate an argument (a proof!) showing that this is true for every <m>n</m>.
+      </p>
+    </exercise>
+
+    <exercise>
+      <p> Discuss with your group why the logical implications in this proof shows that <m>|\Bin(n)|=2^n</m> for every positive integer <m>n</m>.</p>
+    </exercise>
+
+</section>

@@ -2,8 +2,8 @@
     <title>Proofs</title>
     <p>
     Some of you have had good experiences with proofs in the past, and some of you have had bad experiences with proofs, and some of you have not really had to engage in reading and writing proofs.
-    In general, the idea of <em>mathematical proof</em> is generally misunderstood by students.
-    This is partially because it is not well-understood even by professional mathematicians.
+    In general, the idea of <em>mathematical proof</em> is misunderstood by students.
+    This is partially because the concept of proof is subtle and subject to human interpretation, which leads to disagreements even among professional mathematicians (though there are many aspects of proof that are widely agreed on!).
     The key issue is that different people have different answers to the following three questions:
         <ol> 
         <li>What is Mathematics? </li>
@@ -37,7 +37,7 @@
 </figure>
 
     <p>
-        The second framework is David Tall's <em>Three Worlds of mathematics</em> framework.
+        The second framework is David Tall's <em>Three Worlds of Mathematics</em> framework.
         Tall asserts that there are three different ways of doing mathematics, three "worlds", and each is related but independent.
         These worlds are the <em>Embodied</em>, <em>Symbolic</em>, and <em>Formal</em> worlds of mathematics.        
     </p>

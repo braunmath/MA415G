@@ -1,0 +1,272 @@
+<section xml:id="sec-binomialcoefficients">
+    <title>Binomial Coefficients</title>
+    
+    <definition xml:id="def-subset">
+        <statement>
+            <p>
+                Given a set <m>A</m>, a <m>subset</m> of <m>A</m> is a set of elements of <m>A</m>.
+                The collection of all subsets of <m>A</m> is called the <em>power set</em> of <m>A</m> and is denoted by <m>2^A</m>.
+                We write <m>[n]:=\{1,2,\ldots,n\}</m> to denote the set of integers between <m>1</m> and <m>n</m>.
+            </p>
+        </statement>
+    </definition>
+
+    <example>
+        <p>
+        Suppose that a set <m>[6]:=\{1,2,3,4,5,6\}</m>.
+        Then the set <m>\{1,3,4\}</m> is a subset of <m>[6]</m>, while <m>\{1,7\}</m> is not a subset of <m>[6]</m>.
+            Thus, we would write <m>\{1,3,4\}\in 2^{[6]}</m> and we would write <m>\{1,7\}\notin 2^{[6]}</m>.
+        </p>
+    </example>
+
+    <exercise>
+        <p>
+            Discuss the above example and the notation used in it.
+        </p>
+    </exercise>
+
+    <proposition xml:id="prop-subsetsbinarystrings">
+        <statement>
+            <p>
+                There is a one-to-one correspondence between the binary strings in <m>\Bin(n)</m> and the subsets of <m>[n]</m>.
+            </p>
+        </statement>
+    </proposition>
+
+    <proof>
+        <p>
+            We will produce a map from binary strings to subsets of <m>[n]</m>.
+            We will write this map as a function
+            <me>
+                \phi : \Bin(n)\to 2^{[n]} \, .
+            </me>
+            Given a binary string <m>a:=(a_1,a_2,\ldots,a_n)</m>, if <m>a_i=1</m>, then we include <m>i</m> in <m>\phi(a)</m>.
+            This produces a subset of <m>[n]</m>.
+        </p>
+        <p>
+            What do we need to check to verify that we have a one-to-one correspondence? We need to check that:
+            <ol>
+                <li>
+                    <p>
+                        this map is well-defined (each binary string goes to only one set),
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        this map is one-to-one (no two strings to go the same subset), and
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        this map is onto (every subset is mapped to by some string).
+                    </p>
+                </li>
+            </ol>
+        </p>
+        Once these three things are checked, then the proof is complete.
+    </proof>
+
+    <exercise>
+        <p>
+            With your group, make a logical argument to justfy why each of the three conditions above in the proof hold, which completes our proof that <m>\phi</m> is a one-to-one correspondence.
+        </p>
+    </exercise>
+
+    <p>
+        One-to-one correspondences have a special name.
+    </p>
+
+    <definition xml:id="def-bijection">
+        <statement>
+            <p>
+                Given two sets <m>A</m> and <m>B</m>, a <em>bijection</em> is a map from  <m>A</m> to <m>B</m> that is a one-to-one correspondence.
+            </p>
+        </statement>
+    </definition>
+
+    <fact xml:id="fact-bijectioncardinality">
+        <statement>
+            <p>
+                If there is a bijection from <m>A</m> to <m>B</m>, then <m>|A|=|B|</m>.
+            </p>
+        </statement>
+    </fact>
+
+    <corollary xml:id="cor-powersetcardinality">
+        <statement>
+            <p>
+                <m>|2^{[n]}|=|\Bin(n)|=2^n \, .</m>
+            </p>
+        </statement>
+    </corollary>
+
+    <p>
+        Observe that we use the notation <m>2^A</m> for the power set of <m>A</m> because when <m>A</m> is finite, we have <m>|2^A|=2^{|A|}</m>.
+    </p>
+
+    <p>
+        We next introduce some of the <em>best numbers in the entire universe!!!!</em>. Seriously, they are totally awesome.
+    </p>
+    
+<definition xml:id="def-binomialcoefficients">
+    <statement>
+        <p>
+            The number of subsets of <m>[n]</m> of size <m>k</m> is denoted by <m>\binom{n}{k}</m> and is called the <m>(n,k)</m>-binomial coefficient.
+            We define <m>\binom{0}{0}:=1</m>.
+        </p>
+    </statement>
+</definition>
+
+<exercise>
+    <p>
+        Show that <m>\binom{n}{0}=1</m>.
+    </p>
+</exercise>
+
+<exercise>
+    <p>
+        Show that <m>\binom{n}{1}=n</m>.
+    </p>
+</exercise>
+
+<exercise>
+    <p>
+        Show that <m>\binom{n}{n-1}=n</m>.
+    </p>
+</exercise>
+
+<exercise>
+    <p>
+        What is <m>\binom{5}{3}</m>?
+    </p>
+</exercise>
+
+<theorem xml:id="thm-binomialsumtopower">
+    <statement>
+        <p>
+            <me>\binom{n}{0}+\binom{n}{1}+\cdots + \binom{n}{n-1}+\binom{n}{n} = \sum_{k=0}^n\binom{n}{k}=2^n</me>
+        </p>
+    </statement>
+</theorem>
+
+<proof>
+    <p>
+        We know that <m>2^n</m> is the cardinality of all subsets of <m>[n]</m>.
+        Further, we know that in the sum 
+        <me>\sum_{k=0}^n\binom{n}{k}</me>
+        each subset is counted once by a unique summand.
+        Thus, each of these expressions counts the cardinality of all subsets of <m>[n]</m>, hence they are equal.
+    </p>
+</proof>
+
+<exercise>
+    <p>
+        Discuss this proof: does it make sense? Why or why not? Note the strategy is to count the number of subsets of <m>[n]</m> in two different ways, which leads to two different symbolic formulas for the total number.
+    </p>
+</exercise>
+
+<corollary xml:id="cor-subsetsbinarystrings">
+    <statement>
+        <p>
+            There are <m>\binom{n}{k}</m> binary strings of length <m>n</m> with <m>k</m> ones.
+        </p>
+    </statement>
+</corollary>
+
+<proof>
+    <p>
+        There is a one-to-one correspondence between binary strings of length <m>n</m> with <m>k</m> ones and subsets of <m>[n]</m> with <m>k</m> elements. 
+        Thus, these two sets have the same cardinality, which is <m>\binom{n}{k}</m>.
+    </p>
+</proof>
+
+<p>
+    Binomial coefficients form a beautiful triangle called the <em>arithmetical triangle</em>, also known as <em>Pascal's triangle</em>, which happens because of the following <em>arithmetic recurrence</em>.
+</p>
+
+<theorem xml:id="thm-arithmeticrecurrence">
+    <statement>
+        <p>
+            For all <m>0\leq k\leq n</m>, we have
+            <me>\binom{n}{k}=\binom{n-1}{k}+\binom{n-1}{k-1} \, .</me>
+        </p>
+    </statement>
+</theorem>
+
+<proof>
+    <p>
+        Let <m>\binom{[n]}{k}</m> denote the set of all <m>k</m>-element subset of <m>[n]</m>.
+        We can write this as a disjoint union:
+        <mdn> 
+           <mrow xml:id="eq-arithmeticrecurrence">\amp \binom{[n]}{k} = \left\{ A:A\in\binom{[n-1]}{k} \right\}\uplus \left\{ \{n\}\cup A:A\in\binom{[n-1]}{k-1} \right\} </mrow>
+      </mdn>
+Therefore, we have that the cardinality of the left-hand set is the sum of the cardinalities of the two right-hand sets, which is exactly the formula claimed in the theorem.
+    </p>
+</proof>
+
+<exercise>
+    <p>
+        Check that <xref ref="eq-arithmeticrecurrence"/> is true for <m>n=5,k=2</m>.
+        Then, give a logical argument (a proof!) that it is true for every value of <m>n</m> and <m>k</m>.
+    </p>
+</exercise>
+
+<p>
+    Review some of the illustrations at <url href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">the wikipedia page for Pascal's triangle</url>.
+</p>
+
+<p>
+    One of the most important roles played by the binomial coefficients, and the reason for their name, is that they appear in coefficients of polynomials that are powers of binomials.
+</p>
+
+<theorem xml:id="thm-binomialtheorem">
+    <statement>
+        <p>
+            <me>(x+y)^n=\sum_{k=0}^n\binom{n}{k}x^ky^{n-k}</me>
+        </p>
+    </statement>
+</theorem>
+
+<proof>
+    <p>
+        If we distribute all the factors in <m>(x+y)^n</m> but we do NOT commute any variables, then each term is an ordered sequence of <m>n</m> variables, each either <m>x</m> or <m>y</m>.
+        For example,
+        <me>(x+y)^3 = xxx+xxy+xyx+yxx+xyy+yxy+yyx+yyy \, .</me>
+        If we replace each <m>x</m> with a <m>1</m> and each <m>y</m> with a <m>0</m>, then each of these terms corresponds to a binary string.
+        Therefore, the coefficient of <m>x^ky^{n-k}</m> in <m>(x+y)^n</m> is the number of binary strings with <m>k</m> ones, which is <m>\binom{n}{k}</m>, as desired.
+    </p>
+</proof>
+
+<exercise>
+    <p>
+        Discuss the proof above with your group. Work out some complete examples for small values of <m>n</m>.
+    </p>
+</exercise>
+
+<corollary xml:id="cor-binomialtheoremx">
+    <statement>
+        <p>
+            <me>(x+1)^n=\sum_{k=0}^n\binom{n}{k}x^k</me>
+        </p>
+    </statement>
+</corollary>
+
+<p>
+    Finally, you might be wondering if there is a formula for binomial coefficients, and yes, there is. 
+    However, it is important to be able to think about these numbers using both their combinatorial structure (which we have been doing) and using the following formula.
+</p>
+
+<theorem xml:id="thm-binomialcoefficientformula">
+    <statement>
+        <p>
+            <me>\binom{n}{k} = \frac{n!}{k!(n-k)!}</me>
+        </p>
+    </statement>
+</theorem>
+
+<p>
+    You will see a proof of this later in the course on a homework problem.
+</p>
+
+
+</section>
