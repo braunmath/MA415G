@@ -3,7 +3,9 @@
 <chapter xml:id="introduction" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Introduction</title>
 
-    <p> We will be studying combinatorics and graph theory. 
+      <section xml:id="sec-foundational-questions">
+        <title>Eight Foundational Questions</title>
+        <p> We will be studying combinatorics and graph theory. 
         We will be addressing the following eight foundational questions of combinatorics and graph theory:
         <ol>
           <li>Enumeration: How many ____ are there?</li>
@@ -17,6 +19,53 @@
         </ol>
       </p>
 
+      <p>
+        Rules for small group discussions:
+        <ul>
+          <li>
+            <p>
+              First, begin the discussion by going around your group and having each person give a 10-second answer to the question.
+            </p>
+          </li>
+          <li>
+            <p>
+              Second, go around the group again and give a 10-second follow-up answer. This allows everyone to have a chance to offer their thoughts before the general discussion begins.
+            </p>
+          </li>
+          <li>
+            <p>
+              Third, have a general discussion.
+            </p>
+          </li>
+        </ul>
+      </p>
 
+  <exercise>
+    <p>What is an example of an enumeration problem you have seen in a previous course?</p>
+  </exercise>
+  <exercise>
+    <p>What is an example of an optimization problem you have seen in a previous course?</p>
+  </exercise>
+      
+      </section>
 
+      <section xml:id="sec-Proofs">
+        <title>Proofs</title>
+        <p>
+        The idea of <i>mathematical proof</i> is generally misunderstood by students.
+        This is partially because it is not well-understood even by professional mathematicians.
+        The key issue is that different people have different answers to the following three questions:
+          <ol> 
+            <li>What is Mathematics? </li>
+            <li>What is the purpose of Mathematics? </li>
+            <li>What are the criteria for Mathematics to be good or bad?</li>
+          </ol>
+        </p>
+<exercise>
+  <p>
+    How would you answer each of these three questions?
+  </p>
+</exercise>
+
+      </section>
 </chapter>
