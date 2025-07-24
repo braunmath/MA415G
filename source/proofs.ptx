@@ -33,11 +33,15 @@
 
 <figure xml:id="fig-maclane">
     <caption>Table of human activities from MacLane's book.</caption>
-    <image source="images/maclane.jpg" width="70%"/>
+    <image source="maclane.jpg" width="75%"/>
 </figure>
 
     <p>
         The second framework is David Tall's <i>Three Worlds of mathematics</i> framework.
+        <figure xml:id="fig-tall">
+    <caption>Figure illustrating Tall's Three Worlds framework.</caption>
+    <image source="worlds-of-mathematics.png" />
+</figure>
     </p>
 
 </section>
