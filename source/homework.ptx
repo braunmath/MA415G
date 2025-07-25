@@ -25,23 +25,12 @@
     <problem>
         <title>P2</title>
         <p>
-            In this problem, we explore two more properties of binomial coefficients.
-            Equations such as these are known as <em>combinatorial identities</em>, because they are equalities of expressions involving combinatorial values.
-            <ol>
-                <li>
-                    <p>
-                    Prove that <m>\binom{n}{k}=\binom{n}{n-k}</m> by finding a bijection between <m>\binom{[n]}{k}</m> and <m>\binom{[n]}{n-k}</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                    Using the technique of disjoint union decompositions, prove that for any <m>0\leq k \leq n</m>, we have
-                    <me>
-                        \binom{k}{k}+\binom{k+1}{k}+\binom{k+2}{k}+\cdots +\binom{n-1}{k}+\binom{n}{k} = \binom{n+1}{k+1} \, .
-                    </me>                    
-                    </p>
-                </li>
-            </ol>
+            In this problem, we explore another property of binomial coefficients.
+            Equations such as this are known as <em>combinatorial identities</em>, because they are equalities of expressions involving combinatorial values.
+            Using the technique of disjoint union decompositions, prove that for any <m>0\leq k \leq n</m>, we have
+                <me>
+                    \binom{k}{k}+\binom{k+1}{k}+\binom{k+2}{k}+\cdots +\binom{n-1}{k}+\binom{n}{k} = \binom{n+1}{k+1} \, .
+                </me>  
         </p>
     </problem>
     <problem>
@@ -61,25 +50,46 @@ Your grade is based on completion only (in other words, if you complete the assi
     <problem>
         <title>P3</title>
         <p>
-            
+            Prove that <m>\binom{n}{k}=\binom{n}{n-k}</m> by finding a bijection between <m>\binom{[n]}{k}</m> and <m>\binom{[n]}{n-k}</m>.
         </p>
     </problem>
     <problem>
         <title>P4</title>
         <p>
-            
+            <url href="https://en.wikipedia.org/wiki/Singmaster%27s_conjecture">Singmaster's conjecture</url> is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone.
+            Note that the number <m>1</m> appears infinitely many times in the triangle of binomial coefficients.
+            The open problem is as follows: Is there a fixed integer <m>N</m> such that every positive integer other than <m>1</m> shows up at most <m>N</m> times in the triangle of binomial coefficients?
+        </p>
+        <p>
+            Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this!
+            Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better.
+            Why do you think it might be true?  
+            Why might it be false?
+            Are there any properties of binomial coefficients that support your comments?
+            Are there any positive integers for which this is obviously true?
+            (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)
         </p>
     </problem>
     <problem>
         <title>P5</title>
         <p>
-            
+            Give a combinatorial proof showing that
+            <me>
+                \sum_{k=0}^nk\binom{n}{k}=n2^{n-1} \, .
+            </me>
         </p>
     </problem>
     <problem>
         <title>P6</title>
         <p>
-            
+            For each positive integer <m>n</m>, express in terms of Fibonacci numbers the number of sequences
+            <me>
+                (a_1,a_2,\ldots,a_n)
+            </me>
+            with each <m>a_i\in \{0,1\}</m>, such that
+            <me>
+                a_1\leq a_2\geq a_3\leq a_4\geq a_5\leq a_6\geq \cdots \, .
+            </me>   
         </p>
     </problem>
         <problem>

@@ -24,5 +24,114 @@
         </p>
     </exercise>
 
+<p>
+    The Fibonacci numbers arise throughout mathematics.
+    One of the basic problems they solve is counting integer compositions.
+</p>
+
+<definition xml:id="def-composition">
+    <statement>
+        <p>
+            A <em>composition</em> of a positive integer <m>n</m> is an ordered sum
+            <me>
+                x_1+x_2+\cdots +x_k = n
+            </me>
+            where each <m>x_i</m> is a positive integer. 
+            We call each <m>x_i</m> a <em>part</em> of the composition.           
+        </p>
+    </statement>
+</definition>
+
+<example>
+    <p>
+    Each of <m>1+3+5+2+1+1+2</m> and <m>10+5</m> and <m>5+10</m>  are compositions of <m>15</m>.
+    </p>
+</example>
+
+<exercise>
+    <p>
+        List all the compositions of <m>n</m> for <m>n=1,2,3,4</m>.
+    </p>
+</exercise>
+
+<p>
+    Let <m>\comp(n,A)</m> denote the set of compositions of <m>n</m> using parts from the set <m>A</m>.
+    So, for example, the set of all compositions of <m>n</m> is <m>\comp(n,\Z)</m>.
+</p>
+
+<exercise>
+    <p>
+        List all the compositions in <m>\comp(n,\{1,2\})</m> for <m>n=1,2,3,4</m>.
+    </p>
+</exercise>
+
+<theorem xml:id="thm-fibonaccicompositions">
+    <statement>
+        <p>For all positive integers <m>n</m>, we have
+            <me>|\comp(n,\{1,2\})|=F_n \, .</me>
+        </p>
+    </statement>
+</theorem>
+
+<proof>
+    <p>
+        We use the technique of writing the set <m>\comp(n,\{1,2\})</m> as a disjoint union.
+        Observe that <m>\comp(n,\{1,2\})</m> is equal to
+        <me> \left\{ a+1:a\in\comp(n-1,\{1,2\}) \right\} \uplus \left\{ 2+a:a \in \comp(n-2,\{1,2\}) \right\} </me>
+      and therefore
+      <me>
+        |\comp(n,\{1,2\})|=|\comp(n-1,\{1,2\})|+|\comp(n-2,\{1,2\})| \, .
+      </me>
+      Since <m>|\comp(1,\{1,2\})|=1</m> and <m>|\comp(2,\{1,2\})|=2</m>, the number of compositions using parts from <m>\{1,2\}</m> has the same initial conditions as the Fibonacci numbers starting at <m>F_1</m> and satisfies the same recurrence.
+      Thus, our proof is complete.   
+    </p>
+</proof>
+
+<exercise>
+    <p>
+        Discuss the proof above with your group.
+        Does the disjoint union make sense?
+        Use the lists of compositions that you generated to check this for small values of <m>n</m>.
+    </p>
+</exercise>
+
+<p>
+    Our final topic for Fibonacci numbers is a connection with binomial coefficients.
+</p>
+
+<theorem xml:id="thm-fibonacciasbinomials">
+    <statement>
+        <p>
+            For each positive integer <m>n</m>, we have
+            <me>F_n=|\comp(n,\{1,2\})|=\sum_{k=0}^{\lfloor n/2 \rfloor}\binom{n-k}{k}</me>
+        </p>
+    </statement>
+</theorem>
+
+<exercise>
+    <p>
+        Discuss with your group: how might you prove this? What strategy could you use? How could binomial coefficients be related to compositions using ones and twos?
+    </p>
+</exercise>
+
+<proof>
+    <p>
+        The number of compositions of <m>n</m> using <m>k</m> copies of <m>2</m> is given by <m>\binom{n-k}{k}</m>.
+        Since every element of <m>\comp(n,\{1,2\})</m> uses at most <m>\lfloor n/2 \rfloor</m> parts equal to <m>2</m>, the sum counts all the compositions.
+    </p>
+</proof>
+
+<exercise>
+    <p>
+        Discuss this proof. 
+        Does it make sense? Why or why not?
+    </p>
+</exercise>
+
+<exercise>
+    <p>
+        Rewrite the proof above using the strategy to express the set <m>\comp(n,\{1,2\})</m> as a disjoint union of sets of compositions with a fixed number of <m>2</m>'s.
+    </p>
+</exercise>
 
 </section>
