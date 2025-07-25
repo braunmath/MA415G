@@ -2,4 +2,13 @@
 <chapter xml:id="ch-classification" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Classification</title>
     
+
+    <xi:include href="graphbasics.ptx" />
+    <xi:include href="euleriancircuits.ptx" />
+    <xi:include href="induction2.ptx" />
+    <xi:include href="trees.ptx" />
+<xi:include href="prufercayley.ptx" />
+<xi:include href="degreesequences.ptx" />
+<xi:include href="stacksortable.ptx" />
+
 </chapter>

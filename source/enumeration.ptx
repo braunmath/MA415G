@@ -3,10 +3,6 @@
 <chapter xml:id="enumeration" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Enumeration</title>
 
-  <introduction>
-    
-  </introduction>
-
   <!-- include sections -->
   <xi:include href="binarystrings.ptx" />
   <xi:include href="binomialcoefficients.ptx" />
@@ -15,5 +11,6 @@
   <xi:include href="permutations.ptx" />
   <xi:include href="cycles.ptx" />
   <xi:include href="inversions.ptx" />
+  <xi:include href="induction1.ptx" />
 
 </chapter>
