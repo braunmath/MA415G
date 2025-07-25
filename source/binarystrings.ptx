@@ -26,6 +26,8 @@
         </me>
         which is the set of all ordered pairs where the first element is from <m>A</m> and the second element is from <m>B</m>.
         The <em>size</em>, or <em>cardinality</em>, of a set is the number of elements in that set, which we denote by <m>|A|</m>.
+        If an element <m>x</m> is in the set <m>A</m>, then we write <m>x\in A</m>.
+        If <m>x</m> is not in the set <m>A</m>, then we write <m>x\notin A</m>.
       </p>
     </statement>
   </definition>
