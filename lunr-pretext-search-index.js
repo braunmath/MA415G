@@ -196,7 +196,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Binomial Coefficients",
-  "body": " Binomial Coefficients  Binary strings are closely related to subsets of finite sets, which is our next topic.    Given a set , a subset of is a set of elements of . The collection of all subsets of is called the power set of and is denoted by . We write to denote the set of integers between and .     Suppose that we have the set . Then the set is a subset of , while is not a subset of . Thus, we would write and we would write .    Discuss the above example and the notation used in it.     There is a one-to-one correspondence between the binary strings in and the subsets of .     We will produce a map from binary strings to subsets of . We will write this map as a function Given a binary string , if , then we include in . This produces a subset of .  What do we need to check to verify that we have a one-to-one correspondence? We need to check that:   this map is well-defined (each binary string goes to only one set),    this map is one-to-one (no two strings to go the same subset), and    this map is onto (every subset is mapped to by some string).   Once these three things are checked, then the proof is complete.    With your group, make a logical argument to justfy why each of the three conditions above in the proof hold, which completes our proof that is a one-to-one correspondence.   One-to-one correspondences have a special name.    Given two sets and , a bijection is a map from to that is a one-to-one correspondence.      If there is a bijection from to , then .           Observe that we use the notation for the power set of because when is finite, we have .  We next introduce some of the best numbers in the entire universe!!!! . Seriously, they are totally awesome.    The number of subsets of of size is denoted by and is called the -binomial coefficient. We define .     Show that .    Show that .    Show that .    What is ?           We know that is the cardinality of the power set of . Further, we know that in the sum each subset is counted once by a unique summand. Thus, each of these expressions counts the cardinality of the power set of , hence they are equal.    Discuss this proof: does it make sense? Why or why not? Note the strategy is to count the number of subsets of in two different ways, which leads to two different symbolic formulas for the total number.     There are binary strings of length with ones.     There is a one-to-one correspondence between binary strings of length with ones and subsets of with elements. Thus, these two sets have the same cardinality, which is .   Binomial coefficients form a beautiful triangle called the arithmetical triangle , also known as Pascal's triangle , which happens because of the following arithmetic recurrence .    For all , we have     Let denote the set of all -element subset of .   We can write this as a disjoint union: Therefore, we have that the cardinality of the left-hand set is the sum of the cardinalities of the two right-hand sets, which is exactly the formula claimed in the theorem.    Check that is true for . Then, give a logical argument (a proof!) that it is true for every value of and .   Review some of the illustrations at the wikipedia page for Pascal's triangle .  One of the most important roles played by the binomial coefficients, and the reason for their name, is that they appear in coefficients of polynomials that are powers of binomials.          If we distribute all the factors in but we do NOT commute any variables, then each term is an ordered sequence of variables, each either or . For example, If we replace each with a and each with a , then each of these terms corresponds to a binary string. Therefore, the coefficient of in is the number of binary strings with ones, which is , as desired.    Discuss the proof above with your group. Work out some complete examples for small values of .          Finally, you might be wondering if there is a formula for binomial coefficients, and yes, there is. However, it is important to be able to think about these numbers using both their combinatorial structure (which we have been doing) and using the following formula.         You will see a proof of this later in the course on a homework problem.  "
+  "body": " Binomial Coefficients  Binary strings are closely related to subsets of finite sets, which is our next topic.    Given a set , a subset of is a set of elements of . The collection of all subsets of is called the power set of and is denoted by . We write to denote the set of integers between and .     Suppose that we have the set . Then the set is a subset of , while is not a subset of . Thus, we would write and we would write .    Discuss the above example and the notation used in it.     There is a one-to-one correspondence between the binary strings in and the subsets of .     We will produce a map from binary strings to subsets of . We will write this map as a function Given a binary string , if , then we include in . This produces a subset of .  What do we need to check to verify that we have a one-to-one correspondence? We need to check that:   this map is well-defined (each binary string goes to only one set),    this map is one-to-one (no two strings to go the same subset), and    this map is onto (every subset is mapped to by some string).   Once these three things are checked, then the proof is complete.    With your group, make a logical argument to justfy why each of the three conditions above in the proof hold, which completes our proof that is a one-to-one correspondence.   One-to-one correspondences have a special name.    Given two sets and , a bijection is a map from to that is a one-to-one correspondence.      If there is a bijection from to , then .           Observe that we use the notation for the power set of because when is finite, we have .  We next introduce some of the best numbers in the entire universe!!!! . Seriously, they are totally awesome.    The number of subsets of of size is denoted by and is called the -binomial coefficient. We define .     Show that .    Show that .    Show that .    What is ?           We know that is the cardinality of the power set of . Further, we know that in the sum each subset is counted once by a unique summand. Thus, each of these expressions counts the cardinality of the power set of , hence they are equal.    Discuss this proof: does it make sense? Why or why not? Note the strategy is to count the number of subsets of in two different ways, which leads to two different symbolic formulas for the total number.     There are binary strings of length with ones.     There is a one-to-one correspondence between binary strings of length with ones and subsets of with elements. Thus, these two sets have the same cardinality, which is .   Binomial coefficients form a beautiful triangle called the arithmetical triangle , also known as Pascal's triangle , which happens because of the following arithmetic recurrence .    For all , we have     Let denote the set of all -element subset of .   We can write this as a disjoint union: Therefore, we have that the cardinality of the left-hand set is the sum of the cardinalities of the two right-hand sets, which is exactly the formula claimed in the theorem.    Check that is true for . Then, give a logical argument (a proof!) that it is true for every value of and .    Review some of the illustrations at the wikipedia page for Pascal's triangle .   One of the most important roles played by the binomial coefficients, and the reason for their name, is that they appear in coefficients of polynomials that are powers of binomials.          If we distribute all the factors in but we do NOT commute any variables, then each term is an ordered sequence of variables, each either or . For example, If we replace each with a and each with a , then each of these terms corresponds to a binary string. Therefore, the coefficient of in is the number of binary strings with ones, which is , as desired.    Discuss the proof above with your group. Work out some complete examples for small values of .          Finally, you might be wondering if there is a formula for binomial coefficients, and yes, there is. However, it is important to be able to think about these numbers using both their combinatorial structure (which we have been doing) and using the following formula.         You will see a proof of this later in the course on a homework problem.  "
 },
 {
   "id": "def-subset",
@@ -397,11 +397,20 @@ var ptx_lunr_docs = [
   "body": " Check that is true for . Then, give a logical argument (a proof!) that it is true for every value of and .  "
 },
 {
+  "id": "sec-binomialcoefficients-30",
+  "level": "2",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-30",
+  "type": "Remark",
+  "number": "2.2.19",
+  "title": "",
+  "body": " Review some of the illustrations at the wikipedia page for Pascal's triangle .  "
+},
+{
   "id": "thm-binomialtheorem",
   "level": "2",
   "url": "sec-binomialcoefficients.html#thm-binomialtheorem",
   "type": "Theorem",
-  "number": "2.2.19",
+  "number": "2.2.20",
   "title": "",
   "body": "      "
 },
@@ -419,7 +428,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-34",
   "type": "Checkpoint",
-  "number": "2.2.20",
+  "number": "2.2.21",
   "title": "",
   "body": " Discuss the proof above with your group. Work out some complete examples for small values of .  "
 },
@@ -428,7 +437,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-binomialcoefficients.html#cor-binomialtheoremx",
   "type": "Corollary",
-  "number": "2.2.21",
+  "number": "2.2.22",
   "title": "",
   "body": "      "
 },
@@ -437,43 +446,16 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-binomialcoefficients.html#thm-binomialcoefficientformula",
   "type": "Theorem",
-  "number": "2.2.22",
+  "number": "2.2.23",
   "title": "",
   "body": "      "
-},
-{
-  "id": "sec-pauseforenumerationreflection",
-  "level": "1",
-  "url": "sec-pauseforenumerationreflection.html",
-  "type": "Section",
-  "number": "2.3",
-  "title": "Pause for Reflection",
-  "body": " Pause for Reflection  We have now done some math. Let's reflect a bit on how this math fits into the philosophical and psychological frameworks for Mathematics due to MacLane and Tall.   Recall the Table from MacLane's book given in . Which of the items in the table have we been engaged with, either consciously or subconsciously, so far?    Recall the picture representing Tall's Three Worlds framework given in . Where in these three worlds of mathematics have we been situated so far with the math we have done?   "
-},
-{
-  "id": "sec-pauseforenumerationreflection-3",
-  "level": "2",
-  "url": "sec-pauseforenumerationreflection.html#sec-pauseforenumerationreflection-3",
-  "type": "Checkpoint",
-  "number": "2.3.1",
-  "title": "",
-  "body": " Recall the Table from MacLane's book given in . Which of the items in the table have we been engaged with, either consciously or subconsciously, so far?  "
-},
-{
-  "id": "sec-pauseforenumerationreflection-4",
-  "level": "2",
-  "url": "sec-pauseforenumerationreflection.html#sec-pauseforenumerationreflection-4",
-  "type": "Checkpoint",
-  "number": "2.3.2",
-  "title": "",
-  "body": " Recall the picture representing Tall's Three Worlds framework given in . Where in these three worlds of mathematics have we been situated so far with the math we have done?  "
 },
 {
   "id": "sec-fibonacci",
   "level": "1",
   "url": "sec-fibonacci.html",
   "type": "Section",
-  "number": "2.4",
+  "number": "2.3",
   "title": "Fibonacci Numbers",
   "body": " Fibonacci Numbers  Fibonacci numbers are a classic topic in combinatorics. They count many different objects, and their history is discussed at length on their wikipedia page .    Let and let . Define the sequence using these initial conditions and the recurrence This sequence is called the Fibonacci sequence and the numbers in the sequence are called the Fibonacci numbers .     With your group, calculate the first 10 Fibonacci numbers.   The Fibonacci numbers arise throughout mathematics. One of the basic problems they solve is counting integer compositions.    A composition of a positive integer is an ordered sum where each is a positive integer. We call each a part of the composition.     Each of and and are compositions of .    List all the compositions of for .   Let denote the set of compositions of using parts from the set . So, for example, the set of all compositions of is .   List all the compositions in for .     For all positive integers , we have      We use the technique of writing the set as a disjoint union. Observe that is equal to and therefore Since and , the number of compositions using parts from has the same initial conditions as the Fibonacci numbers starting at and satisfies the same recurrence. Thus, our proof is complete.    Discuss the proof above with your group. Does the disjoint union make sense? Use the lists of compositions that you generated to check this for small values of .   Our final topic for Fibonacci numbers is a connection with binomial coefficients.    For each positive integer , we have      Discuss with your group: how might you prove this? What strategy could you use? How could binomial coefficients be related to compositions using ones and twos?    The number of compositions of using copies of is given by . Since every element of uses at most parts equal to , the sum counts all the compositions.    Discuss this proof. Does it make sense? Why or why not?    Rewrite the proof above using the strategy to express the set as a disjoint union of sets of compositions with a fixed number of 's.   "
 },
@@ -482,7 +464,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#def-fibonacci",
   "type": "Definition",
-  "number": "2.4.1",
+  "number": "2.3.1",
   "title": "",
   "body": "  Let and let . Define the sequence using these initial conditions and the recurrence This sequence is called the Fibonacci sequence and the numbers in the sequence are called the Fibonacci numbers .   "
 },
@@ -491,7 +473,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#sec-fibonacci-4",
   "type": "Checkpoint",
-  "number": "2.4.2",
+  "number": "2.3.2",
   "title": "",
   "body": " With your group, calculate the first 10 Fibonacci numbers.  "
 },
@@ -500,7 +482,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#def-composition",
   "type": "Definition",
-  "number": "2.4.3",
+  "number": "2.3.3",
   "title": "",
   "body": "  A composition of a positive integer is an ordered sum where each is a positive integer. We call each a part of the composition.   "
 },
@@ -509,7 +491,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#sec-fibonacci-7",
   "type": "Example",
-  "number": "2.4.4",
+  "number": "2.3.4",
   "title": "",
   "body": " Each of and and are compositions of .  "
 },
@@ -518,7 +500,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#sec-fibonacci-8",
   "type": "Checkpoint",
-  "number": "2.4.5",
+  "number": "2.3.5",
   "title": "",
   "body": " List all the compositions of for .  "
 },
@@ -527,7 +509,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#sec-fibonacci-10",
   "type": "Checkpoint",
-  "number": "2.4.6",
+  "number": "2.3.6",
   "title": "",
   "body": " List all the compositions in for .  "
 },
@@ -536,7 +518,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#thm-fibonaccicompositions",
   "type": "Theorem",
-  "number": "2.4.7",
+  "number": "2.3.7",
   "title": "",
   "body": "  For all positive integers , we have    "
 },
@@ -545,7 +527,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#sec-fibonacci-12",
   "type": "Proof",
-  "number": "2.4.1",
+  "number": "2.3.1",
   "title": "",
   "body": " We use the technique of writing the set as a disjoint union. Observe that is equal to and therefore Since and , the number of compositions using parts from has the same initial conditions as the Fibonacci numbers starting at and satisfies the same recurrence. Thus, our proof is complete.  "
 },
@@ -554,7 +536,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#sec-fibonacci-13",
   "type": "Checkpoint",
-  "number": "2.4.8",
+  "number": "2.3.8",
   "title": "",
   "body": " Discuss the proof above with your group. Does the disjoint union make sense? Use the lists of compositions that you generated to check this for small values of .  "
 },
@@ -563,7 +545,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#thm-fibonacciasbinomials",
   "type": "Theorem",
-  "number": "2.4.9",
+  "number": "2.3.9",
   "title": "",
   "body": "  For each positive integer , we have    "
 },
@@ -572,7 +554,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#sec-fibonacci-16",
   "type": "Checkpoint",
-  "number": "2.4.10",
+  "number": "2.3.10",
   "title": "",
   "body": " Discuss with your group: how might you prove this? What strategy could you use? How could binomial coefficients be related to compositions using ones and twos?  "
 },
@@ -581,7 +563,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#sec-fibonacci-17",
   "type": "Proof",
-  "number": "2.4.2",
+  "number": "2.3.2",
   "title": "",
   "body": " The number of compositions of using copies of is given by . Since every element of uses at most parts equal to , the sum counts all the compositions.  "
 },
@@ -590,7 +572,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#sec-fibonacci-18",
   "type": "Checkpoint",
-  "number": "2.4.11",
+  "number": "2.3.11",
   "title": "",
   "body": " Discuss this proof. Does it make sense? Why or why not?  "
 },
@@ -599,9 +581,45 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-fibonacci.html#sec-fibonacci-19",
   "type": "Checkpoint",
-  "number": "2.4.12",
+  "number": "2.3.12",
   "title": "",
   "body": " Rewrite the proof above using the strategy to express the set as a disjoint union of sets of compositions with a fixed number of 's.  "
+},
+{
+  "id": "sec-pauseforenumerationreflection",
+  "level": "1",
+  "url": "sec-pauseforenumerationreflection.html",
+  "type": "Section",
+  "number": "2.4",
+  "title": "Pause for Reflection",
+  "body": " Pause for Reflection  So far, we have focused our study on three types of combinatorial objects:   binary strings    subsets of a finite set    integer compositions   These objects have naturally led us to identify and study integer sequences and triangles, such as powers of two, binomial coefficients, and Fibonacci numbers.   One aspect of combinatorics and graph theory that makes it have a different feel than courses such as advanced calculus, modern algebra, topology, or geometry is that combinatorics and graph theory tend to initially feel \"broad\" instead of \"deep\". So, rather than picking one topic, such as binomial coefficients, and spending half of the course studying these, we will instead survey a broad range of combinatorial objects. Each family of combinatorial objects that we study will lead us to different integer sequences and triangles, and to different strategies for enumeration. While every subject in Mathematics eventually becomes both broad and deep, there are differences between subjects in how they are perceived by students upon a first encounter.   Let's reflect a bit on how what we have done fits into the philosophical and psychological frameworks for Mathematics due to MacLane and Tall.   Recall the Table from MacLane's book given in . Which of the items in the table have we been engaged with, either consciously or subconsciously, so far?    Recall the picture representing Tall's Three Worlds framework given in . Where in these three worlds of mathematics have we been situated so far with the math we have done?   "
+},
+{
+  "id": "sec-pauseforenumerationreflection-3",
+  "level": "2",
+  "url": "sec-pauseforenumerationreflection.html#sec-pauseforenumerationreflection-3",
+  "type": "Remark",
+  "number": "2.4.1",
+  "title": "",
+  "body": " One aspect of combinatorics and graph theory that makes it have a different feel than courses such as advanced calculus, modern algebra, topology, or geometry is that combinatorics and graph theory tend to initially feel \"broad\" instead of \"deep\". So, rather than picking one topic, such as binomial coefficients, and spending half of the course studying these, we will instead survey a broad range of combinatorial objects. Each family of combinatorial objects that we study will lead us to different integer sequences and triangles, and to different strategies for enumeration. While every subject in Mathematics eventually becomes both broad and deep, there are differences between subjects in how they are perceived by students upon a first encounter.  "
+},
+{
+  "id": "sec-pauseforenumerationreflection-5",
+  "level": "2",
+  "url": "sec-pauseforenumerationreflection.html#sec-pauseforenumerationreflection-5",
+  "type": "Checkpoint",
+  "number": "2.4.2",
+  "title": "",
+  "body": " Recall the Table from MacLane's book given in . Which of the items in the table have we been engaged with, either consciously or subconsciously, so far?  "
+},
+{
+  "id": "sec-pauseforenumerationreflection-6",
+  "level": "2",
+  "url": "sec-pauseforenumerationreflection.html#sec-pauseforenumerationreflection-6",
+  "type": "Checkpoint",
+  "number": "2.4.3",
+  "title": "",
+  "body": " Recall the picture representing Tall's Three Worlds framework given in . Where in these three worlds of mathematics have we been situated so far with the math we have done?  "
 },
 {
   "id": "sec-permutations",
@@ -610,50 +628,41 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.5",
   "title": "Permutations",
-  "body": " Permutations  So far, we have focused our study on three types of combinatorial objects:   binary strings    subsets of a finite set    integer compositions   These objects have naturally led us to identify and study integer sequences and triangles, such as powers of two, binomial coefficients, and Fibonacci numbers.   One aspect of combinatorics and graph theory that makes it have a different feel than courses such as advanced calculus, modern algebra, topology, or geometry is that combinatorics and graph theory tend to initially feel \"broad\" instead of \"deep\". So, rather than picking one topic, such as binomial coefficients, and spending half of the course studying these, we will instead survey a broad range of combinatorial objects. Each family of combinatorial objects that we study will lead us to different integer sequences and triangles, and to different strategies for enumeration. While every subject in Mathematics eventually becomes both broad and deep, there are differences between subjects in how they are perceived by students upon a first encounter.   Our next object of study is permutations of a finite set. Permutations are important in mathematics, computer science, social sciences, and beyond.    A permutation of a finite set is a bijection from to itself. The set of permutations of is denoted by and is called the symmetric group on elements .    Since a permutation in is a bijection, it is a function from to itself. There are multiple ways to represent a permutation. At first, we will use one-line notation . Given a permutation , which is a bijection we define and then the one-line notation for is    Suppose is defined by Then the one-line notation for is We would write for this permutation.    Write down all of the elements of for . How do you know that you did not miss any?    What strategy\/strategies did you develop to systematically list the elements of the symmetric group?   Recall that is the factorial of .         We will give two proofs, one using combinatorial reasoning, and one using recursion.   Combinatorial Reasoning Proof of  For any permutation , can be any of . Thus, there are choices for . Once is known, then can be any of the remaining values, and there are possible values remaining. Thus, there are possibilities for . Continuing in this way, we have possibilities for , then possibilities for , etc., and so on until there is only one possible value for . Thus, there are permutations in .    Discuss this proof. Does it make sense? Why or why not?    Do you like this proof? Why or why not?    Recursive Proof of  First, we can check that this is true for small values of . So, we will use a strategy we have used before: use that this is true for to deduce that it is true for , then use that it is true for to deduce that it is true for , and so on. In this way, we will show it is true for every .  For each , the value is at some position in . Let be the set of permutations in with , which we can also write as: Since is in only one position in each permutation, we have that Therefore, For any , removing from each permutation in results in a copy of . Thus, is obtained by taking and inserting an in the -th position of each permutation. Thus, for every , and hence     Discuss this proof. Does the proof strategy make sense? Why or why not? Clarify any points of confusion.    Which of these two proofs do you prefer? Why?   "
-},
-{
-  "id": "sec-permutations-3",
-  "level": "2",
-  "url": "sec-permutations.html#sec-permutations-3",
-  "type": "Remark",
-  "number": "2.5.1",
-  "title": "",
-  "body": " One aspect of combinatorics and graph theory that makes it have a different feel than courses such as advanced calculus, modern algebra, topology, or geometry is that combinatorics and graph theory tend to initially feel \"broad\" instead of \"deep\". So, rather than picking one topic, such as binomial coefficients, and spending half of the course studying these, we will instead survey a broad range of combinatorial objects. Each family of combinatorial objects that we study will lead us to different integer sequences and triangles, and to different strategies for enumeration. While every subject in Mathematics eventually becomes both broad and deep, there are differences between subjects in how they are perceived by students upon a first encounter.  "
+  "body": " Permutations  Our next object of study is permutations of a finite set. Permutations are important in mathematics, computer science, social sciences, and beyond.    A permutation of a finite set is a bijection from to itself. The set of permutations of is denoted by and is called the symmetric group on elements .    Since a permutation in is a bijection, it is a function from to itself. There are multiple ways to represent a permutation. At first, we will use one-line notation . Given a permutation , which is a bijection we define and then the one-line notation for is    Suppose is defined by Then the one-line notation for is We would write for this permutation.    Write down all of the elements of for . How do you know that you did not miss any?    What strategy\/strategies did you develop to systematically list the elements of the symmetric group?   Recall that is the factorial of .         We will give two proofs, one using combinatorial reasoning, and one using recursion.   Combinatorial Reasoning Proof of  For any permutation , can be any of . Thus, there are choices for . Once is known, then can be any of the remaining values, and there are possible values remaining. Thus, there are possibilities for . Continuing in this way, we have possibilities for , then possibilities for , etc., and so on until there is only one possible value for . Thus, there are permutations in .    Discuss this proof. Does it make sense? Why or why not?    Do you like this proof? Why or why not?    Recursive Proof of  First, we can check that this is true for small values of . So, we will use a strategy we have used before: use that this is true for to deduce that it is true for , then use that it is true for to deduce that it is true for , and so on. In this way, we will show it is true for every .  For each , the value is at some position in . Let be the set of permutations in with , which we can also write as: Since is in only one position in each permutation, we have that Therefore, For any , removing from each permutation in results in a copy of . Thus, is obtained by taking and inserting an in the -th position of each permutation. Thus, for every , and hence     Discuss this proof. Does the proof strategy make sense? Why or why not? Clarify any points of confusion.    Which of these two proofs do you prefer? Why?   "
 },
 {
   "id": "def-permutation",
   "level": "2",
   "url": "sec-permutations.html#def-permutation",
   "type": "Definition",
-  "number": "2.5.2",
+  "number": "2.5.1",
   "title": "",
   "body": "  A permutation of a finite set is a bijection from to itself. The set of permutations of is denoted by and is called the symmetric group on elements .   "
+},
+{
+  "id": "sec-permutations-5",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-5",
+  "type": "Example",
+  "number": "2.5.2",
+  "title": "",
+  "body": " Suppose is defined by Then the one-line notation for is We would write for this permutation.  "
+},
+{
+  "id": "sec-permutations-6",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-6",
+  "type": "Checkpoint",
+  "number": "2.5.3",
+  "title": "",
+  "body": " Write down all of the elements of for . How do you know that you did not miss any?  "
 },
 {
   "id": "sec-permutations-7",
   "level": "2",
   "url": "sec-permutations.html#sec-permutations-7",
-  "type": "Example",
-  "number": "2.5.3",
-  "title": "",
-  "body": " Suppose is defined by Then the one-line notation for is We would write for this permutation.  "
-},
-{
-  "id": "sec-permutations-8",
-  "level": "2",
-  "url": "sec-permutations.html#sec-permutations-8",
   "type": "Checkpoint",
   "number": "2.5.4",
-  "title": "",
-  "body": " Write down all of the elements of for . How do you know that you did not miss any?  "
-},
-{
-  "id": "sec-permutations-9",
-  "level": "2",
-  "url": "sec-permutations.html#sec-permutations-9",
-  "type": "Checkpoint",
-  "number": "2.5.5",
   "title": "",
   "body": " What strategy\/strategies did you develop to systematically list the elements of the symmetric group?  "
 },
@@ -662,27 +671,45 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-permutations.html#thm-symmetricgroupcardinality",
   "type": "Theorem",
-  "number": "2.5.6",
+  "number": "2.5.5",
   "title": "",
   "body": "      "
+},
+{
+  "id": "sec-permutations-11",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-11",
+  "type": "Proof",
+  "number": "2.5.1",
+  "title": "Combinatorial Reasoning Proof of Theorem 2.5.5.",
+  "body": " Combinatorial Reasoning Proof of  For any permutation , can be any of . Thus, there are choices for . Once is known, then can be any of the remaining values, and there are possible values remaining. Thus, there are possibilities for . Continuing in this way, we have possibilities for , then possibilities for , etc., and so on until there is only one possible value for . Thus, there are permutations in .  "
+},
+{
+  "id": "sec-permutations-12",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-12",
+  "type": "Checkpoint",
+  "number": "2.5.6",
+  "title": "",
+  "body": " Discuss this proof. Does it make sense? Why or why not?  "
 },
 {
   "id": "sec-permutations-13",
   "level": "2",
   "url": "sec-permutations.html#sec-permutations-13",
-  "type": "Proof",
-  "number": "2.5.1",
-  "title": "Combinatorial Reasoning Proof of Theorem 2.5.6.",
-  "body": " Combinatorial Reasoning Proof of  For any permutation , can be any of . Thus, there are choices for . Once is known, then can be any of the remaining values, and there are possible values remaining. Thus, there are possibilities for . Continuing in this way, we have possibilities for , then possibilities for , etc., and so on until there is only one possible value for . Thus, there are permutations in .  "
+  "type": "Checkpoint",
+  "number": "2.5.7",
+  "title": "",
+  "body": " Do you like this proof? Why or why not?  "
 },
 {
   "id": "sec-permutations-14",
   "level": "2",
   "url": "sec-permutations.html#sec-permutations-14",
-  "type": "Checkpoint",
-  "number": "2.5.7",
-  "title": "",
-  "body": " Discuss this proof. Does it make sense? Why or why not?  "
+  "type": "Proof",
+  "number": "2.5.2",
+  "title": "Recursive Proof of Theorem 2.5.5.",
+  "body": " Recursive Proof of  First, we can check that this is true for small values of . So, we will use a strategy we have used before: use that this is true for to deduce that it is true for , then use that it is true for to deduce that it is true for , and so on. In this way, we will show it is true for every .  For each , the value is at some position in . Let be the set of permutations in with , which we can also write as: Since is in only one position in each permutation, we have that Therefore, For any , removing from each permutation in results in a copy of . Thus, is obtained by taking and inserting an in the -th position of each permutation. Thus, for every , and hence   "
 },
 {
   "id": "sec-permutations-15",
@@ -691,32 +718,14 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "2.5.8",
   "title": "",
-  "body": " Do you like this proof? Why or why not?  "
+  "body": " Discuss this proof. Does the proof strategy make sense? Why or why not? Clarify any points of confusion.  "
 },
 {
   "id": "sec-permutations-16",
   "level": "2",
   "url": "sec-permutations.html#sec-permutations-16",
-  "type": "Proof",
-  "number": "2.5.2",
-  "title": "Recursive Proof of Theorem 2.5.6.",
-  "body": " Recursive Proof of  First, we can check that this is true for small values of . So, we will use a strategy we have used before: use that this is true for to deduce that it is true for , then use that it is true for to deduce that it is true for , and so on. In this way, we will show it is true for every .  For each , the value is at some position in . Let be the set of permutations in with , which we can also write as: Since is in only one position in each permutation, we have that Therefore, For any , removing from each permutation in results in a copy of . Thus, is obtained by taking and inserting an in the -th position of each permutation. Thus, for every , and hence   "
-},
-{
-  "id": "sec-permutations-17",
-  "level": "2",
-  "url": "sec-permutations.html#sec-permutations-17",
   "type": "Checkpoint",
   "number": "2.5.9",
-  "title": "",
-  "body": " Discuss this proof. Does the proof strategy make sense? Why or why not? Clarify any points of confusion.  "
-},
-{
-  "id": "sec-permutations-18",
-  "level": "2",
-  "url": "sec-permutations.html#sec-permutations-18",
-  "type": "Checkpoint",
-  "number": "2.5.10",
   "title": "",
   "body": " Which of these two proofs do you prefer? Why?  "
 },
