@@ -70,7 +70,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.1",
   "title": "Binary Strings",
-  "body": " Binary Strings    A binary string of length is an ordered list of values which are either or .    We can define binary strings another way, using products of sets. When we define notation, we will use the symbol \" \"\" to indicate that it is a definition. This helps to distinguish between when we are defining new notation and when we are proving equality between two objects.    Given two sets and , the product of these two sets is defined to be which is the set of all ordered pairs where the first element is from and the second element is from . The size , or cardinality , of a set is the number of elements in that set, which we denote by . If an element is in the set , then we write . If is not in the set , then we write .    We can iterate products, so for example, consists of all ordered lists consisting of elements from .   List the binary strings in .    How do you know that your list is complete?    Suppose that you were asked to make a list of all the binary strings in .   What would your strategy be for listing them? In other words, how would you systematically list all possible binary strings?    How do you know that your strategy would result in a complete list of all binary strings of length ?     These exercises lead us to the following observation.   There are binary strings of length .    We will give two proofs. The first proof uses combinatorial reasoning . Combinatorial reasoning is where you make an argument based on the structure of the set of outcomes that you are studying -- in this case, we are considering the set of binary strings.   Combinatorial Reasoning Proof of   A binary string is a list of entries . Each is either or . Thus, there are independent choices to make of either or , one choice for each entry, to determine the binary string. This gives outcomes, hence our result is proved.    Discuss the combinatorial reasoning proof with your group. Does the proof make sense? Why or why not?   The second proof is a proof using recursion . In a recursive proof , we establish a logical argument that uses a known structure to produce a new structure. For this proof, we will need the following.    The multiplication principle states that for two finite sets and we have     We will also need the following definitions. We use , called the empty set , to denote a set with no elements.    Given two sets and , the union of these two sets is defined to be The intersection of these two sets is defined to be If , then we write the union as and call it a disjoint union .     Recursive Proof of  Let denote the set of binary strings of length . Our goal is to prove that . It is straightforward to check that and and .  Our strategy will be to show that if we know , then we can prove . If we show this general statement, then using , we can conclude that . Then, knowing , we can conclude that . This chain of logical implications continues, so that we have our desired result for any length of binary strings.  Our strategy is the following observation: Once we know that holds, then the result follows because     Check that is true when . Work together to generate an argument (a proof!) showing that this is true for every .    Discuss with your group why the logical implications in this proof shows that for every positive integer .   "
+  "body": " Binary Strings  We will begin with one of the most fundamental sets in combinatorics.    A binary string of length is an ordered list of values which are either or .    We can define binary strings another way, using products of sets. When we define notation, we will use the symbol \" \"\" to indicate that it is a definition. This helps to distinguish between when we are defining new notation and when we are proving equality between two objects.    Given two sets and , the product of these two sets is defined to be which is the set of all ordered pairs where the first element is from and the second element is from . The size , or cardinality , of a set is the number of elements in that set, which we denote by . If an element is in the set , then we write . If is not in the set , then we write .    We can iterate products, so for example, consists of all ordered lists consisting of elements from .   List the binary strings in .    How do you know that your list is complete?    Suppose that you were asked to make a list of all the binary strings in .   What would your strategy be for listing them? In other words, how would you systematically list all possible binary strings?    How do you know that your strategy would result in a complete list of all binary strings of length ?     These exercises lead us to the following observation.   There are binary strings of length .    We will give two proofs. The first proof uses combinatorial reasoning . Combinatorial reasoning is where you make an argument based on the structure of the set of outcomes that you are studying -- in this case, we are considering the set of binary strings.   Combinatorial Reasoning Proof of   A binary string is a list of entries . Each is either or . Thus, there are independent choices to make of either or , one choice for each entry, to determine the binary string. This gives outcomes, hence our result is proved.    Discuss the combinatorial reasoning proof with your group. Does the proof make sense? Why or why not?   The second proof is a proof using recursion . In a recursive proof , we establish a logical argument that uses a known structure to produce a new structure. For this proof, we will need the following.    The multiplication principle states that for two finite sets and we have     We will also need the following definitions. We use , called the empty set , to denote a set with no elements.    Given two sets and , the union of these two sets is defined to be The intersection of these two sets is defined to be If , then we write the union as and call it a disjoint union .     Recursive Proof of  Let denote the set of binary strings of length . Our goal is to prove that . It is straightforward to check that and and .  Our strategy will be to show that if we know , then we can prove . If we show this general statement, then using , we can conclude that . Then, knowing , we can conclude that . This chain of logical implications continues, so that we have our desired result for any length of binary strings.  Our strategy is the following observation: Once we know that holds, then the result follows because     Check that is true when . Work together to generate an argument (a proof!) showing that this is true for every .    Discuss with your group why the logical implications in this proof shows that for every positive integer .   "
 },
 {
   "id": "def-binarystring",
@@ -91,27 +91,27 @@ var ptx_lunr_docs = [
   "body": "  Given two sets and , the product of these two sets is defined to be which is the set of all ordered pairs where the first element is from and the second element is from . The size , or cardinality , of a set is the number of elements in that set, which we denote by . If an element is in the set , then we write . If is not in the set , then we write .   "
 },
 {
-  "id": "sec-binarystrings-6",
+  "id": "sec-binarystrings-7",
   "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-6",
+  "url": "sec-binarystrings.html#sec-binarystrings-7",
   "type": "Checkpoint",
   "number": "2.1.3",
   "title": "",
   "body": " List the binary strings in .  "
 },
 {
-  "id": "sec-binarystrings-7",
+  "id": "sec-binarystrings-8",
   "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-7",
+  "url": "sec-binarystrings.html#sec-binarystrings-8",
   "type": "Checkpoint",
   "number": "2.1.4",
   "title": "",
   "body": " How do you know that your list is complete?  "
 },
 {
-  "id": "sec-binarystrings-8",
+  "id": "sec-binarystrings-9",
   "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-8",
+  "url": "sec-binarystrings.html#sec-binarystrings-9",
   "type": "Checkpoint",
   "number": "2.1.5",
   "title": "",
@@ -127,18 +127,18 @@ var ptx_lunr_docs = [
   "body": "  There are binary strings of length .   "
 },
 {
-  "id": "sec-binarystrings-11",
+  "id": "sec-binarystrings-12",
   "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-11",
+  "url": "sec-binarystrings.html#sec-binarystrings-12",
   "type": "Proof",
   "number": "2.1.1",
   "title": "Combinatorial Reasoning Proof of Theorem 2.1.6.",
   "body": " Combinatorial Reasoning Proof of   A binary string is a list of entries . Each is either or . Thus, there are independent choices to make of either or , one choice for each entry, to determine the binary string. This gives outcomes, hence our result is proved.  "
 },
 {
-  "id": "sec-binarystrings-12",
+  "id": "sec-binarystrings-13",
   "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-12",
+  "url": "sec-binarystrings.html#sec-binarystrings-13",
   "type": "Checkpoint",
   "number": "2.1.7",
   "title": "",
@@ -163,27 +163,27 @@ var ptx_lunr_docs = [
   "body": "  Given two sets and , the union of these two sets is defined to be The intersection of these two sets is defined to be If , then we write the union as and call it a disjoint union .   "
 },
 {
-  "id": "sec-binarystrings-17",
+  "id": "sec-binarystrings-18",
   "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-17",
+  "url": "sec-binarystrings.html#sec-binarystrings-18",
   "type": "Proof",
   "number": "2.1.2",
   "title": "Recursive Proof of Theorem 2.1.6.",
   "body": " Recursive Proof of  Let denote the set of binary strings of length . Our goal is to prove that . It is straightforward to check that and and .  Our strategy will be to show that if we know , then we can prove . If we show this general statement, then using , we can conclude that . Then, knowing , we can conclude that . This chain of logical implications continues, so that we have our desired result for any length of binary strings.  Our strategy is the following observation: Once we know that holds, then the result follows because   "
 },
 {
-  "id": "sec-binarystrings-18",
+  "id": "sec-binarystrings-19",
   "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-18",
+  "url": "sec-binarystrings.html#sec-binarystrings-19",
   "type": "Checkpoint",
   "number": "2.1.10",
   "title": "",
   "body": " Check that is true when . Work together to generate an argument (a proof!) showing that this is true for every .  "
 },
 {
-  "id": "sec-binarystrings-19",
+  "id": "sec-binarystrings-20",
   "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-19",
+  "url": "sec-binarystrings.html#sec-binarystrings-20",
   "type": "Checkpoint",
   "number": "2.1.11",
   "title": "",
@@ -196,7 +196,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Binomial Coefficients",
-  "body": " Binomial Coefficients    Given a set , a subset of is a set of elements of . The collection of all subsets of is called the power set of and is denoted by . We write to denote the set of integers between and .     Suppose that we have the set . Then the set is a subset of , while is not a subset of . Thus, we would write and we would write .    Discuss the above example and the notation used in it.     There is a one-to-one correspondence between the binary strings in and the subsets of .     We will produce a map from binary strings to subsets of . We will write this map as a function Given a binary string , if , then we include in . This produces a subset of .  What do we need to check to verify that we have a one-to-one correspondence? We need to check that:   this map is well-defined (each binary string goes to only one set),    this map is one-to-one (no two strings to go the same subset), and    this map is onto (every subset is mapped to by some string).   Once these three things are checked, then the proof is complete.    With your group, make a logical argument to justfy why each of the three conditions above in the proof hold, which completes our proof that is a one-to-one correspondence.   One-to-one correspondences have a special name.    Given two sets and , a bijection is a map from to that is a one-to-one correspondence.      If there is a bijection from to , then .           Observe that we use the notation for the power set of because when is finite, we have .  We next introduce some of the best numbers in the entire universe!!!! . Seriously, they are totally awesome.    The number of subsets of of size is denoted by and is called the -binomial coefficient. We define .     Show that .    Show that .    Show that .    What is ?           We know that is the cardinality of the power set of . Further, we know that in the sum each subset is counted once by a unique summand. Thus, each of these expressions counts the cardinality of the power set of , hence they are equal.    Discuss this proof: does it make sense? Why or why not? Note the strategy is to count the number of subsets of in two different ways, which leads to two different symbolic formulas for the total number.     There are binary strings of length with ones.     There is a one-to-one correspondence between binary strings of length with ones and subsets of with elements. Thus, these two sets have the same cardinality, which is .   Binomial coefficients form a beautiful triangle called the arithmetical triangle , also known as Pascal's triangle , which happens because of the following arithmetic recurrence .    For all , we have     Let denote the set of all -element subset of .   We can write this as a disjoint union: Therefore, we have that the cardinality of the left-hand set is the sum of the cardinalities of the two right-hand sets, which is exactly the formula claimed in the theorem.    Check that is true for . Then, give a logical argument (a proof!) that it is true for every value of and .   Review some of the illustrations at the wikipedia page for Pascal's triangle .  One of the most important roles played by the binomial coefficients, and the reason for their name, is that they appear in coefficients of polynomials that are powers of binomials.          If we distribute all the factors in but we do NOT commute any variables, then each term is an ordered sequence of variables, each either or . For example, If we replace each with a and each with a , then each of these terms corresponds to a binary string. Therefore, the coefficient of in is the number of binary strings with ones, which is , as desired.    Discuss the proof above with your group. Work out some complete examples for small values of .          Finally, you might be wondering if there is a formula for binomial coefficients, and yes, there is. However, it is important to be able to think about these numbers using both their combinatorial structure (which we have been doing) and using the following formula.         You will see a proof of this later in the course on a homework problem.  "
+  "body": " Binomial Coefficients  Binary strings are closely related to subsets of finite sets, which is our next topic.    Given a set , a subset of is a set of elements of . The collection of all subsets of is called the power set of and is denoted by . We write to denote the set of integers between and .     Suppose that we have the set . Then the set is a subset of , while is not a subset of . Thus, we would write and we would write .    Discuss the above example and the notation used in it.     There is a one-to-one correspondence between the binary strings in and the subsets of .     We will produce a map from binary strings to subsets of . We will write this map as a function Given a binary string , if , then we include in . This produces a subset of .  What do we need to check to verify that we have a one-to-one correspondence? We need to check that:   this map is well-defined (each binary string goes to only one set),    this map is one-to-one (no two strings to go the same subset), and    this map is onto (every subset is mapped to by some string).   Once these three things are checked, then the proof is complete.    With your group, make a logical argument to justfy why each of the three conditions above in the proof hold, which completes our proof that is a one-to-one correspondence.   One-to-one correspondences have a special name.    Given two sets and , a bijection is a map from to that is a one-to-one correspondence.      If there is a bijection from to , then .           Observe that we use the notation for the power set of because when is finite, we have .  We next introduce some of the best numbers in the entire universe!!!! . Seriously, they are totally awesome.    The number of subsets of of size is denoted by and is called the -binomial coefficient. We define .     Show that .    Show that .    Show that .    What is ?           We know that is the cardinality of the power set of . Further, we know that in the sum each subset is counted once by a unique summand. Thus, each of these expressions counts the cardinality of the power set of , hence they are equal.    Discuss this proof: does it make sense? Why or why not? Note the strategy is to count the number of subsets of in two different ways, which leads to two different symbolic formulas for the total number.     There are binary strings of length with ones.     There is a one-to-one correspondence between binary strings of length with ones and subsets of with elements. Thus, these two sets have the same cardinality, which is .   Binomial coefficients form a beautiful triangle called the arithmetical triangle , also known as Pascal's triangle , which happens because of the following arithmetic recurrence .    For all , we have     Let denote the set of all -element subset of .   We can write this as a disjoint union: Therefore, we have that the cardinality of the left-hand set is the sum of the cardinalities of the two right-hand sets, which is exactly the formula claimed in the theorem.    Check that is true for . Then, give a logical argument (a proof!) that it is true for every value of and .   Review some of the illustrations at the wikipedia page for Pascal's triangle .  One of the most important roles played by the binomial coefficients, and the reason for their name, is that they appear in coefficients of polynomials that are powers of binomials.          If we distribute all the factors in but we do NOT commute any variables, then each term is an ordered sequence of variables, each either or . For example, If we replace each with a and each with a , then each of these terms corresponds to a binary string. Therefore, the coefficient of in is the number of binary strings with ones, which is , as desired.    Discuss the proof above with your group. Work out some complete examples for small values of .          Finally, you might be wondering if there is a formula for binomial coefficients, and yes, there is. However, it is important to be able to think about these numbers using both their combinatorial structure (which we have been doing) and using the following formula.         You will see a proof of this later in the course on a homework problem.  "
 },
 {
   "id": "def-subset",
@@ -208,18 +208,18 @@ var ptx_lunr_docs = [
   "body": "  Given a set , a subset of is a set of elements of . The collection of all subsets of is called the power set of and is denoted by . We write to denote the set of integers between and .   "
 },
 {
-  "id": "sec-binomialcoefficients-3",
+  "id": "sec-binomialcoefficients-4",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-3",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-4",
   "type": "Example",
   "number": "2.2.2",
   "title": "",
   "body": " Suppose that we have the set . Then the set is a subset of , while is not a subset of . Thus, we would write and we would write .  "
 },
 {
-  "id": "sec-binomialcoefficients-4",
+  "id": "sec-binomialcoefficients-5",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-4",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-5",
   "type": "Checkpoint",
   "number": "2.2.3",
   "title": "",
@@ -235,18 +235,18 @@ var ptx_lunr_docs = [
   "body": "  There is a one-to-one correspondence between the binary strings in and the subsets of .   "
 },
 {
-  "id": "sec-binomialcoefficients-6",
+  "id": "sec-binomialcoefficients-7",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-6",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-7",
   "type": "Proof",
   "number": "2.2.1",
   "title": "",
   "body": " We will produce a map from binary strings to subsets of . We will write this map as a function Given a binary string , if , then we include in . This produces a subset of .  What do we need to check to verify that we have a one-to-one correspondence? We need to check that:   this map is well-defined (each binary string goes to only one set),    this map is one-to-one (no two strings to go the same subset), and    this map is onto (every subset is mapped to by some string).   Once these three things are checked, then the proof is complete.  "
 },
 {
-  "id": "sec-binomialcoefficients-7",
+  "id": "sec-binomialcoefficients-8",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-7",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-8",
   "type": "Checkpoint",
   "number": "2.2.5",
   "title": "",
@@ -289,20 +289,11 @@ var ptx_lunr_docs = [
   "body": "  The number of subsets of of size is denoted by and is called the -binomial coefficient. We define .   "
 },
 {
-  "id": "sec-binomialcoefficients-15",
-  "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-15",
-  "type": "Checkpoint",
-  "number": "2.2.10",
-  "title": "",
-  "body": " Show that .  "
-},
-{
   "id": "sec-binomialcoefficients-16",
   "level": "2",
   "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-16",
   "type": "Checkpoint",
-  "number": "2.2.11",
+  "number": "2.2.10",
   "title": "",
   "body": " Show that .  "
 },
@@ -311,7 +302,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-17",
   "type": "Checkpoint",
-  "number": "2.2.12",
+  "number": "2.2.11",
   "title": "",
   "body": " Show that .  "
 },
@@ -319,6 +310,15 @@ var ptx_lunr_docs = [
   "id": "sec-binomialcoefficients-18",
   "level": "2",
   "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-18",
+  "type": "Checkpoint",
+  "number": "2.2.12",
+  "title": "",
+  "body": " Show that .  "
+},
+{
+  "id": "sec-binomialcoefficients-19",
+  "level": "2",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-19",
   "type": "Checkpoint",
   "number": "2.2.13",
   "title": "",
@@ -334,18 +334,18 @@ var ptx_lunr_docs = [
   "body": "      "
 },
 {
-  "id": "sec-binomialcoefficients-20",
+  "id": "sec-binomialcoefficients-21",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-20",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-21",
   "type": "Proof",
   "number": "2.2.2",
   "title": "",
   "body": " We know that is the cardinality of the power set of . Further, we know that in the sum each subset is counted once by a unique summand. Thus, each of these expressions counts the cardinality of the power set of , hence they are equal.  "
 },
 {
-  "id": "sec-binomialcoefficients-21",
+  "id": "sec-binomialcoefficients-22",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-21",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-22",
   "type": "Checkpoint",
   "number": "2.2.15",
   "title": "",
@@ -361,9 +361,9 @@ var ptx_lunr_docs = [
   "body": "  There are binary strings of length with ones.   "
 },
 {
-  "id": "sec-binomialcoefficients-23",
+  "id": "sec-binomialcoefficients-24",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-23",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-24",
   "type": "Proof",
   "number": "2.2.3",
   "title": "",
@@ -379,18 +379,18 @@ var ptx_lunr_docs = [
   "body": "  For all , we have    "
 },
 {
-  "id": "sec-binomialcoefficients-27",
+  "id": "sec-binomialcoefficients-28",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-27",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-28",
   "type": "Proof",
   "number": "2.2.4",
   "title": "",
   "body": " We can write this as a disjoint union: Therefore, we have that the cardinality of the left-hand set is the sum of the cardinalities of the two right-hand sets, which is exactly the formula claimed in the theorem.  "
 },
 {
-  "id": "sec-binomialcoefficients-28",
+  "id": "sec-binomialcoefficients-29",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-28",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-29",
   "type": "Checkpoint",
   "number": "2.2.18",
   "title": "",
@@ -406,18 +406,18 @@ var ptx_lunr_docs = [
   "body": "      "
 },
 {
-  "id": "sec-binomialcoefficients-32",
+  "id": "sec-binomialcoefficients-33",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-32",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-33",
   "type": "Proof",
   "number": "2.2.5",
   "title": "",
   "body": " If we distribute all the factors in but we do NOT commute any variables, then each term is an ordered sequence of variables, each either or . For example, If we replace each with a and each with a , then each of these terms corresponds to a binary string. Therefore, the coefficient of in is the number of binary strings with ones, which is , as desired.  "
 },
 {
-  "id": "sec-binomialcoefficients-33",
+  "id": "sec-binomialcoefficients-34",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-33",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-34",
   "type": "Checkpoint",
   "number": "2.2.20",
   "title": "",
@@ -602,6 +602,141 @@ var ptx_lunr_docs = [
   "number": "2.4.12",
   "title": "",
   "body": " Rewrite the proof above using the strategy to express the set as a disjoint union of sets of compositions with a fixed number of 's.  "
+},
+{
+  "id": "sec-permutations",
+  "level": "1",
+  "url": "sec-permutations.html",
+  "type": "Section",
+  "number": "2.5",
+  "title": "Permutations",
+  "body": " Permutations  So far, we have focused our study on three types of combinatorial objects:   binary strings    subsets of a finite set    integer compositions   These objects have naturally led us to identify and study integer sequences and triangles, such as powers of two, binomial coefficients, and Fibonacci numbers.   One aspect of combinatorics and graph theory that makes it have a different feel than courses such as advanced calculus, modern algebra, topology, or geometry is that combinatorics and graph theory tend to initially feel \"broad\" instead of \"deep\". So, rather than picking one topic, such as binomial coefficients, and spending half of the course studying these, we will instead survey a broad range of combinatorial objects. Each family of combinatorial objects that we study will lead us to different integer sequences and triangles, and to different strategies for enumeration. While every subject in Mathematics eventually becomes both broad and deep, there are differences between subjects in how they are perceived by students upon a first encounter.   Our next object of study is permutations of a finite set. Permutations are important in mathematics, computer science, social sciences, and beyond.    A permutation of a finite set is a bijection from to itself. The set of permutations of is denoted by and is called the symmetric group on elements .    Since a permutation in is a bijection, it is a function from to itself. There are multiple ways to represent a permutation. At first, we will use one-line notation . Given a permutation , which is a bijection we define and then the one-line notation for is    Suppose is defined by Then the one-line notation for is We would write for this permutation.    Write down all of the elements of for . How do you know that you did not miss any?    What strategy\/strategies did you develop to systematically list the elements of the symmetric group?   Recall that is the factorial of .         We will give two proofs, one using combinatorial reasoning, and one using recursion.   Combinatorial Reasoning Proof of  For any permutation , can be any of . Thus, there are choices for . Once is known, then can be any of the remaining values, and there are possible values remaining. Thus, there are possibilities for . Continuing in this way, we have possibilities for , then possibilities for , etc., and so on until there is only one possible value for . Thus, there are permutations in .    Discuss this proof. Does it make sense? Why or why not?    Do you like this proof? Why or why not?    Recursive Proof of  First, we can check that this is true for small values of . So, we will use a strategy we have used before: use that this is true for to deduce that it is true for , then use that it is true for to deduce that it is true for , and so on. In this way, we will show it is true for every .  For each , the value is at some position in . Let be the set of permutations in with , which we can also write as: Since is in only one position in each permutation, we have that Therefore, For any , removing from each permutation in results in a copy of . Thus, is obtained by taking and inserting an in the -th position of each permutation. Thus, for every , and hence     Discuss this proof. Does the proof strategy make sense? Why or why not? Clarify any points of confusion.    Which of these two proofs do you prefer? Why?   "
+},
+{
+  "id": "sec-permutations-3",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-3",
+  "type": "Remark",
+  "number": "2.5.1",
+  "title": "",
+  "body": " One aspect of combinatorics and graph theory that makes it have a different feel than courses such as advanced calculus, modern algebra, topology, or geometry is that combinatorics and graph theory tend to initially feel \"broad\" instead of \"deep\". So, rather than picking one topic, such as binomial coefficients, and spending half of the course studying these, we will instead survey a broad range of combinatorial objects. Each family of combinatorial objects that we study will lead us to different integer sequences and triangles, and to different strategies for enumeration. While every subject in Mathematics eventually becomes both broad and deep, there are differences between subjects in how they are perceived by students upon a first encounter.  "
+},
+{
+  "id": "def-permutation",
+  "level": "2",
+  "url": "sec-permutations.html#def-permutation",
+  "type": "Definition",
+  "number": "2.5.2",
+  "title": "",
+  "body": "  A permutation of a finite set is a bijection from to itself. The set of permutations of is denoted by and is called the symmetric group on elements .   "
+},
+{
+  "id": "sec-permutations-7",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-7",
+  "type": "Example",
+  "number": "2.5.3",
+  "title": "",
+  "body": " Suppose is defined by Then the one-line notation for is We would write for this permutation.  "
+},
+{
+  "id": "sec-permutations-8",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-8",
+  "type": "Checkpoint",
+  "number": "2.5.4",
+  "title": "",
+  "body": " Write down all of the elements of for . How do you know that you did not miss any?  "
+},
+{
+  "id": "sec-permutations-9",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-9",
+  "type": "Checkpoint",
+  "number": "2.5.5",
+  "title": "",
+  "body": " What strategy\/strategies did you develop to systematically list the elements of the symmetric group?  "
+},
+{
+  "id": "thm-symmetricgroupcardinality",
+  "level": "2",
+  "url": "sec-permutations.html#thm-symmetricgroupcardinality",
+  "type": "Theorem",
+  "number": "2.5.6",
+  "title": "",
+  "body": "      "
+},
+{
+  "id": "sec-permutations-13",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-13",
+  "type": "Proof",
+  "number": "2.5.1",
+  "title": "Combinatorial Reasoning Proof of Theorem 2.5.6.",
+  "body": " Combinatorial Reasoning Proof of  For any permutation , can be any of . Thus, there are choices for . Once is known, then can be any of the remaining values, and there are possible values remaining. Thus, there are possibilities for . Continuing in this way, we have possibilities for , then possibilities for , etc., and so on until there is only one possible value for . Thus, there are permutations in .  "
+},
+{
+  "id": "sec-permutations-14",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-14",
+  "type": "Checkpoint",
+  "number": "2.5.7",
+  "title": "",
+  "body": " Discuss this proof. Does it make sense? Why or why not?  "
+},
+{
+  "id": "sec-permutations-15",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-15",
+  "type": "Checkpoint",
+  "number": "2.5.8",
+  "title": "",
+  "body": " Do you like this proof? Why or why not?  "
+},
+{
+  "id": "sec-permutations-16",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-16",
+  "type": "Proof",
+  "number": "2.5.2",
+  "title": "Recursive Proof of Theorem 2.5.6.",
+  "body": " Recursive Proof of  First, we can check that this is true for small values of . So, we will use a strategy we have used before: use that this is true for to deduce that it is true for , then use that it is true for to deduce that it is true for , and so on. In this way, we will show it is true for every .  For each , the value is at some position in . Let be the set of permutations in with , which we can also write as: Since is in only one position in each permutation, we have that Therefore, For any , removing from each permutation in results in a copy of . Thus, is obtained by taking and inserting an in the -th position of each permutation. Thus, for every , and hence   "
+},
+{
+  "id": "sec-permutations-17",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-17",
+  "type": "Checkpoint",
+  "number": "2.5.9",
+  "title": "",
+  "body": " Discuss this proof. Does the proof strategy make sense? Why or why not? Clarify any points of confusion.  "
+},
+{
+  "id": "sec-permutations-18",
+  "level": "2",
+  "url": "sec-permutations.html#sec-permutations-18",
+  "type": "Checkpoint",
+  "number": "2.5.10",
+  "title": "",
+  "body": " Which of these two proofs do you prefer? Why?  "
+},
+{
+  "id": "sec-cycles",
+  "level": "1",
+  "url": "sec-cycles.html",
+  "type": "Section",
+  "number": "2.6",
+  "title": "Permutations: Cycle Structure and Derangements",
+  "body": " Permutations: Cycle Structure and Derangements  "
+},
+{
+  "id": "sec-inversions",
+  "level": "1",
+  "url": "sec-inversions.html",
+  "type": "Section",
+  "number": "2.7",
+  "title": "Permutations: Inversions and Descents",
+  "body": " Permutations: Inversions and Descents  "
 },
 {
   "id": "ch-classification",

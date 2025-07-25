@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Proofs</title>
+<title>Permutations: Cycle Structure and Derangements</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -129,7 +129,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-foundational-questions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="introduction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="enumeration.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-permutations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="enumeration.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-inversions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} \newcommand{\Bin}{\mathrm{Bin}} \newcommand{\comp}{\mathrm{Comp}} \newcommand{\S}{\mathfrak{S}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -140,22 +140,22 @@ eBookConfig.enable_chatcodes =  false;
 <div class="ptx-page">
 <div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
-<li class="toc-item toc-chapter contains-active">
+<li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-foundational-questions.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Eight Foundational Questions</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-Proofs.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Proofs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Proofs.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Proofs</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
+<li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="enumeration.html" class="internal"><span class="codenumber">2</span> <span class="title">Enumeration</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-binarystrings.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Binary Strings</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-binomialcoefficients.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pauseforenumerationreflection.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Pause for Reflection</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-fibonacci.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Fibonacci Numbers</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-permutations.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Permutations</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-cycles.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Permutations: Cycle Structure and Derangements</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-cycles.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Permutations: Cycle Structure and Derangements</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-inversions.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Permutations: Inversions and Descents</span></a></div></li>
 </ul>
 </li>
@@ -168,46 +168,12 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-estimation.html" class="internal"><span class="codenumber">9</span> <span class="title">Estimation</span></a></div></li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-homework.html" class="internal"><span class="codenumber">10</span> <span class="title">Homework Problems and Essays</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-Proofs"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.2</span><span class="space"> </span><span class="title">Proofs</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-cycles"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.6</span><span class="space"> </span><span class="title">Permutations: Cycle Structure and Derangements</span>
 </h2>
-<div class="para logical" id="sec-Proofs-2">
-<div class="para">Some of you have had good experiences with proofs in the past, and some of you have had bad experiences with proofs, and some of you have not really had to engage in reading and writing proofs. In general, the idea of <em class="emphasis">mathematical proof</em> is misunderstood by students. This is partially because the concept of proof is subtle and subject to human interpretation, which leads to disagreements even among professional mathematicians (though there are many aspects of proof that are widely agreed on!). The key issue is that different people have different answers to the following three questions:</div>
-<ol class="decimal" id="sec-Proofs-2-2">
-<li id="sec-Proofs-2-2-1">
-<div class="para" id="p-derived-sec-Proofs-2-2-1">What is Mathematics?</div>
-<div class="autopermalink" data-description="Item 1"><a href="#sec-Proofs-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
-</li>
-<li id="sec-Proofs-2-2-2">
-<div class="para" id="p-derived-sec-Proofs-2-2-2">What is the purpose of Mathematics?</div>
-<div class="autopermalink" data-description="Item 2"><a href="#sec-Proofs-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
-</li>
-<li id="sec-Proofs-2-2-3">
-<div class="para" id="p-derived-sec-Proofs-2-2-3">What are the criteria for Mathematics to be good or bad?</div>
-<div class="autopermalink" data-description="Item 3"><a href="#sec-Proofs-2-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-Proofs-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<details id="sec-Proofs-3" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-Proofs-3-1">How would you answer the second question?<div class="autopermalink" data-description="Paragraph"><a href="#sec-Proofs-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Checkpoint 1.2.1"><a href="#sec-Proofs-3" title="Copy heading and permalink for Checkpoint 1.2.1" aria-label="Copy heading and permalink for Checkpoint 1.2.1">🔗</a></div></article></details><div class="para" id="sec-Proofs-4">In this class, we will use two frameworks to guide our answers to these questions in the context of combinatorics and graph theory. The first framework is <em class="emphasis">Formal Functionalism</em>, a philosophy of Mathematics described by Saunders MacLane. His starting point is: <blockquote class="blockquote" id="sec-Proofs-4-2">
-<div class="para" id="sec-Proofs-4-2-1">[Mathematical] activities... involve counting, timing, measuring, and moving, using numbers, intervals, distances, and shapes. Facts about these operations and ideas are gradually assembled, calculations are made, until finally there develops an extensive body of knowledge, based on a few central ideas and providing formal rules for calculation. Eventually this body of knowledge is organized by a formal system of concepts, axioms, definitions, and proofs.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Proofs-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Quotation"><a href="#sec-Proofs-4-2" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
-</blockquote> The following table is from MacLane’s book "Mathematics: Form and Function", illustrating this progression for different human activities.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Proofs-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<figure class="figure figure-like" id="fig-maclane"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/maclane.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.2<span class="period">.</span></span><span class="space"> </span>Table of human activities from MacLane’s book.<div class="autopermalink" data-description="Figure 1.2.2"><a href="#fig-maclane" title="Copy heading and permalink for Figure 1.2.2" aria-label="Copy heading and permalink for Figure 1.2.2">🔗</a></div></figcaption></figure><div class="para" id="sec-Proofs-6">The second framework is David Tall’s <em class="emphasis">Three Worlds of Mathematics</em> framework. Tall asserts that there are three different ways of doing mathematics, three "worlds", and each is related but independent. These worlds are the <em class="emphasis">Embodied</em>, <em class="emphasis">Symbolic</em>, and <em class="emphasis">Formal</em> worlds of mathematics.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Proofs-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<figure class="figure figure-like" id="fig-tall"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/worlds-of-mathematics.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.3<span class="period">.</span></span><span class="space"> </span>Figure illustrating Tall’s Three Worlds framework, from <a class="external" href="https://math4teaching.com/the-three-worlds-of-mathematicscs/" target="_blank">this page</a><details class="ptx-footnote" aria-live="polite" id="fig-tall-1-2"><summary class="ptx-footnote__number" title="Footnote 1.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="fig-tall-1-2"><code class="code-inline tex2jax_ignore">math4teaching.com/the-three-worlds-of-mathematicscs/</code></div></details>.<div class="autopermalink" data-description="Figure 1.2.3"><a href="#fig-tall" title="Copy heading and permalink for Figure 1.2.3" aria-label="Copy heading and permalink for Figure 1.2.3">🔗</a></div></figcaption></figure><div class="para" id="sec-Proofs-8">As we proceed to learn about combinatorics and graph theory, we will also discuss the ways in which various concepts are related to simple everyday activities (as in MacLane’s table) and we will also discuss how our work fits within Tall’s Three Worlds.<div class="autopermalink" data-description="Paragraph"><a href="#sec-Proofs-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Section 1.2: Proofs"><a href="#sec-Proofs" title="Copy heading and permalink for Section 1.2: Proofs" aria-label="Copy heading and permalink for Section 1.2: Proofs">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Section 2.6: Permutations: Cycle Structure and Derangements"><a href="#sec-cycles" title="Copy heading and permalink for Section 2.6: Permutations: Cycle Structure and Derangements" aria-label="Copy heading and permalink for Section 2.6: Permutations: Cycle Structure and Derangements">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="sec-foundational-questions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="enumeration.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-permutations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-inversions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
