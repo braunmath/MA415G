@@ -475,7 +475,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.4",
   "title": "Fibonacci Numbers",
-  "body": " Fibonacci Numbers  Fibonacci numbers are a classic topic in combinatorics. They count many different objects, and their history is discussed at length on their wikipedia page .    Let and let . Define the sequence using these initial conditions and the recurrence This sequence is called the Fibonacci sequence and the numbers in the sequence are called the Fibonacci numbers .     With your group, calculate the first 10 Fibonacci numbers.   "
+  "body": " Fibonacci Numbers  Fibonacci numbers are a classic topic in combinatorics. They count many different objects, and their history is discussed at length on their wikipedia page .    Let and let . Define the sequence using these initial conditions and the recurrence This sequence is called the Fibonacci sequence and the numbers in the sequence are called the Fibonacci numbers .     With your group, calculate the first 10 Fibonacci numbers.   The Fibonacci numbers arise throughout mathematics. One of the basic problems they solve is counting integer compositions.    A composition of a positive integer is an ordered sum where each is a positive integer. We call each a part of the composition.     Each of and and are compositions of .    List all the compositions of for .   Let denote the set of compositions of using parts from the set . So, for example, the set of all compositions of is .   List all the compositions in for .     For all positive integers , we have      We use the technique of writing the set as a disjoint union. Observe that is equal to and therefore Since and , the number of compositions using parts from has the same initial conditions as the Fibonacci numbers starting at and satisfies the same recurrence. Thus, our proof is complete.    Discuss the proof above with your group. Does the disjoint union make sense? Use the lists of compositions that you generated to check this for small values of .   Our final topic for Fibonacci numbers is a connection with binomial coefficients.    For each positive integer , we have      Discuss with your group: how might you prove this? What strategy could you use? How could binomial coefficients be related to compositions using ones and twos?    The number of compositions of using copies of is given by . Since every element of uses at most parts equal to , the sum counts all the compositions.    Discuss this proof. Does it make sense? Why or why not?    Rewrite the proof above using the strategy to express the set as a disjoint union of sets of compositions with a fixed number of 's.   "
 },
 {
   "id": "def-fibonacci",
@@ -494,6 +494,114 @@ var ptx_lunr_docs = [
   "number": "2.4.2",
   "title": "",
   "body": " With your group, calculate the first 10 Fibonacci numbers.  "
+},
+{
+  "id": "def-composition",
+  "level": "2",
+  "url": "sec-fibonacci.html#def-composition",
+  "type": "Definition",
+  "number": "2.4.3",
+  "title": "",
+  "body": "  A composition of a positive integer is an ordered sum where each is a positive integer. We call each a part of the composition.   "
+},
+{
+  "id": "sec-fibonacci-7",
+  "level": "2",
+  "url": "sec-fibonacci.html#sec-fibonacci-7",
+  "type": "Example",
+  "number": "2.4.4",
+  "title": "",
+  "body": " Each of and and are compositions of .  "
+},
+{
+  "id": "sec-fibonacci-8",
+  "level": "2",
+  "url": "sec-fibonacci.html#sec-fibonacci-8",
+  "type": "Checkpoint",
+  "number": "2.4.5",
+  "title": "",
+  "body": " List all the compositions of for .  "
+},
+{
+  "id": "sec-fibonacci-10",
+  "level": "2",
+  "url": "sec-fibonacci.html#sec-fibonacci-10",
+  "type": "Checkpoint",
+  "number": "2.4.6",
+  "title": "",
+  "body": " List all the compositions in for .  "
+},
+{
+  "id": "thm-fibonaccicompositions",
+  "level": "2",
+  "url": "sec-fibonacci.html#thm-fibonaccicompositions",
+  "type": "Theorem",
+  "number": "2.4.7",
+  "title": "",
+  "body": "  For all positive integers , we have    "
+},
+{
+  "id": "sec-fibonacci-12",
+  "level": "2",
+  "url": "sec-fibonacci.html#sec-fibonacci-12",
+  "type": "Proof",
+  "number": "2.4.1",
+  "title": "",
+  "body": " We use the technique of writing the set as a disjoint union. Observe that is equal to and therefore Since and , the number of compositions using parts from has the same initial conditions as the Fibonacci numbers starting at and satisfies the same recurrence. Thus, our proof is complete.  "
+},
+{
+  "id": "sec-fibonacci-13",
+  "level": "2",
+  "url": "sec-fibonacci.html#sec-fibonacci-13",
+  "type": "Checkpoint",
+  "number": "2.4.8",
+  "title": "",
+  "body": " Discuss the proof above with your group. Does the disjoint union make sense? Use the lists of compositions that you generated to check this for small values of .  "
+},
+{
+  "id": "thm-fibonacciasbinomials",
+  "level": "2",
+  "url": "sec-fibonacci.html#thm-fibonacciasbinomials",
+  "type": "Theorem",
+  "number": "2.4.9",
+  "title": "",
+  "body": "  For each positive integer , we have    "
+},
+{
+  "id": "sec-fibonacci-16",
+  "level": "2",
+  "url": "sec-fibonacci.html#sec-fibonacci-16",
+  "type": "Checkpoint",
+  "number": "2.4.10",
+  "title": "",
+  "body": " Discuss with your group: how might you prove this? What strategy could you use? How could binomial coefficients be related to compositions using ones and twos?  "
+},
+{
+  "id": "sec-fibonacci-17",
+  "level": "2",
+  "url": "sec-fibonacci.html#sec-fibonacci-17",
+  "type": "Proof",
+  "number": "2.4.2",
+  "title": "",
+  "body": " The number of compositions of using copies of is given by . Since every element of uses at most parts equal to , the sum counts all the compositions.  "
+},
+{
+  "id": "sec-fibonacci-18",
+  "level": "2",
+  "url": "sec-fibonacci.html#sec-fibonacci-18",
+  "type": "Checkpoint",
+  "number": "2.4.11",
+  "title": "",
+  "body": " Discuss this proof. Does it make sense? Why or why not?  "
+},
+{
+  "id": "sec-fibonacci-19",
+  "level": "2",
+  "url": "sec-fibonacci.html#sec-fibonacci-19",
+  "type": "Checkpoint",
+  "number": "2.4.12",
+  "title": "",
+  "body": " Rewrite the proof above using the strategy to express the set as a disjoint union of sets of compositions with a fixed number of 's.  "
 },
 {
   "id": "ch-classification",
@@ -565,7 +673,7 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "10",
   "title": "Homework Problems and Essays",
-  "body": " Homework Problems and Essays   P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that        P2  In this problem, we explore two more properties of binomial coefficients. Equations such as these are known as combinatorial identities , because they are equalities of expressions involving combinatorial values.   Prove that by finding a bijection between and .    Using the technique of disjoint union decompositions, prove that for any , we have        Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P3      P4      P5      P6      P7      P8      P9      P10      P11      Essay 2      P12      P13      P14      P15      P16      P17      Essay 3      P18      P19      P20      P21      P22      P23      Essay 4      P24      P25      P26      P27      P28      P29      Essay 5      P30      P31      P32      P33      P34      P35      Essay 6      P36      P37      P38      P39      P40      End-of-Class Reflection     "
+  "body": " Homework Problems and Essays   P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that        P2  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have     Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P3  Prove that by finding a bijection between and .    P4   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)    P5  Give a combinatorial proof showing that     P6  For each positive integer , express in terms of Fibonacci numbers the number of sequences with each , such that     P7      P8      P9      P10      P11      Essay 2      P12      P13      P14      P15      P16      P17      Essay 3      P18      P19      P20      P21      P22      P23      Essay 4      P24      P25      P26      P27      P28      P29      Essay 5      P30      P31      P32      P33      P34      P35      Essay 6      P36      P37      P38      P39      P40      End-of-Class Reflection     "
 },
 {
   "id": "ch-homework-2",
@@ -583,7 +691,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.2",
   "title": "P2.",
-  "body": " P2  In this problem, we explore two more properties of binomial coefficients. Equations such as these are known as combinatorial identities , because they are equalities of expressions involving combinatorial values.   Prove that by finding a bijection between and .    Using the technique of disjoint union decompositions, prove that for any , we have      "
+  "body": " P2  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have   "
 },
 {
   "id": "ch-homework-4",
@@ -601,7 +709,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.4",
   "title": "P3.",
-  "body": " P3    "
+  "body": " P3  Prove that by finding a bijection between and .  "
 },
 {
   "id": "ch-homework-6",
@@ -610,7 +718,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.5",
   "title": "P4.",
-  "body": " P4    "
+  "body": " P4   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)  "
 },
 {
   "id": "ch-homework-7",
@@ -619,7 +727,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.6",
   "title": "P5.",
-  "body": " P5    "
+  "body": " P5  Give a combinatorial proof showing that   "
 },
 {
   "id": "ch-homework-8",
@@ -628,7 +736,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.7",
   "title": "P6.",
-  "body": " P6    "
+  "body": " P6  For each positive integer , express in terms of Fibonacci numbers the number of sequences with each , such that   "
 },
 {
   "id": "ch-homework-9",
