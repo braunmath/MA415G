@@ -3,6 +3,9 @@
 <section xml:id="sec-binarystrings">
   <title>Binary Strings</title>
 
+<p>
+  We will begin with one of the most fundamental sets in combinatorics.
+</p>
 
   <definition xml:id="def-binarystring">
     <statement>

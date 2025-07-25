@@ -1,6 +1,10 @@
 <section xml:id="sec-binomialcoefficients">
     <title>Binomial Coefficients</title>
     
+<p>
+    Binary strings are closely related to subsets of finite sets, which is our next topic.
+</p>
+
     <definition xml:id="def-subset">
         <statement>
             <p>
