@@ -748,13 +748,76 @@ var ptx_lunr_docs = [
   "body": " Permutations: Inversions and Descents  "
 },
 {
-  "id": "ch-classification",
+  "id": "sec-induction1",
   "level": "1",
-  "url": "ch-classification.html",
-  "type": "Chapter",
-  "number": "3",
-  "title": "Classification",
-  "body": " Classification  "
+  "url": "sec-induction1.html",
+  "type": "Section",
+  "number": "2.8",
+  "title": "Induction: Part 1",
+  "body": " Induction: Part 1  "
+},
+{
+  "id": "sec-graphbasics",
+  "level": "1",
+  "url": "sec-graphbasics.html",
+  "type": "Section",
+  "number": "3.1",
+  "title": "Graphs and Networks",
+  "body": " Graphs and Networks  "
+},
+{
+  "id": "sec-euleriancircuits",
+  "level": "1",
+  "url": "sec-euleriancircuits.html",
+  "type": "Section",
+  "number": "3.2",
+  "title": "Eulerian Circuits",
+  "body": " Eulerian Circuits  "
+},
+{
+  "id": "sec-induction2",
+  "level": "1",
+  "url": "sec-induction2.html",
+  "type": "Section",
+  "number": "3.3",
+  "title": "Induction: Part 2",
+  "body": " Induction: Part 2  "
+},
+{
+  "id": "sec-trees",
+  "level": "1",
+  "url": "sec-trees.html",
+  "type": "Section",
+  "number": "3.4",
+  "title": "Trees",
+  "body": " Trees  "
+},
+{
+  "id": "sec-prufercayley",
+  "level": "1",
+  "url": "sec-prufercayley.html",
+  "type": "Section",
+  "number": "3.5",
+  "title": "Prufer Codes and Cayley’s Theorem",
+  "body": " Prufer Codes and Cayley's Theorem  "
+},
+{
+  "id": "sec-degreesequences",
+  "level": "1",
+  "url": "sec-degreesequences.html",
+  "type": "Section",
+  "number": "3.6",
+  "title": "Degree Sequences",
+  "body": " Degree Sequences  "
+},
+{
+  "id": "sec-stacksortable",
+  "level": "1",
+  "url": "sec-stacksortable.html",
+  "type": "Section",
+  "number": "3.7",
+  "title": "Stack Sortable Permutations",
+  "body": " Stack Sortable Permutations  "
 },
 {
   "id": "ch-expectation",
