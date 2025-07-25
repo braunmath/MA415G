@@ -196,7 +196,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Binomial Coefficients",
-  "body": " Binomial Coefficients    Given a set , a subset of is a set of elements of . The collection of all subsets of is called the power set of and is denoted by . We write to denote the set of integers between and .     Suppose that we have the set . Then the set is a subset of , while is not a subset of . Thus, we would write and we would write .    Discuss the above example and the notation used in it.     There is a one-to-one correspondence between the binary strings in and the subsets of .     We will produce a map from binary strings to subsets of . We will write this map as a function Given a binary string , if , then we include in . This produces a subset of .  What do we need to check to verify that we have a one-to-one correspondence? We need to check that:   this map is well-defined (each binary string goes to only one set),    this map is one-to-one (no two strings to go the same subset), and    this map is onto (every subset is mapped to by some string).    Once these three things are checked, then the proof is complete.   With your group, make a logical argument to justfy why each of the three conditions above in the proof hold, which completes our proof that is a one-to-one correspondence.   One-to-one correspondences have a special name.    Given two sets and , a bijection is a map from to that is a one-to-one correspondence.      If there is a bijection from to , then .           Observe that we use the notation for the power set of because when is finite, we have .  We next introduce some of the best numbers in the entire universe!!!! . Seriously, they are totally awesome.    The number of subsets of of size is denoted by and is called the -binomial coefficient. We define .     Show that .    Show that .    Show that .    What is ?           We know that is the cardinality of the power set of . Further, we know that in the sum each subset is counted once by a unique summand. Thus, each of these expressions counts the cardinality of the power set of , hence they are equal.    Discuss this proof: does it make sense? Why or why not? Note the strategy is to count the number of subsets of in two different ways, which leads to two different symbolic formulas for the total number.     There are binary strings of length with ones.     There is a one-to-one correspondence between binary strings of length with ones and subsets of with elements. Thus, these two sets have the same cardinality, which is .   Binomial coefficients form a beautiful triangle called the arithmetical triangle , also known as Pascal's triangle , which happens because of the following arithmetic recurrence .    For all , we have      Let denote the set of all -element subset of . We can write this as a disjoint union: Therefore, we have that the cardinality of the left-hand set is the sum of the cardinalities of the two right-hand sets, which is exactly the formula claimed in the theorem.    Check that is true for . Then, give a logical argument (a proof!) that it is true for every value of and .   Review some of the illustrations at the wikipedia page for Pascal's triangle .  One of the most important roles played by the binomial coefficients, and the reason for their name, is that they appear in coefficients of polynomials that are powers of binomials.          If we distribute all the factors in but we do NOT commute any variables, then each term is an ordered sequence of variables, each either or . For example, If we replace each with a and each with a , then each of these terms corresponds to a binary string. Therefore, the coefficient of in is the number of binary strings with ones, which is , as desired.    Discuss the proof above with your group. Work out some complete examples for small values of .          Finally, you might be wondering if there is a formula for binomial coefficients, and yes, there is. However, it is important to be able to think about these numbers using both their combinatorial structure (which we have been doing) and using the following formula.         You will see a proof of this later in the course on a homework problem.  "
+  "body": " Binomial Coefficients    Given a set , a subset of is a set of elements of . The collection of all subsets of is called the power set of and is denoted by . We write to denote the set of integers between and .     Suppose that we have the set . Then the set is a subset of , while is not a subset of . Thus, we would write and we would write .    Discuss the above example and the notation used in it.     There is a one-to-one correspondence between the binary strings in and the subsets of .     We will produce a map from binary strings to subsets of . We will write this map as a function Given a binary string , if , then we include in . This produces a subset of .  What do we need to check to verify that we have a one-to-one correspondence? We need to check that:   this map is well-defined (each binary string goes to only one set),    this map is one-to-one (no two strings to go the same subset), and    this map is onto (every subset is mapped to by some string).    Once these three things are checked, then the proof is complete.   With your group, make a logical argument to justfy why each of the three conditions above in the proof hold, which completes our proof that is a one-to-one correspondence.   One-to-one correspondences have a special name.    Given two sets and , a bijection is a map from to that is a one-to-one correspondence.      If there is a bijection from to , then .           Observe that we use the notation for the power set of because when is finite, we have .  We next introduce some of the best numbers in the entire universe!!!! . Seriously, they are totally awesome.    The number of subsets of of size is denoted by and is called the -binomial coefficient. We define .     Show that .    Show that .    Show that .    What is ?           We know that is the cardinality of the power set of . Further, we know that in the sum each subset is counted once by a unique summand. Thus, each of these expressions counts the cardinality of the power set of , hence they are equal.    Discuss this proof: does it make sense? Why or why not? Note the strategy is to count the number of subsets of in two different ways, which leads to two different symbolic formulas for the total number.     There are binary strings of length with ones.     There is a one-to-one correspondence between binary strings of length with ones and subsets of with elements. Thus, these two sets have the same cardinality, which is .   Binomial coefficients form a beautiful triangle called the arithmetical triangle , also known as Pascal's triangle , which happens because of the following arithmetic recurrence .    For all , we have     Let denote the set of all -element subset of .   We can write this as a disjoint union: Therefore, we have that the cardinality of the left-hand set is the sum of the cardinalities of the two right-hand sets, which is exactly the formula claimed in the theorem.    Check that is true for . Then, give a logical argument (a proof!) that it is true for every value of and .   Review some of the illustrations at the wikipedia page for Pascal's triangle .  One of the most important roles played by the binomial coefficients, and the reason for their name, is that they appear in coefficients of polynomials that are powers of binomials.          If we distribute all the factors in but we do NOT commute any variables, then each term is an ordered sequence of variables, each either or . For example, If we replace each with a and each with a , then each of these terms corresponds to a binary string. Therefore, the coefficient of in is the number of binary strings with ones, which is , as desired.    Discuss the proof above with your group. Work out some complete examples for small values of .          Finally, you might be wondering if there is a formula for binomial coefficients, and yes, there is. However, it is important to be able to think about these numbers using both their combinatorial structure (which we have been doing) and using the following formula.         You will see a proof of this later in the course on a homework problem.  "
 },
 {
   "id": "def-subset",
@@ -379,18 +379,18 @@ var ptx_lunr_docs = [
   "body": "  For all , we have    "
 },
 {
-  "id": "sec-binomialcoefficients-26",
-  "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-26",
-  "type": "Proof",
-  "number": "2.2.4",
-  "title": "",
-  "body": " Let denote the set of all -element subset of . We can write this as a disjoint union: Therefore, we have that the cardinality of the left-hand set is the sum of the cardinalities of the two right-hand sets, which is exactly the formula claimed in the theorem.  "
-},
-{
   "id": "sec-binomialcoefficients-27",
   "level": "2",
   "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-27",
+  "type": "Proof",
+  "number": "2.2.4",
+  "title": "",
+  "body": " We can write this as a disjoint union: Therefore, we have that the cardinality of the left-hand set is the sum of the cardinalities of the two right-hand sets, which is exactly the formula claimed in the theorem.  "
+},
+{
+  "id": "sec-binomialcoefficients-28",
+  "level": "2",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-28",
   "type": "Checkpoint",
   "number": "2.2.18",
   "title": "",
@@ -406,18 +406,18 @@ var ptx_lunr_docs = [
   "body": "      "
 },
 {
-  "id": "sec-binomialcoefficients-31",
+  "id": "sec-binomialcoefficients-32",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-31",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-32",
   "type": "Proof",
   "number": "2.2.5",
   "title": "",
   "body": " If we distribute all the factors in but we do NOT commute any variables, then each term is an ordered sequence of variables, each either or . For example, If we replace each with a and each with a , then each of these terms corresponds to a binary string. Therefore, the coefficient of in is the number of binary strings with ones, which is , as desired.  "
 },
 {
-  "id": "sec-binomialcoefficients-32",
+  "id": "sec-binomialcoefficients-33",
   "level": "2",
-  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-32",
+  "url": "sec-binomialcoefficients.html#sec-binomialcoefficients-33",
   "type": "Checkpoint",
   "number": "2.2.20",
   "title": "",
@@ -530,6 +530,438 @@ var ptx_lunr_docs = [
   "number": "9",
   "title": "Estimation",
   "body": " Estimation  "
+},
+{
+  "id": "ch-homework",
+  "level": "1",
+  "url": "ch-homework.html",
+  "type": "Chapter",
+  "number": "10",
+  "title": "Homework Problems and Essays",
+  "body": " Homework Problems and Essays   P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that        P2  In this problem, we explore two more properties of binomial coefficients. Equations such as these are known as combinatorial identities , because they are equalities of expressions involving combinatorial values.   Prove that by finding a bijection between and .    Using the technique of disjoint union decompositions, prove that for any , we have        Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P3      P4      P5      P6      P7      P8      P9      P10      P11      Essay 2      P12      P13      P14      P15      P16      P17      Essay 3      P18      P19      P20      P21      P22      P23      Essay 4      P24      P25      P26      P27      P28      P29      Essay 5      P30      P31      P32      P33      P34      P35      Essay 6      P36      P37      P38      P39      P40      End-of-Class Reflection     "
+},
+{
+  "id": "ch-homework-2",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-2",
+  "type": "Problem",
+  "number": "10.0.1",
+  "title": "P1.",
+  "body": " P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that      "
+},
+{
+  "id": "ch-homework-3",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-3",
+  "type": "Problem",
+  "number": "10.0.2",
+  "title": "P2.",
+  "body": " P2  In this problem, we explore two more properties of binomial coefficients. Equations such as these are known as combinatorial identities , because they are equalities of expressions involving combinatorial values.   Prove that by finding a bijection between and .    Using the technique of disjoint union decompositions, prove that for any , we have      "
+},
+{
+  "id": "ch-homework-4",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-4",
+  "type": "Problem",
+  "number": "10.0.3",
+  "title": "Essay 1.",
+  "body": " Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).  "
+},
+{
+  "id": "ch-homework-5",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-5",
+  "type": "Problem",
+  "number": "10.0.4",
+  "title": "P3.",
+  "body": " P3    "
+},
+{
+  "id": "ch-homework-6",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-6",
+  "type": "Problem",
+  "number": "10.0.5",
+  "title": "P4.",
+  "body": " P4    "
+},
+{
+  "id": "ch-homework-7",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-7",
+  "type": "Problem",
+  "number": "10.0.6",
+  "title": "P5.",
+  "body": " P5    "
+},
+{
+  "id": "ch-homework-8",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-8",
+  "type": "Problem",
+  "number": "10.0.7",
+  "title": "P6.",
+  "body": " P6    "
+},
+{
+  "id": "ch-homework-9",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-9",
+  "type": "Problem",
+  "number": "10.0.8",
+  "title": "P7.",
+  "body": " P7    "
+},
+{
+  "id": "ch-homework-10",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-10",
+  "type": "Problem",
+  "number": "10.0.9",
+  "title": "P8.",
+  "body": " P8    "
+},
+{
+  "id": "ch-homework-11",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-11",
+  "type": "Problem",
+  "number": "10.0.10",
+  "title": "P9.",
+  "body": " P9    "
+},
+{
+  "id": "ch-homework-12",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-12",
+  "type": "Problem",
+  "number": "10.0.11",
+  "title": "P10.",
+  "body": " P10    "
+},
+{
+  "id": "ch-homework-13",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-13",
+  "type": "Problem",
+  "number": "10.0.12",
+  "title": "P11.",
+  "body": " P11    "
+},
+{
+  "id": "ch-homework-14",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-14",
+  "type": "Problem",
+  "number": "10.0.13",
+  "title": "Essay 2.",
+  "body": " Essay 2    "
+},
+{
+  "id": "ch-homework-15",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-15",
+  "type": "Problem",
+  "number": "10.0.14",
+  "title": "P12.",
+  "body": " P12    "
+},
+{
+  "id": "ch-homework-16",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-16",
+  "type": "Problem",
+  "number": "10.0.15",
+  "title": "P13.",
+  "body": " P13    "
+},
+{
+  "id": "ch-homework-17",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-17",
+  "type": "Problem",
+  "number": "10.0.16",
+  "title": "P14.",
+  "body": " P14    "
+},
+{
+  "id": "ch-homework-18",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-18",
+  "type": "Problem",
+  "number": "10.0.17",
+  "title": "P15.",
+  "body": " P15    "
+},
+{
+  "id": "ch-homework-19",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-19",
+  "type": "Problem",
+  "number": "10.0.18",
+  "title": "P16.",
+  "body": " P16    "
+},
+{
+  "id": "ch-homework-20",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-20",
+  "type": "Problem",
+  "number": "10.0.19",
+  "title": "P17.",
+  "body": " P17    "
+},
+{
+  "id": "ch-homework-21",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-21",
+  "type": "Problem",
+  "number": "10.0.20",
+  "title": "Essay 3.",
+  "body": " Essay 3    "
+},
+{
+  "id": "ch-homework-22",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-22",
+  "type": "Problem",
+  "number": "10.0.21",
+  "title": "P18.",
+  "body": " P18    "
+},
+{
+  "id": "ch-homework-23",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-23",
+  "type": "Problem",
+  "number": "10.0.22",
+  "title": "P19.",
+  "body": " P19    "
+},
+{
+  "id": "ch-homework-24",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-24",
+  "type": "Problem",
+  "number": "10.0.23",
+  "title": "P20.",
+  "body": " P20    "
+},
+{
+  "id": "ch-homework-25",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-25",
+  "type": "Problem",
+  "number": "10.0.24",
+  "title": "P21.",
+  "body": " P21    "
+},
+{
+  "id": "ch-homework-26",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-26",
+  "type": "Problem",
+  "number": "10.0.25",
+  "title": "P22.",
+  "body": " P22    "
+},
+{
+  "id": "ch-homework-27",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-27",
+  "type": "Problem",
+  "number": "10.0.26",
+  "title": "P23.",
+  "body": " P23    "
+},
+{
+  "id": "ch-homework-28",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-28",
+  "type": "Problem",
+  "number": "10.0.27",
+  "title": "Essay 4.",
+  "body": " Essay 4    "
+},
+{
+  "id": "ch-homework-29",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-29",
+  "type": "Problem",
+  "number": "10.0.28",
+  "title": "P24.",
+  "body": " P24    "
+},
+{
+  "id": "ch-homework-30",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-30",
+  "type": "Problem",
+  "number": "10.0.29",
+  "title": "P25.",
+  "body": " P25    "
+},
+{
+  "id": "ch-homework-31",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-31",
+  "type": "Problem",
+  "number": "10.0.30",
+  "title": "P26.",
+  "body": " P26    "
+},
+{
+  "id": "ch-homework-32",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-32",
+  "type": "Problem",
+  "number": "10.0.31",
+  "title": "P27.",
+  "body": " P27    "
+},
+{
+  "id": "ch-homework-33",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-33",
+  "type": "Problem",
+  "number": "10.0.32",
+  "title": "P28.",
+  "body": " P28    "
+},
+{
+  "id": "ch-homework-34",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-34",
+  "type": "Problem",
+  "number": "10.0.33",
+  "title": "P29.",
+  "body": " P29    "
+},
+{
+  "id": "ch-homework-35",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-35",
+  "type": "Problem",
+  "number": "10.0.34",
+  "title": "Essay 5.",
+  "body": " Essay 5    "
+},
+{
+  "id": "ch-homework-36",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-36",
+  "type": "Problem",
+  "number": "10.0.35",
+  "title": "P30.",
+  "body": " P30    "
+},
+{
+  "id": "ch-homework-37",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-37",
+  "type": "Problem",
+  "number": "10.0.36",
+  "title": "P31.",
+  "body": " P31    "
+},
+{
+  "id": "ch-homework-38",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-38",
+  "type": "Problem",
+  "number": "10.0.37",
+  "title": "P32.",
+  "body": " P32    "
+},
+{
+  "id": "ch-homework-39",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-39",
+  "type": "Problem",
+  "number": "10.0.38",
+  "title": "P33.",
+  "body": " P33    "
+},
+{
+  "id": "ch-homework-40",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-40",
+  "type": "Problem",
+  "number": "10.0.39",
+  "title": "P34.",
+  "body": " P34    "
+},
+{
+  "id": "ch-homework-41",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-41",
+  "type": "Problem",
+  "number": "10.0.40",
+  "title": "P35.",
+  "body": " P35    "
+},
+{
+  "id": "ch-homework-42",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-42",
+  "type": "Problem",
+  "number": "10.0.41",
+  "title": "Essay 6.",
+  "body": " Essay 6    "
+},
+{
+  "id": "ch-homework-43",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-43",
+  "type": "Problem",
+  "number": "10.0.42",
+  "title": "P36.",
+  "body": " P36    "
+},
+{
+  "id": "ch-homework-44",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-44",
+  "type": "Problem",
+  "number": "10.0.43",
+  "title": "P37.",
+  "body": " P37    "
+},
+{
+  "id": "ch-homework-45",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-45",
+  "type": "Problem",
+  "number": "10.0.44",
+  "title": "P38.",
+  "body": " P38    "
+},
+{
+  "id": "ch-homework-46",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-46",
+  "type": "Problem",
+  "number": "10.0.45",
+  "title": "P39.",
+  "body": " P39    "
+},
+{
+  "id": "ch-homework-47",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-47",
+  "type": "Problem",
+  "number": "10.0.46",
+  "title": "P40.",
+  "body": " P40    "
+},
+{
+  "id": "ch-homework-48",
+  "level": "2",
+  "url": "ch-homework.html#ch-homework-48",
+  "type": "Problem",
+  "number": "10.0.47",
+  "title": "End-of-Class Reflection.",
+  "body": " End-of-Class Reflection    "
 }
 ]
 
