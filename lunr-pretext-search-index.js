@@ -469,6 +469,33 @@ var ptx_lunr_docs = [
   "body": " Recall the picture representing Tall's Three Worlds framework given in . Where in these three worlds of mathematics have we been situated so far with the math we have done?  "
 },
 {
+  "id": "sec-fibonacci",
+  "level": "1",
+  "url": "sec-fibonacci.html",
+  "type": "Section",
+  "number": "2.4",
+  "title": "Fibonacci Numbers",
+  "body": " Fibonacci Numbers  Fibonacci numbers are a classic topic in combinatorics. They count many different objects, and their history is discussed at length on their wikipedia page .    Let and let . Define the sequence using these initial conditions and the recurrence This sequence is called the Fibonacci sequence and the numbers in the sequence are called the Fibonacci numbers .     With your group, calculate the first 10 Fibonacci numbers.   "
+},
+{
+  "id": "def-fibonacci",
+  "level": "2",
+  "url": "sec-fibonacci.html#def-fibonacci",
+  "type": "Definition",
+  "number": "2.4.1",
+  "title": "",
+  "body": "  Let and let . Define the sequence using these initial conditions and the recurrence This sequence is called the Fibonacci sequence and the numbers in the sequence are called the Fibonacci numbers .   "
+},
+{
+  "id": "sec-fibonacci-4",
+  "level": "2",
+  "url": "sec-fibonacci.html#sec-fibonacci-4",
+  "type": "Checkpoint",
+  "number": "2.4.2",
+  "title": "",
+  "body": " With your group, calculate the first 10 Fibonacci numbers.  "
+},
+{
   "id": "ch-classification",
   "level": "1",
   "url": "ch-classification.html",
