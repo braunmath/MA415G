@@ -3,6 +3,7 @@
 <section xml:id="sec-binarystrings">
   <title>Binary Strings</title>
 
+
   <definition xml:id="def-binarystring">
     <statement>
       <p>
