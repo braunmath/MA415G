@@ -1,0 +1,28 @@
+<section xml:id="sec-fibonacci">
+    <title>Fibonacci Numbers</title>
+    <p>
+        Fibonacci numbers are a classic topic in combinatorics.
+        They count many different objects, and their history is discussed at length on <url href="https://en.wikipedia.org/wiki/Fibonacci_sequence"> their wikipedia page </url>.
+    </p>
+
+    <definition xml:id="def-fibonacci">
+        <statement>
+            <p>
+                Let <m>F_0:=1</m> and let <m>F_1:=1</m>.
+                Define the sequence <m>F_0,F_1,F_2,\ldots</m> using these initial conditions and the recurrence
+                <me>
+                    F_n = F_{n-1}+F_{n-2} \, .
+                </me>          
+                This sequence is called the <em>Fibonacci sequence</em> and the numbers in the sequence are called the <em>Fibonacci numbers</em>.      
+            </p>
+        </statement>
+    </definition>
+
+    <exercise>
+        <p>
+            With your group, calculate the first 10 Fibonacci numbers.
+        </p>
+    </exercise>
+
+
+</section>
