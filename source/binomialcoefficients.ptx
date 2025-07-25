@@ -218,9 +218,11 @@ Therefore, we have that the cardinality of the left-hand set is the sum of the c
     </p>
 </exercise>
 
+<remark>
 <p>
     Review some of the illustrations at <url href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">the wikipedia page for Pascal's triangle</url>.
 </p>
+</remark>
 
 <p>
     One of the most important roles played by the binomial coefficients, and the reason for their name, is that they appear in coefficients of polynomials that are powers of binomials.

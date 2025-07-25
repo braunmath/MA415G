@@ -1,9 +1,39 @@
 <section xml:id="sec-pauseforenumerationreflection">
     <title>Pause for Reflection</title>
 
+   <p>
+        So far, we have focused our study on three types of combinatorial objects:
+        <ul>
+            <li>
+                <p>
+                    binary strings
+                </p>
+            </li>
+            <li>
+                <p>
+                    subsets of a finite set
+                </p>
+            </li>
+            <li>
+                <p>
+                    integer compositions
+                </p>
+            </li>
+        </ul>
+        These objects have naturally led us to identify and study integer sequences and triangles, such as powers of two, binomial coefficients, and Fibonacci numbers.
+    </p>
+
+    <remark>
+        <p>
+        One aspect of combinatorics and graph theory that makes it have a different feel than courses such as advanced calculus, modern algebra, topology, or geometry is that combinatorics and graph theory tend to initially feel "broad" instead of "deep".
+        So, rather than picking one topic, such as binomial coefficients, and spending half of the course studying these, we will instead survey a broad range of combinatorial objects.
+        Each family of combinatorial objects that we study will lead us to different integer sequences and triangles, and to different strategies for enumeration.
+        While every subject in Mathematics eventually becomes both broad and deep, there are differences between subjects in how they are perceived by students upon a first encounter.
+        </p>
+    </remark>
+
     <p>
-        We have now done some math. 
-        Let's reflect a bit on how this math fits into the philosophical and psychological frameworks for Mathematics due to MacLane and Tall.
+        Let's reflect a bit on how what we have done fits into the philosophical and psychological frameworks for Mathematics due to MacLane and Tall.
     </p>
 
     <exercise>
