@@ -193,9 +193,12 @@
     </statement>
 </theorem>
 
+<p>
+    Let <m>\binom{[n]}{k}</m> denote the set of all <m>k</m>-element subset of <m>[n]</m>.
+</p>
+
 <proof>
     <p>
-        Let <m>\binom{[n]}{k}</m> denote the set of all <m>k</m>-element subset of <m>[n]</m>.
         We can write this as a disjoint union:
         <mdn> 
            <mrow xml:id="eq-arithmeticrecurrence">\amp \binom{[n]}{k} = \left\{ A:A\in\binom{[n-1]}{k} \right\}\uplus \left\{ \{n\}\cup A:A\in\binom{[n-1]}{k-1} \right\} </mrow>

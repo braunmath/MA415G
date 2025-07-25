@@ -1,0 +1,327 @@
+<chapter xml:id="ch-homework">
+    <title>Homework Problems and Essays</title>
+    <problem>
+        <title>P1</title>
+        <p>
+            Define an <em><m>m</m>-ary string</em> to be an ordered list of length <m>n</m> where each entry is an element of <m>\{0,1,2,\ldots,m\}</m>.
+            We denote by <m>[m]^n</m> the set of <m>m</m>-ary strings of length <m>n</m>.
+            <ol>
+                <li>
+                    <p>
+                        Systematically list the elements of <m>[3]^3</m> and <em>explain using written sentences</em> what your system is for listing all of these elements.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Give a <em>recursive</em> proof, following the structure of the recursive proof of <xref ref="thm-binarystringenumeration"/>, that 
+                        <me>
+                            |[m]^n|=m^n \, .
+                        </me>
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </problem>
+    <problem>
+        <title>P2</title>
+        <p>
+            In this problem, we explore two more properties of binomial coefficients.
+            Equations such as these are known as <em>combinatorial identities</em>, because they are equalities of expressions involving combinatorial values.
+            <ol>
+                <li>
+                    <p>
+                    Prove that <m>\binom{n}{k}=\binom{n}{n-k}</m> by finding a bijection between <m>\binom{[n]}{k}</m> and <m>\binom{[n]}{n-k}</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    Using the technique of disjoint union decompositions, prove that for any <m>0\leq k \leq n</m>, we have
+                    <me>
+                        \binom{k}{k}+\binom{k+1}{k}+\binom{k+2}{k}+\cdots +\binom{n-1}{k}+\binom{n}{k} = \binom{n+1}{k+1} \, .
+                    </me>                    
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </problem>
+    <problem>
+        <title>Essay 1</title>
+        <p> Write an essay in which you reflect on a meaningful mathematical experience from your past.
+This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and <em>you should explicitly discuss how mathematical ideas/concepts were involved in this experience</em>.
+As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).
+<ul>
+<li><p>Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?</p></li>
+<li><p> Did this experience cause you to take on future challenges, or to avoid certain challenges?</p></li>
+<li><p> What was different about this experience from other similar experiences that makes this one stand out in your memory?</p></li>
+</ul>
+This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced.
+Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).
+        </p>
+    </problem>
+    <problem>
+        <title>P3</title>
+        <p>
+            
+        </p>
+    </problem>
+    <problem>
+        <title>P4</title>
+        <p>
+            
+        </p>
+    </problem>
+    <problem>
+        <title>P5</title>
+        <p>
+            
+        </p>
+    </problem>
+    <problem>
+        <title>P6</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P7</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P8</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P9</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P10</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P11</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>Essay 2</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P12</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P13</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P14</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P15</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P16</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P17</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>Essay 3</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P18</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P19</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P20</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P21</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P22</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P23</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>Essay 4</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P24</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P25</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P26</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P27</title>
+        <p>
+            
+        </p>
+    </problem>
+    <problem>
+        <title>P28</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P29</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>Essay 5</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P30</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P31</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P32</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P33</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P34</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P35</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>Essay 6</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P36</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P37</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P38</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P39</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>P40</title>
+        <p>
+            
+        </p>
+    </problem>
+        <problem>
+        <title>End-of-Class Reflection</title>
+        <p>
+            
+        </p>
+    </problem>
+
+
+</chapter>
