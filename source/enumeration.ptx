@@ -12,5 +12,7 @@
   <xi:include href="binomialcoefficients.ptx" />
   <xi:include href="pauseforreflectionenumeration.ptx" />
   <xi:include href="fibonacci.ptx" />
+  <xi:include href="permutations.ptx" />
+  <xi:include href="inversions.ptx" />
 
 </chapter>
