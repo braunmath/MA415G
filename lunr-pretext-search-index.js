@@ -736,7 +736,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.6",
   "title": "Permutations: Cycle Structure and Derangements",
-  "body": " Permutations: Cycle Structure and Derangements  When we write permutations in one-line notation, some feature of the permutation are brought to the surface. However, other features are obscured. Thus, it is useful to have multiple representations of a permutation. Our next representation is called cycle notation .    A cycle in a permutation is a sequence of elements with each satisfying for all and . The length of the cycle is the number of elements in the cycle.     In the permutation , we have the cycle of length three and the cycle of length 1.   A diagram of the cycle .   A diagram of the cycle .      Find all the cycles contained in . Write them in both cycle notation and in diagram form.     Let . We construct the standard cycle representation of a permutation as follows. First, create the cycle containing , with listed first in . Second, create the cycle containing the largest value not in , where the largest value is listed first. Third, create the cycle containing the largest value not in or , where the largest value is listed first. Continue in this fashion until all of the elements of are in a cycle, resulting in cycles , and then write This is the standard cycle representation.     Write in standard cycle representation. Draw the diagrams for all the cycles in .   There are some special permutations that we will need names for:   The identity permutation is the permutation .    An -cycle is a permutation consisting of only one cycle of length .    A cycle of length one in a permutation corresponds to a fixed point , since the cycle in indicates that .    A permutation with a single cycle of length two, and all other cycles of length one, is called a transposition because it exchanges, i.e., transposes, two values in .    A permutation is a derangement if it has no fixed points, i.e., if it has no one-cycles.      Create two examples for each of the definitions above.     There are cycles of length in .     Suppose is an -cycle in standard cycle representation; thus, the cycle begins with . The remaining entries can be any permutation in , and the result follows.   We will finish our survey of cycle structure by answering two questions. The first question is: how many derangements are there in ? The second question is: how many permutations in have exactly cycles in their standard cycle representation?    Let denote the number of derangements in . Then and , and the remaining values satisfy the recursion      It is straightforward to check that and . Let be a derangement in and consider the value of . We know that . There are now two possible cases.  In the first case, . Thus, the permutation has a two-cycle of the form . There rest of the permutation is a derangement on , and thus there are possible derangements with this structure, since there are possible values of .  In the second case, . Counting derangements satisfying and is equivalent to counting derangements in , since this is the same as counting permutations satisfying and for all (just switch the roles of and ). Since there are possible values of , this gives possible derangements in this case.  Adding the number of possible derangements from the two cases gives the recursive formula in the theorem.    Use the recursion above to compute the first ten derangement numbers .    Discuss the above proof. Does it make sense?                    Discuss the proof above, and clarify any points of confusion.    Use the recurrence for Stirling numbers of the first kind to create the first seven rows of a triangle, similar to the arithmetical triangle for binomial coefficients. Compare your triangle with the one given on the wikipedia page for Stirling numbers of the first kind. .   "
+  "body": " Permutations: Cycle Structure and Derangements  When we write permutations in one-line notation, some feature of the permutation are brought to the surface. However, other features are obscured. Thus, it is useful to have multiple representations of a permutation. Our next representation is called cycle notation .    A cycle in a permutation is a sequence of elements with each satisfying for all and . The length of the cycle is the number of elements in the cycle.     In the permutation , we have the cycle of length three and the cycle of length 1.   A diagram of the cycle .   A diagram of the cycle .      Find all the cycles contained in . Write them in both cycle notation and in diagram form.     Let . We construct the standard cycle representation of a permutation as follows. First, create the cycle containing , with listed first in . Second, create the cycle containing the largest value not in , where the largest value is listed first. Third, create the cycle containing the largest value not in or , where the largest value is listed first. Continue in this fashion until all of the elements of are in a cycle, resulting in cycles , and then write This is the standard cycle representation.     Write in standard cycle representation. Draw the diagrams for all the cycles in .   There are some special permutations that we will need names for:   The identity permutation is the permutation .    An -cycle is a permutation consisting of only one cycle of length .    A cycle of length one in a permutation corresponds to a fixed point , since the cycle in indicates that .    A permutation with a single cycle of length two, and all other cycles of length one, is called a transposition because it exchanges, i.e., transposes, two values in .    A permutation is a derangement if it has no fixed points, i.e., if it has no one-cycles.      Create two examples for each of the definitions above.     There are cycles of length in .     Suppose is an -cycle in standard cycle representation; thus, the cycle begins with . The remaining entries can be any permutation in , and the result follows.   We will finish our survey of cycle structure by answering two questions. The first question is: how many derangements are there in ? The second question is: how many permutations in have exactly cycles in their standard cycle representation?    Let denote the number of derangements in . Then and , and the remaining values satisfy the recursion      It is straightforward to check that and . Let be a derangement in and consider the value of . We know that . There are now two possible cases.  In the first case, . Thus, the permutation has a two-cycle of the form . There rest of the permutation is a derangement on , and thus there are possible derangements with this structure, since there are possible values of .  In the second case, . Counting derangements satisfying and is equivalent to counting derangements in , since this is the same as counting permutations satisfying and for all (just switch the roles of and ). Since there are possible values of , this gives possible derangements in this case.  Adding the number of possible derangements from the two cases gives the recursive formula in the theorem.    Use the recursion above to compute the first ten derangement numbers .    Discuss the above proof. Does it make sense? Why or why not?     For integers , we denote by the number of permutations in with exactly cycles. The numbers are called (signless) Stirling numbers of the first kind . We define and for all and note that for all .     Explain why .     For , the Stirling numbers of the first kind satisfy the recursion      We express the permutations in with exactly cycles as , a disjoint union where are the permutations with contained in a cycle of length one, while are those permutations where is contained in a cycle of length at least two.  For each permutation in , if we remove the one-cycle containing , then what remains is a permutation in with cycles. This accounts for permutations, which is the second summand in our recursion.  For each permutation in , if we remove from the cycle containing it, we obtain a permutation with cycles. Each such can be obtained from different permutations in , since there are positions in where could be inserted to obtain an element of . Thus, there are permutations in , which is the first summand in our recursion.    Discuss the proof above, and clarify any points of confusion.    Use the recurrence for Stirling numbers of the first kind to create the first seven rows of a triangle, similar to the arithmetical triangle for binomial coefficients. Compare your triangle with the one given on the wikipedia page for Stirling numbers of the first kind. .   "
 },
 {
   "id": "def-cycle",
@@ -844,7 +844,7 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "2.6.11",
   "title": "",
-  "body": " Discuss the above proof. Does it make sense?  "
+  "body": " Discuss the above proof. Does it make sense? Why or why not?  "
 },
 {
   "id": "def-stirlingfirstkind",
@@ -853,34 +853,34 @@ var ptx_lunr_docs = [
   "type": "Definition",
   "number": "2.6.12",
   "title": "",
-  "body": "     "
+  "body": "  For integers , we denote by the number of permutations in with exactly cycles. The numbers are called (signless) Stirling numbers of the first kind . We define and for all and note that for all .   "
+},
+{
+  "id": "sec-cycles-18",
+  "level": "2",
+  "url": "sec-cycles.html#sec-cycles-18",
+  "type": "Checkpoint",
+  "number": "2.6.13",
+  "title": "",
+  "body": " Explain why .  "
 },
 {
   "id": "thm-stirlingfirstkindrecurrence",
   "level": "2",
   "url": "sec-cycles.html#thm-stirlingfirstkindrecurrence",
   "type": "Theorem",
-  "number": "2.6.13",
+  "number": "2.6.14",
   "title": "",
-  "body": "     "
-},
-{
-  "id": "sec-cycles-19",
-  "level": "2",
-  "url": "sec-cycles.html#sec-cycles-19",
-  "type": "Proof",
-  "number": "2.6.3",
-  "title": "",
-  "body": "   "
+  "body": "  For , the Stirling numbers of the first kind satisfy the recursion    "
 },
 {
   "id": "sec-cycles-20",
   "level": "2",
   "url": "sec-cycles.html#sec-cycles-20",
-  "type": "Checkpoint",
-  "number": "2.6.14",
+  "type": "Proof",
+  "number": "2.6.3",
   "title": "",
-  "body": " Discuss the proof above, and clarify any points of confusion.  "
+  "body": " We express the permutations in with exactly cycles as , a disjoint union where are the permutations with contained in a cycle of length one, while are those permutations where is contained in a cycle of length at least two.  For each permutation in , if we remove the one-cycle containing , then what remains is a permutation in with cycles. This accounts for permutations, which is the second summand in our recursion.  For each permutation in , if we remove from the cycle containing it, we obtain a permutation with cycles. Each such can be obtained from different permutations in , since there are positions in where could be inserted to obtain an element of . Thus, there are permutations in , which is the first summand in our recursion.  "
 },
 {
   "id": "sec-cycles-21",
@@ -888,6 +888,15 @@ var ptx_lunr_docs = [
   "url": "sec-cycles.html#sec-cycles-21",
   "type": "Checkpoint",
   "number": "2.6.15",
+  "title": "",
+  "body": " Discuss the proof above, and clarify any points of confusion.  "
+},
+{
+  "id": "sec-cycles-22",
+  "level": "2",
+  "url": "sec-cycles.html#sec-cycles-22",
+  "type": "Checkpoint",
+  "number": "2.6.16",
   "title": "",
   "body": " Use the recurrence for Stirling numbers of the first kind to create the first seven rows of a triangle, similar to the arithmetical triangle for binomial coefficients. Compare your triangle with the one given on the wikipedia page for Stirling numbers of the first kind. .  "
 },
