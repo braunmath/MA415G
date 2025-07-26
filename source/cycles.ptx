@@ -1,4 +1,207 @@
 <section xml:id="sec-cycles">
     <title>Permutations: Cycle Structure and Derangements</title>
     
+    <p>
+        When we write permutations in one-line notation, some feature of the permutation are brought to the surface.
+        However, other features are obscured.
+        Thus, it is useful to have multiple representations of a permutation.
+        Our next representation is called <em>cycle notation</em>.
+    </p>
+
+<definition xml:id="def-cycle">
+    <statement>
+        <p>
+            A <em>cycle</em> in a permutation <m>\pi\in \S_n</m> is a sequence of elements <m>(x_1,x_2,\ldots,x_k)</m> with each <m>x_i\in [n]</m> satisfying
+            <me>
+                \pi(x_i)=x_{i+1} 
+            </me>
+            for all <m>m</m> and <m>\pi(x_k)=x_1</m>.
+            The <em>length</em> of the cycle is the number of elements in the cycle.
+        </p>
+    </statement>
+</definition>
+
+<example>
+    <p>
+    In the permutation <m>37416528</m>, we have the cycle <m>(1,3,4)</m> of length three and the cycle <m>(8)</m> of length 1.
+    </p>
+    <figure xml:id="fig-cycle134">
+    <caption>A diagram of the cycle <m>(1,3,4)</m>.</caption>
+    <image source="cycle134.png" width="50%">
+        <shortdescription>A diagram of the cycle <m>(1,3,4)</m>.</shortdescription>
+    </image>
+</figure>
+</example>
+
+<exercise>
+    <p>
+        Find all the cycles contained in <m>\pi=375916824</m>.
+        Write them in both cycle notation and in diagram form.
+    </p>
+</exercise>
+
+    <definition xml:id="def-cyclenotation">
+        <statement>
+            <p>
+                Let <m>\pi\in\S_n</m>.
+                We construct the <em>standard cycle representation</em> of a permutation <m>\pi\in\S_n</m> as follows.
+                First, create the cycle <m>C_1</m> containing <m>n</m>, with <m>n</m> listed first in <m>C_1</m>.
+                Second, create the cycle <m>C_2</m> containing the largest value not in <m>C_1</m>, where the largest value is listed first.
+                Third, create the cycle <m>C_3</m> containing the largest value not in <m>C_1</m> or <m>C_2</m>, where the largest value is listed first. 
+                Continue in this fashion until all of the elements of <m>[n]</m> are in a cycle, resulting in cycles <m>C_1,C_2,\ldots,C_k</m>, and then write
+                <me>
+                    \pi=C_kC_{k-1}\cdots C_2C_1 \, .
+                </me>
+                This is the standard cycle representation.
+            </p>
+        </statement>
+    </definition>
+
+<exercise>
+    <p>
+        Write <m>\pi=375916824</m> in standard cycle representation.
+        Draw the diagrams for all the cycles in <m>\pi</m>.
+    </p>
+</exercise>
+
+<p>
+    There are some special permutations that we will need names for:
+    <ul>
+        <li>
+            <p>
+                The <em>identity permutation</em> is the permutation <m>1234\cdots n</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                An <m>n</m>-cycle is a permutation consisting of only one cycle of length <m>n</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                A cycle of length one in a permutation corresponds to a <em>fixed point</em>, since the cycle <m>(i)</m> in <m>\pi</m> indicates that <m>\pi_i=i</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                A permutation with a single cycle of length two, and all other cycles of length one, is called a <em>transposition</em> because it exchanges, i.e., transposes, two values in <m>[n]</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                A permutation is a <em>derangement</em> if it has no fixed points, i.e., if it has no one-cycles.
+            </p>
+        </li>
+    </ul>
+</p>
+
+<exercise>
+    <p>
+        Create two examples for each of the definitions above.
+    </p>
+    </exercise>
+
+<theorem xml:id="thm-cyclecount">
+    <statement>
+        <p>
+            There are <m>(n-1)!</m> cycles of length <m>n</m> in <m>\S_n</m>.
+        </p>
+    </statement>
+</theorem>
+
+<proof>
+    <p>
+        Suppose <m>\pi</m> is an <m>n</m>-cycle in standard cycle representation; thus, the cycle begins with <m>n</m>.
+        The remaining <m>n-1</m> entries can be any permutation in <m>\S_{n-1}</m>, and the result follows.
+    </p>
+</proof>
+
+<p>
+    We will finish our survey of cycle structure by answering two questions.
+    The first question is: how many derangements are there in <m>\S_n</m>?
+    The second question is: how many permutations in <m>\S_n</m> have exactly <m>k</m> cycles in their standard cycle representation?
+</p>
+
+<theorem xml:id="thm-derangementcount">
+    <statement>
+        <p>
+            Let <m>D_n</m> denote the number of derangements in <m>\S_n</m>.
+            Then <m>D_1=0</m> and <m>D_2=1</m>, and the remaining values satisfy the recursion
+            <me>
+                D_n=(n-1)(D_{n-1}+D_{n-2}) \, .
+            </me>
+        </p>
+    </statement>
+</theorem>
+
+<proof>
+    <p>
+        It is straightforward to check that <m>D_1=0</m> and <m>D_2=1</m>.
+        Let <m>\pi</m> be a derangement in <m>\S_n</m> and consider the value of <m>\pi_1</m>.
+        We know that <m>\pi_1=i\neq 1</m>. 
+        There are now two possible cases.
+    </p>
+    <p>
+        In the first case, <m>\pi_i=1</m>.
+        Thus, the permutation <m>\pi</m> has a two-cycle of the form <m>(1,i)</m>.
+        There rest of the permutation is a derangement on <m>[n]\setminus \{1,i\}</m>, and thus there are <m>(n-1)D_{n-2}</m> possible derangements <m>\pi</m> with this structure, since there are <m>n-1</m> possible values of <m>\pi_1</m>.
+    </p>
+    <p>
+        In the second case, <m>\pi_i\neq 1</m>.
+        Counting derangements satisfying <m>\pi_1=i\neq 1</m> and <m>\pi_i\neq 1</m> is equivalent to counting derangements in <m>\S_{n-1}</m>, since this is the same as counting permutations satisfying <m>\pi_1=1</m> and <m>\pi_j\neq j</m> for all <m>j>1</m> (just switch the roles of <m>1</m> and <m>i</m>).
+        Since there are <m>n-1</m> possible values of <m>i</m>, this gives <m>(n-1)D_{n-1}</m> possible derangements <m>\pi</m> in this case.    
+    </p>
+    <p>
+        Adding the number of possible derangements from the two cases gives the recursive formula in the theorem.
+    </p>
+</proof>
+
+<exercise>
+    <p>
+        Use the recursion above to compute the first ten derangement numbers <m>D_n</m>.
+    </p>
+</exercise>
+
+<exercise>
+    <p>
+        Discuss the above proof. Does it make sense?
+    </p>
+</exercise>
+
+<definition xml:id="def-stirlingfirstkind">
+    <statement>
+        <p>
+            
+        </p>
+    </statement>
+</definition>
+
+<theorem xml:id="thm-stirlingfirstkindrecurrence">
+    <statement>
+        <p>
+            
+        </p>
+    </statement>
+</theorem>
+
+<proof>
+    <p>
+        
+    </p>
+</proof>
+
+<exercise>
+    <p>
+        Discuss the proof above, and clarify any points of confusion.
+    </p>
+</exercise>
+
+<exercise>
+    <p>
+        Use the recurrence for Stirling numbers of the first kind to create the first seven rows of a triangle, similar to the arithmetical triangle for binomial coefficients.
+    Compare your triangle with the one given on the <url href="https://en.wikipedia.org/wiki/Stirling_numbers_of_the_first_kind#Table_of_values"> wikipedia page for Stirling numbers of the first kind.</url>.
+    </p>
+</exercise>
+
+
 </section>
