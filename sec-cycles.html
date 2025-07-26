@@ -183,7 +183,137 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-cycles"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">2.6</span><span class="space"> </span><span class="title">Permutations: Cycle Structure and Derangements</span>
 </h2>
-<div class="autopermalink" data-description="Section 2.6: Permutations: Cycle Structure and Derangements"><a href="#sec-cycles" title="Copy heading and permalink for Section 2.6: Permutations: Cycle Structure and Derangements" aria-label="Copy heading and permalink for Section 2.6: Permutations: Cycle Structure and Derangements">🔗</a></div></section></div>
+<div class="para" id="sec-cycles-2">When we write permutations in one-line notation, some feature of the permutation are brought to the surface. However, other features are obscured. Thus, it is useful to have multiple representations of a permutation. Our next representation is called <em class="emphasis">cycle notation</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-cycle"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.6.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-cycle-1-1">
+<div class="para">A <em class="emphasis">cycle</em> in a permutation <span class="process-math">\(\pi\in \S_n\)</span> is a sequence of elements <span class="process-math">\((x_1,x_2,\ldots,x_k)\)</span> with each <span class="process-math">\(x_i\in [n]\)</span> satisfying</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pi(x_i)=x_{i+1} 
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(m\)</span> and <span class="process-math">\(\pi(x_k)=x_1\text{.}\)</span> The <em class="emphasis">length</em> of the cycle is the number of elements in the cycle.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-cycle-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.6.1"><a href="#def-cycle" title="Copy heading and permalink for Definition 2.6.1" aria-label="Copy heading and permalink for Definition 2.6.1">🔗</a></div></article><details id="sec-cycles-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.6.2</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="sec-cycles-4-1">In the permutation <span class="process-math">\(37416528\text{,}\)</span> we have the cycle <span class="process-math">\((1,3,4)\)</span> of length three and the cycle <span class="process-math">\((8)\)</span> of length 1.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cycle134"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/cycle134.png" class="contained" alt="A diagram of the cycle \((1,3,4)\text{.}\)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.3<span class="period">.</span></span><span class="space"> </span>A diagram of the cycle <span class="process-math">\((1,3,4)\text{.}\)</span><div class="autopermalink" data-description="Figure 2.6.3"><a href="#fig-cycle134" title="Copy heading and permalink for Figure 2.6.3" aria-label="Copy heading and permalink for Figure 2.6.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 2.6.2"><a href="#sec-cycles-4" title="Copy heading and permalink for Example 2.6.2" aria-label="Copy heading and permalink for Example 2.6.2">🔗</a></div></article></details><details id="sec-cycles-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.6.4</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-cycles-5-1">Find all the cycles contained in <span class="process-math">\(\pi=375916824\text{.}\)</span> Write them in both cycle notation and in diagram form.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.6.4"><a href="#sec-cycles-5" title="Copy heading and permalink for Checkpoint 2.6.4" aria-label="Copy heading and permalink for Checkpoint 2.6.4">🔗</a></div></article></details><article class="definition definition-like" id="def-cyclenotation"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.6.5</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-cyclenotation-1-1">
+<div class="para">Let <span class="process-math">\(\pi\in\S_n\text{.}\)</span> We construct the <em class="emphasis">standard cycle representation</em> of a permutation <span class="process-math">\(\pi\in\S_n\)</span> as follows. First, create the cycle <span class="process-math">\(C_1\)</span> containing <span class="process-math">\(n\text{,}\)</span> with <span class="process-math">\(n\)</span> listed first in <span class="process-math">\(C_1\text{.}\)</span> Second, create the cycle <span class="process-math">\(C_2\)</span> containing the largest value not in <span class="process-math">\(C_1\text{,}\)</span> where the largest value is listed first. Third, create the cycle <span class="process-math">\(C_3\)</span> containing the largest value not in <span class="process-math">\(C_1\)</span> or <span class="process-math">\(C_2\text{,}\)</span> where the largest value is listed first. Continue in this fashion until all of the elements of <span class="process-math">\([n]\)</span> are in a cycle, resulting in cycles <span class="process-math">\(C_1,C_2,\ldots,C_k\text{,}\)</span> and then write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pi=C_kC_{k-1}\cdots C_2C_1 \, .
+\end{equation*}
+</div>
+<div class="para">This is the standard cycle representation.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-cyclenotation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.6.5"><a href="#def-cyclenotation" title="Copy heading and permalink for Definition 2.6.5" aria-label="Copy heading and permalink for Definition 2.6.5">🔗</a></div></article><details id="sec-cycles-7" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.6.6</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-cycles-7-1">Write <span class="process-math">\(\pi=375916824\)</span> in standard cycle representation. Draw the diagrams for all the cycles in <span class="process-math">\(\pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.6.6"><a href="#sec-cycles-7" title="Copy heading and permalink for Checkpoint 2.6.6" aria-label="Copy heading and permalink for Checkpoint 2.6.6">🔗</a></div></article></details><div class="para logical" id="sec-cycles-8">
+<div class="para">There are some special permutations that we will need names for:</div>
+<ul class="disc" id="sec-cycles-8-1">
+<li id="sec-cycles-8-1-1">
+<div class="para" id="sec-cycles-8-1-1-1">The <em class="emphasis">identity permutation</em> is the permutation <span class="process-math">\(1234\cdots n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-8-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-cycles-8-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-cycles-8-1-2">
+<div class="para" id="sec-cycles-8-1-2-1">An <span class="process-math">\(n\)</span>-cycle is a permutation consisting of only one cycle of length <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-8-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-cycles-8-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-cycles-8-1-3">
+<div class="para" id="sec-cycles-8-1-3-1">A cycle of length one in a permutation corresponds to a <em class="emphasis">fixed point</em>, since the cycle <span class="process-math">\((i)\)</span> in <span class="process-math">\(\pi\)</span> indicates that <span class="process-math">\(\pi_i=i\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-8-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-cycles-8-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-cycles-8-1-4">
+<div class="para" id="sec-cycles-8-1-4-1">A permutation with a single cycle of length two, and all other cycles of length one, is called a <em class="emphasis">transposition</em> because it exchanges, i.e., transposes, two values in <span class="process-math">\([n]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-8-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-cycles-8-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-cycles-8-1-5">
+<div class="para" id="sec-cycles-8-1-5-1">A permutation is a <em class="emphasis">derangement</em> if it has no fixed points, i.e., if it has no one-cycles.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-8-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-cycles-8-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-cycles-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.6.7</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-cycles-9-1">Create two examples for each of the definitions above.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.6.7"><a href="#sec-cycles-9" title="Copy heading and permalink for Checkpoint 2.6.7" aria-label="Copy heading and permalink for Checkpoint 2.6.7">🔗</a></div></article></details><article class="theorem theorem-like" id="thm-cyclecount"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.6.8</span><span class="period">.</span>
+</h3>
+<div class="para" id="thm-cyclecount-1-1">There are <span class="process-math">\((n-1)!\)</span> cycles of length <span class="process-math">\(n\)</span> in <span class="process-math">\(\S_n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-cyclecount-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.6.8"><a href="#thm-cyclecount" title="Copy heading and permalink for Theorem 2.6.8" aria-label="Copy heading and permalink for Theorem 2.6.8">🔗</a></div></article><details id="sec-cycles-11" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-cycles-11-1">Suppose <span class="process-math">\(\pi\)</span> is an <span class="process-math">\(n\)</span>-cycle in standard cycle representation; thus, the cycle begins with <span class="process-math">\(n\text{.}\)</span> The remaining <span class="process-math">\(n-1\)</span> entries can be any permutation in <span class="process-math">\(\S_{n-1}\text{,}\)</span> and the result follows.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.6.1"><a href="#sec-cycles-11" title="Copy heading and permalink for Proof 2.6.1" aria-label="Copy heading and permalink for Proof 2.6.1">🔗</a></div></article></details><div class="para" id="sec-cycles-12">We will finish our survey of cycle structure by answering two questions. The first question is: how many derangements are there in <span class="process-math">\(\S_n\text{?}\)</span> The second question is: how many permutations in <span class="process-math">\(\S_n\)</span> have exactly <span class="process-math">\(k\)</span> cycles in their standard cycle representation?<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-derangementcount"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.6.9</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="thm-derangementcount-1-1">
+<div class="para">Let <span class="process-math">\(D_n\)</span> denote the number of derangements in <span class="process-math">\(\S_n\text{.}\)</span> Then <span class="process-math">\(D_1=0\)</span> and <span class="process-math">\(D_2=1\text{,}\)</span> and the remaining values satisfy the recursion</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D_n=(n-1)(D_{n-1}+D_{n-2}) \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-derangementcount-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.6.9"><a href="#thm-derangementcount" title="Copy heading and permalink for Theorem 2.6.9" aria-label="Copy heading and permalink for Theorem 2.6.9">🔗</a></div></article><details id="sec-cycles-14" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-cycles-14-1">It is straightforward to check that <span class="process-math">\(D_1=0\)</span> and <span class="process-math">\(D_2=1\text{.}\)</span> Let <span class="process-math">\(\pi\)</span> be a derangement in <span class="process-math">\(\S_n\)</span> and consider the value of <span class="process-math">\(\pi_1\text{.}\)</span> We know that <span class="process-math">\(\pi_1=i\neq 1\text{.}\)</span> There are now two possible cases.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-cycles-14-2">In the first case, <span class="process-math">\(\pi_i=1\text{.}\)</span> Thus, the permutation <span class="process-math">\(\pi\)</span> has a two-cycle of the form <span class="process-math">\((1,i)\text{.}\)</span> There rest of the permutation is a derangement on <span class="process-math">\([n]\setminus \{1,i\}\text{,}\)</span> and thus there are <span class="process-math">\((n-1)D_{n-2}\)</span> possible derangements <span class="process-math">\(\pi\)</span> with this structure, since there are <span class="process-math">\(n-1\)</span> possible values of <span class="process-math">\(\pi_1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-14-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-cycles-14-3">In the second case, <span class="process-math">\(\pi_i\neq 1\text{.}\)</span> Counting derangements satisfying <span class="process-math">\(\pi_1=i\neq 1\)</span> and <span class="process-math">\(\pi_i\neq 1\)</span> is equivalent to counting derangements in <span class="process-math">\(\S_{n-1}\text{,}\)</span> since this is the same as counting permutations satisfying <span class="process-math">\(\pi_1=1\)</span> and <span class="process-math">\(\pi_j\neq j\)</span> for all <span class="process-math">\(j&gt;1\)</span> (just switch the roles of <span class="process-math">\(1\)</span> and <span class="process-math">\(i\)</span>). Since there are <span class="process-math">\(n-1\)</span> possible values of <span class="process-math">\(i\text{,}\)</span> this gives <span class="process-math">\((n-1)D_{n-1}\)</span> possible derangements <span class="process-math">\(\pi\)</span> in this case.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-14-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-cycles-14-4">Adding the number of possible derangements from the two cases gives the recursive formula in the theorem.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-14-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.6.2"><a href="#sec-cycles-14" title="Copy heading and permalink for Proof 2.6.2" aria-label="Copy heading and permalink for Proof 2.6.2">🔗</a></div></article></details><details id="sec-cycles-15" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.6.10</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-cycles-15-1">Use the recursion above to compute the first ten derangement numbers <span class="process-math">\(D_n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.6.10"><a href="#sec-cycles-15" title="Copy heading and permalink for Checkpoint 2.6.10" aria-label="Copy heading and permalink for Checkpoint 2.6.10">🔗</a></div></article></details><details id="sec-cycles-16" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.6.11</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-cycles-16-1">Discuss the above proof. Does it make sense?<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.6.11"><a href="#sec-cycles-16" title="Copy heading and permalink for Checkpoint 2.6.11" aria-label="Copy heading and permalink for Checkpoint 2.6.11">🔗</a></div></article></details><article class="definition definition-like" id="def-stirlingfirstkind"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.6.12</span><span class="period">.</span>
+</h3>
+<div class="para" id="def-stirlingfirstkind-1-1"><div class="autopermalink" data-description="Paragraph"><a href="#def-stirlingfirstkind-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="autopermalink" data-description="Definition 2.6.12"><a href="#def-stirlingfirstkind" title="Copy heading and permalink for Definition 2.6.12" aria-label="Copy heading and permalink for Definition 2.6.12">🔗</a></div></article><article class="theorem theorem-like" id="thm-stirlingfirstkindrecurrence"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.6.13</span><span class="period">.</span>
+</h3>
+<div class="para" id="thm-stirlingfirstkindrecurrence-1-1"><div class="autopermalink" data-description="Paragraph"><a href="#thm-stirlingfirstkindrecurrence-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="autopermalink" data-description="Theorem 2.6.13"><a href="#thm-stirlingfirstkindrecurrence" title="Copy heading and permalink for Theorem 2.6.13" aria-label="Copy heading and permalink for Theorem 2.6.13">🔗</a></div></article><details id="sec-cycles-19" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-cycles-19-1"><div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-19-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="autopermalink" data-description="Proof 2.6.3"><a href="#sec-cycles-19" title="Copy heading and permalink for Proof 2.6.3" aria-label="Copy heading and permalink for Proof 2.6.3">🔗</a></div></article></details><details id="sec-cycles-20" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.6.14</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-cycles-20-1">Discuss the proof above, and clarify any points of confusion.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-20-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.6.14"><a href="#sec-cycles-20" title="Copy heading and permalink for Checkpoint 2.6.14" aria-label="Copy heading and permalink for Checkpoint 2.6.14">🔗</a></div></article></details><details id="sec-cycles-21" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.6.15</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-cycles-21-1">Use the recurrence for Stirling numbers of the first kind to create the first seven rows of a triangle, similar to the arithmetical triangle for binomial coefficients. Compare your triangle with the one given on the <a class="external" href="https://en.wikipedia.org/wiki/Stirling_numbers_of_the_first_kind#Table_of_values" target="_blank">wikipedia page for Stirling numbers of the first kind.</a><details class="ptx-footnote" aria-live="polite" id="sec-cycles-21-1-2"><summary class="ptx-footnote__number" title="Footnote 2.6.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec-cycles-21-1-2"><code class="code-inline tex2jax_ignore">en.wikipedia.org/wiki/Stirling_numbers_of_the_first_kind#Table_of_values</code></div></details>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cycles-21-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.6.15"><a href="#sec-cycles-21" title="Copy heading and permalink for Checkpoint 2.6.15" aria-label="Copy heading and permalink for Checkpoint 2.6.15">🔗</a></div></article></details><div class="autopermalink" data-description="Section 2.6: Permutations: Cycle Structure and Derangements"><a href="#sec-cycles" title="Copy heading and permalink for Section 2.6: Permutations: Cycle Structure and Derangements" aria-label="Copy heading and permalink for Section 2.6: Permutations: Cycle Structure and Derangements">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-permutations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-inversions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
