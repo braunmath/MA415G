@@ -99,7 +99,7 @@
     <p>
         Create two examples for each of the definitions above.
     </p>
-    </exercise>
+</exercise>
 
 <theorem xml:id="thm-cyclecount">
     <statement>
@@ -164,29 +164,49 @@
 
 <exercise>
     <p>
-        Discuss the above proof. Does it make sense?
+        Discuss the above proof. Does it make sense? Why or why not?
     </p>
 </exercise>
 
 <definition xml:id="def-stirlingfirstkind">
     <statement>
         <p>
-            The
+            For integers <m>n,k\geq 0</m>, we denote by <m>c(n,k)</m> the number of permutations in <m>\S_n</m> with exactly <m>k</m> cycles.
+            The numbers <m>c(n,k)</m> are called <em>(signless) Stirling numbers of the first kind</em>.
+            We define <m>c(0,0)=1</m> and <m>c(0,k)=0</m> for all <m>k\gt 0</m> and note that <m>c(n,0)=0</m> for all <m>n\gt 0</m>.
         </p>
     </statement>
 </definition>
 
+<exercise>
+    <p>
+        Explain why <m>c(n,n-1)=\binom{n}{2}</m>.
+    </p>
+</exercise>
+
 <theorem xml:id="thm-stirlingfirstkindrecurrence">
     <statement>
         <p>
-            
+            For <m>k\gt 0</m>, the Stirling numbers of the first kind satisfy the recursion
+            <me>
+                c(n,k)=(n-1)c(n-1,k)+c(n-1,k-1) \, .
+            </me>
         </p>
     </statement>
 </theorem>
 
 <proof>
     <p>
-        
+        We express the permutations in <m>\S_{n}</m> with exactly <m>k</m> cycles as <m>A_n\uplus B_n</m>, a disjoint union where <m>B_n</m> are the permutations with <m>n</m> contained in a cycle of length one, while <m>A_n</m> are those permutations where <m>n</m> is contained in a cycle of length at least two.
+    </p>
+    <p>
+        For each permutation in <m>B_n</m>, if we remove the one-cycle containing <m>n</m>, then what remains is a permutation in <m>\S_{n-1}</m> with <m>k-1</m> cycles.
+        This accounts for <m>c(n-1,k-1)</m> permutations, which is the second summand in our recursion.
+    </p>
+    <p>
+        For each permutation in <m>A_n</m>, if we remove <m>n</m> from the cycle containing it, we obtain a permutation <m>\sigma\in\S_{n-1}</m> with <m>k</m> cycles.
+        Each such <m>\sigma</m> can be obtained from <m>(n-1)</m> different permutations in <m>A_n</m>, since there are <m>(n-1)</m> positions in <m>\sigma</m> where <m>n</m> could be inserted to obtain an element of <m>A_n</m>.
+        Thus, there are <m>(n-1)c(n,k-1)</m> permutations in <m>A_n</m>, which is the first summand in our recursion.
     </p>
 </proof>
 
