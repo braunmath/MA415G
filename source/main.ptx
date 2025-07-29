@@ -8,7 +8,6 @@
     <title>MA 415G course notes</title>
 
     <!-- Include frontmatter -->
-     <toc/>
     <xi:include href="./frontmatter.ptx" />
 
     <!-- Include chapters -->
