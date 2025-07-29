@@ -68,8 +68,9 @@
     </ol>
   </p>
 </exercise>
-
+<p>
 These exercises lead us to the following observation.
+</p>
 
 <theorem xml:id="thm-binarystringenumeration">
   <statement>
