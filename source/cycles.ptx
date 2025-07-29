@@ -11,7 +11,7 @@
 <definition xml:id="def-cycle">
     <statement>
         <p>
-            A <em>cycle</em> in a permutation <m>\pi\in \S_n</m> is a sequence of elements <m>(x_1,x_2,\ldots,x_k)</m> with each <m>x_i\in [n]</m> satisfying
+            A <em>cycle</em> in a permutation <m>\pi\in \ss_n</m> is a sequence of elements <m>(x_1,x_2,\ldots,x_k)</m> with each <m>x_i\in [n]</m> satisfying
             <me>
                 \pi(x_i)=x_{i+1} 
             </me>
@@ -43,8 +43,8 @@
     <definition xml:id="def-cyclenotation">
         <statement>
             <p>
-                Let <m>\pi\in\S_n</m>.
-                We construct the <em>standard cycle representation</em> of a permutation <m>\pi\in\S_n</m> as follows.
+                Let <m>\pi\in\ss_n</m>.
+                We construct the <em>standard cycle representation</em> of a permutation <m>\pi\in\ss_n</m> as follows.
                 First, create the cycle <m>C_1</m> containing <m>n</m>, with <m>n</m> listed first in <m>C_1</m>.
                 Second, create the cycle <m>C_2</m> containing the largest value not in <m>C_1</m>, where the largest value is listed first.
                 Third, create the cycle <m>C_3</m> containing the largest value not in <m>C_1</m> or <m>C_2</m>, where the largest value is listed first. 
@@ -104,7 +104,7 @@
 <theorem xml:id="thm-cyclecount">
     <statement>
         <p>
-            There are <m>(n-1)!</m> cycles of length <m>n</m> in <m>\S_n</m>.
+            There are <m>(n-1)!</m> cycles of length <m>n</m> in <m>\ss_n</m>.
         </p>
     </statement>
 </theorem>
@@ -112,20 +112,20 @@
 <proof>
     <p>
         Suppose <m>\pi</m> is an <m>n</m>-cycle in standard cycle representation; thus, the cycle begins with <m>n</m>.
-        The remaining <m>n-1</m> entries can be any permutation in <m>\S_{n-1}</m>, and the result follows.
+        The remaining <m>n-1</m> entries can be any permutation in <m>\ss_{n-1}</m>, and the result follows.
     </p>
 </proof>
 
 <p>
     We will finish our survey of cycle structure by answering two questions.
-    The first question is: how many derangements are there in <m>\S_n</m>?
-    The second question is: how many permutations in <m>\S_n</m> have exactly <m>k</m> cycles in their standard cycle representation?
+    The first question is: how many derangements are there in <m>\ss_n</m>?
+    The second question is: how many permutations in <m>\ss_n</m> have exactly <m>k</m> cycles in their standard cycle representation?
 </p>
 
 <theorem xml:id="thm-derangementcount">
     <statement>
         <p>
-            Let <m>D_n</m> denote the number of derangements in <m>\S_n</m>.
+            Let <m>D_n</m> denote the number of derangements in <m>\ss_n</m>.
             Then <m>D_1=0</m> and <m>D_2=1</m>, and the remaining values satisfy the recursion
             <me>
                 D_n=(n-1)(D_{n-1}+D_{n-2}) \, .
@@ -137,7 +137,7 @@
 <proof>
     <p>
         It is straightforward to check that <m>D_1=0</m> and <m>D_2=1</m>.
-        Let <m>\pi</m> be a derangement in <m>\S_n</m> and consider the value of <m>\pi_1</m>.
+        Let <m>\pi</m> be a derangement in <m>\ss_n</m> and consider the value of <m>\pi_1</m>.
         We know that <m>\pi_1=i\neq 1</m>. 
         There are now two possible cases.
     </p>
@@ -148,7 +148,7 @@
     </p>
     <p>
         In the second case, <m>\pi_i\neq 1</m>.
-        Counting derangements satisfying <m>\pi_1=i\neq 1</m> and <m>\pi_i\neq 1</m> is equivalent to counting derangements in <m>\S_{n-1}</m>, since this is the same as counting permutations satisfying <m>\pi_1=1</m> and <m>\pi_j\neq j</m> for all <m>j>1</m> (just switch the roles of <m>1</m> and <m>i</m>).
+        Counting derangements satisfying <m>\pi_1=i\neq 1</m> and <m>\pi_i\neq 1</m> is equivalent to counting derangements in <m>\ss_{n-1}</m>, since this is the same as counting permutations satisfying <m>\pi_1=1</m> and <m>\pi_j\neq j</m> for all <m>j>1</m> (just switch the roles of <m>1</m> and <m>i</m>).
         Since there are <m>n-1</m> possible values of <m>i</m>, this gives <m>(n-1)D_{n-1}</m> possible derangements <m>\pi</m> in this case.    
     </p>
     <p>
@@ -171,7 +171,7 @@
 <definition xml:id="def-stirlingfirstkind">
     <statement>
         <p>
-            For integers <m>n,k\geq 0</m>, we denote by <m>c(n,k)</m> the number of permutations in <m>\S_n</m> with exactly <m>k</m> cycles.
+            For integers <m>n,k\geq 0</m>, we denote by <m>c(n,k)</m> the number of permutations in <m>\ss_n</m> with exactly <m>k</m> cycles.
             The numbers <m>c(n,k)</m> are called <em>(signless) Stirling numbers of the first kind</em>.
             We define <m>c(0,0)=1</m> and <m>c(0,k)=0</m> for all <m>k\gt 0</m> and note that <m>c(n,0)=0</m> for all <m>n\gt 0</m>.
         </p>
@@ -197,14 +197,14 @@
 
 <proof>
     <p>
-        We express the permutations in <m>\S_{n}</m> with exactly <m>k</m> cycles as <m>A_n\uplus B_n</m>, a disjoint union where <m>B_n</m> are the permutations with <m>n</m> contained in a cycle of length one, while <m>A_n</m> are those permutations where <m>n</m> is contained in a cycle of length at least two.
+        We express the permutations in <m>\ss_{n}</m> with exactly <m>k</m> cycles as <m>A_n\uplus B_n</m>, a disjoint union where <m>B_n</m> are the permutations with <m>n</m> contained in a cycle of length one, while <m>A_n</m> are those permutations where <m>n</m> is contained in a cycle of length at least two.
     </p>
     <p>
-        For each permutation in <m>B_n</m>, if we remove the one-cycle containing <m>n</m>, then what remains is a permutation in <m>\S_{n-1}</m> with <m>k-1</m> cycles.
+        For each permutation in <m>B_n</m>, if we remove the one-cycle containing <m>n</m>, then what remains is a permutation in <m>\ss_{n-1}</m> with <m>k-1</m> cycles.
         This accounts for <m>c(n-1,k-1)</m> permutations, which is the second summand in our recursion.
     </p>
     <p>
-        For each permutation in <m>A_n</m>, if we remove <m>n</m> from the cycle containing it, we obtain a permutation <m>\sigma\in\S_{n-1}</m> with <m>k</m> cycles.
+        For each permutation in <m>A_n</m>, if we remove <m>n</m> from the cycle containing it, we obtain a permutation <m>\sigma\in\ss_{n-1}</m> with <m>k</m> cycles.
         Each such <m>\sigma</m> can be obtained from <m>(n-1)</m> different permutations in <m>A_n</m>, since there are <m>(n-1)</m> positions in <m>\sigma</m> where <m>n</m> could be inserted to obtain an element of <m>A_n</m>.
         Thus, there are <m>(n-1)c(n,k-1)</m> permutations in <m>A_n</m>, which is the first summand in our recursion.
     </p>

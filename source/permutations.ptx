@@ -11,17 +11,17 @@
     <statement>
         <p>
             A <em>permutation</em> of a finite set <m>A</m> is a bijection from <m>A</m> to itself.
-            The set of permutations of <m>[n]</m> is denoted by <m>\S_n</m> and is called the <em>symmetric group on <m>n</m> elements</em>.
+            The set of permutations of <m>[n]</m> is denoted by <m>\ss_n</m> and is called the <em>symmetric group on <m>n</m> elements</em>.
 
         </p>
     </statement>
 </definition>
 
 <p>
-    Since a permutation in <m>\S_n</m> is a bijection, it is a function from <m>[n]</m> to itself.
+    Since a permutation in <m>\ss_n</m> is a bijection, it is a function from <m>[n]</m> to itself.
     There are multiple ways to represent a permutation.
     At first, we will use <em>one-line notation</em>.
-    Given a permutation <m>\pi\in \S_n</m>, which is a bijection
+    Given a permutation <m>\pi\in \ss_n</m>, which is a bijection
     <me>
         \pi:[n]\to [n] \, ,
     </me>
@@ -33,7 +33,7 @@
 
 <example>
     <p>
-    Suppose <m>\pi\in\S_5</m> is defined by 
+    Suppose <m>\pi\in\ss_5</m> is defined by 
     <me>
         \pi(1)=3, \, \pi(2)=5, \, \pi(3)=2, \, \pi(4)=1 \, ,\pi(5)=4 \, .
     </me>
@@ -47,7 +47,7 @@
 
 <exercise>
     <p>
-        Write down all of the elements of  <m>\S_n</m> for <m>n=1,2,3,4</m>.
+        Write down all of the elements of  <m>\ss_n</m> for <m>n=1,2,3,4</m>.
         How do you know that you did not miss any?
     </p>
 </exercise>
@@ -65,7 +65,7 @@
 <theorem xml:id="thm-symmetricgroupcardinality">
     <statement>
         <p>
-            <m>|\S_n|=n!</m>
+            <m>|\ss_n|=n!</m>
         </p>
     </statement>
 </theorem>
@@ -77,12 +77,12 @@
 <proof>
     <title>Combinatorial Reasoning Proof of <xref ref="thm-symmetricgroupcardinality"/></title>
     <p>
-       For any permutation <m>\pi\in\S_n</m>, <m>\pi_1</m> can be any of <m>\{1,2,3,\ldots,n\}</m>.
+       For any permutation <m>\pi\in\ss_n</m>, <m>\pi_1</m> can be any of <m>\{1,2,3,\ldots,n\}</m>.
        Thus, there are <m>n</m> choices for <m>\pi_1</m>.
        Once <m>\pi_1</m> is known, then <m>\pi_2</m> can be any of the remaining values, and there are <m>n-1</m> possible values remaining.
        Thus, there are <m>n\cdot (n-1)</m> possibilities for <m>\pi_1\pi_2</m>.
        Continuing in this way, we have <m>n-3</m> possibilities for <m>\pi_3</m>, then <m>n-4</m> possibilities for <m>\pi_4</m>, etc., and so on until there is only one possible value for <m>\pi_n</m>.
-       Thus, there are <m>n!</m> permutations in <m>\S_n</m>.
+       Thus, there are <m>n!</m> permutations in <m>\ss_n</m>.
     </p>
 </proof>
 
@@ -103,28 +103,28 @@
     <title>Recursive Proof of <xref ref="thm-symmetricgroupcardinality"/></title>
     <p>
         First, we can check that this is true for small values of <m>n</m>.
-        So, we will use a strategy we have used before: use that this is true for <m>\S_1</m> to deduce that it is true for <m>\S_2</m>, then use that it is true for <m>\S_2</m> to deduce that it is true for <m>\S_3</m>, and so on.
+        So, we will use a strategy we have used before: use that this is true for <m>\ss_1</m> to deduce that it is true for <m>\ss_2</m>, then use that it is true for <m>\ss_2</m> to deduce that it is true for <m>\ss_3</m>, and so on.
         In this way, we will show it is true for every <m>n</m>.
     </p>
     <p>
-        For each <m>\pi\in \S_n</m>, the value <m>n</m> is at some position in <m>\pi</m>.
-        Let <m>X_i</m> be the set of permutations in <m>\pi\in \S_n</m> with <m>\pi_i=n</m>, which we can also write as:
+        For each <m>\pi\in \ss_n</m>, the value <m>n</m> is at some position in <m>\pi</m>.
+        Let <m>X_i</m> be the set of permutations in <m>\pi\in \ss_n</m> with <m>\pi_i=n</m>, which we can also write as:
         <me>
-            X_i:=\{\pi\in \S_n:\pi_i=n\}
+            X_i:=\{\pi\in \ss_n:\pi_i=n\}
         </me>
         Since <m>n</m> is in only one position in each permutation, we have that
         <me>
-            \S_n = X_1\uplus X_2\uplus \cdots \uplus X_n \, .
+            \ss_n = X_1\uplus X_2\uplus \cdots \uplus X_n \, .
         </me>
         Therefore, 
         <me>
-            |\S_n|=|X_1| + |X_2| + \cdots + |X_n| \, .
+            |\ss_n|=|X_1| + |X_2| + \cdots + |X_n| \, .
         </me>
-        For any <m>i</m>, removing <m>n</m> from each permutation in <m>X_i</m> results in a copy of <m>\S_{n-1}</m>.
-        Thus, <m>X_i</m> is obtained by taking <m>\S_{n-1}</m> and inserting an <m>n</m> in the <m>i</m>-th position of each permutation.
+        For any <m>i</m>, removing <m>n</m> from each permutation in <m>X_i</m> results in a copy of <m>\ss_{n-1}</m>.
+        Thus, <m>X_i</m> is obtained by taking <m>\ss_{n-1}</m> and inserting an <m>n</m> in the <m>i</m>-th position of each permutation.
         Thus, <m>|X_i|=(n-1)!</m> for every <m>i</m>, and hence
         <me>
-             |\S_n|= n\cdot (n-1)! = n! \, .
+             |\ss_n|= n\cdot (n-1)! = n! \, .
         </me>
     </p>
 </proof>
