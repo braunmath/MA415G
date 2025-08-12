@@ -3,7 +3,7 @@
     <problem>
         <title>P1</title>
         <p>
-            Define an <em><m>m</m>-ary string</em> to be an ordered list of length <m>n</m> where each entry is an element of <m>\{0,1,2,\ldots,m\}</m>.
+            Define an <em><m>m</m>-ary string</em> to be an ordered list of length <m>n</m> where each entry is an element of <m>[m]:=\{1,2,\ldots,m\}</m>.
             We denote by <m>[m]^n</m> the set of <m>m</m>-ary strings of length <m>n</m>.
             <ol>
                 <li>
@@ -25,12 +25,9 @@
     <problem>
         <title>P2</title>
         <p>
-            In this problem, we explore another property of binomial coefficients.
-            Equations such as this are known as <em>combinatorial identities</em>, because they are equalities of expressions involving combinatorial values.
-            Using the technique of disjoint union decompositions, prove that for any <m>0\leq k \leq n</m>, we have
-                <me>
-                    \binom{k}{k}+\binom{k+1}{k}+\binom{k+2}{k}+\cdots +\binom{n-1}{k}+\binom{n}{k} = \binom{n+1}{k+1} \, .
-                </me>  
+            How many binary strings of length <m>n</m> are there with exactly two ones and <m>(n-2)</m> zeros?
+            Express your answer as either a function of <m>n</m> or as a recursive expression.
+            Give an argument, i.e., a proof, explaining why your solution is correct.
         </p>
     </problem>
     <problem>
@@ -50,11 +47,25 @@ Your grade is based on completion only (in other words, if you complete the assi
     <problem>
         <title>P3</title>
         <p>
-            Prove that <m>\binom{n}{k}=\binom{n}{n-k}</m> by finding a bijection between <m>\binom{[n]}{k}</m> and <m>\binom{[n]}{n-k}</m>.
+            In this problem, we explore another property of binomial coefficients.
+            Equations such as this are known as <em>combinatorial identities</em>, because they are equalities of expressions involving combinatorial values.
+            Using the technique of disjoint union decompositions, prove that for any <m>0\leq k \leq n</m>, we have
+                <me>
+                    \binom{k}{k}+\binom{k+1}{k}+\binom{k+2}{k}+\cdots +\binom{n-1}{k}+\binom{n}{k} = \binom{n+1}{k+1} \, .
+                </me>  
         </p>
     </problem>
     <problem>
         <title>P4</title>
+        <p>
+            Give a combinatorial proof showing that
+            <me>
+                \sum_{k=0}^nk\binom{n}{k}=n2^{n-1} \, .
+            </me>
+        </p>
+    </problem>
+    <problem>
+        <title>P5</title>
         <p>
             <url href="https://en.wikipedia.org/wiki/Singmaster%27s_conjecture">Singmaster's conjecture</url> is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone.
             Note that the number <m>1</m> appears infinitely many times in the triangle of binomial coefficients.
@@ -70,15 +81,7 @@ Your grade is based on completion only (in other words, if you complete the assi
             (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)
         </p>
     </problem>
-    <problem>
-        <title>P5</title>
-        <p>
-            Give a combinatorial proof showing that
-            <me>
-                \sum_{k=0}^nk\binom{n}{k}=n2^{n-1} \, .
-            </me>
-        </p>
-    </problem>
+    
     <problem>
         <title>P6</title>
         <p>

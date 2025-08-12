@@ -40,8 +40,38 @@
   We can iterate products, so for example, <m>A^n</m> consists of all ordered lists consisting of <m>n</m> elements from <m>A</m>.
   </p>
 
+  <example>
+    <p>
+      You already have experience using product notation!
+      For example, you are used to seeing notation such as <me>\mathbb{R}^3=\mathbb{R}\times \mathbb{R}\times \mathbb{R}</me> in calculus or matrix algebra to represent an ordered list of three real numbers, i.e., a vector of length three.
+    </p>
+  </example>
+
+<remark>
+    <p>
+      Rules for checkpoints, which will either be a problem to solve or a question to discuss:
+      <ul>
+        <li>
+          <p>
+            First, begin the discussion by going around your group and having each person spend 10-seconds sharing an initial strategy for solving the problem, or sharing a answer to the question if it is a discussion question.
+          </p>
+        </li>
+        <li>
+          <p>
+            Second, go around the group again and give a 10-second follow-up answer. This allows everyone to have a chance to offer their thoughts before the general problem-solving or discussion begins.
+          </p>
+        </li>
+        <li>
+          <p>
+            Third, as a group, solve the problem or engage in the discussion for the checkpoint.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </remark>
+
   <exercise>
-    <p>List the binary strings in <m>\{0,1\}^4</m>.</p>
+    <p>List the binary strings in <m>\{0,1\}^4=\{0,1\}\times\{0,1\}\times\{0,1\}\times\{0,1\}</m>.</p>
   </exercise>
 
   <exercise>
