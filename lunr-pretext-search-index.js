@@ -7,25 +7,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.1",
   "title": "Eight Foundational Questions",
-  "body": " Eight Foundational Questions  We will be studying combinatorics and graph theory. We will be addressing the following eight foundational questions of combinatorics and graph theory:  Enumeration: How many ____ are there?  Classification: Which objects have ____ property?  Expectation: How likely is ____?  Optimization: What is the best ____?  Ethics: What are the ethical implications that arise when applying ____ to the physical, biological, health, or social sciences?  Sampling and Construction: How do I generate examples of ____?  Existence: Does ____ exist?  Estimation: Approximately how many ____ are there?    Rules for small group discussions:   First, begin the discussion by going around your group and having each person give a 10-second answer to the question.    Second, go around the group again and give a 10-second follow-up answer. This allows everyone to have a chance to offer their thoughts before the general discussion begins.    Third, have a general discussion.      What is an example of an enumeration problem you have seen in a previous course?    What is an example of an optimization problem you have seen in a previous course?   "
-},
-{
-  "id": "sec-foundational-questions-4",
-  "level": "2",
-  "url": "sec-foundational-questions.html#sec-foundational-questions-4",
-  "type": "Checkpoint",
-  "number": "1.1.1",
-  "title": "",
-  "body": " What is an example of an enumeration problem you have seen in a previous course?  "
-},
-{
-  "id": "sec-foundational-questions-5",
-  "level": "2",
-  "url": "sec-foundational-questions.html#sec-foundational-questions-5",
-  "type": "Checkpoint",
-  "number": "1.1.2",
-  "title": "",
-  "body": " What is an example of an optimization problem you have seen in a previous course?  "
+  "body": " Eight Foundational Questions  We will be studying combinatorics and graph theory. We will be addressing the following eight foundational questions of combinatorics and graph theory:  Enumeration: How many ____ are there?  Classification: Which objects have ____ property?  Expectation: How likely is ____?  Optimization: What is the best ____?  Ethics: What are the ethical implications that arise when applying ____ to the physical, biological, health, or social sciences?  Sampling and Construction: How do I generate examples of ____?  Existence: Does ____ exist?  Estimation: Approximately how many ____ are there?    "
 },
 {
   "id": "sec-Proofs",
@@ -34,23 +16,14 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.2",
   "title": "Proofs",
-  "body": " Proofs  Some of you have had good experiences with proofs in the past, and some of you have had bad experiences with proofs, and some of you have not really had to engage in reading and writing proofs. In general, the idea of mathematical proof is misunderstood by students. This is partially because the concept of proof is subtle and subject to human interpretation, which leads to disagreements even among professional mathematicians (though there are many aspects of proof that are widely agreed on!). The key issue is that different people have different answers to the following three questions:  What is Mathematics?  What is the purpose of Mathematics?  What are the criteria for Mathematics to be good or bad?     How would you answer the second question?   In this class, we will use two frameworks to guide our answers to these questions in the context of combinatorics and graph theory. The first framework is Formal Functionalism , a philosophy of Mathematics described by Saunders MacLane. His starting point is:  [Mathematical] activities... involve counting, timing, measuring, and moving, using numbers, intervals, distances, and shapes. Facts about these operations and ideas are gradually assembled, calculations are made, until finally there develops an extensive body of knowledge, based on a few central ideas and providing formal rules for calculation. Eventually this body of knowledge is organized by a formal system of concepts, axioms, definitions, and proofs.  The following table is from MacLane's book ``Mathematics: Form and Function'', illustrating this progression for different human activities.   Table of human activities from MacLane's book.    The second framework is David Tall's Three Worlds of Mathematics framework. Tall asserts that there are three different ways of doing mathematics, three ``worlds'', and each is related but independent. These worlds are the Embodied , Symbolic , and Formal worlds of mathematics.   Figure illustrating Tall's Three Worlds framework, from this page .    As we proceed to learn about combinatorics and graph theory, we will also discuss the ways in which various concepts are related to simple everyday activities (as in MacLane's table) and we will also discuss how our work fits within Tall's Three Worlds.  "
-},
-{
-  "id": "sec-Proofs-3",
-  "level": "2",
-  "url": "sec-Proofs.html#sec-Proofs-3",
-  "type": "Checkpoint",
-  "number": "1.2.1",
-  "title": "",
-  "body": " How would you answer the second question?  "
+  "body": " Proofs  Some of you have had good experiences with proofs in the past, and some of you have had bad experiences with proofs, and some of you have not really had to engage in reading and writing proofs. In general, the idea of mathematical proof is misunderstood by students. This is partially because the concept of proof is subtle and subject to human interpretation, which leads to disagreements even among professional mathematicians (though there are many aspects of proof that are widely agreed on!). The key issue is that different people have different answers to the following three questions:  What is Mathematics?  What is the purpose of Mathematics?  What are the criteria for Mathematics to be good or bad?     In this class, we will use two frameworks to guide our answers to these questions in the context of combinatorics and graph theory. The first framework is Formal Functionalism , a philosophy of Mathematics described by Saunders MacLane. His starting point is:  [Mathematical] activities... involve counting, timing, measuring, and moving, using numbers, intervals, distances, and shapes. Facts about these operations and ideas are gradually assembled, calculations are made, until finally there develops an extensive body of knowledge, based on a few central ideas and providing formal rules for calculation. Eventually this body of knowledge is organized by a formal system of concepts, axioms, definitions, and proofs.  The following table is from MacLane's book ``Mathematics: Form and Function'', illustrating this progression for different human activities.   Table of human activities from MacLane's book.    The second framework is David Tall's Three Worlds of Mathematics framework. Tall asserts that there are three different ways of doing mathematics, three ``worlds'', and each is related but independent. These worlds are the Embodied , Symbolic , and Formal worlds of mathematics.   Figure illustrating Tall's Three Worlds framework, from this page .    As we proceed to learn about combinatorics and graph theory, we will also discuss the ways in which various concepts are related to simple everyday activities (as in MacLane's table) and we will also discuss how our work fits within Tall's Three Worlds.  "
 },
 {
   "id": "fig-maclane",
   "level": "2",
   "url": "sec-Proofs.html#fig-maclane",
   "type": "Figure",
-  "number": "1.2.2",
+  "number": "1.2.1",
   "title": "",
   "body": " Table of human activities from MacLane's book.   "
 },
@@ -59,7 +32,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-Proofs.html#fig-tall",
   "type": "Figure",
-  "number": "1.2.3",
+  "number": "1.2.2",
   "title": "",
   "body": " Figure illustrating Tall's Three Worlds framework, from this page .   "
 },
@@ -70,7 +43,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.1",
   "title": "Binary Strings",
-  "body": " Binary Strings  We will begin with one of the most fundamental sets in combinatorics.    A binary string of length is an ordered list of values which are either or .    We can define binary strings another way, using products of sets. When we define notation, we will use the symbol \" \"\" to indicate that it is a definition. This helps to distinguish between when we are defining new notation and when we are proving equality between two objects.    Given two sets and , the product of these two sets is defined to be which is the set of all ordered pairs where the first element is from and the second element is from . The size , or cardinality , of a set is the number of elements in that set, which we denote by . If an element is in the set , then we write . If is not in the set , then we write .    We can iterate products, so for example, consists of all ordered lists consisting of elements from .   List the binary strings in .    How do you know that your list is complete?    Suppose that you were asked to make a list of all the binary strings in .   What would your strategy be for listing them? In other words, how would you systematically list all possible binary strings?    How do you know that your strategy would result in a complete list of all binary strings of length ?      These exercises lead us to the following observation.    There are binary strings of length .    We will give two proofs. The first proof uses combinatorial reasoning . Combinatorial reasoning is where you make an argument based on the structure of the set of outcomes that you are studying -- in this case, we are considering the set of binary strings.   Combinatorial Reasoning Proof of   A binary string is a list of entries . Each is either or . Thus, there are independent choices to make of either or , one choice for each entry, to determine the binary string. This gives outcomes, hence our result is proved.    Discuss the combinatorial reasoning proof with your group. Does the proof make sense? Why or why not?   The second proof is a proof using recursion . In a recursive proof , we establish a logical argument that uses a known structure to produce a new structure. For this proof, we will need the following.    The multiplication principle states that for two finite sets and we have     We will also need the following definitions. We use , called the empty set , to denote a set with no elements.    Given two sets and , the union of these two sets is defined to be The intersection of these two sets is defined to be If , then we write the union as and call it a disjoint union .     Recursive Proof of  Let denote the set of binary strings of length . Our goal is to prove that . It is straightforward to check that and and .  Our strategy will be to show that if we know , then we can prove . If we show this general statement, then using , we can conclude that . Then, knowing , we can conclude that . This chain of logical implications continues, so that we have our desired result for any length of binary strings.  Our strategy is the following observation: Once we know that holds, then the result follows because     Check that is true when . Work together to generate an argument (a proof!) showing that this is true for every .    Discuss with your group why the logical implications in this proof shows that for every positive integer .   "
+  "body": " Binary Strings  We will begin with one of the most fundamental sets in combinatorics.    A binary string of length is an ordered list of values which are either or .    We can define binary strings another way, using products of sets. When we define notation, we will use the symbol \" \"\" to indicate that it is a definition. This helps to distinguish between when we are defining new notation and when we are proving equality between two objects.    Given two sets and , the product of these two sets is defined to be which is the set of all ordered pairs where the first element is from and the second element is from . The size , or cardinality , of a set is the number of elements in that set, which we denote by . If an element is in the set , then we write . If is not in the set , then we write .    We can iterate products, so for example, consists of all ordered lists consisting of elements from .   You already have experience using product notation! For example, you are used to seeing notation such as in calculus or matrix algebra to represent an ordered list of three real numbers, i.e., a vector of length three.    Rules for checkpoints, which will either be a problem to solve or a question to discuss:   First, begin the discussion by going around your group and having each person spend 10-seconds sharing an initial strategy for solving the problem, or sharing a answer to the question if it is a discussion question.    Second, go around the group again and give a 10-second follow-up answer. This allows everyone to have a chance to offer their thoughts before the general problem-solving or discussion begins.    Third, as a group, solve the problem or engage in the discussion for the checkpoint.       List the binary strings in .    How do you know that your list is complete?    Suppose that you were asked to make a list of all the binary strings in .   What would your strategy be for listing them? In other words, how would you systematically list all possible binary strings?    How do you know that your strategy would result in a complete list of all binary strings of length ?      These exercises lead us to the following observation.    There are binary strings of length .    We will give two proofs. The first proof uses combinatorial reasoning . Combinatorial reasoning is where you make an argument based on the structure of the set of outcomes that you are studying -- in this case, we are considering the set of binary strings.   Combinatorial Reasoning Proof of   A binary string is a list of entries . Each is either or . Thus, there are independent choices to make of either or , one choice for each entry, to determine the binary string. This gives outcomes, hence our result is proved.    Discuss the combinatorial reasoning proof with your group. Does the proof make sense? Why or why not?   The second proof is a proof using recursion . In a recursive proof , we establish a logical argument that uses a known structure to produce a new structure. For this proof, we will need the following.    The multiplication principle states that for two finite sets and we have     We will also need the following definitions. We use , called the empty set , to denote a set with no elements.    Given two sets and , the union of these two sets is defined to be The intersection of these two sets is defined to be If , then we write the union as and call it a disjoint union .     Recursive Proof of  Let denote the set of binary strings of length . Our goal is to prove that . It is straightforward to check that and and .  Our strategy will be to show that if we know , then we can prove . If we show this general statement, then using , we can conclude that . Then, knowing , we can conclude that . This chain of logical implications continues, so that we have our desired result for any length of binary strings.  Our strategy is the following observation: Once we know that holds, then the result follows because     Check that is true when . Work together to generate an argument (a proof!) showing that this is true for every .    Discuss with your group why the logical implications in this proof shows that for every positive integer .   "
 },
 {
   "id": "def-binarystring",
@@ -94,19 +67,19 @@ var ptx_lunr_docs = [
   "id": "sec-binarystrings-7",
   "level": "2",
   "url": "sec-binarystrings.html#sec-binarystrings-7",
-  "type": "Checkpoint",
+  "type": "Example",
   "number": "2.1.3",
   "title": "",
-  "body": " List the binary strings in .  "
+  "body": " You already have experience using product notation! For example, you are used to seeing notation such as in calculus or matrix algebra to represent an ordered list of three real numbers, i.e., a vector of length three.  "
 },
 {
   "id": "sec-binarystrings-8",
   "level": "2",
   "url": "sec-binarystrings.html#sec-binarystrings-8",
-  "type": "Checkpoint",
+  "type": "Remark",
   "number": "2.1.4",
   "title": "",
-  "body": " How do you know that your list is complete?  "
+  "body": " Rules for checkpoints, which will either be a problem to solve or a question to discuss:   First, begin the discussion by going around your group and having each person spend 10-seconds sharing an initial strategy for solving the problem, or sharing a answer to the question if it is a discussion question.    Second, go around the group again and give a 10-second follow-up answer. This allows everyone to have a chance to offer their thoughts before the general problem-solving or discussion begins.    Third, as a group, solve the problem or engage in the discussion for the checkpoint.     "
 },
 {
   "id": "sec-binarystrings-9",
@@ -115,6 +88,24 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "2.1.5",
   "title": "",
+  "body": " List the binary strings in .  "
+},
+{
+  "id": "sec-binarystrings-10",
+  "level": "2",
+  "url": "sec-binarystrings.html#sec-binarystrings-10",
+  "type": "Checkpoint",
+  "number": "2.1.6",
+  "title": "",
+  "body": " How do you know that your list is complete?  "
+},
+{
+  "id": "sec-binarystrings-11",
+  "level": "2",
+  "url": "sec-binarystrings.html#sec-binarystrings-11",
+  "type": "Checkpoint",
+  "number": "2.1.7",
+  "title": "",
   "body": " Suppose that you were asked to make a list of all the binary strings in .   What would your strategy be for listing them? In other words, how would you systematically list all possible binary strings?    How do you know that your strategy would result in a complete list of all binary strings of length ?     "
 },
 {
@@ -122,25 +113,25 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-binarystrings.html#thm-binarystringenumeration",
   "type": "Theorem",
-  "number": "2.1.6",
+  "number": "2.1.8",
   "title": "",
   "body": "  There are binary strings of length .   "
 },
 {
-  "id": "sec-binarystrings-13",
+  "id": "sec-binarystrings-15",
   "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-13",
+  "url": "sec-binarystrings.html#sec-binarystrings-15",
   "type": "Proof",
   "number": "2.1.1",
-  "title": "Combinatorial Reasoning Proof of Theorem 2.1.6.",
+  "title": "Combinatorial Reasoning Proof of Theorem 2.1.8.",
   "body": " Combinatorial Reasoning Proof of   A binary string is a list of entries . Each is either or . Thus, there are independent choices to make of either or , one choice for each entry, to determine the binary string. This gives outcomes, hence our result is proved.  "
 },
 {
-  "id": "sec-binarystrings-14",
+  "id": "sec-binarystrings-16",
   "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-14",
+  "url": "sec-binarystrings.html#sec-binarystrings-16",
   "type": "Checkpoint",
-  "number": "2.1.7",
+  "number": "2.1.9",
   "title": "",
   "body": " Discuss the combinatorial reasoning proof with your group. Does the proof make sense? Why or why not?  "
 },
@@ -149,7 +140,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-binarystrings.html#fact-multiplicationprinciple",
   "type": "Fact",
-  "number": "2.1.8",
+  "number": "2.1.10",
   "title": "",
   "body": "  The multiplication principle states that for two finite sets and we have    "
 },
@@ -158,34 +149,34 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-binarystrings.html#def-union",
   "type": "Definition",
-  "number": "2.1.9",
+  "number": "2.1.11",
   "title": "",
   "body": "  Given two sets and , the union of these two sets is defined to be The intersection of these two sets is defined to be If , then we write the union as and call it a disjoint union .   "
-},
-{
-  "id": "sec-binarystrings-19",
-  "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-19",
-  "type": "Proof",
-  "number": "2.1.2",
-  "title": "Recursive Proof of Theorem 2.1.6.",
-  "body": " Recursive Proof of  Let denote the set of binary strings of length . Our goal is to prove that . It is straightforward to check that and and .  Our strategy will be to show that if we know , then we can prove . If we show this general statement, then using , we can conclude that . Then, knowing , we can conclude that . This chain of logical implications continues, so that we have our desired result for any length of binary strings.  Our strategy is the following observation: Once we know that holds, then the result follows because   "
-},
-{
-  "id": "sec-binarystrings-20",
-  "level": "2",
-  "url": "sec-binarystrings.html#sec-binarystrings-20",
-  "type": "Checkpoint",
-  "number": "2.1.10",
-  "title": "",
-  "body": " Check that is true when . Work together to generate an argument (a proof!) showing that this is true for every .  "
 },
 {
   "id": "sec-binarystrings-21",
   "level": "2",
   "url": "sec-binarystrings.html#sec-binarystrings-21",
+  "type": "Proof",
+  "number": "2.1.2",
+  "title": "Recursive Proof of Theorem 2.1.8.",
+  "body": " Recursive Proof of  Let denote the set of binary strings of length . Our goal is to prove that . It is straightforward to check that and and .  Our strategy will be to show that if we know , then we can prove . If we show this general statement, then using , we can conclude that . Then, knowing , we can conclude that . This chain of logical implications continues, so that we have our desired result for any length of binary strings.  Our strategy is the following observation: Once we know that holds, then the result follows because   "
+},
+{
+  "id": "sec-binarystrings-22",
+  "level": "2",
+  "url": "sec-binarystrings.html#sec-binarystrings-22",
   "type": "Checkpoint",
-  "number": "2.1.11",
+  "number": "2.1.12",
+  "title": "",
+  "body": " Check that is true when . Work together to generate an argument (a proof!) showing that this is true for every .  "
+},
+{
+  "id": "sec-binarystrings-23",
+  "level": "2",
+  "url": "sec-binarystrings.html#sec-binarystrings-23",
+  "type": "Checkpoint",
+  "number": "2.1.13",
   "title": "",
   "body": " Discuss with your group why the logical implications in this proof shows that for every positive integer .  "
 },
@@ -1042,7 +1033,7 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "10",
   "title": "Homework Problems and Essays",
-  "body": " Homework Problems and Essays   P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that        P2  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have     Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P3  Prove that by finding a bijection between and .    P4   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)    P5  Give a combinatorial proof showing that     P6  For each positive integer , express in terms of Fibonacci numbers the number of sequences with each , such that     P7      P8      P9      P10      P11      Essay 2      P12      P13      P14      P15      P16      P17      Essay 3      P18      P19      P20      P21      P22      P23      Essay 4      P24      P25      P26      P27      P28      P29      Essay 5      P30      P31      P32      P33      P34      P35      Essay 6      P36      P37      P38      P39      P40      End-of-Class Reflection     "
+  "body": " Homework Problems and Essays   P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that        P2  How many binary strings of length are there with exactly two ones and zeros? Express your answer as either a function of or as a recursive expression. Give an argument, i.e., a proof, explaining why your solution is correct.    Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P3  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have     P4  Give a combinatorial proof showing that     P5   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)    P6  For each positive integer , express in terms of Fibonacci numbers the number of sequences with each , such that     P7      P8      P9      P10      P11      Essay 2      P12      P13      P14      P15      P16      P17      Essay 3      P18      P19      P20      P21      P22      P23      Essay 4      P24      P25      P26      P27      P28      P29      Essay 5      P30      P31      P32      P33      P34      P35      Essay 6      P36      P37      P38      P39      P40      End-of-Class Reflection     "
 },
 {
   "id": "ch-homework-2",
@@ -1060,7 +1051,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.2",
   "title": "P2.",
-  "body": " P2  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have   "
+  "body": " P2  How many binary strings of length are there with exactly two ones and zeros? Express your answer as either a function of or as a recursive expression. Give an argument, i.e., a proof, explaining why your solution is correct.  "
 },
 {
   "id": "ch-homework-4",
@@ -1078,7 +1069,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.4",
   "title": "P3.",
-  "body": " P3  Prove that by finding a bijection between and .  "
+  "body": " P3  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have   "
 },
 {
   "id": "ch-homework-6",
@@ -1087,7 +1078,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.5",
   "title": "P4.",
-  "body": " P4   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)  "
+  "body": " P4  Give a combinatorial proof showing that   "
 },
 {
   "id": "ch-homework-7",
@@ -1096,7 +1087,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.6",
   "title": "P5.",
-  "body": " P5  Give a combinatorial proof showing that   "
+  "body": " P5   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)  "
 },
 {
   "id": "ch-homework-8",

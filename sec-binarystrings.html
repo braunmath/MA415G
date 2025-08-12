@@ -101,14 +101,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.3';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.47a5fea5694fc0ae.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.014cb392a13bd045.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -208,43 +208,79 @@ A\times B := \{(a,b):a\in A, b\in B\}
 </div>
 <div class="autopermalink" data-description="Definition 2.1.2"><a href="#def-setproduct" title="Copy heading and permalink for Definition 2.1.2" aria-label="Copy heading and permalink for Definition 2.1.2">🔗</a></div></article><div class="para" id="sec-binarystrings-6">We can iterate products, so for example, <span class="process-math">\(A^n\)</span> consists of all ordered lists consisting of <span class="process-math">\(n\)</span> elements from <span class="process-math">\(A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="sec-binarystrings-7" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-binarystrings-7-1">List the binary strings in <span class="process-math">\(\{0,1\}^4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<details id="sec-binarystrings-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-binarystrings-7-1">
+<div class="para">You already have experience using product notation! For example, you are used to seeing notation such as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbb{R}^3=\mathbb{R}\times \mathbb{R}\times \mathbb{R}
+\end{equation*}
 </div>
-<div class="autopermalink" data-description="Checkpoint 2.1.3"><a href="#sec-binarystrings-7" title="Copy heading and permalink for Checkpoint 2.1.3" aria-label="Copy heading and permalink for Checkpoint 2.1.3">🔗</a></div></article></details><details id="sec-binarystrings-8" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-binarystrings-8-1">How do you know that your list is complete?<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">in calculus or matrix algebra to represent an ordered list of three real numbers, i.e., a vector of length three.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 2.1.4"><a href="#sec-binarystrings-8" title="Copy heading and permalink for Checkpoint 2.1.4" aria-label="Copy heading and permalink for Checkpoint 2.1.4">🔗</a></div></article></details><details id="sec-binarystrings-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<div class="autopermalink" data-description="Example 2.1.3"><a href="#sec-binarystrings-7" title="Copy heading and permalink for Example 2.1.3" aria-label="Copy heading and permalink for Example 2.1.3">🔗</a></div></article></details><article class="remark remark-like" id="sec-binarystrings-8"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="sec-binarystrings-8-1">
+<div class="para">Rules for checkpoints, which will either be a problem to solve or a question to discuss:</div>
+<ul class="disc" id="sec-binarystrings-8-1-1">
+<li id="sec-binarystrings-8-1-1-1">
+<div class="para" id="sec-binarystrings-8-1-1-1-1">First, begin the discussion by going around your group and having each person spend 10-seconds sharing an initial strategy for solving the problem, or sharing a answer to the question if it is a discussion question.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-8-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-binarystrings-8-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-binarystrings-8-1-1-2">
+<div class="para" id="sec-binarystrings-8-1-1-2-1">Second, go around the group again and give a 10-second follow-up answer. This allows everyone to have a chance to offer their thoughts before the general problem-solving or discussion begins.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-8-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-binarystrings-8-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-binarystrings-8-1-1-3">
+<div class="para" id="sec-binarystrings-8-1-1-3-1">Third, as a group, solve the problem or engage in the discussion for the checkpoint.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-8-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-binarystrings-8-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 2.1.4"><a href="#sec-binarystrings-8" title="Copy heading and permalink for Remark 2.1.4" aria-label="Copy heading and permalink for Remark 2.1.4">🔗</a></div></article><details id="sec-binarystrings-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-binarystrings-9-1">
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-binarystrings-9-1">List the binary strings in <span class="process-math">\(\{0,1\}^4=\{0,1\}\times\{0,1\}\times\{0,1\}\times\{0,1\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.1.5"><a href="#sec-binarystrings-9" title="Copy heading and permalink for Checkpoint 2.1.5" aria-label="Copy heading and permalink for Checkpoint 2.1.5">🔗</a></div></article></details><details id="sec-binarystrings-10" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-binarystrings-10-1">How do you know that your list is complete?<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.1.6"><a href="#sec-binarystrings-10" title="Copy heading and permalink for Checkpoint 2.1.6" aria-label="Copy heading and permalink for Checkpoint 2.1.6">🔗</a></div></article></details><details id="sec-binarystrings-11" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-binarystrings-11-1">
 <div class="para">Suppose that you were asked to make a list of all the binary strings in <span class="process-math">\(\{0,1\}^{10}\text{.}\)</span>
 </div>
-<ol class="decimal" id="sec-binarystrings-9-1-2">
-<li id="sec-binarystrings-9-1-2-1">
-<div class="para" id="sec-binarystrings-9-1-2-1-1">What would your strategy be for listing them? In other words, how would you <em class="emphasis">systematically list</em> all possible binary strings?<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-9-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ol class="decimal" id="sec-binarystrings-11-1-2">
+<li id="sec-binarystrings-11-1-2-1">
+<div class="para" id="sec-binarystrings-11-1-2-1-1">What would your strategy be for listing them? In other words, how would you <em class="emphasis">systematically list</em> all possible binary strings?<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-11-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 2.1.5.1"><a href="#sec-binarystrings-9-1-2-1" title="Copy heading and permalink for Item 2.1.5.1" aria-label="Copy heading and permalink for Item 2.1.5.1">🔗</a></div>
+<div class="autopermalink" data-description="Item 2.1.7.1"><a href="#sec-binarystrings-11-1-2-1" title="Copy heading and permalink for Item 2.1.7.1" aria-label="Copy heading and permalink for Item 2.1.7.1">🔗</a></div>
 </li>
-<li id="sec-binarystrings-9-1-2-2">
-<div class="para" id="sec-binarystrings-9-1-2-2-1">How do you know that your strategy would result in a complete list of all binary strings of length <span class="process-math">\(10\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-9-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec-binarystrings-11-1-2-2">
+<div class="para" id="sec-binarystrings-11-1-2-2-1">How do you know that your strategy would result in a complete list of all binary strings of length <span class="process-math">\(10\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-11-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 2.1.5.2"><a href="#sec-binarystrings-9-1-2-2" title="Copy heading and permalink for Item 2.1.5.2" aria-label="Copy heading and permalink for Item 2.1.5.2">🔗</a></div>
+<div class="autopermalink" data-description="Item 2.1.7.2"><a href="#sec-binarystrings-11-1-2-2" title="Copy heading and permalink for Item 2.1.7.2" aria-label="Copy heading and permalink for Item 2.1.7.2">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 2.1.5"><a href="#sec-binarystrings-9" title="Copy heading and permalink for Checkpoint 2.1.5" aria-label="Copy heading and permalink for Checkpoint 2.1.5">🔗</a></div></article></details><div class="para" id="sec-binarystrings-10">These exercises lead us to the following observation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Checkpoint 2.1.7"><a href="#sec-binarystrings-11" title="Copy heading and permalink for Checkpoint 2.1.7" aria-label="Copy heading and permalink for Checkpoint 2.1.7">🔗</a></div></article></details><div class="para" id="sec-binarystrings-12">These exercises lead us to the following observation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm-binarystringenumeration"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span>
 </h3>
 <div class="para" id="thm-binarystringenumeration-1-1">There are <span class="process-math">\(2^n\)</span> binary strings of length <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-binarystringenumeration-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 2.1.6"><a href="#thm-binarystringenumeration" title="Copy heading and permalink for Theorem 2.1.6" aria-label="Copy heading and permalink for Theorem 2.1.6">🔗</a></div></article><div class="para" id="sec-binarystrings-12">We will give two proofs. The first proof uses <em class="emphasis">combinatorial reasoning</em>. Combinatorial reasoning is where you make an argument based on the structure of the <em class="emphasis">set of outcomes</em> that you are studying -- in this case, we are considering the set of binary strings.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 2.1.8"><a href="#thm-binarystringenumeration" title="Copy heading and permalink for Theorem 2.1.8" aria-label="Copy heading and permalink for Theorem 2.1.8">🔗</a></div></article><div class="para" id="sec-binarystrings-14">We will give two proofs. The first proof uses <em class="emphasis">combinatorial reasoning</em>. Combinatorial reasoning is where you make an argument based on the structure of the <em class="emphasis">set of outcomes</em> that you are studying -- in this case, we are considering the set of binary strings.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="sec-binarystrings-13" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Combinatorial Reasoning Proof of Theorem 2.1.6.</span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-binarystrings-13-2">
+<details id="sec-binarystrings-15" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Combinatorial Reasoning Proof of Theorem 2.1.8.</span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-binarystrings-15-2">
 <div class="para">A binary string is a list of entries <span class="process-math">\((a_1,a_2,\ldots,a_n)\text{.}\)</span> Each <span class="process-math">\(a_i\)</span> is either <span class="process-math">\(0\)</span> or <span class="process-math">\(1\text{.}\)</span> Thus, there are <span class="process-math">\(n\)</span> independent choices to make of either <span class="process-math">\(0\)</span> or <span class="process-math">\(1\text{,}\)</span> one choice for each entry, to determine the binary string. This gives</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -252,16 +288,16 @@ A\times B := \{(a,b):a\in A, b\in B\}
 \end{equation*}
 </div>
 <div class="para">outcomes, hence our result is proved.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-13-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 2.1.1: Combinatorial Reasoning Proof of Theorem 2.1.6"><a href="#sec-binarystrings-13" title="Copy heading and permalink for Proof 2.1.1: Combinatorial Reasoning Proof of Theorem 2.1.6" aria-label="Copy heading and permalink for Proof 2.1.1: Combinatorial Reasoning Proof of Theorem 2.1.6">🔗</a></div></article></details><details id="sec-binarystrings-14" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-binarystrings-14-1">Discuss the combinatorial reasoning proof with your group. Does the proof make sense? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 2.1.1: Combinatorial Reasoning Proof of Theorem 2.1.8"><a href="#sec-binarystrings-15" title="Copy heading and permalink for Proof 2.1.1: Combinatorial Reasoning Proof of Theorem 2.1.8" aria-label="Copy heading and permalink for Proof 2.1.1: Combinatorial Reasoning Proof of Theorem 2.1.8">🔗</a></div></article></details><details id="sec-binarystrings-16" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.9</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-binarystrings-16-1">Discuss the combinatorial reasoning proof with your group. Does the proof make sense? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 2.1.7"><a href="#sec-binarystrings-14" title="Copy heading and permalink for Checkpoint 2.1.7" aria-label="Copy heading and permalink for Checkpoint 2.1.7">🔗</a></div></article></details><div class="para" id="sec-binarystrings-15">The second proof is a proof using <em class="emphasis">recursion</em>. In a <em class="emphasis">recursive proof</em>, we establish a logical argument that uses a known structure to produce a new structure. For this proof, we will need the following.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Checkpoint 2.1.9"><a href="#sec-binarystrings-16" title="Copy heading and permalink for Checkpoint 2.1.9" aria-label="Copy heading and permalink for Checkpoint 2.1.9">🔗</a></div></article></details><div class="para" id="sec-binarystrings-17">The second proof is a proof using <em class="emphasis">recursion</em>. In a <em class="emphasis">recursive proof</em>, we establish a logical argument that uses a known structure to produce a new structure. For this proof, we will need the following.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="fact theorem-like" id="fact-multiplicationprinciple"><h3 class="heading">
-<span class="type">Fact</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span>
+<span class="type">Fact</span><span class="space"> </span><span class="codenumber">2.1.10</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="fact-multiplicationprinciple-1-1">
 <div class="para">The <em class="emphasis">multiplication principle</em> states that for two finite sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> we have</div>
@@ -272,10 +308,10 @@ A\times B := \{(a,b):a\in A, b\in B\}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#fact-multiplicationprinciple-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Fact 2.1.8"><a href="#fact-multiplicationprinciple" title="Copy heading and permalink for Fact 2.1.8" aria-label="Copy heading and permalink for Fact 2.1.8">🔗</a></div></article><div class="para" id="sec-binarystrings-17">We will also need the following definitions. We use <span class="process-math">\(\emptyset=\{\}\text{,}\)</span> called the <em class="emphasis">empty set</em>, to denote a set with no elements.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Fact 2.1.10"><a href="#fact-multiplicationprinciple" title="Copy heading and permalink for Fact 2.1.10" aria-label="Copy heading and permalink for Fact 2.1.10">🔗</a></div></article><div class="para" id="sec-binarystrings-19">We will also need the following definitions. We use <span class="process-math">\(\emptyset=\{\}\text{,}\)</span> called the <em class="emphasis">empty set</em>, to denote a set with no elements.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="def-union"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.9</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.11</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="def-union-1-1">
 <div class="para">Given two sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> the <em class="emphasis">union</em> of these two sets is defined to be</div>
@@ -293,19 +329,19 @@ A\cap B := \{x: x\in A \text{ and } x\in B\} \, .
 <div class="para">If <span class="process-math">\(A\cap B = \emptyset\text{,}\)</span> then we write the union as <span class="process-math">\(A\uplus B\)</span> and call it a <em class="emphasis">disjoint union</em>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def-union-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 2.1.9"><a href="#def-union" title="Copy heading and permalink for Definition 2.1.9" aria-label="Copy heading and permalink for Definition 2.1.9">🔗</a></div></article><details id="sec-binarystrings-19" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Recursive Proof of Theorem 2.1.6.</span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-binarystrings-19-2">Let <span class="process-math">\(\Bin(n)\)</span> denote the set of binary strings of length <span class="process-math">\(n\text{.}\)</span> Our goal is to prove that <span class="process-math">\(|\Bin(n)|=2^n\text{.}\)</span> It is straightforward to check that <span class="process-math">\(|\Bin(1)|=2\)</span> and <span class="process-math">\(|\Bin(2)|=4=2^2\)</span> and <span class="process-math">\(|\Bin(3)|=8=2^3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-19-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 2.1.11"><a href="#def-union" title="Copy heading and permalink for Definition 2.1.11" aria-label="Copy heading and permalink for Definition 2.1.11">🔗</a></div></article><details id="sec-binarystrings-21" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Recursive Proof of Theorem 2.1.8.</span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-binarystrings-21-2">Let <span class="process-math">\(\Bin(n)\)</span> denote the set of binary strings of length <span class="process-math">\(n\text{.}\)</span> Our goal is to prove that <span class="process-math">\(|\Bin(n)|=2^n\text{.}\)</span> It is straightforward to check that <span class="process-math">\(|\Bin(1)|=2\)</span> and <span class="process-math">\(|\Bin(2)|=4=2^2\)</span> and <span class="process-math">\(|\Bin(3)|=8=2^3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-21-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-binarystrings-19-3">Our strategy will be to show that if we know <span class="process-math">\(|\Bin(n)|=2^n\text{,}\)</span> then we can prove <span class="process-math">\(|\Bin(n+1)|=2^{n+1}\text{.}\)</span> If we show this general statement, then using <span class="process-math">\(|\Bin(3)|=8=2^3\text{,}\)</span> we can conclude that <span class="process-math">\(|\Bin(4)|=2^3\text{.}\)</span> Then, knowing <span class="process-math">\(|\Bin(4)|=2^4\text{,}\)</span> we can conclude that <span class="process-math">\(|\Bin(5)|=2^5\text{.}\)</span> This chain of logical implications continues, so that we have our desired result for any length of binary strings.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-19-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-binarystrings-21-3">Our strategy will be to show that if we know <span class="process-math">\(|\Bin(n)|=2^n\text{,}\)</span> then we can prove <span class="process-math">\(|\Bin(n+1)|=2^{n+1}\text{.}\)</span> If we show this general statement, then using <span class="process-math">\(|\Bin(3)|=8=2^3\text{,}\)</span> we can conclude that <span class="process-math">\(|\Bin(4)|=2^3\text{.}\)</span> Then, knowing <span class="process-math">\(|\Bin(4)|=2^4\text{,}\)</span> we can conclude that <span class="process-math">\(|\Bin(5)|=2^5\text{.}\)</span> This chain of logical implications continues, so that we have our desired result for any length of binary strings.<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-21-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="sec-binarystrings-19-4">
+<div class="para logical" id="sec-binarystrings-21-4">
 <div class="para">Our strategy is the following observation:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-bindisjoint.html" id="sec-binarystrings-19-4-1">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-bindisjoint.html" id="sec-binarystrings-21-4-1">
 \begin{align}
 \amp \Bin(n+1) = \{1\}\times \Bin(n) \uplus \{0\}\times \Bin(n) \tag{2.1.1}
 \end{align}
 </div>
-<div class="para">Once we know that <a href="sec-binarystrings.html#sec-binarystrings-19-4-1" class="xref" data-knowl="./knowl/xref/eq-bindisjoint.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.1.1">(2.1.1)</a> holds, then the result follows because</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-bindisjoint.html" id="sec-binarystrings-19-4-3">
+<div class="para">Once we know that <a href="sec-binarystrings.html#sec-binarystrings-21-4-1" class="xref" data-knowl="./knowl/xref/eq-bindisjoint.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.1.1">(2.1.1)</a> holds, then the result follows because</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-bindisjoint.html" id="sec-binarystrings-21-4-3">
 \begin{align*}
 |\Bin(n+1)| \amp = |\{1\}\times \Bin(n) \uplus \{0\}\times \Bin(n)| \\
 \amp = |\{1\}\times \Bin(n)| + |\{0\}\times \Bin(n)|\\
@@ -313,17 +349,17 @@ A\cap B := \{x: x\in A \text{ and } x\in B\} \, .
 \amp = 2\cdot \Bin(n) = 2\cdot 2^{n}=2^{n+1}
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-19-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-21-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 2.1.2: Recursive Proof of Theorem 2.1.6"><a href="#sec-binarystrings-19" title="Copy heading and permalink for Proof 2.1.2: Recursive Proof of Theorem 2.1.6" aria-label="Copy heading and permalink for Proof 2.1.2: Recursive Proof of Theorem 2.1.6">🔗</a></div></article></details><details id="sec-binarystrings-20" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.10</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-binarystrings-20-1">Check that <a href="sec-binarystrings.html#sec-binarystrings-19-4-1" class="xref" data-knowl="./knowl/xref/eq-bindisjoint.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.1.1">(2.1.1)</a> is true when <span class="process-math">\(n=3\text{.}\)</span> Work together to generate an argument (a proof!) showing that this is true for every <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-20-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 2.1.2: Recursive Proof of Theorem 2.1.8"><a href="#sec-binarystrings-21" title="Copy heading and permalink for Proof 2.1.2: Recursive Proof of Theorem 2.1.8" aria-label="Copy heading and permalink for Proof 2.1.2: Recursive Proof of Theorem 2.1.8">🔗</a></div></article></details><details id="sec-binarystrings-22" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.12</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-binarystrings-22-1">Check that <a href="sec-binarystrings.html#sec-binarystrings-21-4-1" class="xref" data-knowl="./knowl/xref/eq-bindisjoint.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.1.1">(2.1.1)</a> is true when <span class="process-math">\(n=3\text{.}\)</span> Work together to generate an argument (a proof!) showing that this is true for every <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-22-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 2.1.10"><a href="#sec-binarystrings-20" title="Copy heading and permalink for Checkpoint 2.1.10" aria-label="Copy heading and permalink for Checkpoint 2.1.10">🔗</a></div></article></details><details id="sec-binarystrings-21" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.11</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-binarystrings-21-1">Discuss with your group why the logical implications in this proof shows that <span class="process-math">\(|\Bin(n)|=2^n\)</span> for every positive integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-21-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Checkpoint 2.1.12"><a href="#sec-binarystrings-22" title="Copy heading and permalink for Checkpoint 2.1.12" aria-label="Copy heading and permalink for Checkpoint 2.1.12">🔗</a></div></article></details><details id="sec-binarystrings-23" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.13</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-binarystrings-23-1">Discuss with your group why the logical implications in this proof shows that <span class="process-math">\(|\Bin(n)|=2^n\)</span> for every positive integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-23-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 2.1.11"><a href="#sec-binarystrings-21" title="Copy heading and permalink for Checkpoint 2.1.11" aria-label="Copy heading and permalink for Checkpoint 2.1.11">🔗</a></div></article></details><div class="autopermalink" data-description="Section 2.1: Binary Strings"><a href="#sec-binarystrings" title="Copy heading and permalink for Section 2.1: Binary Strings" aria-label="Copy heading and permalink for Section 2.1: Binary Strings">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Checkpoint 2.1.13"><a href="#sec-binarystrings-23" title="Copy heading and permalink for Checkpoint 2.1.13" aria-label="Copy heading and permalink for Checkpoint 2.1.13">🔗</a></div></article></details><div class="autopermalink" data-description="Section 2.1: Binary Strings"><a href="#sec-binarystrings" title="Copy heading and permalink for Section 2.1: Binary Strings" aria-label="Copy heading and permalink for Section 2.1: Binary Strings">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="enumeration.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-binomialcoefficients.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

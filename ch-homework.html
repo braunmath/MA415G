@@ -101,14 +101,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.3';
+eBookConfig.runestone_version = '7.9.6';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.47a5fea5694fc0ae.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.014cb392a13bd045.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -186,7 +186,7 @@ eBookConfig.enable_chatcodes =  false;
 <details id="ch-homework-2" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.1</span><span class="period">.</span><span class="space"> </span><span class="title">P1.</span>
 </h2></summary><article class="problem example-like knowl__content"><div class="para logical" id="ch-homework-2-2">
-<div class="para">Define an <em class="emphasis"><span class="process-math">\(m\)</span>-ary string</em> to be an ordered list of length <span class="process-math">\(n\)</span> where each entry is an element of <span class="process-math">\(\{0,1,2,\ldots,m\}\text{.}\)</span> We denote by <span class="process-math">\([m]^n\)</span> the set of <span class="process-math">\(m\)</span>-ary strings of length <span class="process-math">\(n\text{.}\)</span>
+<div class="para">Define an <em class="emphasis"><span class="process-math">\(m\)</span>-ary string</em> to be an ordered list of length <span class="process-math">\(n\)</span> where each entry is an element of <span class="process-math">\([m]:=\{1,2,\ldots,m\}\text{.}\)</span> We denote by <span class="process-math">\([m]^n\)</span> the set of <span class="process-math">\(m\)</span>-ary strings of length <span class="process-math">\(n\text{.}\)</span>
 </div>
 <ol class="decimal" id="ch-homework-2-2-7">
 <li id="ch-homework-2-2-7-1">
@@ -196,7 +196,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li id="ch-homework-2-2-7-2">
 <div class="para logical" id="ch-homework-2-2-7-2-1">
-<div class="para">Give a <em class="emphasis">recursive</em> proof, following the structure of the recursive proof of <a href="sec-binarystrings.html#thm-binarystringenumeration" class="xref" data-knowl="./knowl/xref/thm-binarystringenumeration.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.1.6">Theorem 2.1.6</a>, that</div>
+<div class="para">Give a <em class="emphasis">recursive</em> proof, following the structure of the recursive proof of <a href="sec-binarystrings.html#thm-binarystringenumeration" class="xref" data-knowl="./knowl/xref/thm-binarystringenumeration.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.1.8">Theorem 2.1.8</a>, that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-binarystringenumeration.html">
 \begin{equation*}
 |[m]^n|=m^n \, .
@@ -211,14 +211,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Problem 10.0.1: P1"><a href="#ch-homework-2" title="Copy heading and permalink for Problem 10.0.1: P1" aria-label="Copy heading and permalink for Problem 10.0.1: P1">🔗</a></div></article></details><details id="ch-homework-3" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.2</span><span class="period">.</span><span class="space"> </span><span class="title">P2.</span>
-</h2></summary><article class="problem example-like knowl__content"><div class="para logical" id="ch-homework-3-2">
-<div class="para">In this problem, we explore another property of binomial coefficients. Equations such as this are known as <em class="emphasis">combinatorial identities</em>, because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any <span class="process-math">\(0\leq k \leq n\text{,}\)</span> we have</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\binom{k}{k}+\binom{k+1}{k}+\binom{k+2}{k}+\cdots +\binom{n-1}{k}+\binom{n}{k} = \binom{n+1}{k+1} \, .
-\end{equation*}
-</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h2></summary><article class="problem example-like knowl__content"><div class="para" id="ch-homework-3-2">How many binary strings of length <span class="process-math">\(n\)</span> are there with exactly two ones and <span class="process-math">\((n-2)\)</span> zeros? Express your answer as either a function of <span class="process-math">\(n\)</span> or as a recursive expression. Give an argument, i.e., a proof, explaining why your solution is correct.<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Problem 10.0.2: P2"><a href="#ch-homework-3" title="Copy heading and permalink for Problem 10.0.2: P2" aria-label="Copy heading and permalink for Problem 10.0.2: P2">🔗</a></div></article></details><details id="ch-homework-4" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.3</span><span class="period">.</span><span class="space"> </span><span class="title">Essay 1.</span>
@@ -246,25 +239,32 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Problem 10.0.3: Essay 1"><a href="#ch-homework-4" title="Copy heading and permalink for Problem 10.0.3: Essay 1" aria-label="Copy heading and permalink for Problem 10.0.3: Essay 1">🔗</a></div></article></details><details id="ch-homework-5" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.4</span><span class="period">.</span><span class="space"> </span><span class="title">P3.</span>
-</h2></summary><article class="problem example-like knowl__content"><div class="para" id="ch-homework-5-2">Prove that <span class="process-math">\(\binom{n}{k}=\binom{n}{n-k}\)</span> by finding a bijection between <span class="process-math">\(\binom{[n]}{k}\)</span> and <span class="process-math">\(\binom{[n]}{n-k}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h2></summary><article class="problem example-like knowl__content"><div class="para logical" id="ch-homework-5-2">
+<div class="para">In this problem, we explore another property of binomial coefficients. Equations such as this are known as <em class="emphasis">combinatorial identities</em>, because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any <span class="process-math">\(0\leq k \leq n\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\binom{k}{k}+\binom{k+1}{k}+\binom{k+2}{k}+\cdots +\binom{n-1}{k}+\binom{n}{k} = \binom{n+1}{k+1} \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Problem 10.0.4: P3"><a href="#ch-homework-5" title="Copy heading and permalink for Problem 10.0.4: P3" aria-label="Copy heading and permalink for Problem 10.0.4: P3">🔗</a></div></article></details><details id="ch-homework-6" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.5</span><span class="period">.</span><span class="space"> </span><span class="title">P4.</span>
-</h2></summary><article class="problem example-like knowl__content"><div class="para" id="ch-homework-6-2">
-<a class="external" href="https://en.wikipedia.org/wiki/Singmaster%27s_conjecture" target="_blank">Singmaster’s conjecture</a><details class="ptx-footnote" aria-live="polite" id="ch-homework-6-2-2"><summary class="ptx-footnote__number" title="Footnote 10.0.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="ch-homework-6-2-2"><code class="code-inline tex2jax_ignore">en.wikipedia.org/wiki/Singmaster%27s_conjecture</code></div></details> is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number <span class="process-math">\(1\)</span> appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer <span class="process-math">\(N\)</span> such that every positive integer other than <span class="process-math">\(1\)</span> shows up at most <span class="process-math">\(N\)</span> times in the triangle of binomial coefficients?<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="ch-homework-6-3">Make as much progress as you can on this open problem; I don’t expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? (Seriously, write down everything you’re thinking and every idea you try, even if it doesn’t go anywhere.)<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Problem 10.0.5: P4"><a href="#ch-homework-6" title="Copy heading and permalink for Problem 10.0.5: P4" aria-label="Copy heading and permalink for Problem 10.0.5: P4">🔗</a></div></article></details><details id="ch-homework-7" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
-<span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.6</span><span class="period">.</span><span class="space"> </span><span class="title">P5.</span>
-</h2></summary><article class="problem example-like knowl__content"><div class="para logical" id="ch-homework-7-2">
+</h2></summary><article class="problem example-like knowl__content"><div class="para logical" id="ch-homework-6-2">
 <div class="para">Give a combinatorial proof showing that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \sum_{k=0}^nk\binom{n}{k}=n2^{n-1} \, .
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 10.0.5: P4"><a href="#ch-homework-6" title="Copy heading and permalink for Problem 10.0.5: P4" aria-label="Copy heading and permalink for Problem 10.0.5: P4">🔗</a></div></article></details><details id="ch-homework-7" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
+<span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.6</span><span class="period">.</span><span class="space"> </span><span class="title">P5.</span>
+</h2></summary><article class="problem example-like knowl__content"><div class="para" id="ch-homework-7-2">
+<a class="external" href="https://en.wikipedia.org/wiki/Singmaster%27s_conjecture" target="_blank">Singmaster’s conjecture</a><details class="ptx-footnote" aria-live="polite" id="ch-homework-7-2-2"><summary class="ptx-footnote__number" title="Footnote 10.0.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="ch-homework-7-2-2"><code class="code-inline tex2jax_ignore">en.wikipedia.org/wiki/Singmaster%27s_conjecture</code></div></details> is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number <span class="process-math">\(1\)</span> appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer <span class="process-math">\(N\)</span> such that every positive integer other than <span class="process-math">\(1\)</span> shows up at most <span class="process-math">\(N\)</span> times in the triangle of binomial coefficients?<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch-homework-7-3">Make as much progress as you can on this open problem; I don’t expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? (Seriously, write down everything you’re thinking and every idea you try, even if it doesn’t go anywhere.)<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Problem 10.0.6: P5"><a href="#ch-homework-7" title="Copy heading and permalink for Problem 10.0.6: P5" aria-label="Copy heading and permalink for Problem 10.0.6: P5">🔗</a></div></article></details><details id="ch-homework-8" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.7</span><span class="period">.</span><span class="space"> </span><span class="title">P6.</span>
