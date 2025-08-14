@@ -1,4 +1,70 @@
 <section xml:id="sec-inversions">
     <title>Permutations: Inversions and Descents</title>
+    <p>
+        A fundamental question about a permutation is to ask how much the permutation is "out of order" from the identity <m>1234\cdots n</m>.
+        One of the approaches to answering this question is to consider when a pair of entries in the one-line notation for the permutation are reversed in order.
+        This leads to the idea of an inversion.
+    </p>
+    <definition xml:id="def-inversion">
+        <statement>
+            <p>
+                Let <m>\pi=\pi_1\pi_2\cdots\pi_n</m> be a permutation.
+                If <m>i \lt j</m> and <m>\pi_i \gt \pi_j</m>, then we say that there is an <em>inversion</em> at <m>(i,j)</m>.
+                Let <m>\Inv(\pi)</m> denote the set of inversions in <m>\pi</m>.
+            </p>
+        </statement>
+    </definition>
+
+    <exercise>
+        <p>
+            List all the inversions in <m>\pi=38162745</m>.
+            How many inversions are there?
+        </p>
+    </exercise>
+    <exercise>
+        <p>
+            What is the largest possible number of inversions for a permutation in <m>\ss_n</m>?
+        </p>
+    </exercise>
+    <p>
+        The number of permutations in <m>\ss_n</m> with <m>k</m> inversions can be computed recursively as follows.
+    </p>
+    <theorem xml:id="thm-inversionrecursion">
+        <statement>
+            <p>
+                Let <m>I(n,k)</m> denote the number of permutations in <m>\ss_n</m> with <m>k</m> inversions.
+                Then <m>I(0,0)</m> is defined to be <m>1</m>, and <m>I(n,0)=1</m>, and <m>I(n,k)=0</m> for <m>k\lt 0</m> and <m>k\gt \binom{n}{2}</m>.
+                Further,
+                <me>
+                    I(n,k)=I(n-1,k)+I(n-1,k-1)+I(n-1,k-2)+\cdots +I(n-1,k-(n-1)) \, .
+                </me>
+            </p>
+        </statement>
+    </theorem>
+
+        <exercise>
+        <p>
+            Verify that this recursion holds for <m>I(4,2)</m>.
+        </p>
+    </exercise>
+
+    <proof>
+        <p>
+            The base cases <m>I(0,0)</m> is defined to be <m>1</m>, and <m>I(n,0)=1</m>, and <m>I(n,k)=0</m> for <m>k\lt 0</m> and <m>k\gt \binom{n}{2}</m> follow directly from the definition of inversion.
+            
+            To prove the recurrence, observe that every permutation in <m>\ss_n</m> is obtainable from a permutation <m>\pi\in\ss_{n-1}</m> by inserting <m>n</m> at some point in the one-line representation of <m>\pi</m>.
+            Inserting <m>n</m> at the end of <m>\pi</m> adds <m>0</m> inversions.
+            Inserting <m>n</m> one place from the end adds <m>1</m> inversion.
+            Similarly, inserting <m>n</m> to the position <m>i</m> places from the end adds <m>i</m> inversions.
+            In order to obtain a permutation with <m>k</m> inversions, one must insert <m>n</m> to the position <m>i</m> places from the end in a permutation <m>\pi\in\ss_{n-1}</m> with <m>k-i</m> inversions.
+            The recursion counts the number of such permutations for each <m>i</m>.
+        </p>
+    </proof>
+
+    <exercise>
+        <p>
+            Discuss this proof. What makes sense? Why? What are points of confusion? What is the source of the confusion?
+        </p>
+    </exercise>
     
 </section>
