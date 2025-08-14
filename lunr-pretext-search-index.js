@@ -898,7 +898,70 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.7",
   "title": "Permutations: Inversions and Descents",
-  "body": " Permutations: Inversions and Descents  "
+  "body": " Permutations: Inversions and Descents  A fundamental question about a permutation is to ask how much the permutation is \"out of order\" from the identity . One of the approaches to answering this question is to consider when a pair of entries in the one-line notation for the permutation are reversed in order. This leads to the idea of an inversion.    Let be a permutation. If and , then we say that there is an inversion at . Let denote the set of inversions in .     List all the inversions in . How many inversions are there?    What is the largest possible number of inversions for a permutation in ?   The number of permutations in with inversions can be computed recursively as follows.    Let denote the number of permutations in with inversions. Then is defined to be , and , and for and . Further,      Verify that this recursion holds for .    The base cases is defined to be , and , and for and follow directly from the definition of inversion. To prove the recurrence, observe that every permutation in is obtainable from a permutation by inserting at some point in the one-line representation of . Inserting at the end of adds inversions. Inserting one place from the end adds inversion. Similarly, inserting to the position places from the end adds inversions. In order to obtain a permutation with inversions, one must insert to the position places from the end in a permutation with inversions. The recursion counts the number of such permutations for each .    Discuss this proof. What makes sense? Why? What are points of confusion? What is the source of the confusion?   "
+},
+{
+  "id": "def-inversion",
+  "level": "2",
+  "url": "sec-inversions.html#def-inversion",
+  "type": "Definition",
+  "number": "2.7.1",
+  "title": "",
+  "body": "  Let be a permutation. If and , then we say that there is an inversion at . Let denote the set of inversions in .   "
+},
+{
+  "id": "sec-inversions-4",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-4",
+  "type": "Checkpoint",
+  "number": "2.7.2",
+  "title": "",
+  "body": " List all the inversions in . How many inversions are there?  "
+},
+{
+  "id": "sec-inversions-5",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-5",
+  "type": "Checkpoint",
+  "number": "2.7.3",
+  "title": "",
+  "body": " What is the largest possible number of inversions for a permutation in ?  "
+},
+{
+  "id": "thm-inversionrecursion",
+  "level": "2",
+  "url": "sec-inversions.html#thm-inversionrecursion",
+  "type": "Theorem",
+  "number": "2.7.4",
+  "title": "",
+  "body": "  Let denote the number of permutations in with inversions. Then is defined to be , and , and for and . Further,    "
+},
+{
+  "id": "sec-inversions-8",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-8",
+  "type": "Checkpoint",
+  "number": "2.7.5",
+  "title": "",
+  "body": " Verify that this recursion holds for .  "
+},
+{
+  "id": "sec-inversions-9",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-9",
+  "type": "Proof",
+  "number": "2.7.1",
+  "title": "",
+  "body": " The base cases is defined to be , and , and for and follow directly from the definition of inversion. To prove the recurrence, observe that every permutation in is obtainable from a permutation by inserting at some point in the one-line representation of . Inserting at the end of adds inversions. Inserting one place from the end adds inversion. Similarly, inserting to the position places from the end adds inversions. In order to obtain a permutation with inversions, one must insert to the position places from the end in a permutation with inversions. The recursion counts the number of such permutations for each .  "
+},
+{
+  "id": "sec-inversions-10",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-10",
+  "type": "Checkpoint",
+  "number": "2.7.6",
+  "title": "",
+  "body": " Discuss this proof. What makes sense? Why? What are points of confusion? What is the source of the confusion?  "
 },
 {
   "id": "sec-induction1",
