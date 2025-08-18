@@ -121,5 +121,38 @@
     However, these results do tell us qualitative information about the relationship between the degrees of a graph, the total number of edges, and limitations on the number of vertices of odd degree.
 </p>
 
+<p>
+    Another quality of a graph is whether or not it is connected, where by connected we mean the following.
+</p>
+<definition xml:id="def-pathcircuitconnected">
+    <statement>
+        <p>
+            Given a graph <m>G</m>, a <em>path</em> is a finite sequence of edges joining a sequence of vertices.
+            A <em>trail</em> is a path in which all edges are distinct.
+            A <em>simple path</em> is a path in which all vertices are distinct.
+        </p>
+        <p>
+            A graph is connected if there is a path between every pair of vertices.
+        </p>
+    </statement>
+</definition>
+<example>
+    <p>
+        Below are examples of a connected and disconnected graph.
+    </p>
+    <figure xml:id="fig-connectedgraph">
+    <caption>Example of a connected graph.</caption>
+    <image source="connected.png" width="75%"/>
+</figure>
+<figure xml:id="fig-disconnectegraph">
+    <caption>Example of a disconnected graph.</caption>
+    <image source="disconnected.png" width="75%"/>
+</figure>
+</example>
+
+<p>
+    There are algorithms known that will generate all connected graphs on a fixed number of vertices, but these are difficult.
+    The number of connected graphs, with vertices that are not labeled, on <m>n</m> vertices for <m>n\geq 1</m> is <m>1, 1, 2, 6, 21, 112, 853, 11117, 261080,\ldots</m>, and more information can be found in the Online Encyclopedia of Integer Sequences: <url href="https://oeis.org/A001349" />
+</p>
 
 </section>
