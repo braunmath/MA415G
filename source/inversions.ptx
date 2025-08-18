@@ -9,7 +9,7 @@
         <statement>
             <p>
                 Let <m>\pi=\pi_1\pi_2\cdots\pi_n</m> be a permutation.
-                If <m>i \lt j</m> and <m>\pi_i \gt \pi_j</m>, then we say that there is an <em>inversion</em> at <m>(i,j)</m>.
+                If <m>i \lt j</m> and <m>\pi_i \gt \pi_j</m>, then we say that <m>(\pi_i,\pi_j)</m> is an <em>inversion</em> in <m>\pi</m>.
                 Let <m>\Inv(\pi)</m> denote the set of inversions in <m>\pi</m>.
             </p>
         </statement>
@@ -64,6 +64,143 @@
     <exercise>
         <p>
             Discuss this proof. What makes sense? Why? What are points of confusion? What is the source of the confusion?
+        </p>
+    </exercise>
+
+    <p>
+        Using inversions, we can encode a permutation in a new way as a vector in 
+        <me>
+            T_n:= [0,n-1]\times [0,n-2]\times \cdots \times [0,1]\times \{0\} \, .
+        </me>
+    </p>
+
+    <definition xml:id="def-inversiontable">
+        <statement>
+            <p>
+                Let <m>I:T_n\to \ss_n</m> be the map that sets <m>I(\pi):=a</m> where <m>a_i</m> is the number of entries to the left of <m>i</m> that are greater than <m>i</m>, when using the one-line notation for <m>\pi</m> .
+                Equivalently, <m>a_i</m> is the number of pairs in <m>\Inv(\pi)</m> with second entry <m>i</m>.
+                We call <m>I(\pi)</m> the <em>inversion table</em> for <m>\pi</m>.
+            </p>
+        </statement>
+    </definition>
+
+    <exercise>
+        <p>
+        Verify that the inversion table for <m>\pi=2413</m> is <m>(2,0,1,0)</m>.
+        </p>
+    </exercise>
+    
+    <exercise>
+        <p>
+        What is the inversion table for <m>\pi=38162745</m>?
+        Remember that the inversion table is a vector.
+        </p>
+    </exercise>
+
+    <theorem xml:id="thm-inversiontablebijection">
+        <statement>
+            <p>
+                The map <m>I</m> sending a permutation to its inversion table is a bijection.
+            </p>
+        </statement>
+    </theorem>
+
+    <proof>
+        <p>
+            We first show that <m>I^{-1}</m> exists.
+            Given a vector <m>(a_i,a_2,\ldots,a_n)\in T_n</m>, we first write <m>n</m> by itself.
+            Second, we place <m>n-1</m>, where if <m>a_{n-1}=0</m> then we place it before <m>n</m>, and if <m>a_{n-1}=1</m> then we place it after <m>n</m>.
+            Continue in this way, where we inductively assume that <m>n,n-1,n-2,n-3,\ldots,n-i+1</m> have all been placed in such a way that the partially constructed word has inversions counted by <m>a_{n-i+1},\ldots,a_n</m>.
+            Next, insert <m>n-i</m> so that there are <m>a_{n-i}</m> elements in the word (so far) to its left.
+        </p>
+        <p>
+            By construction, we have that this map sends <m>a</m> to a permutation <m>\pi</m> with <m>I(\pi)=a</m>.
+            To see that <m>I^{-1}</m> is one-to-one, note that if <m>a=b</m>, then some <m>a_i\neq b_i</m>.
+            Thus, <m>n-i</m> is placed in a different order relative to <m>n,n-1,n-2,n-3,\ldots,n-i+1</m> for the two corresponding permutations.
+            Thus, those permutations are different, and hence <m>I^{-1}</m> is one-to-one and well-defined.
+            Since <m>|T_n|=n!=|\ss_n|</m>, it follows that <m>I</m> is a bijection.
+        </p>
+    </proof>
+
+    <exercise>
+        <p>
+        Apply the algorithm described in the proof above to the inversion table <m>(0,3,3,3,2,1,0)</m>.
+        (You should get the permutation <m>1765234</m>.)
+        </p>
+    </exercise>
+
+    <exercise>
+        <p>
+            Discuss the proof above.
+            What are points of confusion? What does or does not make sense in the proof?
+        </p>
+    </exercise>
+    
+    <p>
+        A special type of inversion occurs when the entries of the permutation are next to each other.
+    </p>
+
+    <definition xml:id="def-descent">
+        <statement>
+            <p>
+                For a permutation <m>\pi\in \ss_n</m>, if <m>\pi_i\gt \pi_{i+1}</m>, then we say there is a <em>descent</em> in position <m>i</m>.
+                The set of descent positions is denoted <m>\Des(\pi)</m>.
+                The number of descents in <m>\pi</m> is denoted <m>\des(\pi):=|\Des(\pi)|</m>.
+            </p>
+            <p>
+                The number of permutations in <m>\ss_n</m> with <m>k</m> descents is called the <em><m>(n,k)</m>-Eulerian number</em> and is denoted <m>A(n,k)</m>.
+            </p>
+        </statement>
+    </definition>
+
+    <exercise>
+        <p>
+        Find <m>\Des(\pi)</m> and <m>\des(\pi)</m> for <m>\pi=38162745</m>.
+        </p>
+    </exercise>
+
+    <exercise>
+        <p>
+            Find the following Eulerian numbers: <m>A(3,0), A(3,1), A(3,2)</m>.
+        </p>
+    </exercise>
+
+    
+
+    <theorem xml:id="thm-euleriannumberrecursion">
+        <statement>
+            <p>
+                We set <m>A(0,0):=1</m>.
+                The Eulerian numbers satisfy <m>A(n,0)=1=A(n,n-1)</m> for <m>n\geq 1</m> and satisfy the recursion
+                <me>
+                    A(n,k)=(n-k)\cdot A(n-1,k-1)+(k+1)\cdot A(n-1,k) \, .
+                </me>
+            </p>
+        </statement>
+    </theorem>
+
+    <proof>
+        <p>
+            It is immediate that <m>A(n,0)=1=A(n,n-1)</m> for <m>n\geq 1</m> because the only permutation with <m>0</m> descents is the identity and the only permutation with <m>n-1</m> descents is the reverse of the identity, i.e., the identity permutation written backwards.
+        </p>
+        <p>
+            To see that the recurrence holds, we consider what happens when we start with a permutation <m>\pi\in \ss_n</m> with <m>k</m> descents and remove <m>n</m> from the permutation.
+            If <m>\pi_i=n</m>, then one of three situations can occur.
+            The first possibility is that <m>\pi_{i-1}\gt \pi_{i+1}</m>, in which case removing <m>n</m> results in a permutation <m>\pi'\in \ss_{n-1}</m> with <m>k</m> descents.
+            The second possibility is that <m>\pi_{i-1}\lt \pi_{i+1}</m>, in which case removing <m>n</m> results in a permutation <m>\pi'\in \ss_{n-1}</m> with <m>k-1</m> descents.
+            The third possibility is that <m>m</m> occurs at either the beginning or end of the word, in which case removing <m>n</m> either decreases the number of descents by one or leaves it the same, respectively.
+        </p>
+        <p>
+            The proof proceeds by reversing this observation.
+            For each permutation in <m>\ss_{n-1}</m> with <m>k</m> descents, inserting <m>n</m> in the "middle" of a descent or at the end of the permutation creates a permutation in <m>\ss_n</m> with <m>k</m> descents, and there are <m>k+1</m> ways to insert <m>n</m> into such a permutation.
+            For each permutation in <m>\ss_{n-1}</m> with <m>k-1</m> descents, inserting <m>n</m> either at the beginning of the word or in the middle of an ascending pair adds a new descent, creating a permutation in <m>\ss_n</m> with <m>k</m> descents.
+            The recurrence follows.
+        </p>
+    </proof>
+
+    <exercise>
+        <p>
+            Discuss this proof. Does it make sense? Why or why not?
         </p>
     </exercise>
     
