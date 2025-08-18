@@ -1,4 +1,125 @@
 <section xml:id="sec-graphbasics">
     <title>Graphs and Networks</title>
-    
+
+    <p>
+        Many stuctures in the world involve pairwise connections.
+        For example, in a group of people, we could connect each pair of people who are friends.
+        In a city and road network, we can consider two cities connected if there is a road connecting them without any other cities on that road.
+        In a computer network, two computers can be considered connected if they have a direct cable link between them, without any intermediary system.
+    </p>
+    <p>
+        The mathematical structure that captures the structure of pairwise connection is a <em>graph</em>, also called a <em>network</em>.
+    </p>   
+    <definition xml:id="def-graph">
+        <statement>
+            <p>
+                A <em>graph</em> <m>G</m>, also called a <em>network</em>, consists of a finite set <m>V=V(G)</m> called the <em>vertices</em> or <em>nodes</em> of <m>G</m> and a collection <m>E=E(G)</m> of unordered pairs of elements of <m>V</m> called the <em>edges</em> or <em>arcs</em> of <m>G</m>.
+            </p>
+        </statement>
+    </definition>
+    <example>
+        <p>
+            The <em>complete graph</em>, denoted <m>K_n</m>, is the graph with <m>V=[n]</m> and every possible edge.
+            Thus, <m>K_n</m> has <m>n</m> vertices and <m>\binom{n}{2}</m> edges.
+        </p>
+        <figure xml:id="fig-k5">
+    <caption>Drawing of <m>K_5</m>.</caption>
+    <image source="Complete_graph_K5.svg.png" width="75%"/>
+</figure>
+    </example>
+    <example>
+        <p>
+            The <em>Petersen graph</em> is a famous and important graph shown in the figure below.
+        </p>
+        <figure xml:id="fig-peterson">
+    <caption>Drawing of the Petersen graph, originally from <url href="https://en.wikipedia.org/wiki/File:Petersen1_tiny.svg" /></caption>
+    <image source="Petersen1_tiny.svg.png" width="75%"/>
+</figure>
+    </example>
+
+    <definition xml:id="def-degree">
+        <statement>
+            <p>
+                For a vertex <m>v\in V(G)</m>, we say the <em>degree</em> of <m>v</m> is the number of edges in <m>E(G)</m> that contain <m>v</m>.
+                We denote the degree of a vertex by <m>\deg_G(v)</m>, where we will write <m>\deg(v)</m> if <m>G</m> is clear from context.
+            </p>
+        </statement>
+    </definition>
+
+<exercise>
+    <p>
+        Find the degree of each vertex in the graph below:
+    </p>
+    <figure xml:id="fig-degree_example">
+    <caption>Example for graph degrees</caption>
+    <image source="degree_example.png" width="75%"/>
+</figure>
+</exercise>
+<p>
+    The first key result regarding graphs is the following.
+</p>
+<theorem xml:id="thm-degreesumformula">
+    <statement>
+        <p>
+            Given a graph <m>G=(V,E)</m>, we have
+            <me>
+                \sum_{v\in V}\deg(v)=2|E| \, .
+            </me>
+        </p>
+    </statement>
+</theorem>
+<proof>
+    <p>
+        We count the number of pairs <m>(v,e)</m> where <m>v\in e\in E</m> in two ways. 
+        This is a strategy called "double counting".
+        First, for each edge, there are two pairs <m>(v,e)</m>, one for each endpoint <m>v</m> of the edge.
+        Thus, the total number of pairs is <m>2|E|</m>.
+    </p>
+    <p>
+        Second, for each vertex, there are <m>\deg(v)</m> pairs <m>(v,e)</m>, one for each edge <m>e</m> containing <m>v</m>.
+        Thus, there are a total of <m>\sum_{v\in V}\deg(v)</m> such pairs.
+        Since both of these expressions count the same set, they are equal.
+    </p>
+</proof>
+
+<exercise>
+    <p>
+        Discuss this proof. Does it make sense? Does it make sense why we call this type of proof "double counting"?
+    </p>
+</exercise>
+<p>
+    We can use the result above to prove a fundamental qualitative result about graphs: the handshake lemma.
+</p>
+<theorem xml:id="thm-handshake">
+    <title>Handshake Lemma</title>
+    <statement>
+        <p>
+            In any finite graph, there are an even number of vertices of odd degree.
+        </p>
+    </statement>
+</theorem>
+
+<proof>
+    <p>
+        Since <m>\sum_{v\in V}\deg(v)=2|E|</m>, the sum of the degrees is an even number. 
+        If there were an odd number of vertices of odd degree, the sum would be odd, which is impossible.
+    </p>
+</proof>
+<p>
+    The handshake lemma allows us to obtain statements such as the following.
+</p>
+<corollary xml:id="cor-odddegreegraphs">
+    <statement>
+        <p>
+            If every vertex of a graph has odd degree, then the graph has an even number of vertices.
+        </p>
+    </statement>
+</corollary>
+<p>
+    Note that the theorem and corollary above do not tell us anything about how many vertices there are, or how many odd degree vertices there are.
+    So, this is not a theorem or corollary that we can use to count with.
+    However, these results do tell us qualitative information about the relationship between the degrees of a graph, the total number of edges, and limitations on the number of vertices of odd degree.
+</p>
+
+
 </section>
