@@ -1150,7 +1150,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.2",
   "title": "Graphs and Networks",
-  "body": " Graphs and Networks  Many stuctures in the world involve pairwise connections. For example, in a group of people, we could connect each pair of people who are friends. In a city and road network, we can consider two cities connected if there is a road connecting them without any other cities on that road. In a computer network, two computers can be considered connected if they have a direct cable link between them, without any intermediary system.  The mathematical structure that captures the structure of pairwise connection is a graph , also called a network .    A graph  , also called a network , consists of a finite set called the vertices or nodes of and a collection of unordered pairs of elements of called the edges or arcs of .     The complete graph , denoted , is the graph with and every possible edge. Thus, has vertices and edges.   Drawing of .      The Petersen graph is a famous and important graph shown in the figure below.   Drawing of the Petersen graph, originally from       For a vertex , we say the degree of is the number of edges in that contain . We denote the degree of a vertex by , where we will write if is clear from context.     Find the degree of each vertex in the graph below:   Example for graph degrees     The first key result regarding graphs is the following.    Given a graph , we have      We count the number of pairs where in two ways. This is a strategy called \"double counting\". First, for each edge, there are two pairs , one for each endpoint of the edge. Thus, the total number of pairs is .  Second, for each vertex, there are pairs , one for each edge containing . Thus, there are a total of such pairs. Since both of these expressions count the same set, they are equal.    Discuss this proof. Does it make sense? Does it make sense why we call this type of proof \"double counting\"?   We can use the result above to prove a fundamental qualitative result about graphs: the handshake lemma.   Handshake Lemma   In any finite graph, there are an even number of vertices of odd degree.     Since , the sum of the degrees is an even number. If there were an odd number of vertices of odd degree, the sum would be odd, which is impossible.   The handshake lemma allows us to obtain statements such as the following.    If every vertex of a graph has odd degree, then the graph has an even number of vertices.    Note that the theorem and corollary above do not tell us anything about how many vertices there are, or how many odd degree vertices there are. So, this is not a theorem or corollary that we can use to count with. However, these results do tell us qualitative information about the relationship between the degrees of a graph, the total number of edges, and limitations on the number of vertices of odd degree.  "
+  "body": " Graphs and Networks  Many stuctures in the world involve pairwise connections. For example, in a group of people, we could connect each pair of people who are friends. In a city and road network, we can consider two cities connected if there is a road connecting them without any other cities on that road. In a computer network, two computers can be considered connected if they have a direct cable link between them, without any intermediary system.  The mathematical structure that captures the structure of pairwise connection is a graph , also called a network .    A graph  , also called a network , consists of a finite set called the vertices or nodes of and a collection of unordered pairs of elements of called the edges or arcs of .     The complete graph , denoted , is the graph with and every possible edge. Thus, has vertices and edges.   Drawing of .      The Petersen graph is a famous and important graph shown in the figure below.   Drawing of the Petersen graph, originally from       For a vertex , we say the degree of is the number of edges in that contain . We denote the degree of a vertex by , where we will write if is clear from context.     Find the degree of each vertex in the graph below:   Example for graph degrees     The first key result regarding graphs is the following.    Given a graph , we have      We count the number of pairs where in two ways. This is a strategy called \"double counting\". First, for each edge, there are two pairs , one for each endpoint of the edge. Thus, the total number of pairs is .  Second, for each vertex, there are pairs , one for each edge containing . Thus, there are a total of such pairs. Since both of these expressions count the same set, they are equal.    Discuss this proof. Does it make sense? Does it make sense why we call this type of proof \"double counting\"?   We can use the result above to prove a fundamental qualitative result about graphs: the handshake lemma.   Handshake Lemma   In any finite graph, there are an even number of vertices of odd degree.     Since , the sum of the degrees is an even number. If there were an odd number of vertices of odd degree, the sum would be odd, which is impossible.   The handshake lemma allows us to obtain statements such as the following.    If every vertex of a graph has odd degree, then the graph has an even number of vertices.    Note that the theorem and corollary above do not tell us anything about how many vertices there are, or how many odd degree vertices there are. So, this is not a theorem or corollary that we can use to count with. However, these results do tell us qualitative information about the relationship between the degrees of a graph, the total number of edges, and limitations on the number of vertices of odd degree.  Another quality of a graph is whether or not it is connected, where by connected we mean the following.    Given a graph , a path is a finite sequence of edges joining a sequence of vertices. A trail is a path in which all edges are distinct. A simple path is a path in which all vertices are distinct.  A graph is connected if there is a path between every pair of vertices.     Below are examples of a connected and disconnected graph.   Example of a connected graph.     Example of a disconnected graph.     There are algorithms known that will generate all connected graphs on a fixed number of vertices, but these are difficult. The number of connected graphs, with vertices that are not labeled, on vertices for is , and more information can be found in the Online Encyclopedia of Integer Sequences:   "
 },
 {
   "id": "def-graph",
@@ -1252,6 +1252,24 @@ var ptx_lunr_docs = [
   "body": "  If every vertex of a graph has odd degree, then the graph has an even number of vertices.   "
 },
 {
+  "id": "def-pathcircuitconnected",
+  "level": "2",
+  "url": "sec-graphbasics.html#def-pathcircuitconnected",
+  "type": "Definition",
+  "number": "3.2.13",
+  "title": "",
+  "body": "  Given a graph , a path is a finite sequence of edges joining a sequence of vertices. A trail is a path in which all edges are distinct. A simple path is a path in which all vertices are distinct.  A graph is connected if there is a path between every pair of vertices.   "
+},
+{
+  "id": "sec-graphbasics-21",
+  "level": "2",
+  "url": "sec-graphbasics.html#sec-graphbasics-21",
+  "type": "Example",
+  "number": "3.2.14",
+  "title": "",
+  "body": " Below are examples of a connected and disconnected graph.   Example of a connected graph.     Example of a disconnected graph.    "
+},
+{
   "id": "sec-trees",
   "level": "1",
   "url": "sec-trees.html",
@@ -1261,22 +1279,22 @@ var ptx_lunr_docs = [
   "body": " Trees  "
 },
 {
-  "id": "sec-induction2",
-  "level": "1",
-  "url": "sec-induction2.html",
-  "type": "Section",
-  "number": "3.4",
-  "title": "Induction: Part 2",
-  "body": " Induction: Part 2  "
-},
-{
   "id": "sec-euleriancircuits",
   "level": "1",
   "url": "sec-euleriancircuits.html",
   "type": "Section",
-  "number": "3.5",
+  "number": "3.4",
   "title": "Eulerian Circuits",
   "body": " Eulerian Circuits  "
+},
+{
+  "id": "sec-induction2",
+  "level": "1",
+  "url": "sec-induction2.html",
+  "type": "Section",
+  "number": "3.5",
+  "title": "Induction: Part 2",
+  "body": " Induction: Part 2  "
 },
 {
   "id": "sec-prufercayley",
