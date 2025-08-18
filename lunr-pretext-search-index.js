@@ -1150,7 +1150,106 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.2",
   "title": "Graphs and Networks",
-  "body": " Graphs and Networks  "
+  "body": " Graphs and Networks  Many stuctures in the world involve pairwise connections. For example, in a group of people, we could connect each pair of people who are friends. In a city and road network, we can consider two cities connected if there is a road connecting them without any other cities on that road. In a computer network, two computers can be considered connected if they have a direct cable link between them, without any intermediary system.  The mathematical structure that captures the structure of pairwise connection is a graph , also called a network .    A graph  , also called a network , consists of a finite set called the vertices or nodes of and a collection of unordered pairs of elements of called the edges or arcs of .     The complete graph , denoted , is the graph with and every possible edge. Thus, has vertices and edges.   Drawing of .      The Petersen graph is a famous and important graph shown in the figure below.   Drawing of the Petersen graph, originally from       For a vertex , we say the degree of is the number of edges in that contain . We denote the degree of a vertex by , where we will write if is clear from context.     Find the degree of each vertex in the graph below:   Example for graph degrees     The first key result regarding graphs is the following.    Given a graph , we have      We count the number of pairs where in two ways. This is a strategy called \"double counting\". First, for each edge, there are two pairs , one for each endpoint of the edge. Thus, the total number of pairs is .  Second, for each vertex, there are pairs , one for each edge containing . Thus, there are a total of such pairs. Since both of these expressions count the same set, they are equal.    Discuss this proof. Does it make sense? Does it make sense why we call this type of proof \"double counting\"?   We can use the result above to prove a fundamental qualitative result about graphs: the handshake lemma.   Handshake Lemma   In any finite graph, there are an even number of vertices of odd degree.     Since , the sum of the degrees is an even number. If there were an odd number of vertices of odd degree, the sum would be odd, which is impossible.   The handshake lemma allows us to obtain statements such as the following.    If every vertex of a graph has odd degree, then the graph has an even number of vertices.    Note that the theorem and corollary above do not tell us anything about how many vertices there are, or how many odd degree vertices there are. So, this is not a theorem or corollary that we can use to count with. However, these results do tell us qualitative information about the relationship between the degrees of a graph, the total number of edges, and limitations on the number of vertices of odd degree.  "
+},
+{
+  "id": "def-graph",
+  "level": "2",
+  "url": "sec-graphbasics.html#def-graph",
+  "type": "Definition",
+  "number": "3.2.1",
+  "title": "",
+  "body": "  A graph  , also called a network , consists of a finite set called the vertices or nodes of and a collection of unordered pairs of elements of called the edges or arcs of .   "
+},
+{
+  "id": "sec-graphbasics-5",
+  "level": "2",
+  "url": "sec-graphbasics.html#sec-graphbasics-5",
+  "type": "Example",
+  "number": "3.2.2",
+  "title": "",
+  "body": " The complete graph , denoted , is the graph with and every possible edge. Thus, has vertices and edges.   Drawing of .    "
+},
+{
+  "id": "sec-graphbasics-6",
+  "level": "2",
+  "url": "sec-graphbasics.html#sec-graphbasics-6",
+  "type": "Example",
+  "number": "3.2.4",
+  "title": "",
+  "body": " The Petersen graph is a famous and important graph shown in the figure below.   Drawing of the Petersen graph, originally from    "
+},
+{
+  "id": "def-degree",
+  "level": "2",
+  "url": "sec-graphbasics.html#def-degree",
+  "type": "Definition",
+  "number": "3.2.6",
+  "title": "",
+  "body": "  For a vertex , we say the degree of is the number of edges in that contain . We denote the degree of a vertex by , where we will write if is clear from context.   "
+},
+{
+  "id": "sec-graphbasics-8",
+  "level": "2",
+  "url": "sec-graphbasics.html#sec-graphbasics-8",
+  "type": "Checkpoint",
+  "number": "3.2.7",
+  "title": "",
+  "body": " Find the degree of each vertex in the graph below:   Example for graph degrees    "
+},
+{
+  "id": "thm-degreesumformula",
+  "level": "2",
+  "url": "sec-graphbasics.html#thm-degreesumformula",
+  "type": "Theorem",
+  "number": "3.2.9",
+  "title": "",
+  "body": "  Given a graph , we have    "
+},
+{
+  "id": "sec-graphbasics-11",
+  "level": "2",
+  "url": "sec-graphbasics.html#sec-graphbasics-11",
+  "type": "Proof",
+  "number": "3.2.1",
+  "title": "",
+  "body": " We count the number of pairs where in two ways. This is a strategy called \"double counting\". First, for each edge, there are two pairs , one for each endpoint of the edge. Thus, the total number of pairs is .  Second, for each vertex, there are pairs , one for each edge containing . Thus, there are a total of such pairs. Since both of these expressions count the same set, they are equal.  "
+},
+{
+  "id": "sec-graphbasics-12",
+  "level": "2",
+  "url": "sec-graphbasics.html#sec-graphbasics-12",
+  "type": "Checkpoint",
+  "number": "3.2.10",
+  "title": "",
+  "body": " Discuss this proof. Does it make sense? Does it make sense why we call this type of proof \"double counting\"?  "
+},
+{
+  "id": "thm-handshake",
+  "level": "2",
+  "url": "sec-graphbasics.html#thm-handshake",
+  "type": "Theorem",
+  "number": "3.2.11",
+  "title": "Handshake Lemma.",
+  "body": " Handshake Lemma   In any finite graph, there are an even number of vertices of odd degree.   "
+},
+{
+  "id": "sec-graphbasics-15",
+  "level": "2",
+  "url": "sec-graphbasics.html#sec-graphbasics-15",
+  "type": "Proof",
+  "number": "3.2.2",
+  "title": "",
+  "body": " Since , the sum of the degrees is an even number. If there were an odd number of vertices of odd degree, the sum would be odd, which is impossible.  "
+},
+{
+  "id": "cor-odddegreegraphs",
+  "level": "2",
+  "url": "sec-graphbasics.html#cor-odddegreegraphs",
+  "type": "Corollary",
+  "number": "3.2.12",
+  "title": "",
+  "body": "  If every vertex of a graph has odd degree, then the graph has an even number of vertices.   "
 },
 {
   "id": "sec-trees",
