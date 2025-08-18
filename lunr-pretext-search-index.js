@@ -898,7 +898,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.7",
   "title": "Permutations: Inversions and Descents",
-  "body": " Permutations: Inversions and Descents  A fundamental question about a permutation is to ask how much the permutation is \"out of order\" from the identity . One of the approaches to answering this question is to consider when a pair of entries in the one-line notation for the permutation are reversed in order. This leads to the idea of an inversion.    Let be a permutation. If and , then we say that there is an inversion at . Let denote the set of inversions in .     List all the inversions in . How many inversions are there?    What is the largest possible number of inversions for a permutation in ?   The number of permutations in with inversions can be computed recursively as follows.    Let denote the number of permutations in with inversions. Then is defined to be , and , and for and . Further,      Verify that this recursion holds for .    The base cases is defined to be , and , and for and follow directly from the definition of inversion. To prove the recurrence, observe that every permutation in is obtainable from a permutation by inserting at some point in the one-line representation of . Inserting at the end of adds inversions. Inserting one place from the end adds inversion. Similarly, inserting to the position places from the end adds inversions. In order to obtain a permutation with inversions, one must insert to the position places from the end in a permutation with inversions. The recursion counts the number of such permutations for each .    Discuss this proof. What makes sense? Why? What are points of confusion? What is the source of the confusion?   "
+  "body": " Permutations: Inversions and Descents  A fundamental question about a permutation is to ask how much the permutation is \"out of order\" from the identity . One of the approaches to answering this question is to consider when a pair of entries in the one-line notation for the permutation are reversed in order. This leads to the idea of an inversion.    Let be a permutation. If and , then we say that is an inversion in . Let denote the set of inversions in .     List all the inversions in . How many inversions are there?    What is the largest possible number of inversions for a permutation in ?   The number of permutations in with inversions can be computed recursively as follows.    Let denote the number of permutations in with inversions. Then is defined to be , and , and for and . Further,      Verify that this recursion holds for .    The base cases is defined to be , and , and for and follow directly from the definition of inversion. To prove the recurrence, observe that every permutation in is obtainable from a permutation by inserting at some point in the one-line representation of . Inserting at the end of adds inversions. Inserting one place from the end adds inversion. Similarly, inserting to the position places from the end adds inversions. In order to obtain a permutation with inversions, one must insert to the position places from the end in a permutation with inversions. The recursion counts the number of such permutations for each .    Discuss this proof. What makes sense? Why? What are points of confusion? What is the source of the confusion?   Using inversions, we can encode a permutation in a new way as a vector in     Let be the map that sets where is the number of entries to the left of that are greater than , when using the one-line notation for . Equivalently, is the number of pairs in with second entry . We call the inversion table for .     Verify that the inversion table for is .    What is the inversion table for ? Remember that the inversion table is a vector.     The map sending a permutation to its inversion table is a bijection.     We first show that exists. Given a vector , we first write by itself. Second, we place , where if then we place it before , and if then we place it after . Continue in this way, where we inductively assume that have all been placed in such a way that the partially constructed word has inversions counted by . Next, insert so that there are elements in the word (so far) to its left.  By construction, we have that this map sends to a permutation with . To see that is one-to-one, note that if , then some . Thus, is placed in a different order relative to for the two corresponding permutations. Thus, those permutations are different, and hence is one-to-one and well-defined. Since , it follows that is a bijection.    Apply the algorithm described in the proof above to the inversion table . (You should get the permutation .)    Discuss the proof above. What are points of confusion? What does or does not make sense in the proof?   A special type of inversion occurs when the entries of the permutation are next to each other.    For a permutation , if , then we say there is a descent in position . The set of descent positions is denoted . The number of descents in is denoted .  The number of permutations in with descents is called the -Eulerian number and is denoted .     Find and for .    Find the following Eulerian numbers: .     We set . The Eulerian numbers satisfy for and satisfy the recursion      It is immediate that for because the only permutation with descents is the identity and the only permutation with descents is the reverse of the identity, i.e., the identity permutation written backwards.  To see that the recurrence holds, we consider what happens when we start with a permutation with descents and remove from the permutation. If , then one of three situations can occur. The first possibility is that , in which case removing results in a permutation with descents. The second possibility is that , in which case removing results in a permutation with descents. The third possibility is that occurs at either the beginning or end of the word, in which case removing either decreases the number of descents by one or leaves it the same, respectively.  The proof proceeds by reversing this observation. For each permutation in with descents, inserting in the \"middle\" of a descent or at the end of the permutation creates a permutation in with descents, and there are ways to insert into such a permutation. For each permutation in with descents, inserting either at the beginning of the word or in the middle of an ascending pair adds a new descent, creating a permutation in with descents. The recurrence follows.    Discuss this proof. Does it make sense? Why or why not?   "
 },
 {
   "id": "def-inversion",
@@ -907,7 +907,7 @@ var ptx_lunr_docs = [
   "type": "Definition",
   "number": "2.7.1",
   "title": "",
-  "body": "  Let be a permutation. If and , then we say that there is an inversion at . Let denote the set of inversions in .   "
+  "body": "  Let be a permutation. If and , then we say that is an inversion in . Let denote the set of inversions in .   "
 },
 {
   "id": "sec-inversions-4",
@@ -962,6 +962,123 @@ var ptx_lunr_docs = [
   "number": "2.7.6",
   "title": "",
   "body": " Discuss this proof. What makes sense? Why? What are points of confusion? What is the source of the confusion?  "
+},
+{
+  "id": "def-inversiontable",
+  "level": "2",
+  "url": "sec-inversions.html#def-inversiontable",
+  "type": "Definition",
+  "number": "2.7.7",
+  "title": "",
+  "body": "  Let be the map that sets where is the number of entries to the left of that are greater than , when using the one-line notation for . Equivalently, is the number of pairs in with second entry . We call the inversion table for .   "
+},
+{
+  "id": "sec-inversions-13",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-13",
+  "type": "Checkpoint",
+  "number": "2.7.8",
+  "title": "",
+  "body": " Verify that the inversion table for is .  "
+},
+{
+  "id": "sec-inversions-14",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-14",
+  "type": "Checkpoint",
+  "number": "2.7.9",
+  "title": "",
+  "body": " What is the inversion table for ? Remember that the inversion table is a vector.  "
+},
+{
+  "id": "thm-inversiontablebijection",
+  "level": "2",
+  "url": "sec-inversions.html#thm-inversiontablebijection",
+  "type": "Theorem",
+  "number": "2.7.10",
+  "title": "",
+  "body": "  The map sending a permutation to its inversion table is a bijection.   "
+},
+{
+  "id": "sec-inversions-16",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-16",
+  "type": "Proof",
+  "number": "2.7.2",
+  "title": "",
+  "body": " We first show that exists. Given a vector , we first write by itself. Second, we place , where if then we place it before , and if then we place it after . Continue in this way, where we inductively assume that have all been placed in such a way that the partially constructed word has inversions counted by . Next, insert so that there are elements in the word (so far) to its left.  By construction, we have that this map sends to a permutation with . To see that is one-to-one, note that if , then some . Thus, is placed in a different order relative to for the two corresponding permutations. Thus, those permutations are different, and hence is one-to-one and well-defined. Since , it follows that is a bijection.  "
+},
+{
+  "id": "sec-inversions-17",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-17",
+  "type": "Checkpoint",
+  "number": "2.7.11",
+  "title": "",
+  "body": " Apply the algorithm described in the proof above to the inversion table . (You should get the permutation .)  "
+},
+{
+  "id": "sec-inversions-18",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-18",
+  "type": "Checkpoint",
+  "number": "2.7.12",
+  "title": "",
+  "body": " Discuss the proof above. What are points of confusion? What does or does not make sense in the proof?  "
+},
+{
+  "id": "def-descent",
+  "level": "2",
+  "url": "sec-inversions.html#def-descent",
+  "type": "Definition",
+  "number": "2.7.13",
+  "title": "",
+  "body": "  For a permutation , if , then we say there is a descent in position . The set of descent positions is denoted . The number of descents in is denoted .  The number of permutations in with descents is called the -Eulerian number and is denoted .   "
+},
+{
+  "id": "sec-inversions-21",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-21",
+  "type": "Checkpoint",
+  "number": "2.7.14",
+  "title": "",
+  "body": " Find and for .  "
+},
+{
+  "id": "sec-inversions-22",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-22",
+  "type": "Checkpoint",
+  "number": "2.7.15",
+  "title": "",
+  "body": " Find the following Eulerian numbers: .  "
+},
+{
+  "id": "thm-euleriannumberrecursion",
+  "level": "2",
+  "url": "sec-inversions.html#thm-euleriannumberrecursion",
+  "type": "Theorem",
+  "number": "2.7.16",
+  "title": "",
+  "body": "  We set . The Eulerian numbers satisfy for and satisfy the recursion    "
+},
+{
+  "id": "sec-inversions-24",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-24",
+  "type": "Proof",
+  "number": "2.7.3",
+  "title": "",
+  "body": " It is immediate that for because the only permutation with descents is the identity and the only permutation with descents is the reverse of the identity, i.e., the identity permutation written backwards.  To see that the recurrence holds, we consider what happens when we start with a permutation with descents and remove from the permutation. If , then one of three situations can occur. The first possibility is that , in which case removing results in a permutation with descents. The second possibility is that , in which case removing results in a permutation with descents. The third possibility is that occurs at either the beginning or end of the word, in which case removing either decreases the number of descents by one or leaves it the same, respectively.  The proof proceeds by reversing this observation. For each permutation in with descents, inserting in the \"middle\" of a descent or at the end of the permutation creates a permutation in with descents, and there are ways to insert into such a permutation. For each permutation in with descents, inserting either at the beginning of the word or in the middle of an ascending pair adds a new descent, creating a permutation in with descents. The recurrence follows.  "
+},
+{
+  "id": "sec-inversions-25",
+  "level": "2",
+  "url": "sec-inversions.html#sec-inversions-25",
+  "type": "Checkpoint",
+  "number": "2.7.17",
+  "title": "",
+  "body": " Discuss this proof. Does it make sense? Why or why not?  "
 },
 {
   "id": "sec-induction1",
