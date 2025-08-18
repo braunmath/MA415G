@@ -1,0 +1,15 @@
+<section xml:id="sec-classificationproblems">
+    <title>Classification Problems</title>
+    
+    <p>
+        The first unit of this course studied the question of <em>enumeration</em>: How many ____ are there?
+        There are many ways to investigate enumeration problems, including such techniques as generating functions, asymptotic analysis, Polya enumeration, etc.
+        The two techniques we focused on were bijections and recursions, which are fundamental to enumeration.
+        </p>
+    <p>
+        In our next unit, we will focus on the question of <em>classification</em>: Which objects have ____ property?
+        Classification problems have a much different feel than enumeration problems.
+        In particular, while we will sometimes engage in counting problems, when studying classification problems we are much more interested in structure and quality rather than quantity.
+        We will begin by studying classification problems for trees and graphs, and we will end this unit by considering a classification problem involving permutations.
+    </p>
+</section>
