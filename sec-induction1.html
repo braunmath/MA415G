@@ -163,13 +163,14 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-classification.html" class="internal"><span class="codenumber">3</span> <span class="title">Classification</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-graphbasics.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Graphs and Networks</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-euleriancircuits.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Eulerian Circuits</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-induction2.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Induction: Part 2</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-trees.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Trees</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-prufercayley.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Prufer Codes and Cayley’s Theorem</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-degreesequences.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Degree Sequences</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-stacksortable.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Stack Sortable Permutations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-classificationproblems.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Classification Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-graphbasics.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Graphs and Networks</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-trees.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Trees</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-induction2.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Induction: Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-euleriancircuits.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Eulerian Circuits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-prufercayley.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Prufer Codes and Cayley’s Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-degreesequences.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Degree Sequences</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-stacksortable.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Stack Sortable Permutations</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-expectation.html" class="internal"><span class="codenumber">4</span> <span class="title">Expectation</span></a></div></li>
@@ -183,7 +184,119 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-induction1"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">2.8</span><span class="space"> </span><span class="title">Induction: Part 1</span>
 </h2>
-<div class="autopermalink" data-description="Section 2.8: Induction: Part 1"><a href="#sec-induction1" title="Copy heading and permalink for Section 2.8: Induction: Part 1" aria-label="Copy heading and permalink for Section 2.8: Induction: Part 1">🔗</a></div></section></div>
+<div class="para" id="sec-induction1-2">Several times in this course we have used a proof technique where we checked simple cases and then showed how we could systematically "build up" our argument by using previous steps we had verified to prove that later steps hold. This technique is called <em class="emphasis">proof by induction</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-induction1-3">There are various flavors of induction, including the "method of descent", "strong induction", "weak induction", etc. We will eventually discuss some aspects of these distinctions, but at first what is more important than learning names is to learn and understand the key idea of induction: <blockquote class="blockquote" id="sec-induction1-3-1">
+<div class="para" id="sec-induction1-3-1-1">
+<em class="emphasis">verify small cases, then use those small cases to verify the next case, then use that new case to verify the next case, then use that new case to verify the next case, and then carefully explain why you can always continue this process for a specific problem or proof.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Quotation"><a href="#sec-induction1-3-1" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-induction1-4">Let’s work through some examples.<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-induction1-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.8.1</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-induction1-5-1">
+<div class="para">Consider the following sequence:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{2}, \sqrt{2+\sqrt{2}}, \sqrt{2+\sqrt{2+\sqrt{2}}}, \sqrt{2+\sqrt{2+\sqrt{2+\sqrt{2}}}},\ldots \, .
+\end{equation*}
+</div>
+<div class="para">The values of this sequence are:</div>
+<ul class="disc" id="sec-induction1-5-1-2">
+<li id="sec-induction1-5-1-2-1">
+<div class="para" id="sec-induction1-5-1-2-1-1">1.41421356237310<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-induction1-5-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-induction1-5-1-2-2">
+<div class="para" id="sec-induction1-5-1-2-2-1">1.84775906502257<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-induction1-5-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-induction1-5-1-2-3">
+<div class="para" id="sec-induction1-5-1-2-3-1">1.96157056080646<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-induction1-5-1-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-induction1-5-1-2-4">
+<div class="para" id="sec-induction1-5-1-2-4-1">1.99036945334439<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-induction1-5-1-2-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-induction1-5-1-2-5">
+<div class="para" id="sec-induction1-5-1-2-5-1">1.99759091241034<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-induction1-5-1-2-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-induction1-5-1-2-6">
+<div class="para" id="sec-induction1-5-1-2-6-1">1.99939763739241<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1-2-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-induction1-5-1-2-6" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-induction1-5-1-2-7">
+<div class="para" id="sec-induction1-5-1-2-7-1">1.99984940367829<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1-2-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-induction1-5-1-2-7" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-induction1-5-1-2-8">
+<div class="para" id="sec-induction1-5-1-2-8-1">1.99996235056520<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1-2-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-induction1-5-1-2-8" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-induction1-5-1-2-9">
+<div class="para" id="sec-induction1-5-1-2-9-1">1.99999058761915<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1-2-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-induction1-5-1-2-9" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-induction1-5-1-2-10">
+<div class="para" id="sec-induction1-5-1-2-10-1">1.99999058761915<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1-2-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-induction1-5-1-2-10" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">What do you think an upper bound for this sequence is? Why do you think this upper bound holds? How would you go about showing that this upper bound holds?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.8.1"><a href="#sec-induction1-5" title="Copy heading and permalink for Checkpoint 2.8.1" aria-label="Copy heading and permalink for Checkpoint 2.8.1">🔗</a></div></article></details><details id="sec-induction1-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.8.2</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-induction1-6-1">Compute the values of <span class="process-math">\(1+3+5+7+\cdots +(2k-1)\)</span> for <span class="process-math">\(k=1,2,3,4,5,6\text{.}\)</span> What do you think the value of the <span class="process-math">\(k\)</span>-th term of this sequence is? Why do you think your answer is correct? How would you go about proving that your answer is always correct, even when <span class="process-math">\(k\)</span> is a positive integer beyond the scope of human comprehension?<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.8.2"><a href="#sec-induction1-6" title="Copy heading and permalink for Checkpoint 2.8.2" aria-label="Copy heading and permalink for Checkpoint 2.8.2">🔗</a></div></article></details><details id="sec-induction1-7" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.8.3</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-induction1-7-1">Consider any map formed by drawing <span class="process-math">\(n\)</span> straight lines in the plane, each line extending infinitely in both directions, to represent the boundaries of the regions. Some regions will be compact and bounded, others will be unbounded and go off to infinity. Is it always possible to color the regions using only two colors, say white and gray, in such a way that white and gray regions never share an edge? In other words, the edges between regions always have white on one side and gray on the other side. If yes, why? If no, why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.8.3"><a href="#sec-induction1-7" title="Copy heading and permalink for Checkpoint 2.8.3" aria-label="Copy heading and permalink for Checkpoint 2.8.3">🔗</a></div></article></details><div class="para" id="sec-induction1-8">These three checkpoint exercises demonstrate how you can use a small number of initial data points to make a conjecture, then look at how the structure of the problem leads you to use the same pattern of logical argument repeatedly. This "pattern of logical argument" is the <em class="emphasis">inductive step</em> of an induction argument, while the small initial data points are the <em class="emphasis">base cases</em> of the inductive argument. We are now in a position to give a precise statement of this idea.<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="principle theorem-like" id="principle-induction"><h3 class="heading">
+<span class="type">Principle</span><span class="space"> </span><span class="codenumber">2.8.4</span><span class="period">.</span><span class="space"> </span><span class="title">Principle of Mathematical Induction.</span>
+</h3>
+<div class="para logical" id="principle-induction-2-1">
+<div class="para">Suppose we have a sequence of mathematical statements <span class="process-math">\(P(1),P(2),P(3),\ldots\)</span> (one for each natural number). If the following two properties hold, then <span class="process-math">\(P(n)\)</span> is true for every natural number <span class="process-math">\(n\text{:}\)</span>
+</div>
+<ol class="decimal" id="principle-induction-2-1-4">
+<li id="principle-induction-2-1-4-1">
+<div class="para" id="principle-induction-2-1-4-1-1">
+<span class="process-math">\(P(1)\)</span> is true.<div class="autopermalink" data-description="Paragraph"><a href="#principle-induction-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#principle-induction-2-1-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="principle-induction-2-1-4-2">
+<div class="para" id="principle-induction-2-1-4-2-1">If <span class="process-math">\(P(k)\)</span> is true, then <span class="process-math">\(P(k+1)\)</span> is true.<div class="autopermalink" data-description="Paragraph"><a href="#principle-induction-2-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#principle-induction-2-1-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#principle-induction-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Principle 2.8.4: Principle of Mathematical Induction"><a href="#principle-induction" title="Copy heading and permalink for Principle 2.8.4: Principle of Mathematical Induction" aria-label="Copy heading and permalink for Principle 2.8.4: Principle of Mathematical Induction">🔗</a></div></article><details id="sec-induction1-10" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.8.5</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-induction1-10-1">Discuss how the structure of the Principle of Mathematical Induction applies to each of the three checkpoint problems above.<div class="autopermalink" data-description="Paragraph"><a href="#sec-induction1-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 2.8.5"><a href="#sec-induction1-10" title="Copy heading and permalink for Checkpoint 2.8.5" aria-label="Copy heading and permalink for Checkpoint 2.8.5">🔗</a></div></article></details><div class="autopermalink" data-description="Section 2.8: Induction: Part 1"><a href="#sec-induction1" title="Copy heading and permalink for Section 2.8: Induction: Part 1" aria-label="Copy heading and permalink for Section 2.8: Induction: Part 1">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-inversions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-classification.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

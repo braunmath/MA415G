@@ -1087,50 +1087,104 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.8",
   "title": "Induction: Part 1",
-  "body": " Induction: Part 1  "
+  "body": " Induction: Part 1  Several times in this course we have used a proof technique where we checked simple cases and then showed how we could systematically \"build up\" our argument by using previous steps we had verified to prove that later steps hold. This technique is called proof by induction .  There are various flavors of induction, including the \"method of descent\", \"strong induction\", \"weak induction\", etc. We will eventually discuss some aspects of these distinctions, but at first what is more important than learning names is to learn and understand the key idea of induction:   verify small cases, then use those small cases to verify the next case, then use that new case to verify the next case, then use that new case to verify the next case, and then carefully explain why you can always continue this process for a specific problem or proof.     Let's work through some examples.   Consider the following sequence: The values of this sequence are:   1.41421356237310    1.84775906502257    1.96157056080646    1.99036945334439    1.99759091241034    1.99939763739241    1.99984940367829    1.99996235056520    1.99999058761915    1.99999058761915   What do you think an upper bound for this sequence is? Why do you think this upper bound holds? How would you go about showing that this upper bound holds?    Compute the values of for . What do you think the value of the -th term of this sequence is? Why do you think your answer is correct? How would you go about proving that your answer is always correct, even when is a positive integer beyond the scope of human comprehension?    Consider any map formed by drawing straight lines in the plane, each line extending infinitely in both directions, to represent the boundaries of the regions. Some regions will be compact and bounded, others will be unbounded and go off to infinity. Is it always possible to color the regions using only two colors, say white and gray, in such a way that white and gray regions never share an edge? In other words, the edges between regions always have white on one side and gray on the other side. If yes, why? If no, why not?   These three checkpoint exercises demonstrate how you can use a small number of initial data points to make a conjecture, then look at how the structure of the problem leads you to use the same pattern of logical argument repeatedly. This \"pattern of logical argument\" is the inductive step of an induction argument, while the small initial data points are the base cases of the inductive argument. We are now in a position to give a precise statement of this idea.   Principle of Mathematical Induction   Suppose we have a sequence of mathematical statements (one for each natural number). If the following two properties hold, then is true for every natural number :    is true.    If is true, then is true.        Discuss how the structure of the Principle of Mathematical Induction applies to each of the three checkpoint problems above.   "
+},
+{
+  "id": "sec-induction1-5",
+  "level": "2",
+  "url": "sec-induction1.html#sec-induction1-5",
+  "type": "Checkpoint",
+  "number": "2.8.1",
+  "title": "",
+  "body": " Consider the following sequence: The values of this sequence are:   1.41421356237310    1.84775906502257    1.96157056080646    1.99036945334439    1.99759091241034    1.99939763739241    1.99984940367829    1.99996235056520    1.99999058761915    1.99999058761915   What do you think an upper bound for this sequence is? Why do you think this upper bound holds? How would you go about showing that this upper bound holds?  "
+},
+{
+  "id": "sec-induction1-6",
+  "level": "2",
+  "url": "sec-induction1.html#sec-induction1-6",
+  "type": "Checkpoint",
+  "number": "2.8.2",
+  "title": "",
+  "body": " Compute the values of for . What do you think the value of the -th term of this sequence is? Why do you think your answer is correct? How would you go about proving that your answer is always correct, even when is a positive integer beyond the scope of human comprehension?  "
+},
+{
+  "id": "sec-induction1-7",
+  "level": "2",
+  "url": "sec-induction1.html#sec-induction1-7",
+  "type": "Checkpoint",
+  "number": "2.8.3",
+  "title": "",
+  "body": " Consider any map formed by drawing straight lines in the plane, each line extending infinitely in both directions, to represent the boundaries of the regions. Some regions will be compact and bounded, others will be unbounded and go off to infinity. Is it always possible to color the regions using only two colors, say white and gray, in such a way that white and gray regions never share an edge? In other words, the edges between regions always have white on one side and gray on the other side. If yes, why? If no, why not?  "
+},
+{
+  "id": "principle-induction",
+  "level": "2",
+  "url": "sec-induction1.html#principle-induction",
+  "type": "Principle",
+  "number": "2.8.4",
+  "title": "Principle of Mathematical Induction.",
+  "body": " Principle of Mathematical Induction   Suppose we have a sequence of mathematical statements (one for each natural number). If the following two properties hold, then is true for every natural number :    is true.    If is true, then is true.      "
+},
+{
+  "id": "sec-induction1-10",
+  "level": "2",
+  "url": "sec-induction1.html#sec-induction1-10",
+  "type": "Checkpoint",
+  "number": "2.8.5",
+  "title": "",
+  "body": " Discuss how the structure of the Principle of Mathematical Induction applies to each of the three checkpoint problems above.  "
+},
+{
+  "id": "sec-classificationproblems",
+  "level": "1",
+  "url": "sec-classificationproblems.html",
+  "type": "Section",
+  "number": "3.1",
+  "title": "Classification Problems",
+  "body": " Classification Problems  The first unit of this course studied the question of enumeration : How many ____ are there? There are many ways to investigate enumeration problems, including such techniques as generating functions, asymptotic analysis, Polya enumeration, etc. The two techniques we focused on were bijections and recursions, which are fundamental to enumeration.  In our next unit, we will focus on the question of classification : Which objects have ____ property? Classification problems have a much different feel than enumeration problems. In particular, while we will sometimes engage in counting problems, when studying classification problems we are much more interested in structure and quality rather than quantity. We will begin by studying classification problems for trees and graphs, and we will end this unit by considering a classification problem involving permutations.  "
 },
 {
   "id": "sec-graphbasics",
   "level": "1",
   "url": "sec-graphbasics.html",
   "type": "Section",
-  "number": "3.1",
+  "number": "3.2",
   "title": "Graphs and Networks",
   "body": " Graphs and Networks  "
-},
-{
-  "id": "sec-euleriancircuits",
-  "level": "1",
-  "url": "sec-euleriancircuits.html",
-  "type": "Section",
-  "number": "3.2",
-  "title": "Eulerian Circuits",
-  "body": " Eulerian Circuits  "
-},
-{
-  "id": "sec-induction2",
-  "level": "1",
-  "url": "sec-induction2.html",
-  "type": "Section",
-  "number": "3.3",
-  "title": "Induction: Part 2",
-  "body": " Induction: Part 2  "
 },
 {
   "id": "sec-trees",
   "level": "1",
   "url": "sec-trees.html",
   "type": "Section",
-  "number": "3.4",
+  "number": "3.3",
   "title": "Trees",
   "body": " Trees  "
+},
+{
+  "id": "sec-induction2",
+  "level": "1",
+  "url": "sec-induction2.html",
+  "type": "Section",
+  "number": "3.4",
+  "title": "Induction: Part 2",
+  "body": " Induction: Part 2  "
+},
+{
+  "id": "sec-euleriancircuits",
+  "level": "1",
+  "url": "sec-euleriancircuits.html",
+  "type": "Section",
+  "number": "3.5",
+  "title": "Eulerian Circuits",
+  "body": " Eulerian Circuits  "
 },
 {
   "id": "sec-prufercayley",
   "level": "1",
   "url": "sec-prufercayley.html",
   "type": "Section",
-  "number": "3.5",
+  "number": "3.6",
   "title": "Prufer Codes and Cayley’s Theorem",
   "body": " Prufer Codes and Cayley's Theorem  "
 },
@@ -1139,7 +1193,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec-degreesequences.html",
   "type": "Section",
-  "number": "3.6",
+  "number": "3.7",
   "title": "Degree Sequences",
   "body": " Degree Sequences  "
 },
@@ -1148,7 +1202,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec-stacksortable.html",
   "type": "Section",
-  "number": "3.7",
+  "number": "3.8",
   "title": "Stack Sortable Permutations",
   "body": " Stack Sortable Permutations  "
 },
