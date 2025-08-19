@@ -1,4 +1,139 @@
 <section xml:id="sec-trees">
     <title>Trees</title>
+
+    <p>
+        The simplest connected graphs are the connected graphs that have no cycles.
+        There are many different descriptions of such graphs, meaning that there are many ways to classify this family of graphs.
+    </p>
+    
+    <definition xml:id="def-treeacyclicconnected">
+        <statement>
+            <p>
+                A graph is <em>acyclic</em> if it has no cycles.
+                A graph on <m>n</m> vertices that is connected and acyclic is called a <em>tree</em>.
+            </p>
+        </statement>
+    </definition>
+    <exercise>
+        <p>
+            which of the following graphs is a tree? 
+            <figure xml:id="fig-tree1">
+    <caption>Graph 1.</caption>
+    <image source="tree1.png" width="75%"/>
+</figure>
+<figure xml:id="fig-nontree1">
+    <caption>Graph 2.</caption>
+    <image source="nontree1.png" width="75%"/>
+</figure>
+<figure xml:id="fig-tree2">
+    <caption>Graph 3.</caption>
+    <image source="tree2.png" width="75%"/>
+</figure>
+        </p>
+    </exercise>
+    <exercise>
+        <p>
+            Determining whether or not a graph is a tree is not always easy. 
+            For example, the following graph is given both visually and as a list of edges.
+            Is the following graph a tree? 
+            How might you verify that your answer is correct?
+            Discuss with your group.
+        </p>
+        <figure xml:id="fig-tree3">
+    <caption>Graph 4.</caption>
+    <image source="tree3.png" width="75%"/>
+</figure>
+<p>
+    Edges in this graph: (0, 32), 
+(1, 6), 
+(1, 38), 
+(2, 36), 
+(3, 25), 
+(4, 23), 
+(4, 28), 
+(5, 11), 
+(5, 27), 
+(5, 14), 
+(7, 26), 
+(7, 14), 
+(8, 19), 
+(8, 23), 
+(8, 26), 
+(9, 18), 
+(10, 28), 
+(12, 18), 
+(13, 39), 
+(15, 38), 
+(15, 31), 
+(16, 35), 
+(16, 30), 
+(17, 25), 
+(18, 30), 
+(19, 21), 
+(19, 24), 
+(20, 27), 
+(21, 32), 
+(22, 37), 
+(25, 29), 
+(26, 38), 
+(26, 31), 
+(27, 34), 
+(27, 35), 
+(27, 29), 
+(29, 36), 
+(29, 37), 
+(31, 39), 
+(32, 36), 
+(33, 39)
+</p>
+    </exercise>
+    <p>
+        The following theorem lists multiple alternative characterizations of (finite) trees.
+    </p>
+    <theorem xml:id="thm-treeclassification">
+        <statement>
+            <p>
+                Let <m>G</m> be a graph on <m>n</m> vertices.
+                The following are equivalent.
+                <ol>
+                    <li>
+                        <p>
+                            <m>G</m> is a tree, i.e., <m>G</m> is connected and acyclic.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>G</m> is connected and has <m>n-1</m> edges.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>G</m> is acyclic and has <m>n-1</m> edges.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </theorem>
+
+    <p>
+        What this theorem says is that <m>G</m> is a tree if it has any two of the properties of being connected, acyclic, or having <m>n-1</m> edges when it has <m>n</m> vertices.
+    </p>
+
+    <exercise>
+        <p>
+            Verify that each of the above conditions hold for the following tree.
+            <figure xml:id="fig-tree1again">
+    <caption>A tree.</caption>
+    <image source="tree1.png" width="75%"/>
+</figure>
+        </p>
+    </exercise>
+    <proof>
+        <p>
+            
+        </p>
+    </proof>
+
     
 </section>
