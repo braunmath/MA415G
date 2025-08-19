@@ -24,16 +24,17 @@
         </p>
         <figure xml:id="fig-k5">
     <caption>Drawing of <m>K_5</m>.</caption>
-    <image source="Complete_graph_K5.svg.png" width="75%"/>
+    <image source="k5.png" width="75%"/>
 </figure>
     </example>
     <example>
         <p>
             The <em>Petersen graph</em> is a famous and important graph shown in the figure below.
+            The Petersen graph is particularly noteworthy because it is often a counterexample to conjectures about graphs; if you think something is true, always test your guess on the Petersen graph!
         </p>
         <figure xml:id="fig-peterson">
-    <caption>Drawing of the Petersen graph, originally from <url href="https://en.wikipedia.org/wiki/File:Petersen1_tiny.svg" /></caption>
-    <image source="Petersen1_tiny.svg.png" width="75%"/>
+    <caption>Drawing of the Petersen graph.</caption>
+    <image source="petersen.png" width="75%"/>
 </figure>
     </example>
 
@@ -127,18 +128,74 @@
 <definition xml:id="def-pathcircuitconnected">
     <statement>
         <p>
-            Given a graph <m>G</m>, a <em>path</em> is a finite sequence of edges joining a sequence of vertices.
-            A <em>trail</em> is a path in which all edges are distinct.
-            A <em>simple path</em> is a path in which all vertices are distinct.
-        </p>
-        <p>
-            A graph is connected if there is a path between every pair of vertices.
+            Given a graph <m>G</m>:
+            <ol>
+                <li>
+                    <p>
+                        A <em>path</em> is a finite sequence of edges joining a sequence of vertices.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A <em>trail</em> is a path in which all edges are distinct.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A <em>simple path</em> is a path in which all vertices are distinct.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A <em>circuit</em> is a trail in which the first and last vertices are equal.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A <em>cycle</em> is a trail in which only the first and last vertices are equal.
+                        A cycle with <m>k</m> edges is called a <m>k</m>-cycle.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A graph is <em>connected</em> if there is a path between every pair of vertices.
+                    </p>
+                </li>
+            </ol>         
         </p>
     </statement>
 </definition>
-<example>
+<exercise>
     <p>
         Below are examples of a connected and disconnected graph.
+        In the connected graph, for each of the following sequences of vertices, identify which are a path, trail, simple path, circuit, or cycle.
+        <ol>
+            <li>
+                <p>
+                    <m>0,6,5,4,0</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>1,3,0,6,8</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>1,3,0,6,5,4,0,9</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>1,3,0,6,0,9</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>0,3,2,10,9,0,4,5,6,0</m>
+                </p>
+            </li>
+        </ol>
     </p>
     <figure xml:id="fig-connectedgraph">
     <caption>Example of a connected graph.</caption>
@@ -148,7 +205,7 @@
     <caption>Example of a disconnected graph.</caption>
     <image source="disconnected.png" width="75%"/>
 </figure>
-</example>
+</exercise>
 
 <p>
     There are algorithms known that will generate all connected graphs on a fixed number of vertices, but these are difficult.
