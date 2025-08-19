@@ -1276,7 +1276,61 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.3",
   "title": "Trees",
-  "body": " Trees  "
+  "body": " Trees  The simplest connected graphs are the connected graphs that have no cycles. There are many different descriptions of such graphs, meaning that there are many ways to classify this family of graphs.    A graph is acyclic if it has no cycles. A graph on vertices that is connected and acyclic is called a tree .     which of the following graphs is a tree?  Graph 1.     Graph 2.     Graph 3.       Determining whether or not a graph is a tree is not always easy. For example, the following graph is given both visually and as a list of edges. Is the following graph a tree? How might you verify that your answer is correct? Discuss with your group.   Graph 4.    Edges in this graph: (0, 32), (1, 6), (1, 38), (2, 36), (3, 25), (4, 23), (4, 28), (5, 11), (5, 27), (5, 14), (7, 26), (7, 14), (8, 19), (8, 23), (8, 26), (9, 18), (10, 28), (12, 18), (13, 39), (15, 38), (15, 31), (16, 35), (16, 30), (17, 25), (18, 30), (19, 21), (19, 24), (20, 27), (21, 32), (22, 37), (25, 29), (26, 38), (26, 31), (27, 34), (27, 35), (27, 29), (29, 36), (29, 37), (31, 39), (32, 36), (33, 39)   The following theorem lists multiple alternative characterizations of (finite) trees.    Let be a graph on vertices. The following are equivalent.    is a tree, i.e., is connected and acyclic.     is connected and has edges.     is acyclic and has edges.       What this theorem says is that is a tree if it has any two of the properties of being connected, acyclic, or having edges when it has vertices.   Verify that each of the above conditions hold for the following tree.  A tree.          "
+},
+{
+  "id": "def-treeacyclicconnected",
+  "level": "2",
+  "url": "sec-trees.html#def-treeacyclicconnected",
+  "type": "Definition",
+  "number": "3.3.1",
+  "title": "",
+  "body": "  A graph is acyclic if it has no cycles. A graph on vertices that is connected and acyclic is called a tree .   "
+},
+{
+  "id": "sec-trees-4",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-4",
+  "type": "Checkpoint",
+  "number": "3.3.2",
+  "title": "",
+  "body": " which of the following graphs is a tree?  Graph 1.     Graph 2.     Graph 3.     "
+},
+{
+  "id": "sec-trees-5",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-5",
+  "type": "Checkpoint",
+  "number": "3.3.6",
+  "title": "",
+  "body": " Determining whether or not a graph is a tree is not always easy. For example, the following graph is given both visually and as a list of edges. Is the following graph a tree? How might you verify that your answer is correct? Discuss with your group.   Graph 4.    Edges in this graph: (0, 32), (1, 6), (1, 38), (2, 36), (3, 25), (4, 23), (4, 28), (5, 11), (5, 27), (5, 14), (7, 26), (7, 14), (8, 19), (8, 23), (8, 26), (9, 18), (10, 28), (12, 18), (13, 39), (15, 38), (15, 31), (16, 35), (16, 30), (17, 25), (18, 30), (19, 21), (19, 24), (20, 27), (21, 32), (22, 37), (25, 29), (26, 38), (26, 31), (27, 34), (27, 35), (27, 29), (29, 36), (29, 37), (31, 39), (32, 36), (33, 39)  "
+},
+{
+  "id": "thm-treeclassification",
+  "level": "2",
+  "url": "sec-trees.html#thm-treeclassification",
+  "type": "Theorem",
+  "number": "3.3.8",
+  "title": "",
+  "body": "  Let be a graph on vertices. The following are equivalent.    is a tree, i.e., is connected and acyclic.     is connected and has edges.     is acyclic and has edges.      "
+},
+{
+  "id": "sec-trees-9",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-9",
+  "type": "Checkpoint",
+  "number": "3.3.9",
+  "title": "",
+  "body": " Verify that each of the above conditions hold for the following tree.  A tree.     "
+},
+{
+  "id": "sec-trees-10",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-10",
+  "type": "Proof",
+  "number": "3.3.1",
+  "title": "",
+  "body": "   "
 },
 {
   "id": "sec-euleriancircuits",
