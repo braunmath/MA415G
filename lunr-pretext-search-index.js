@@ -1276,7 +1276,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.3",
   "title": "Trees",
-  "body": " Trees  The simplest connected graphs are the connected graphs that have no cycles. There are many different descriptions of such graphs, meaning that there are many ways to classify this family of graphs.    A graph is acyclic if it has no cycles. A graph on vertices that is connected and acyclic is called a tree .     which of the following graphs is a tree?  Graph 1.     Graph 2.     Graph 3.       Determining whether or not a graph is a tree is not always easy. For example, the following graph is given both visually and as a list of edges. Is the following graph a tree? How might you verify that your answer is correct? Discuss with your group.   Graph 4.    Edges in this graph: (0, 32), (1, 6), (1, 38), (2, 36), (3, 25), (4, 23), (4, 28), (5, 11), (5, 27), (5, 14), (7, 26), (7, 14), (8, 19), (8, 23), (8, 26), (9, 18), (10, 28), (12, 18), (13, 39), (15, 38), (15, 31), (16, 35), (16, 30), (17, 25), (18, 30), (19, 21), (19, 24), (20, 27), (21, 32), (22, 37), (25, 29), (26, 38), (26, 31), (27, 34), (27, 35), (27, 29), (29, 36), (29, 37), (31, 39), (32, 36), (33, 39)   The following theorem lists multiple alternative characterizations of (finite) trees.    Let be a graph on vertices. The following are equivalent.    is a tree, i.e., is connected and acyclic.     is connected and has edges.     is acyclic and has edges.       What this theorem says is that is a tree if it has any two of the properties of being connected, acyclic, or having edges when it has vertices.   Verify that each of the above conditions hold for the following tree.  A tree.          "
+  "body": " Trees  The simplest connected graphs are the connected graphs that have no cycles. There are many different descriptions of such graphs, meaning that there are many ways to classify this family of graphs.    A graph is acyclic if it has no cycles. A graph on vertices that is connected and acyclic is called a tree .     which of the following graphs is a tree?  Graph 1.     Graph 2.     Graph 3.       Determining whether or not a graph is a tree is not always easy. For example, the following graph is given both visually and as a list of edges. Is the following graph a tree? How might you verify that your answer is correct? Discuss with your group.   Graph 4.    Edges in this graph: (0, 32), (1, 6), (1, 38), (2, 36), (3, 25), (4, 23), (4, 28), (5, 11), (5, 27), (5, 14), (7, 26), (7, 14), (8, 19), (8, 23), (8, 26), (9, 18), (10, 28), (12, 18), (13, 39), (15, 38), (15, 31), (16, 35), (16, 30), (17, 25), (18, 30), (19, 21), (19, 24), (20, 27), (21, 32), (22, 37), (25, 29), (26, 38), (26, 31), (27, 34), (27, 35), (27, 29), (29, 36), (29, 37), (31, 39), (32, 36), (33, 39)   The following theorem lists multiple alternative characterizations of (finite) trees.    Let be a graph on vertices. The following are equivalent.    is a tree, i.e., is connected and acyclic.     is connected and has edges.     is acyclic and has edges.       What this theorem says is that is a tree if it has any two of the properties of being connected, acyclic, or having edges when it has vertices.   Verify that each of the above conditions hold for the following tree.  A tree.      In order to prove , we will need some preliminary definitions and lemmas.    Given a graph and a vertex , the connected component of containing is the set of all vertices that are connected to by a path in . The set of connected components partitions .     Identify the connected components in the following graph.  A graph with multiple connected components.        Adding an edge to a graph can reduce the number of components by at most one.     There are two cases to consider. Suppose we add a new edge to . If and are already in the same connected component, then adding does not change any components. However, if and are in different components, then adding will merge the components containing and into a single component, since now any vertex connected by a path to is also connected by a path to . Thus, this will reduce the number of connected components by one.    Discuss the proof of . Does it make sense? Why or why not? Create a small example to verify that your understanding is correct.     Any connected graph on vertices has at least edges.     Suppose is a graph on vertex set . We construct by starting with the empty graph, i.e., the graph on with no edges, and adding the edges of one at a time. Note that in this case, each individual vertex forms a connected component, hence the empty graph has components. In order for to be connected, every element in must be connected to every other element by a path. Thus, in the process of adding edges one at a time to create , we must merge components into a single component. Each time we add an edge, either there are no components merged or the number of components reduces by one. In order to get from components to one component, we must merge times, which requires at least edges be added.    Discuss the proof of . Does it make sense? Why or why not?     Adding an edge to a connected graph on vertices creates at least one new cycle.     Suppose is a connected graph and is a new edge added to . There exists a simple path in from to , and connecting the endpoints of the path using creates a cycle.    Discuss the proof of . Does it make sense? Why or why not?    Proof of  We will use the following logical implications to prove the classification:  Logical implications to establish equivalence.     First, we will prove that if is connected and acyclic then it also has edges. Construct by starting with the empty graph and adding one edge at a time. Each time we add an edge, if the edge bridges two different connected components, then it merges those components and does not introduce any new cycle. If an edge is added where both of the endpoints of the edge are in the same connected component, then by this introduces a cycle. However, is acyclic, and therefore this cannot happen. Thus, every new edge added results in a merging of components and by the argument in , this results in edges.  Second, we will prove that if is connected with edges, then it is acyclic. Suppose that does contain a cycle . Then removing one of the edges in will not disconnect , since the endpoints of the edge are still connected by the remaining edges of . However, this will result in a graph that is connected with edges, which is impossible by . Therefore, the original graph must be acyclic.  Finally, we will prove that if is acyclic with edges, then it is connected. We again construct by starting with the empty graph and adding edges one at a time. Each time we add an edge, we must add an edge that results in the merging of two connected components, as otherwise implies that there is a cycle, which is not possible since is acyclic. Therefore, we add edges, and each of these edges results in the merging of two connected components. We begin with the empty graph, having components, and thus the result is a graph with one component, which is the same as being connected.    Discuss the proof of . Does it make sense? Why or why not?   There is a lovely corollary to this theorem and the degree sum theorem, which involves the idea of a leaf.    A vertex of degree one in a graph is called a leaf .      Any tree has at least two leaves.     If is a tree, it has vertices and edges. By the degree sum formula, , we have that Since is a tree and is therefore connected, every vertex has degree at least one. Suppose that every vertex has degree at least two. Then This would be a contradiction to the degree sum formula. So, at least two of the vertices must have degree one in the tree.   Observe that we can now solve the problem given in . There are edges in that graph, but there are vertices, and thus it is not a tree.  "
 },
 {
   "id": "def-treeacyclicconnected",
@@ -1297,9 +1297,9 @@ var ptx_lunr_docs = [
   "body": " which of the following graphs is a tree?  Graph 1.     Graph 2.     Graph 3.     "
 },
 {
-  "id": "sec-trees-5",
+  "id": "ex-hardnotatreecheckpoint",
   "level": "2",
-  "url": "sec-trees.html#sec-trees-5",
+  "url": "sec-trees.html#ex-hardnotatreecheckpoint",
   "type": "Checkpoint",
   "number": "3.3.6",
   "title": "",
@@ -1324,13 +1324,148 @@ var ptx_lunr_docs = [
   "body": " Verify that each of the above conditions hold for the following tree.  A tree.     "
 },
 {
-  "id": "sec-trees-10",
+  "id": "def-connectedcomponents",
   "level": "2",
-  "url": "sec-trees.html#sec-trees-10",
+  "url": "sec-trees.html#def-connectedcomponents",
+  "type": "Definition",
+  "number": "3.3.11",
+  "title": "",
+  "body": "  Given a graph and a vertex , the connected component of containing is the set of all vertices that are connected to by a path in . The set of connected components partitions .   "
+},
+{
+  "id": "sec-trees-12",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-12",
+  "type": "Checkpoint",
+  "number": "3.3.12",
+  "title": "",
+  "body": " Identify the connected components in the following graph.  A graph with multiple connected components.     "
+},
+{
+  "id": "lem-connectedcomponentsreduction",
+  "level": "2",
+  "url": "sec-trees.html#lem-connectedcomponentsreduction",
+  "type": "Lemma",
+  "number": "3.3.14",
+  "title": "",
+  "body": "  Adding an edge to a graph can reduce the number of components by at most one.   "
+},
+{
+  "id": "sec-trees-14",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-14",
   "type": "Proof",
   "number": "3.3.1",
   "title": "",
-  "body": "   "
+  "body": " There are two cases to consider. Suppose we add a new edge to . If and are already in the same connected component, then adding does not change any components. However, if and are in different components, then adding will merge the components containing and into a single component, since now any vertex connected by a path to is also connected by a path to . Thus, this will reduce the number of connected components by one.  "
+},
+{
+  "id": "sec-trees-15",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-15",
+  "type": "Checkpoint",
+  "number": "3.3.15",
+  "title": "",
+  "body": " Discuss the proof of . Does it make sense? Why or why not? Create a small example to verify that your understanding is correct.  "
+},
+{
+  "id": "lem-connectedgraphedgelowerbound",
+  "level": "2",
+  "url": "sec-trees.html#lem-connectedgraphedgelowerbound",
+  "type": "Lemma",
+  "number": "3.3.16",
+  "title": "",
+  "body": "  Any connected graph on vertices has at least edges.   "
+},
+{
+  "id": "sec-trees-17",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-17",
+  "type": "Proof",
+  "number": "3.3.2",
+  "title": "",
+  "body": " Suppose is a graph on vertex set . We construct by starting with the empty graph, i.e., the graph on with no edges, and adding the edges of one at a time. Note that in this case, each individual vertex forms a connected component, hence the empty graph has components. In order for to be connected, every element in must be connected to every other element by a path. Thus, in the process of adding edges one at a time to create , we must merge components into a single component. Each time we add an edge, either there are no components merged or the number of components reduces by one. In order to get from components to one component, we must merge times, which requires at least edges be added.  "
+},
+{
+  "id": "sec-trees-18",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-18",
+  "type": "Checkpoint",
+  "number": "3.3.17",
+  "title": "",
+  "body": " Discuss the proof of . Does it make sense? Why or why not?  "
+},
+{
+  "id": "lem-addingedgemakescycle",
+  "level": "2",
+  "url": "sec-trees.html#lem-addingedgemakescycle",
+  "type": "Lemma",
+  "number": "3.3.18",
+  "title": "",
+  "body": "  Adding an edge to a connected graph on vertices creates at least one new cycle.   "
+},
+{
+  "id": "sec-trees-20",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-20",
+  "type": "Proof",
+  "number": "3.3.3",
+  "title": "",
+  "body": " Suppose is a connected graph and is a new edge added to . There exists a simple path in from to , and connecting the endpoints of the path using creates a cycle.  "
+},
+{
+  "id": "sec-trees-21",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-21",
+  "type": "Checkpoint",
+  "number": "3.3.19",
+  "title": "",
+  "body": " Discuss the proof of . Does it make sense? Why or why not?  "
+},
+{
+  "id": "sec-trees-22",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-22",
+  "type": "Proof",
+  "number": "3.3.4",
+  "title": "Proof of Theorem 3.3.8.",
+  "body": " Proof of  We will use the following logical implications to prove the classification:  Logical implications to establish equivalence.     First, we will prove that if is connected and acyclic then it also has edges. Construct by starting with the empty graph and adding one edge at a time. Each time we add an edge, if the edge bridges two different connected components, then it merges those components and does not introduce any new cycle. If an edge is added where both of the endpoints of the edge are in the same connected component, then by this introduces a cycle. However, is acyclic, and therefore this cannot happen. Thus, every new edge added results in a merging of components and by the argument in , this results in edges.  Second, we will prove that if is connected with edges, then it is acyclic. Suppose that does contain a cycle . Then removing one of the edges in will not disconnect , since the endpoints of the edge are still connected by the remaining edges of . However, this will result in a graph that is connected with edges, which is impossible by . Therefore, the original graph must be acyclic.  Finally, we will prove that if is acyclic with edges, then it is connected. We again construct by starting with the empty graph and adding edges one at a time. Each time we add an edge, we must add an edge that results in the merging of two connected components, as otherwise implies that there is a cycle, which is not possible since is acyclic. Therefore, we add edges, and each of these edges results in the merging of two connected components. We begin with the empty graph, having components, and thus the result is a graph with one component, which is the same as being connected.  "
+},
+{
+  "id": "sec-trees-23",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-23",
+  "type": "Checkpoint",
+  "number": "3.3.21",
+  "title": "",
+  "body": " Discuss the proof of . Does it make sense? Why or why not?  "
+},
+{
+  "id": "def-leaf",
+  "level": "2",
+  "url": "sec-trees.html#def-leaf",
+  "type": "Definition",
+  "number": "3.3.22",
+  "title": "",
+  "body": "  A vertex of degree one in a graph is called a leaf .   "
+},
+{
+  "id": "cor-treeshaveleaves",
+  "level": "2",
+  "url": "sec-trees.html#cor-treeshaveleaves",
+  "type": "Corollary",
+  "number": "3.3.23",
+  "title": "",
+  "body": "  Any tree has at least two leaves.   "
+},
+{
+  "id": "sec-trees-27",
+  "level": "2",
+  "url": "sec-trees.html#sec-trees-27",
+  "type": "Proof",
+  "number": "3.3.5",
+  "title": "",
+  "body": " If is a tree, it has vertices and edges. By the degree sum formula, , we have that Since is a tree and is therefore connected, every vertex has degree at least one. Suppose that every vertex has degree at least two. Then This would be a contradiction to the degree sum formula. So, at least two of the vertices must have degree one in the tree.  "
 },
 {
   "id": "sec-euleriancircuits",
