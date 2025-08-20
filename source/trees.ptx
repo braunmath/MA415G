@@ -31,7 +31,7 @@
 </figure>
         </p>
     </exercise>
-    <exercise>
+    <exercise xml:id="ex-hardnotatreecheckpoint">
         <p>
             Determining whether or not a graph is a tree is not always easy. 
             For example, the following graph is given both visually and as a list of edges.
@@ -129,11 +129,180 @@
 </figure>
         </p>
     </exercise>
+
+    <p>
+        In order to prove <xref ref="thm-treeclassification"/>, we will need some preliminary definitions and lemmas.
+    </p>
+    <definition xml:id="def-connectedcomponents">
+        <statement>
+            <p>
+                Given a graph <m>G</m> and a vertex <m>v\in V(G)</m>, the <em>connected component</em> of <m>G</m> containing <m>v</m> is the set of all vertices that are connected to <m>v</m> by a path in <m>G</m>.
+                The set of connected components partitions <m>V</m>.
+            </p>
+        </statement>
+    </definition>
+
+    <exercise>
+                <p>
+                    Identify the connected components in the following graph.
+                    <figure xml:id="fig-nontree1components">
+    <caption>A graph with multiple connected components.</caption>
+    <image source="disconnected.png" width="75%"/>
+</figure>
+                </p>
+            </exercise>
+
+    <lemma xml:id="lem-connectedcomponentsreduction">
+        <statement>
+            <p>
+                Adding an edge to a graph <m>G</m> can reduce the number of components by at most one.
+            </p>
+        </statement>
+    </lemma>
+
     <proof>
         <p>
-            
+            There are two cases to consider. 
+            Suppose we add a new edge <m>e=\{x,y\}</m> to <m>G</m>.
+            If <m>x</m> and <m>y</m> are already in the same connected component, then adding <m>e</m> does not change any components.
+            However, if <m>x</m> and <m>y</m> are in different components, then adding <m>e</m> will merge the components containing <m>x</m> and <m>y</m> into a single component, since now any vertex connected by a path to <m>x</m> is also connected by a path to <m>y</m>.
+            Thus, this will reduce the number of connected components by one.
         </p>
     </proof>
 
+    <exercise>
+        <p>
+            Discuss the proof of <xref ref="lem-connectedcomponentsreduction"/>. Does it make sense? Why or why not? Create a small example to verify that your understanding is correct.
+        </p>
+    </exercise>
+    
+    <lemma xml:id="lem-connectedgraphedgelowerbound">
+        <statement>
+            <p>
+                Any connected graph on <m>n</m> vertices has at least <m>n-1</m> edges.
+            </p>
+        </statement>
+    </lemma>
+
+ <proof>
+        <p>
+            Suppose <m>G</m> is a graph on vertex set <m>[n]</m>.
+            We construct <m>G</m> by starting with the empty graph, i.e., the graph on <m>[n]</m> with no edges, and adding the edges of <m>G</m> one at a time.
+            Note that in this case, each individual vertex forms a connected component, hence the empty graph has <m>n</m> components.
+            In order for <m>G</m> to be connected, every element in <m>[n]</m> must be connected to every other element by a path.
+            Thus, in the process of adding edges one at a time to create <m>G</m>, we must merge <m>n</m> components into a single component.
+            Each time we add an edge, either there are no components merged or the number of components reduces by one.
+            In order to get from <m>n</m> components to one component, we must merge <m>n-1</m> times, which requires at least <m>n-1</m> edges be added.
+        </p>
+    </proof>
+
+    <exercise>
+        <p>
+            Discuss the proof of <xref ref="lem-connectedgraphedgelowerbound"/>. Does it make sense? Why or why not?
+        </p>
+    </exercise>
+
+    <lemma xml:id="lem-addingedgemakescycle">
+        <statement>
+            <p>
+                Adding an edge to a connected graph on <m>n</m> vertices creates at least one new cycle.
+            </p>
+        </statement>
+    </lemma>
+
+    <proof>
+        <p>
+            Suppose <m>G</m> is a connected graph and <m>e=\{x,y\}</m> is a new edge added to <m>G</m>.
+            There exists a simple path in <m>G</m> from <m>x</m> to <m>y</m>, and connecting the endpoints of the path using <m>e</m> creates a cycle.
+        </p>
+    </proof>
+
+     <exercise>
+        <p>
+            Discuss the proof of <xref ref="lem-addingedgemakescycle"/>. Does it make sense? Why or why not?
+        </p>
+    </exercise>
+
+    <proof>
+        <title>Proof of <xref ref="thm-treeclassification"/></title>
+        <p>
+            We will use the following logical implications to prove the classification:
+            <figure xml:id="fig-treeproofimplications">
+            <caption>Logical implications to establish equivalence.</caption>
+            <image source="treeproofimplications.png" width="90%"/>
+            </figure>
+        </p>
+        <p>
+            First, we will prove that if <m>G</m> is connected and acyclic then it also has <m>n-1</m> edges.
+            Construct <m>G</m> by starting with the empty graph and adding one edge at a time.
+            Each time we add an edge, if the edge bridges two different connected components, then it merges those components and does not introduce any new cycle.
+            If an edge is added where both of the endpoints of the edge are in the same connected component, then by <xref ref="lem-addingedgemakescycle"/> this introduces a cycle.
+            However, <m>G</m> is acyclic, and therefore this cannot happen.
+            Thus, every new edge added results in a merging of components and by the argument in <xref ref="lem-connectedgraphedgelowerbound"/>, this results in <m>n-1</m> edges.
+        </p>
+        <p>
+            Second, we will prove that if <m>G</m> is connected with <m>n-1</m> edges, then it is acyclic.
+            Suppose that <m>G</m> does contain a cycle <m>C</m>.
+            Then removing one of the edges in <m>C</m> will not disconnect <m>G</m>, since the endpoints of the edge are still connected by the remaining edges of <m>C</m>.
+            However, this will result in a graph that is connected with <m>n-2</m> edges, which is impossible by <xref ref="lem-connectedgraphedgelowerbound"/>.
+            Therefore, the original graph must be acyclic.
+        </p>
+        <p>
+            Finally, we will prove that if <m>G</m> is acyclic with <m>n-1</m> edges, then it is connected.
+            We again construct <m>G</m> by starting with the empty graph and adding edges one at a time.
+            Each time we add an edge, we must add an edge that results in the merging of two connected components, as otherwise <xref ref="lem-addingedgemakescycle"/> implies that there is a cycle, which is not possible since <m>G</m> is acyclic.
+            Therefore, we add <m>n-1</m> edges, and each of these edges results in the merging of two connected components.
+            We begin with the empty graph, having <m>n</m> components, and thus the result is a graph with one component, which is the same as being connected.
+        </p>
+    </proof>
+
+    <exercise>
+        <p>
+            Discuss the proof of <xref ref="thm-treeclassification"/>. Does it make sense? Why or why not?
+        </p>
+    </exercise>
+
+    <p>
+        There is a lovely corollary to this theorem and the degree sum theorem, which involves the idea of a leaf.
+    </p>
+
+    <definition xml:id="def-leaf">
+        <statement>
+            <p>
+                A vertex of degree one in a graph is called a <em>leaf</em>.
+            </p>
+        </statement>
+    </definition>
+
+    <corollary xml:id="cor-treeshaveleaves">
+        <statement>
+            <p>
+                Any tree has at least two leaves.
+            </p>
+        </statement>
+    </corollary>
+
+    <proof>
+        <p>
+            If <m>G</m> is a tree, it has <m>n</m> vertices and <m>n-1</m> edges.
+            By the degree sum formula, <xref ref="thm-degreesumformula" />, we have that
+            <me>
+                \sum_{v\in [n]}\deg(v)=2(n-1)=2n-2 \, .
+            </me>
+            Since <m>G</m> is a tree and is therefore connected, every vertex has degree at least one.
+            Suppose that every vertex has degree at least two.
+            Then
+            <me>
+                \sum_{v\in [n]}\deg(v)\geq 2n \gt 2n-2 \, .
+            </me>
+            This would be a contradiction to the degree sum formula.
+            So, at least two of the vertices must have degree one in the tree.
+        </p>
+    </proof>
+
+    <p>
+        Observe that we can now solve the problem given in <xref ref="ex-hardnotatreecheckpoint" />.
+        There are <m>41</m> edges in that graph, but there are <m>40</m> vertices, and thus it is not a tree.
+    </p>
     
 </section>
