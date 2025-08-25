@@ -17,7 +17,7 @@
 
   <p>
   We can define binary strings another way, using products of sets.
-  When we define notation, we will use the symbol "<m>:=</m>"" to indicate that it is a definition.
+  When we define notation, we will use the symbol "<m>:=</m>" to indicate that it is a definition.
   This helps to distinguish between when we are defining new notation and when we are proving equality between two objects.
   </p>
 
