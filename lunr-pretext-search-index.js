@@ -1474,7 +1474,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.4",
   "title": "Eulerian Circuits",
-  "body": " Eulerian Circuits  "
+  "body": " Eulerian Circuits  We will now consider one of the oldest results in graph theory, which originally was considered by Leonhard Euler in 1736.  "
 },
 {
   "id": "sec-induction2",
