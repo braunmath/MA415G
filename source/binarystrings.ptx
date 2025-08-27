@@ -192,16 +192,16 @@ For this proof, we will need the following.
     <p>
       Our strategy is the following observation: 
       <mdn> 
-           <mrow xml:id="eq-bindisjoint"> \amp \Bin(n+1) = \{1\}\times \Bin(n) \uplus \{0\}\times \Bin(n) </mrow>
+           <mrow xml:id="eq-bindisjoint"> \amp \Bin(n+1) = \Bin(n)\times \{1\} \uplus  \Bin(n)\times \{0\} </mrow>
       </mdn>
 
         Once we know that <xref ref="eq-bindisjoint"/> holds, then the result follows because
 
         <md>
-    <mrow>|\Bin(n+1)| \amp = |\{1\}\times \Bin(n) \uplus \{0\}\times \Bin(n)| </mrow>
-    <mrow> \amp = |\{1\}\times \Bin(n)| + |\{0\}\times \Bin(n)|</mrow>
-    <mrow> \amp = 1\times |\Bin(n)| + 1\times |\Bin(n)|</mrow>
-    <mrow> \amp = 2\cdot \Bin(n) = 2\cdot 2^{n}=2^{n+1}</mrow>
+    <mrow>|\Bin(n+1)| \amp = |\Bin(n)\times \{1\} \uplus  \Bin(n)\times \{0\}| </mrow>
+    <mrow> \amp = |\Bin(n)\times \{1\}| + |\Bin(n)\times \{0\}|</mrow>
+    <mrow> \amp = (|\Bin(n)| \times 1) + (|\Bin(n)| \times 1) </mrow>
+    <mrow> \amp = 2\cdot |\Bin(n)| = 2\cdot 2^{n}=2^{n+1}</mrow>
     </md>
       </p>
 </proof>
