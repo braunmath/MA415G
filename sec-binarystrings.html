@@ -338,16 +338,16 @@ A\cap B := \{x: x\in A \text{ and } x\in B\} \, .
 <div class="para">Our strategy is the following observation:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-bindisjoint.html" id="sec-binarystrings-21-4-1">
 \begin{align}
-\amp \Bin(n+1) = \{1\}\times \Bin(n) \uplus \{0\}\times \Bin(n) \tag{2.1.1}
+\amp \Bin(n+1) = \Bin(n)\times \{1\} \uplus  \Bin(n)\times \{0\} \tag{2.1.1}
 \end{align}
 </div>
 <div class="para">Once we know that <a href="sec-binarystrings.html#sec-binarystrings-21-4-1" class="xref" data-knowl="./knowl/xref/eq-bindisjoint.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.1.1">(2.1.1)</a> holds, then the result follows because</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-bindisjoint.html" id="sec-binarystrings-21-4-3">
 \begin{align*}
-|\Bin(n+1)| \amp = |\{1\}\times \Bin(n) \uplus \{0\}\times \Bin(n)| \\
-\amp = |\{1\}\times \Bin(n)| + |\{0\}\times \Bin(n)|\\
-\amp = 1\times |\Bin(n)| + 1\times |\Bin(n)|\\
-\amp = 2\cdot \Bin(n) = 2\cdot 2^{n}=2^{n+1}
+|\Bin(n+1)| \amp = |\Bin(n)\times \{1\} \uplus  \Bin(n)\times \{0\}| \\
+\amp = |\Bin(n)\times \{1\}| + |\Bin(n)\times \{0\}|\\
+\amp = (|\Bin(n)| \times 1) + (|\Bin(n)| \times 1) \\
+\amp = 2\cdot |\Bin(n)| = 2\cdot 2^{n}=2^{n+1}
 \end{align*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-binarystrings-21-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
