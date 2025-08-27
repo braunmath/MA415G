@@ -77,7 +77,7 @@
     <p>
         We use the technique of writing the set <m>\comp(n,\{1,2\})</m> as a disjoint union.
         Observe that <m>\comp(n,\{1,2\})</m> is equal to
-        <me> \left\{ a+1:a\in\comp(n-1,\{1,2\}) \right\} \uplus \left\{ 2+a:a \in \comp(n-2,\{1,2\}) \right\} </me>
+        <me> \left\{ a+1:a\in\comp(n-1,\{1,2\}) \right\} \uplus \left\{ a+2:a \in \comp(n-2,\{1,2\}) \right\} </me>
       and therefore
       <me>
         |\comp(n,\{1,2\})|=|\comp(n-1,\{1,2\})|+|\comp(n-2,\{1,2\})| \, .
