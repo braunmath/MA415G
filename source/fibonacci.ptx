@@ -50,7 +50,7 @@
 
 <exercise>
     <p>
-        List all the compositions of <m>n</m> for <m>n=1,2,3,4</m>.
+        Systematically list all the compositions of <m>n</m> for <m>n=1,2,3,4</m>.
     </p>
 </exercise>
 
@@ -61,7 +61,7 @@
 
 <exercise>
     <p>
-        List all the compositions in <m>\comp(n,\{1,2\})</m> for <m>n=1,2,3,4,5</m>.
+        Systematically list all the compositions in <m>\comp(n,\{1,2\})</m> for <m>n=1,2,3,4,5</m>.
     </p>
 </exercise>
 

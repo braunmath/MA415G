@@ -25,7 +25,7 @@
 
     <exercise>
         <p>
-            Discuss the above example and the notation used in it.
+            Discuss the above example and the notation used in it. Create another example of a subset and a non-subset of a set.
         </p>
     </exercise>
 
@@ -165,7 +165,7 @@
 
 <exercise>
     <p>
-        Discuss this proof: does it make sense? Why or why not? Note the strategy is to count the number of subsets of <m>[n]</m> in two different ways, which leads to two different symbolic formulas for the total number.
+        Discuss this proof: does it make sense? Why or why not? Check this proof with small examples. Note the strategy is to count the number of subsets of <m>[n]</m> in two different ways, which leads to two different symbolic formulas for the total number.
     </p>
 </exercise>
 

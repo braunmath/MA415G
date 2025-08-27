@@ -134,6 +134,13 @@
     </statement>
 </theorem>
 
+
+<exercise>
+    <p>
+        Use the recursion above to compute the first ten derangement numbers <m>D_n</m>.
+    </p>
+</exercise>
+
 <proof>
     <p>
         It is straightforward to check that <m>D_1=0</m> and <m>D_2=1</m>.
@@ -156,11 +163,6 @@
     </p>
 </proof>
 
-<exercise>
-    <p>
-        Use the recursion above to compute the first ten derangement numbers <m>D_n</m>.
-    </p>
-</exercise>
 
 <exercise>
     <p>
@@ -212,7 +214,7 @@
 
 <exercise>
     <p>
-        Discuss the proof above, and clarify any points of confusion.
+        Discuss the proof above, and clarify any points of confusion by verifying your understanding with small examples.
     </p>
 </exercise>
 
