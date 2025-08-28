@@ -83,7 +83,7 @@
     <definition xml:id="def-bijection">
         <statement>
             <p>
-                Given two sets <m>A</m> and <m>B</m>, a <em>bijection</em> is a map from  <m>A</m> to <m>B</m> that is a one-to-one correspondence.
+                Given two sets <m>A</m> and <m>B</m>, a <em>bijection</em> is a function from  <m>A</m> to <m>B</m> that is a one-to-one and onto correspondence.
             </p>
         </statement>
     </definition>
