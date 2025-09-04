@@ -7,7 +7,7 @@
     </p>
     <p>
         There are various flavors of induction, including the "method of descent", "strong induction", "weak induction", etc.
-        We will eventually discuss some aspects of these distinctions, but at first what is more important than learning names is to learn and understand the key idea of induction:
+        We will continue to discuss various aspects of these distinctions, but what is more important than learning names is to learn and understand the key idea of induction:
             <blockquote>
                 <p>
                     <em>verify small cases, then use those small cases to verify the next case, then use that new case to verify the next case, then use that new case to verify the next case, and then carefully explain why you can always continue this process for a specific problem or proof.</em>
@@ -103,7 +103,7 @@
     <p>
         These three checkpoint exercises demonstrate how you can use a small number of initial data points to make a conjecture, then look at how the structure of the problem leads you to use the same pattern of logical argument repeatedly.
         This "pattern of logical argument" is the <em>inductive step</em> of an induction argument, while the small initial data points are the <em>base cases</em> of the inductive argument.
-        We are now in a position to give a precise statement of this idea.
+        We are now in a position to give a precise statement of the principle of mathematical induction.
     </p>
     <principle xml:id="principle-induction">
         <title>Principle of Mathematical Induction</title>
