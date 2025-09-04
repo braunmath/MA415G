@@ -113,12 +113,12 @@
                 <ol>
                     <li>
                         <p>
-                            <m>P(1)</m> is true.
+                            The <em>base case</em>: <m>P(1)</m> is true.
                         </p>
                     </li>
                     <li>
                         <p>
-                            If <m>P(k)</m> is true, then <m>P(k+1)</m> is true.
+                            The <em>induction step</em>: If <m>P(k)</m> is true, then <m>P(k+1)</m> is true.
                         </p>
                     </li>
                 </ol>

@@ -3,7 +3,112 @@
 
     <p>
         We will now consider one of the oldest results in graph theory, which originally was considered by Leonhard Euler in 1736.
+        However, Euler considered this problem in a very different context and language, see <url href="https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg" /> for more details.
     </p>
 
+    <definition xml:id="def-euleriancircuit">
+        <statement>
+            <p>
+                Given a finite graph <m>G</m>, an <em>Eulerian circuit</em> is a circuit in <m>G</m> that crosses every edge exactly one time.
+                If <m>G</m> has an Eulerian circuit, then we say that <m>G</m> is an <em>Eulerian graph</em>.
+            </p>
+        </statement>
+    </definition>
+
+    <exercise>
+        <p>
+            Find an Eulerian circuit in the following graph.
+        </p>
+        <figure xml:id="fig-euleriangraph1">
+    <caption>Example of an Eulerian graph.</caption>
+    <image source="eulerian1.png" width="75%"/>
+</figure>
+    </exercise>
+
+    <exercise>
+        <p>
+            Prove that the following graph does not contain an Eulerian circuit.
+        </p>
+        <figure xml:id="fig-noneuleriangraph1">
+    <caption>Example of an non-Eulerian graph.</caption>
+    <image source="noneulerian1.png" width="75%"/>
+</figure>
+    </exercise>
+
+<p>
+    We are now prepared to classify the graphs that are Eulerian.
+</p>
+
+    <theorem xml:id="thm-eulerianclassification">
+        <statement>
+            <p>
+                A finite graph <m>G</m> is Eulerian if and only if it is connected and every vertex in <m>G</m> has even degree.
+            </p>
+        </statement>
+    </theorem>
+
+    <proof>
+        <p>
+            We first show that if <m>G</m> is Eulerian, then every vertex has even degree and the graph is connected.
+            We know that if <m>G</m> contains a circuit traversing every edge, then it must be connected.
+            To show even degree, suppose that we have an Eulerian circuit <m>C</m>, which passes through every edge exactly once.
+            We will start at an initial vertex <m>v_0</m> and we will follow <m>C</m>, adding to the degree of each vertex whenever we pass through an edge adjacent to it.
+            When <m>C</m> first departs from <m>v_0</m>, we add one to the degree of <m>v_0</m>.
+            Every time we pass through a vertex while traversing <m>C</m>, we add two to the degree of that vertex.
+            When we return to <m>v_0</m> for the final time to end the circuit, we add one more to the degree of <m>v_0</m>.
+            Thus, the degree of every vertex is a sum of <m>2</m>'s, and hence every vertex has even degree.
+        </p>
+        <p>
+            Second, we will show that if every vertex in <m>G</m> has even degree and <m>G</m> is connected, then the graph is Eulerian.
+            We will give a proof that is a recursive algorithm.
+            Pick any vertex <m>v</m> of <m>G</m> and begin to randomly create a path through the graph, never using the same edge twice.
+            Stop when you return to a vertex <m>v_1</m> that you have already passed through.
+            It is impossible to become ``stuck'' at a vertex during this random walk, because since the degree is even, if you arrive at a vertex along an edge, there is always another edge that you can depart along.
+            The circuit that you create starting and ending at <m>v_1</m> we will call <m>C_1</m>.
+            Remove the edges in <m>C_1</m> from <m>G</m>, leaving a graph <m>G_1</m> which might consist of multiple connected components.
+            Observe that since every vertex in <m>C_1</m> has even degree, the graph <m>G_1</m> has every vertex of even degree as well.
+            Pick a vertex <m>v_2</m> in <m>G_1</m> and repeat this process, yielding a circuit <m>C_2</m> and the graph <m>G_2</m> obtained by removing the edges in <m>C_2</m> from <m>G_1</m>.
+            Repeating this process, we obtain a sequence of Eulerian circuits <m>C_1</m>, <m>C_2</m>, <m>C_3</m>,..., <m>C_k</m>.
+            Note that this process must end because there are only finitely many edges in <m>G</m>.
+            Further, observe that the edge set of <m>G</m> is the disjoint union of the edges in this sequence of circuits.
+        </p>
+        <p>
+            What remains is to combine the circuits into a single Eulerian circuit of <m>G</m>.
+            Start with <m>C_1</m>.
+            Since <m>G</m> is connected, there must be a vertex <m>w</m> of <m>C_1</m> that is shared by another circuit <m>C_i</m>.
+            Cut each of <m>C_1</m> and <m>C_i</m> at <m>w</m> and combine them to create one larger Eulerian circuit.
+            Replace <m>C_1</m> with this circuit and delete <m>C_i</m> from our list.
+            Continue this process until there is only one circuit left, and this produces an Eulerian circuit for <m>G</m>.
+        </p>
+    </proof>
+
+    <exercise>
+        <p>
+            Apply the logic of this proof to the special case of the following graph, where you must start with <m>C_1</m> given by the circuit <m>2,3,4,5,2</m>.
+        </p>
+<figure xml:id="fig-euleriangraph2">
+    <caption>Example of an Eulerian graph.</caption>
+    <image source="eulerian2.png" width="75%"/>
+</figure>
+    </exercise>
+
+    <exercise>
+        <p>
+            Apply the logic of this proof to the special case of the following graph.
+        </p>
+        <figure xml:id="fig-euleriangraph11">
+    <caption>Example of an Eulerian graph.</caption>
+    <image source="eulerian1.png" width="75%"/>
+</figure>
+    </exercise>
+    
+    
+
+    <exercise>
+        <p>
+            What parts of this proof make sense to you? Why?
+            What parts of this proof do not make sense to you? Why?
+        </p>
+    </exercise>
     
 </section>

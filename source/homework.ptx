@@ -100,13 +100,48 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P7</title>
         <p>
-            
+            <ol>
+                <li>
+                    <p>
+                        Find a relationship between the Fibonacci numbers and the number of compositions of <m>n</m> where every part is an odd number.
+                        Prove that your answer is correct.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <!-- this is exercise 3.4 in Aigner's Enumeration book -->
+                         A subset <m>A\subseteq [n]</m> is called <em>large</em> if we have that <m>k\geq |A|</m> for every <m>k\in A</m>.
+                         So, for example, <m>\{3,5,7\}</m> is large while <m>\{2,4,6\}</m> is not large.
+                         We define that the emptyset <m>\emptyset</m> is large.
+                         Let <m>L(n)</m> be the number of large subsets of <m>[n]</m> (including the emptyset).
+                         Find a relationship between <m>L(n)</m> and the Fibonacci numbers and prove that your answer is correct.
+                    </p>
+                </li>
+            </ol>
         </p>
     </problem>
         <problem>
         <title>P8</title>
         <p>
-            
+            In this problem you will prove that <me>\binom{n}{k}=\frac{n!}{k!(n-k)!}</me> holds for all <m>0\leq k\leq n</m>.
+            Let <m>N(n,k)</m> denote the number of ways to select <m>k</m> elements from <m>[n]</m> and write them in a linear order, i.e., write them as a permutation.
+            <ol>
+                <li>
+                    <p>
+                        Prove that <me>N(n,k)=\binom{n}{k}k!</me> using only the combinatorial interpretation of <m>\binom{n}{k}</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Prove that <me>N(n,k)=n(n-1)(n-2)\cdots (n-k+1)</me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Using the previous two parts of this problem, prove that <me>\binom{n}{k}=\frac{n!}{k!(n-k)!}</me>
+                    </p>
+                </li>
+            </ol>
         </p>
     </problem>
         <problem>
