@@ -56,7 +56,7 @@
 
 <p>
     Let <m>\comp(n,A)</m> denote the set of compositions of <m>n</m> using parts from the set <m>A</m>.
-    So, for example, the set of all compositions of <m>n</m> is <m>\comp(n,\Z)</m>.
+    So, for example, the set of all compositions of <m>n</m> is <m>\comp(n,\Z_{\geq 1})</m>.
 </p>
 
 <exercise>
