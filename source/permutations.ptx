@@ -81,7 +81,7 @@
        Thus, there are <m>n</m> choices for <m>\pi_1</m>.
        Once <m>\pi_1</m> is known, then <m>\pi_2</m> can be any of the remaining values, and there are <m>n-1</m> possible values remaining.
        Thus, there are <m>n\cdot (n-1)</m> possibilities for <m>\pi_1\pi_2</m>.
-       Continuing in this way, we have <m>n-3</m> possibilities for <m>\pi_3</m>, then <m>n-4</m> possibilities for <m>\pi_4</m>, etc., and so on until there is only one possible value for <m>\pi_n</m>.
+       Continuing in this way, we have <m>n-2</m> possibilities for <m>\pi_3</m>, then <m>n-3</m> possibilities for <m>\pi_4</m>, etc., and so on until there is only one possible value for <m>\pi_n</m>.
        Thus, there are <m>n!</m> permutations in <m>\ss_n</m>.
     </p>
 </proof>
