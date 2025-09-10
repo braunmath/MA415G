@@ -2,7 +2,7 @@
     <title>Prufer Codes and Cayley's Theorem</title>
     
     <p>
-        Our next classification investigation is to classify all labeled trees on <m>n</m> vertices.
+        Our next classification goal is to classify all labeled trees on <m>n</m> vertices.
         This is an example of classifying the <em>spanning trees</em> in the complete graph, defined as follows.
     </p>
     <definition xml:id="def-spanningtree">
