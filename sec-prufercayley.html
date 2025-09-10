@@ -183,7 +183,183 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-prufercayley"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">3.5</span><span class="space"> </span><span class="title">Prufer Codes and Cayley’s Theorem</span>
 </h2>
-<div class="autopermalink" data-description="Section 3.5: Prufer Codes and Cayley’s Theorem"><a href="#sec-prufercayley" title="Copy heading and permalink for Section 3.5: Prufer Codes and Cayley’s Theorem" aria-label="Copy heading and permalink for Section 3.5: Prufer Codes and Cayley’s Theorem">🔗</a></div></section></div>
+<div class="para" id="sec-prufercayley-2">Our next classification investigation is to classify all labeled trees on <span class="process-math">\(n\)</span> vertices. This is an example of classifying the <em class="emphasis">spanning trees</em> in the complete graph, defined as follows.<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-spanningtree"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="def-spanningtree-1-1">Given a finite connected graph <span class="process-math">\(G\text{,}\)</span> a <em class="emphasis">spanning tree</em> of <span class="process-math">\(G\)</span> is a tree <span class="process-math">\(T\)</span> on the same vertex set as <span class="process-math">\(G\)</span> where the edge set of <span class="process-math">\(T\)</span> is contained in the edge set of <span class="process-math">\(G\text{,}\)</span> i.e., <span class="process-math">\(E(T)\subseteq E(G)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-spanningtree-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.5.1"><a href="#def-spanningtree" title="Copy heading and permalink for Definition 3.5.1" aria-label="Copy heading and permalink for Definition 3.5.1">🔗</a></div></article><details id="sec-prufercayley-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.2</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-prufercayley-4-1">
+<div class="para">The <em class="emphasis">cycle graph</em> on <span class="process-math">\(n\)</span> vertices, denoted <span class="process-math">\(C_n\text{,}\)</span> is the graph on vertex set <span class="process-math">\([n]\)</span> with edge set</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\{\{1,2\},\{2,3\},\{3,4\},\ldots,\{n-1,n\},\{n,1\}\} \, .
+\end{equation*}
+</div>
+<div class="para">In the following example, we have shown <span class="process-math">\(C_8\)</span> using the vertex set <span class="process-math">\(\{0,1,2,3,4,5,6,7\}\text{.}\)</span> If we remove any edge from <span class="process-math">\(C_8\text{,}\)</span> the resulting graph is a spanning tree. Thus, there are eight spanning trees of <span class="process-math">\(C_8\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cycleexample"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/c8.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.3<span class="period">.</span></span><span class="space"> </span>Example of <span class="process-math">\(C_8\text{.}\)</span><div class="autopermalink" data-description="Figure 3.5.3"><a href="#fig-cycleexample" title="Copy heading and permalink for Figure 3.5.3" aria-label="Copy heading and permalink for Figure 3.5.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 3.5.2"><a href="#sec-prufercayley-4" title="Copy heading and permalink for Example 3.5.2" aria-label="Copy heading and permalink for Example 3.5.2">🔗</a></div></article></details><div class="para" id="sec-prufercayley-5">Note that for our purposes, we considered spanning trees to be distinct when they are different as labeled graphs. So, in our example of <span class="process-math">\(C_8\)</span> above, even though every spanning tree was a path with seven edges, they are all considered distinct because they each have a unique vertex labeling.<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-prufercayley-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.5.4</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-prufercayley-6-1">Systematically list all the labeled spanning trees of <span class="process-math">\(K_n\)</span> for <span class="process-math">\(n=2,3,4,5\text{.}\)</span> Write the vertex set of <span class="process-math">\(K_n\)</span> as <span class="process-math">\(\{0,1,2,\ldots,n-1\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-k5spanning"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/k5.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.5<span class="period">.</span></span><span class="space"> </span>Example of <span class="process-math">\(K_5\text{.}\)</span><div class="autopermalink" data-description="Figure 3.5.5"><a href="#fig-k5spanning" title="Copy heading and permalink for Figure 3.5.5" aria-label="Copy heading and permalink for Figure 3.5.5">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 3.5.4"><a href="#sec-prufercayley-6" title="Copy heading and permalink for Checkpoint 3.5.4" aria-label="Copy heading and permalink for Checkpoint 3.5.4">🔗</a></div></article></details><article class="theorem theorem-like" id="thm-cayleystheorem"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.5.6</span><span class="period">.</span><span class="space"> </span><span class="title">Cayley’s Theorem.</span>
+</h3>
+<div class="para" id="thm-cayleystheorem-2-1">There are <span class="process-math">\(n^{n-2}\)</span> labeled spanning trees of <span class="process-math">\(K_n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-cayleystheorem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.5.6: Cayley’s Theorem"><a href="#thm-cayleystheorem" title="Copy heading and permalink for Theorem 3.5.6: Cayley’s Theorem" aria-label="Copy heading and permalink for Theorem 3.5.6: Cayley’s Theorem">🔗</a></div></article><div class="para logical" id="sec-prufercayley-8">
+<div class="para">The sequence <span class="process-math">\(n^{n-2}\)</span> for <span class="process-math">\(n\geq 2\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+1, 3, 16, 125, 1296, 16807, 262144, 4782969, 100000000, 2357947691,\ldots
+\end{equation*}
+</div>
+<div class="para">and is found in the Online Encyclopedia of Integer Sequences as <a class="external" href="https://oeis.org/A000272" target="_blank"><code class="code-inline tex2jax_ignore">https://oeis.org/A000272</code></a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-prufercayley-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.5.7</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-prufercayley-9-1">Discuss with your group: suppose that you generated the first few values of this sequence by listing the spanning trees of <span class="process-math">\(K_n\)</span> and realized that it matched <span class="process-math">\(n^{n-2}\text{.}\)</span> What would you do next? What are some different strategies you could use to approach the problem of showing that your conjectured formula is correct?<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.5.7"><a href="#sec-prufercayley-9" title="Copy heading and permalink for Checkpoint 3.5.7" aria-label="Copy heading and permalink for Checkpoint 3.5.7">🔗</a></div></article></details><div class="para logical" id="sec-prufercayley-10">
+<div class="para">There are multiple strategies for proving that this formula is correct, including:</div>
+<ul class="disc" id="sec-prufercayley-10-1">
+<li id="sec-prufercayley-10-1-1">
+<div class="para" id="sec-prufercayley-10-1-1-1">Using the technique of exponential generating functions to compute this value algebraically. The downside to this technique is it gives you the formula but without a combinatorial proof.<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-10-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-prufercayley-10-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-prufercayley-10-1-2">
+<div class="para" id="sec-prufercayley-10-1-2-1">Apply the matrix-tree theorem, which gives a matrix-algebra based technique for computing the number of spanning trees in a graph using determinants. This is based on 19th century techniques due to Kirchoff using the Laplacian matrix of a graph, which is a discrete model for heat flow through a network.<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-10-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-prufercayley-10-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-prufercayley-10-1-3">
+<div class="para" id="sec-prufercayley-10-1-3-1">Double-counting, where one counts the same object in two different ways. You used this technique on the homework to prove that <span class="process-math">\(\binom{n}{k}=\frac{n!}{k!(n-k)!}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-10-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-prufercayley-10-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-prufercayley-10-1-4">
+<div class="para" id="sec-prufercayley-10-1-4-1">A bijective approach, where we find a set of size <span class="process-math">\(n^{n-2}\)</span> and find an explicit bijection between that set and the spanning trees of <span class="process-math">\(K_n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-10-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-prufercayley-10-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">We will use a bijective approach to prove Cayley’s Theorem.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-prufercayley-11" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.5.8</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-prufercayley-11-1">What set or sets do you know that have cardinality <span class="process-math">\(n^{n-2}\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.5.8"><a href="#sec-prufercayley-11" title="Copy heading and permalink for Checkpoint 3.5.8" aria-label="Copy heading and permalink for Checkpoint 3.5.8">🔗</a></div></article></details><article class="theorem theorem-like" id="thm-pruferbijection"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.5.9</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="thm-pruferbijection-1-1">
+<div class="para">There is a bijection between spanning trees of <span class="process-math">\(K_n\)</span> and sequences in the set</div>
+<div class="displaymath process-math">
+\begin{equation*}
+[n]^{n-2}=\{1,2,\ldots,n\}\times \{1,2,\ldots,n\}\times \cdots \times \{1,2,\ldots,n\}
+\end{equation*}
+</div>
+<div class="para">where there are <span class="process-math">\(n-2\)</span> factors in the product.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-pruferbijection-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.5.9"><a href="#thm-pruferbijection" title="Copy heading and permalink for Theorem 3.5.9" aria-label="Copy heading and permalink for Theorem 3.5.9">🔗</a></div></article><details id="sec-prufercayley-13" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Proof of Theorem 3.5.6.</span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-prufercayley-13-2">By <a href="sec-prufercayley.html#thm-pruferbijection" class="xref" data-knowl="./knowl/xref/thm-pruferbijection.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.5.9">Theorem 3.5.9</a>, we have that the number of spanning trees of <span class="process-math">\(K_n\)</span> is the same as the number of sequences in <span class="process-math">\([n]^{n-2}\text{,}\)</span> which is <span class="process-math">\(n^{n-2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-13-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 3.5.1: Proof of Theorem 3.5.6"><a href="#sec-prufercayley-13" title="Copy heading and permalink for Proof 3.5.1: Proof of Theorem 3.5.6" aria-label="Copy heading and permalink for Proof 3.5.1: Proof of Theorem 3.5.6">🔗</a></div></article></details><div class="para" id="sec-prufercayley-14">What remains is for us to prove <a href="sec-prufercayley.html#thm-pruferbijection" class="xref" data-knowl="./knowl/xref/thm-pruferbijection.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.5.9">Theorem 3.5.9</a>, i.e., to prove that we have such a bijection.<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-prufercode"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.10</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-prufercode-1-1">
+<div class="para">Suppose <span class="process-math">\(T\)</span> is a spanning tree of <span class="process-math">\(K_n\)</span> on vertex set <span class="process-math">\([n]\text{.}\)</span> We construct an array</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A(T):= \begin{bmatrix} x_1 \amp x_2 \amp \cdots \amp x_{n-1} \\ y_1 \amp y_2 \amp \cdots \amp y_{n-1} \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">as follows:</div>
+<ol class="decimal" id="def-prufercode-1-1-5">
+<li id="def-prufercode-1-1-5-1">
+<div class="para" id="def-prufercode-1-1-5-1-1">Set <span class="process-math">\(T_1:=T\text{.}\)</span> Let <span class="process-math">\(x_1\)</span> be the leaf of <span class="process-math">\(T\)</span> with the smallest label, with neighbor <span class="process-math">\(y_1\text{.}\)</span> Remove <span class="process-math">\(x_1\)</span> and the edge <span class="process-math">\(\{x_1,y_1\}\)</span> from <span class="process-math">\(T_1\)</span> to create a new tree <span class="process-math">\(T_2\text{,}\)</span> and place those vertex labels as the first column in the array.<div class="autopermalink" data-description="Paragraph"><a href="#def-prufercode-1-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#def-prufercode-1-1-5-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="def-prufercode-1-1-5-2">
+<div class="para" id="def-prufercode-1-1-5-2-1">Let <span class="process-math">\(x_2\)</span> be the leaf of <span class="process-math">\(T_2\)</span> with the smallest label, with neighbor <span class="process-math">\(y_2\text{.}\)</span> Remove <span class="process-math">\(x_2\)</span> and the edge <span class="process-math">\(\{x_2,y_2\}\)</span> from <span class="process-math">\(T_2\)</span> to create a new tree <span class="process-math">\(T_3\text{,}\)</span> and place those vertex labels as the second column in the array.<div class="autopermalink" data-description="Paragraph"><a href="#def-prufercode-1-1-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#def-prufercode-1-1-5-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="def-prufercode-1-1-5-3">
+<div class="para" id="def-prufercode-1-1-5-3-1">Let <span class="process-math">\(x_3\)</span> be the leaf of <span class="process-math">\(T_3\)</span> with the smallest label, with neighbor <span class="process-math">\(y_3\text{.}\)</span> Remove <span class="process-math">\(x_3\)</span> and the edge <span class="process-math">\(\{x_3,y_3\}\)</span> from <span class="process-math">\(T_3\)</span> to create a new tree <span class="process-math">\(T_4\text{,}\)</span> and place those vertex labels as the third column in the array.<div class="autopermalink" data-description="Paragraph"><a href="#def-prufercode-1-1-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#def-prufercode-1-1-5-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="def-prufercode-1-1-5-4">
+<div class="para" id="def-prufercode-1-1-5-4-1">Continue in this manner until all edges of <span class="process-math">\(T\)</span> have been removed.<div class="autopermalink" data-description="Paragraph"><a href="#def-prufercode-1-1-5-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#def-prufercode-1-1-5-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-prufercode-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="def-prufercode-1-2">Recall that there are <span class="process-math">\(n-1\)</span> edges in <span class="process-math">\(T\)</span> and every tree has at least one leaf. Therefore, this algorithm will terminate and result in a matrix of the form <span class="process-math">\(A(T)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-prufercode-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="def-prufercode-1-3">The <em class="emphasis">Prufer code</em> for <span class="process-math">\(T\)</span> is the vector <span class="process-math">\(P(T):=(y_1,y_2,y_3,\ldots,y_{n-2})\in [n]^{n-2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-prufercode-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.5.10"><a href="#def-prufercode" title="Copy heading and permalink for Definition 3.5.10" aria-label="Copy heading and permalink for Definition 3.5.10">🔗</a></div></article><details id="sec-prufercayley-16" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.5.11</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-prufercayley-16-1">Show that the Prufer code for the following tree is given by <span class="process-math">\((2,2,1,1,7)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-prufertree"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/prufertree.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.12<span class="period">.</span></span><span class="space"> </span>Tree for Prufer code exercise.<div class="autopermalink" data-description="Figure 3.5.12"><a href="#fig-prufertree" title="Copy heading and permalink for Figure 3.5.12" aria-label="Copy heading and permalink for Figure 3.5.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 3.5.11"><a href="#sec-prufercayley-16" title="Copy heading and permalink for Checkpoint 3.5.11" aria-label="Copy heading and permalink for Checkpoint 3.5.11">🔗</a></div></article></details><details id="sec-prufercayley-17" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Proof of Theorem 3.5.9.</span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-prufercayley-17-2">We will prove <a href="sec-prufercayley.html#thm-pruferbijection" class="xref" data-knowl="./knowl/xref/thm-pruferbijection.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.5.9">Theorem 3.5.9</a> by showing that the Prufer code function is invertible. If the map <span class="process-math">\(P\)</span> sending spanning trees to sequences in <span class="process-math">\([n]^{n-2}\)</span> has an inverse, then it is both one-to-one and onto, hence it is a bijection.<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-17-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-prufercayley-17-3">
+<div class="para">Consider the following algorithm, applied to a sequence <span class="process-math">\(y=(y_1,\ldots,y_{n-2})\in [n]^{n-2}\)</span> to produce a tree <span class="process-math">\(R(y)\text{.}\)</span> Start with an empty graph <span class="process-math">\(T_0\text{.}\)</span>
+</div>
+<ol class="decimal" id="sec-prufercayley-17-3-4">
+<li id="sec-prufercayley-17-3-4-1">
+<div class="para" id="sec-prufercayley-17-3-4-1-1">Consider the smallest element of <span class="process-math">\([n]\)</span> that is not listed in <span class="process-math">\(y\text{.}\)</span> Call this element <span class="process-math">\(x_1\)</span> and add the edge <span class="process-math">\(\{x_1,y_1\}\)</span> to <span class="process-math">\(T_0\)</span> to create <span class="process-math">\(T_1\text{.}\)</span> Delete <span class="process-math">\(y_1\)</span> from <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-17-3-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-prufercayley-17-3-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-prufercayley-17-3-4-2">
+<div class="para" id="sec-prufercayley-17-3-4-2-1">Consider the smallest element of <span class="process-math">\([n]\setminus \{x_1\}\)</span> that is not listed in <span class="process-math">\((y_2,\ldots,y_{n-2})\text{.}\)</span> Call this element <span class="process-math">\(x_2\)</span> and add the edge <span class="process-math">\(\{x_2,y_2\}\)</span> to <span class="process-math">\(T_1\)</span> to create <span class="process-math">\(T_2\text{.}\)</span> Delete <span class="process-math">\(y_2\)</span> from <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-17-3-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-prufercayley-17-3-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-prufercayley-17-3-4-3">
+<div class="para" id="sec-prufercayley-17-3-4-3-1">Consider the smallest element of <span class="process-math">\([n]\setminus \{x_1,x_2\}\)</span> that is not listed in <span class="process-math">\((y_3,\ldots,y_{n-2})\text{.}\)</span> Call this element <span class="process-math">\(x_3\)</span> and add the edge <span class="process-math">\(\{x_3,y_3\}\)</span> to <span class="process-math">\(T_2\)</span> to create <span class="process-math">\(T_3\text{.}\)</span> Delete <span class="process-math">\(y_3\)</span> from <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-17-3-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-prufercayley-17-3-4-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="sec-prufercayley-17-3-4-4">
+<div class="para" id="sec-prufercayley-17-3-4-4-1">Continue in this fashion until you have created a tree <span class="process-math">\(T_3\)</span> with <span class="process-math">\(n-1\)</span> edges.<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-17-3-4-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#sec-prufercayley-17-3-4-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="para">We have that <span class="process-math">\(R(P(T))=T\)</span> by construction, and therefore we have that <span class="process-math">\(R=P^{-1}\text{,}\)</span> as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-17-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 3.5.2: Proof of Theorem 3.5.9"><a href="#sec-prufercayley-17" title="Copy heading and permalink for Proof 3.5.2: Proof of Theorem 3.5.9" aria-label="Copy heading and permalink for Proof 3.5.2: Proof of Theorem 3.5.9">🔗</a></div></article></details><details id="sec-prufercayley-18" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.5.13</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-prufercayley-18-1">Show that the Prufer code <span class="process-math">\((2,2,1,1,7)\)</span> builds the following tree.<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-prufertreereverse"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/prufertree.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.14<span class="period">.</span></span><span class="space"> </span>Tree for second Prufer code exercise.<div class="autopermalink" data-description="Figure 3.5.14"><a href="#fig-prufertreereverse" title="Copy heading and permalink for Figure 3.5.14" aria-label="Copy heading and permalink for Figure 3.5.14">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 3.5.13"><a href="#sec-prufercayley-18" title="Copy heading and permalink for Checkpoint 3.5.13" aria-label="Copy heading and permalink for Checkpoint 3.5.13">🔗</a></div></article></details><details id="sec-prufercayley-19" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.5.15</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-prufercayley-19-1">Create the tree <span class="process-math">\(T\)</span> corresponding to the Prufer code <span class="process-math">\((1,3,2,4,3,3,3)\)</span> and then verify that <span class="process-math">\(P(T)\)</span> is equal to this code.<div class="autopermalink" data-description="Paragraph"><a href="#sec-prufercayley-19-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.5.15"><a href="#sec-prufercayley-19" title="Copy heading and permalink for Checkpoint 3.5.15" aria-label="Copy heading and permalink for Checkpoint 3.5.15">🔗</a></div></article></details><div class="autopermalink" data-description="Section 3.5: Prufer Codes and Cayley’s Theorem"><a href="#sec-prufercayley" title="Copy heading and permalink for Section 3.5: Prufer Codes and Cayley’s Theorem" aria-label="Copy heading and permalink for Section 3.5: Prufer Codes and Cayley’s Theorem">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-euleriancircuits.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-degreesequences.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

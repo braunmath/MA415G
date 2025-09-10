@@ -1555,7 +1555,124 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.5",
   "title": "Prufer Codes and Cayley’s Theorem",
-  "body": " Prufer Codes and Cayley's Theorem  "
+  "body": " Prufer Codes and Cayley's Theorem  Our next classification investigation is to classify all labeled trees on vertices. This is an example of classifying the spanning trees in the complete graph, defined as follows.    Given a finite connected graph , a spanning tree of is a tree on the same vertex set as where the edge set of is contained in the edge set of , i.e., .     The cycle graph on vertices, denoted , is the graph on vertex set with edge set In the following example, we have shown using the vertex set . If we remove any edge from , the resulting graph is a spanning tree. Thus, there are eight spanning trees of .   Example of .     Note that for our purposes, we considered spanning trees to be distinct when they are different as labeled graphs. So, in our example of above, even though every spanning tree was a path with seven edges, they are all considered distinct because they each have a unique vertex labeling.   Systematically list all the labeled spanning trees of for . Write the vertex set of as .   Example of .      Cayley's Theorem   There are labeled spanning trees of .    The sequence for is given by and is found in the Online Encyclopedia of Integer Sequences as .   Discuss with your group: suppose that you generated the first few values of this sequence by listing the spanning trees of and realized that it matched . What would you do next? What are some different strategies you could use to approach the problem of showing that your conjectured formula is correct?   There are multiple strategies for proving that this formula is correct, including:   Using the technique of exponential generating functions to compute this value algebraically. The downside to this technique is it gives you the formula but without a combinatorial proof.    Apply the matrix-tree theorem, which gives a matrix-algebra based technique for computing the number of spanning trees in a graph using determinants. This is based on 19th century techniques due to Kirchoff using the Laplacian matrix of a graph, which is a discrete model for heat flow through a network.    Double-counting, where one counts the same object in two different ways. You used this technique on the homework to prove that .    A bijective approach, where we find a set of size and find an explicit bijection between that set and the spanning trees of .   We will use a bijective approach to prove Cayley's Theorem.   What set or sets do you know that have cardinality ?     There is a bijection between spanning trees of and sequences in the set where there are factors in the product.     Proof of  By , we have that the number of spanning trees of is the same as the number of sequences in , which is .   What remains is for us to prove , i.e., to prove that we have such a bijection.    Suppose is a spanning tree of on vertex set . We construct an array as follows:   Set . Let be the leaf of with the smallest label, with neighbor . Remove and the edge from to create a new tree , and place those vertex labels as the first column in the array.    Let be the leaf of with the smallest label, with neighbor . Remove and the edge from to create a new tree , and place those vertex labels as the second column in the array.    Let be the leaf of with the smallest label, with neighbor . Remove and the edge from to create a new tree , and place those vertex labels as the third column in the array.    Continue in this manner until all edges of have been removed.     Recall that there are edges in and every tree has at least one leaf. Therefore, this algorithm will terminate and result in a matrix of the form .  The Prufer code for is the vector .     Show that the Prufer code for the following tree is given by .   Tree for Prufer code exercise.      Proof of  We will prove by showing that the Prufer code function is invertible. If the map sending spanning trees to sequences in has an inverse, then it is both one-to-one and onto, hence it is a bijection.  Consider the following algorithm, applied to a sequence to produce a tree . Start with an empty graph .   Consider the smallest element of that is not listed in . Call this element and add the edge to to create . Delete from .    Consider the smallest element of that is not listed in . Call this element and add the edge to to create . Delete from .    Consider the smallest element of that is not listed in . Call this element and add the edge to to create . Delete from .    Continue in this fashion until you have created a tree with edges.   We have that by construction, and therefore we have that , as desired.    Show that the Prufer code builds the following tree.   Tree for second Prufer code exercise.      Create the tree corresponding to the Prufer code and then verify that is equal to this code.   "
+},
+{
+  "id": "def-spanningtree",
+  "level": "2",
+  "url": "sec-prufercayley.html#def-spanningtree",
+  "type": "Definition",
+  "number": "3.5.1",
+  "title": "",
+  "body": "  Given a finite connected graph , a spanning tree of is a tree on the same vertex set as where the edge set of is contained in the edge set of , i.e., .   "
+},
+{
+  "id": "sec-prufercayley-4",
+  "level": "2",
+  "url": "sec-prufercayley.html#sec-prufercayley-4",
+  "type": "Example",
+  "number": "3.5.2",
+  "title": "",
+  "body": " The cycle graph on vertices, denoted , is the graph on vertex set with edge set In the following example, we have shown using the vertex set . If we remove any edge from , the resulting graph is a spanning tree. Thus, there are eight spanning trees of .   Example of .    "
+},
+{
+  "id": "sec-prufercayley-6",
+  "level": "2",
+  "url": "sec-prufercayley.html#sec-prufercayley-6",
+  "type": "Checkpoint",
+  "number": "3.5.4",
+  "title": "",
+  "body": " Systematically list all the labeled spanning trees of for . Write the vertex set of as .   Example of .    "
+},
+{
+  "id": "thm-cayleystheorem",
+  "level": "2",
+  "url": "sec-prufercayley.html#thm-cayleystheorem",
+  "type": "Theorem",
+  "number": "3.5.6",
+  "title": "Cayley’s Theorem.",
+  "body": " Cayley's Theorem   There are labeled spanning trees of .   "
+},
+{
+  "id": "sec-prufercayley-9",
+  "level": "2",
+  "url": "sec-prufercayley.html#sec-prufercayley-9",
+  "type": "Checkpoint",
+  "number": "3.5.7",
+  "title": "",
+  "body": " Discuss with your group: suppose that you generated the first few values of this sequence by listing the spanning trees of and realized that it matched . What would you do next? What are some different strategies you could use to approach the problem of showing that your conjectured formula is correct?  "
+},
+{
+  "id": "sec-prufercayley-11",
+  "level": "2",
+  "url": "sec-prufercayley.html#sec-prufercayley-11",
+  "type": "Checkpoint",
+  "number": "3.5.8",
+  "title": "",
+  "body": " What set or sets do you know that have cardinality ?  "
+},
+{
+  "id": "thm-pruferbijection",
+  "level": "2",
+  "url": "sec-prufercayley.html#thm-pruferbijection",
+  "type": "Theorem",
+  "number": "3.5.9",
+  "title": "",
+  "body": "  There is a bijection between spanning trees of and sequences in the set where there are factors in the product.   "
+},
+{
+  "id": "sec-prufercayley-13",
+  "level": "2",
+  "url": "sec-prufercayley.html#sec-prufercayley-13",
+  "type": "Proof",
+  "number": "3.5.1",
+  "title": "Proof of Theorem 3.5.6.",
+  "body": " Proof of  By , we have that the number of spanning trees of is the same as the number of sequences in , which is .  "
+},
+{
+  "id": "def-prufercode",
+  "level": "2",
+  "url": "sec-prufercayley.html#def-prufercode",
+  "type": "Definition",
+  "number": "3.5.10",
+  "title": "",
+  "body": "  Suppose is a spanning tree of on vertex set . We construct an array as follows:   Set . Let be the leaf of with the smallest label, with neighbor . Remove and the edge from to create a new tree , and place those vertex labels as the first column in the array.    Let be the leaf of with the smallest label, with neighbor . Remove and the edge from to create a new tree , and place those vertex labels as the second column in the array.    Let be the leaf of with the smallest label, with neighbor . Remove and the edge from to create a new tree , and place those vertex labels as the third column in the array.    Continue in this manner until all edges of have been removed.     Recall that there are edges in and every tree has at least one leaf. Therefore, this algorithm will terminate and result in a matrix of the form .  The Prufer code for is the vector .   "
+},
+{
+  "id": "sec-prufercayley-16",
+  "level": "2",
+  "url": "sec-prufercayley.html#sec-prufercayley-16",
+  "type": "Checkpoint",
+  "number": "3.5.11",
+  "title": "",
+  "body": " Show that the Prufer code for the following tree is given by .   Tree for Prufer code exercise.    "
+},
+{
+  "id": "sec-prufercayley-17",
+  "level": "2",
+  "url": "sec-prufercayley.html#sec-prufercayley-17",
+  "type": "Proof",
+  "number": "3.5.2",
+  "title": "Proof of Theorem 3.5.9.",
+  "body": " Proof of  We will prove by showing that the Prufer code function is invertible. If the map sending spanning trees to sequences in has an inverse, then it is both one-to-one and onto, hence it is a bijection.  Consider the following algorithm, applied to a sequence to produce a tree . Start with an empty graph .   Consider the smallest element of that is not listed in . Call this element and add the edge to to create . Delete from .    Consider the smallest element of that is not listed in . Call this element and add the edge to to create . Delete from .    Consider the smallest element of that is not listed in . Call this element and add the edge to to create . Delete from .    Continue in this fashion until you have created a tree with edges.   We have that by construction, and therefore we have that , as desired.  "
+},
+{
+  "id": "sec-prufercayley-18",
+  "level": "2",
+  "url": "sec-prufercayley.html#sec-prufercayley-18",
+  "type": "Checkpoint",
+  "number": "3.5.13",
+  "title": "",
+  "body": " Show that the Prufer code builds the following tree.   Tree for second Prufer code exercise.    "
+},
+{
+  "id": "sec-prufercayley-19",
+  "level": "2",
+  "url": "sec-prufercayley.html#sec-prufercayley-19",
+  "type": "Checkpoint",
+  "number": "3.5.15",
+  "title": "",
+  "body": " Create the tree corresponding to the Prufer code and then verify that is equal to this code.  "
 },
 {
   "id": "sec-degreesequences",
