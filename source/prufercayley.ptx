@@ -1,4 +1,243 @@
 <section xml:id="sec-prufercayley">
     <title>Prufer Codes and Cayley's Theorem</title>
     
+    <p>
+        Our next classification investigation is to classify all labeled trees on <m>n</m> vertices.
+        This is an example of classifying the <em>spanning trees</em> in the complete graph, defined as follows.
+    </p>
+    <definition xml:id="def-spanningtree">
+        <statement>
+            <p>
+                Given a finite connected graph <m>G</m>, a <em>spanning tree</em> of <m>G</m> is a tree <m>T</m> on the same vertex set as <m>G</m> where the edge set of <m>T</m> is contained in the edge set of <m>G</m>, i.e., <m>E(T)\subseteq E(G)</m>.
+            </p>
+        </statement>
+    </definition>
+
+    <example>
+        <p>
+            The <em>cycle graph</em> on <m>n</m> vertices, denoted <m>C_n</m>, is the graph on vertex set <m>[n]</m> with edge set 
+            <me>
+                \{\{1,2\},\{2,3\},\{3,4\},\ldots,\{n-1,n\},\{n,1\}\} \, .
+            </me>
+            In the following example, we have shown <m>C_8</m> using the vertex set <m>\{0,1,2,3,4,5,6,7\}</m>.
+            If we remove any edge from <m>C_8</m>, the resulting graph is a spanning tree.
+            Thus, there are eight spanning trees of <m>C_8</m>.
+        </p>
+        <figure xml:id="fig-cycleexample">
+    <caption>Example of <m>C_8</m>.</caption>
+    <image source="c8.png" width="75%"/>
+</figure>
+    </example>
+
+        <p>
+        Note that for our purposes, we considered spanning trees to be distinct when they are different as labeled graphs.
+        So, in our example of <m>C_8</m> above, even though every spanning tree was a path with seven edges, they are all considered distinct because they each have a unique vertex labeling.
+    </p>
+
+    <exercise>
+        <p>
+            Systematically list all the labeled spanning trees of <m>K_n</m> for <m>n=2,3,4,5</m>.
+            Write the vertex set of <m>K_n</m> as <m>\{0,1,2,\ldots,n-1\}</m>.
+        </p>
+        <figure xml:id="fig-k5spanning">
+    <caption>Example of <m>K_5</m>.</caption>
+    <image source="k5.png" width="75%"/>
+</figure>
+    </exercise>
+
+    <theorem xml:id="thm-cayleystheorem">
+        <title>Cayley's Theorem</title>
+        <statement>
+            <p>
+                There are <m>n^{n-2}</m> labeled spanning trees of <m>K_n</m>.
+            </p>
+        </statement>
+    </theorem>
+    <p>
+        The sequence <m>n^{n-2}</m> for <m>n\geq 2</m> is given by 
+        <me>1, 3, 16, 125, 1296, 16807, 262144, 4782969, 100000000, 2357947691,\ldots</me>
+        and is found in the Online Encyclopedia of Integer Sequences as <url href="https://oeis.org/A000272" />.
+    </p>
+    
+    <exercise>
+        <p>
+            Discuss with your group:
+            suppose that you generated the first few values of this sequence by listing the spanning trees of <m>K_n</m> and realized that it matched <m>n^{n-2}</m>.
+            What would you do next?
+            What are some different strategies you could use to approach the problem of showing that your conjectured formula is correct?
+        </p>
+    </exercise>
+
+    <p>
+        There are multiple strategies for proving that this formula is correct, including:
+        <ul>
+            <li>
+                <p>
+                    Using the technique of exponential generating functions to compute this value algebraically.
+                    The downside to this technique is it gives you the formula but without a combinatorial proof.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Apply the matrix-tree theorem, which gives a matrix-algebra based technique for computing the number of spanning trees in a graph using determinants.
+                    This is based on 19th century techniques due to Kirchoff using the Laplacian matrix of a graph, which is a discrete model for heat flow through a network.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Double-counting, where one counts the same object in two different ways.
+                    You used this technique on the homework to prove that <m>\binom{n}{k}=\frac{n!}{k!(n-k)!}</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    A bijective approach, where we find a set of size <m>n^{n-2}</m> and find an explicit bijection between that set and the spanning trees of <m>K_n</m>.
+                </p>
+            </li>
+        </ul>
+        We will use a bijective approach to prove Cayley's Theorem.
+    </p>
+    
+    <exercise>
+        <p>
+            What set or sets do you know that have cardinality <m>n^{n-2}</m>?
+        </p>
+    </exercise>
+
+    <theorem xml:id="thm-pruferbijection">
+        <statement>
+            <p>
+                There is a bijection between spanning trees of <m>K_n</m> and sequences in the set
+                <me>
+                    [n]^{n-2}=\{1,2,\ldots,n\}\times \{1,2,\ldots,n\}\times \cdots \times \{1,2,\ldots,n\}
+                </me>
+                where there are <m>n-2</m> factors in the product.
+            </p>
+        </statement>
+    </theorem>
+
+    <proof>
+        <title>Proof of <xref ref="thm-cayleystheorem"/></title>
+        <p>
+        By <xref ref="thm-pruferbijection"/>, we have that the number of spanning trees of <m>K_n</m> is the same as the number of sequences in <m>[n]^{n-2}</m>, which is <m>n^{n-2}</m>.
+        </p>
+    </proof>
+
+    <p>
+        What remains is for us to prove <xref ref="thm-pruferbijection"/>, i.e., to prove that we have such a bijection.
+    </p>
+
+    <definition xml:id="def-prufercode">
+        <statement>
+            <p>
+                Suppose <m>T</m> is a spanning tree of <m>K_n</m> on vertex set <m>[n]</m>.
+                We construct an array 
+                <me>
+                    A(T):= \begin{bmatrix} x_1 \amp x_2 \amp \cdots \amp x_{n-1} \\ y_1 \amp y_2 \amp \cdots \amp y_{n-1} \end{bmatrix}
+                </me>
+                as follows:
+                <ol>
+                    <li>
+                        <p>
+                            Set <m>T_1:=T</m>.
+                            Let <m>x_1</m> be the leaf of <m>T</m> with the smallest label, with neighbor <m>y_1</m>.
+                            Remove <m>x_1</m> and the edge <m>\{x_1,y_1\}</m> from <m>T_1</m> to create a new tree <m>T_2</m>, and place those vertex labels as the first column in the array.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Let <m>x_2</m> be the leaf of <m>T_2</m> with the smallest label, with neighbor <m>y_2</m>.
+                            Remove <m>x_2</m> and the edge <m>\{x_2,y_2\}</m> from <m>T_2</m> to create a new tree <m>T_3</m>, and place those vertex labels as the second column in the array.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Let <m>x_3</m> be the leaf of <m>T_3</m> with the smallest label, with neighbor <m>y_3</m>.
+                            Remove <m>x_3</m> and the edge <m>\{x_3,y_3\}</m> from <m>T_3</m> to create a new tree <m>T_4</m>, and place those vertex labels as the third column in the array.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Continue in this manner until all edges of <m>T</m> have been removed.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+            <p>
+                Recall that there are <m>n-1</m> edges in <m>T</m> and every tree has at least one leaf.
+                Therefore, this algorithm will terminate and result in a matrix of the form <m>A(T)</m>.
+            </p>
+            <p>                
+                The <em>Prufer code</em> for <m>T</m> is the vector <m>P(T):=(y_1,y_2,y_3,\ldots,y_{n-2})\in [n]^{n-2}</m>.
+            </p>
+        </statement>
+    </definition>
+    
+    <exercise>
+        <p>
+            Show that the Prufer code for the following tree is given by <m>(2,2,1,1,7)</m>.
+        </p>
+        <figure xml:id="fig-prufertree">
+    <caption>Tree for Prufer code exercise.</caption>
+    <image source="prufertree.png" width="40%"/>
+</figure>
+    </exercise>
+
+<proof>
+    <title>Proof of <xref ref="thm-pruferbijection"/></title>
+    <p>
+        We will prove <xref ref="thm-pruferbijection"/> by showing that the Prufer code function is invertible.
+        If the map <m>P</m> sending spanning trees to sequences in <m>[n]^{n-2}</m> has an inverse, then it is both one-to-one and onto, hence it is a bijection.
+    </p>
+    <p>
+        Consider the following algorithm, applied to a sequence <m>y=(y_1,\ldots,y_{n-2})\in [n]^{n-2}</m> to produce a tree <m>R(y)</m>.
+        Start with an empty graph <m>T_0</m>.
+        <ol>
+            <li>
+                <p>
+                    Consider the smallest element of <m>[n]</m> that is not listed in <m>y</m>.
+                    Call this element <m>x_1</m> and add the edge <m>\{x_1,y_1\}</m> to <m>T_0</m> to create <m>T_1</m>.
+                    Delete <m>y_1</m> from <m>y</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Consider the smallest element of <m>[n]\setminus \{x_1\}</m> that is not listed in <m>(y_2,\ldots,y_{n-2})</m>.
+                    Call this element <m>x_2</m> and add the edge <m>\{x_2,y_2\}</m> to <m>T_1</m> to create <m>T_2</m>.
+                    Delete <m>y_2</m> from <m>y</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Consider the smallest element of <m>[n]\setminus \{x_1,x_2\}</m> that is not listed in <m>(y_3,\ldots,y_{n-2})</m>.
+                    Call this element <m>x_3</m> and add the edge <m>\{x_3,y_3\}</m> to <m>T_2</m> to create <m>T_3</m>.
+                    Delete <m>y_3</m> from <m>y</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Continue in this fashion until you have created a tree <m>T_3</m> with <m>n-1</m> edges.
+                </p>
+            </li>
+        </ol>
+        We have that <m>R(P(T))=T</m> by construction, and therefore we have that <m>R=P^{-1}</m>, as desired.
+    </p>
+</proof>
+
+<exercise>
+        <p>
+            Show that the Prufer code <m>(2,2,1,1,7)</m> builds the following tree.
+        </p>
+        <figure xml:id="fig-prufertreereverse">
+    <caption>Tree for second Prufer code exercise.</caption>
+    <image source="prufertree.png" width="40%"/>
+</figure>
+    </exercise>
+
+    <exercise>
+        <p>
+            Create the tree <m>T</m> corresponding to the Prufer code <m>(1,3,2,4,3,3,3)</m> and then verify that <m>P(T)</m> is equal to this code.
+        </p>
+    </exercise>
+
 </section>
