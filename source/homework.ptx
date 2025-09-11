@@ -147,25 +147,75 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P9</title>
         <p>
-            
+            Prove that <me>
+                c(n+1,2)=n!\sum_{i=1}^n\frac{1}{i} \, .
+            </me>
+            Note that <m>\sum_{i=1}^n\frac{1}{i}\approx \log(n)</m>, and thus this shows that <m>c(n+1,2)</m> is approximately <m>n!\log(n)</m>.
         </p>
     </problem>
         <problem>
         <title>P10</title>
         <p>
-            
+            A permutation <m>\pi\in \ss_n</m> is an <em>involution</em> if all cycles have length <m>1</m> or <m>2</m>.
+            Let <m>i_n</m> denote the number of involutions in <m>\ss_n</m>.
+            Prove that
+            <me>
+                i_{n+1}=i_n+ni_{n-1}
+            </me>
+            where <m>i_0:=1</m> and <m>i_1=1</m>.
         </p>
     </problem>
         <problem>
         <title>P11</title>
         <p>
+            A permutation <m>\pi\in \ss_n</m> is called <em>connected</em> if 
+            <me>
+                \{\pi_1,\pi_2,\ldots,\pi_j\}\neq \{1,2,\ldots,j\}
+            </me>
+            for every <m>1\leq j\lt n</m>.
+            Let <m>C(i)</m> denote the number of connected permutations in <m>\ss_i</m>.
+            Prove that
+            <me>
+                \sum_{i=1}^nC(i)(n-i)! =n! \, .
+            </me>
             
         </p>
     </problem>
         <problem>
         <title>Essay 2</title>
         <p>
-            
+            Read the following blog post by Keith Weber, a professor of math education at Rutgers University who studies how undergraduate students understand proofs in mathematics: <url href="https://blogs.ams.org/matheducation/2015/02/10/mathematics-professors-and-mathematics-majors-expectations-of-lectures-in-advanced-mathematics/" />
+            After you read this article, complete the following essay.
+            <ul>
+                <li>
+                    <p>
+                        This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Your essay should respond to the following three questions.
+                        <ul>
+                            <li>
+                                <p>
+                                    The article describes four expectations that professors have for students, but which are usually mis-communicated. <em>For each of these four expectations</em>, do you respond more like the students in their surveys, or more like the professors? Why?
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    The discussion at the end of the article has some recommendations for faculty in their courses. Which of these recommendations do you think you would find most helpful for your learning, and why?
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    What is one thing you might change about your approach to your math courses after reading this article? Why is this the thing you would choose to change?
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+            </ul>
+Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).
         </p>
     </problem>
         <problem>
