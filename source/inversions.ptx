@@ -115,7 +115,7 @@
         </p>
         <p>
             By construction, we have that this map sends <m>a</m> to a permutation <m>\pi</m> with <m>I(\pi)=a</m>.
-            To see that <m>I^{-1}</m> is one-to-one, note that if <m>a=b</m>, then some <m>a_i\neq b_i</m>.
+            To see that <m>I^{-1}</m> is one-to-one, note that if <m>a\neq b</m>, then some <m>a_i\neq b_i</m>.
             Thus, <m>n-i</m> is placed in a different order relative to <m>n,n-1,n-2,n-3,\ldots,n-i+1</m> for the two corresponding permutations.
             Thus, those permutations are different, and hence <m>I^{-1}</m> is one-to-one and well-defined.
             Since <m>|T_n|=n!=|\ss_n|</m>, it follows that <m>I</m> is a bijection.
