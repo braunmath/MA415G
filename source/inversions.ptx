@@ -77,7 +77,7 @@
     <definition xml:id="def-inversiontable">
         <statement>
             <p>
-                Let <m>I:T_n\to \ss_n</m> be the map that sets <m>I(\pi):=a</m> where <m>a_i</m> is the number of entries to the left of <m>i</m> that are greater than <m>i</m>, when using the one-line notation for <m>\pi</m> .
+                Let <m>I:\ss_n \to T_n</m> be the map that sets <m>I(\pi):=a</m> where <m>a_i</m> is the number of entries to the left of <m>i</m> that are greater than <m>i</m>, when using the one-line notation for <m>\pi</m> .
                 Equivalently, <m>a_i</m> is the number of pairs in <m>\Inv(\pi)</m> with second entry <m>i</m>.
                 We call <m>I(\pi)</m> the <em>inversion table</em> for <m>\pi</m>.
             </p>
