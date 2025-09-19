@@ -188,7 +188,7 @@
             If <m>\pi_i=n</m>, then one of three situations can occur.
             The first possibility is that <m>\pi_{i-1}\gt \pi_{i+1}</m>, in which case removing <m>n</m> results in a permutation <m>\pi'\in \ss_{n-1}</m> with <m>k</m> descents.
             The second possibility is that <m>\pi_{i-1}\lt \pi_{i+1}</m>, in which case removing <m>n</m> results in a permutation <m>\pi'\in \ss_{n-1}</m> with <m>k-1</m> descents.
-            The third possibility is that <m>m</m> occurs at either the beginning or end of the word, in which case removing <m>n</m> either decreases the number of descents by one or leaves it the same, respectively.
+            The third possibility is that <m>n</m> occurs at either the beginning or end of the word, in which case removing <m>n</m> either decreases the number of descents by one or leaves it the same, respectively.
         </p>
         <p>
             The proof proceeds by reversing this observation.
