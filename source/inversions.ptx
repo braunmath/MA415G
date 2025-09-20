@@ -77,7 +77,7 @@
     <definition xml:id="def-inversiontable">
         <statement>
             <p>
-                Let <m>I:T_n\to \ss_n</m> be the map that sets <m>I(\pi):=a</m> where <m>a_i</m> is the number of entries to the left of <m>i</m> that are greater than <m>i</m>, when using the one-line notation for <m>\pi</m> .
+                Let <m>I:\ss_n \to T_n</m> be the map that sets <m>I(\pi):=a</m> where <m>a_i</m> is the number of entries to the left of <m>i</m> that are greater than <m>i</m>, when using the one-line notation for <m>\pi</m> .
                 Equivalently, <m>a_i</m> is the number of pairs in <m>\Inv(\pi)</m> with second entry <m>i</m>.
                 We call <m>I(\pi)</m> the <em>inversion table</em> for <m>\pi</m>.
             </p>
@@ -115,7 +115,7 @@
         </p>
         <p>
             By construction, we have that this map sends <m>a</m> to a permutation <m>\pi</m> with <m>I(\pi)=a</m>.
-            To see that <m>I^{-1}</m> is one-to-one, note that if <m>a=b</m>, then some <m>a_i\neq b_i</m>.
+            To see that <m>I^{-1}</m> is one-to-one, note that if <m>a\neq b</m>, then some <m>a_i\neq b_i</m>.
             Thus, <m>n-i</m> is placed in a different order relative to <m>n,n-1,n-2,n-3,\ldots,n-i+1</m> for the two corresponding permutations.
             Thus, those permutations are different, and hence <m>I^{-1}</m> is one-to-one and well-defined.
             Since <m>|T_n|=n!=|\ss_n|</m>, it follows that <m>I</m> is a bijection.
@@ -188,7 +188,7 @@
             If <m>\pi_i=n</m>, then one of three situations can occur.
             The first possibility is that <m>\pi_{i-1}\gt \pi_{i+1}</m>, in which case removing <m>n</m> results in a permutation <m>\pi'\in \ss_{n-1}</m> with <m>k</m> descents.
             The second possibility is that <m>\pi_{i-1}\lt \pi_{i+1}</m>, in which case removing <m>n</m> results in a permutation <m>\pi'\in \ss_{n-1}</m> with <m>k-1</m> descents.
-            The third possibility is that <m>m</m> occurs at either the beginning or end of the word, in which case removing <m>n</m> either decreases the number of descents by one or leaves it the same, respectively.
+            The third possibility is that <m>n</m> occurs at either the beginning or end of the word, in which case removing <m>n</m> either decreases the number of descents by one or leaves it the same, respectively.
         </p>
         <p>
             The proof proceeds by reversing this observation.
