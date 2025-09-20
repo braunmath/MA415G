@@ -221,10 +221,17 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P12</title>
         <p>
-            
+            Recall that <m>I_{n,k}</m> is the number of permutations in <m>\ss_n</m> with <m>k</m> inversions, and <m>A_{n,k}</m> is the number of permutations in <m>\ss_n</m> with <m>k</m> descents. 
+            Give a combinatorial proof that
+            <me>
+                I_{n,k}=I_{n,(n(n-1)/2)-k}
+            </me>
+            and 
+            <me>
+                A_{n,k}=A_{n,n-1-k} \, .
+            </me>
         </p>
     </problem>
-
         <problem>
         <title>P13</title>
         <p>
@@ -267,13 +274,26 @@ Your grade is based on completion only (in other words, if you complete the assi
             <url href="https://en.wikipedia.org/wiki/Faulhaber%27s_formula" />.
         </p>
     </problem>
-            <problem>
+
+        <problem>
         <title>P14</title>
         <p>
-            
+            <ol>
+                <li>
+                    <p>
+                        A graph is called <m>k</m>-regular if every vertex has degree <m>k</m>.
+                        How many edges does a <m>5</m>-regular graph on <m>10</m> vertices have?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Does there exist a <m>121</m>-regular graph on <m>1013</m> vertices? Why or why not?
+                    </p>
+                </li>
+            </ol>
         </p>
     </problem>
-        <problem>
+                <problem>
         <title>P15</title>
         <p>
             
