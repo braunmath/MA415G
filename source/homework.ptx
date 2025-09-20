@@ -224,19 +224,14 @@ Your grade is based on completion only (in other words, if you complete the assi
             
         </p>
     </problem>
+
         <problem>
         <title>P13</title>
-        <p>
-            
-        </p>
-    </problem>
-        <problem>
-        <title>P14</title>
         <p>
             <ol>
                 <li>
                     <p>
-                        In this problem, you will prove by induction that <me>\sum_{j=1}^n j=\frac{n(n+1)}{2}\, .</me>
+                        In the first part of this problem, you will prove by induction that <me>\sum_{j=1}^n j=\frac{n(n+1)}{2}\, .</me>
                         <ol>
                             <li>
                                 <p>
@@ -246,7 +241,7 @@ Your grade is based on completion only (in other words, if you complete the assi
                             <li>
                                 <p>
                                     Second, assume that this is true for all values less than <m>n</m>.
-                                    In particular, this means that we assume we have already verified that <me>\sum_{j=1}^{n-1}j=\frac{n-1)n}{2}\, .</me>
+                                    In particular, this means that we assume we have already verified that <me>\sum_{j=1}^{n-1}j=\frac{(n-1)n}{2}\, .</me>
                                     To prove that the <em>induction step</em> holds, use this to prove that the equation holds for <m>n</m> as follows: write <me>
                                         \sum_{j=1}^n j = \left(\sum_{j=1}^{n-1} j\right) + n 
                                     </me>
@@ -267,6 +262,15 @@ Your grade is based on completion only (in other words, if you complete the assi
                     </p>
                 </li>
             </ol>
+            Comment for those who are interested: These two formulas are ones that students learn (and typically forget) in Calculus I. 
+            However, these are special cases of a beautiful formula called Faulhaber's formula which is a formula for the sum of the <m>p</m>-th powers of the first <m>n</m> positive integers:
+            <url href="https://en.wikipedia.org/wiki/Faulhaber%27s_formula" />.
+        </p>
+    </problem>
+            <problem>
+        <title>P14</title>
+        <p>
+            
         </p>
     </problem>
         <problem>
