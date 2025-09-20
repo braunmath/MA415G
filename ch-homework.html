@@ -435,13 +435,101 @@ i_{n+1}=i_n+ni_{n-1}
 </div>
 <div class="autopermalink" data-description="Problem 10.0.13: Essay 2"><a href="#ch-homework-14" title="Copy heading and permalink for Problem 10.0.13: Essay 2" aria-label="Copy heading and permalink for Problem 10.0.13: Essay 2">🔗</a></div></article></details><details id="ch-homework-15" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.14</span><span class="period">.</span><span class="space"> </span><span class="title">P12.</span>
-</h2></summary><article class="problem example-like knowl__content"><div class="para" id="ch-homework-15-2"><div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+</h2></summary><article class="problem example-like knowl__content"><div class="para logical" id="ch-homework-15-2">
+<div class="para">Recall that <span class="process-math">\(I_{n,k}\)</span> is the number of permutations in <span class="process-math">\(\ss_n\)</span> with <span class="process-math">\(k\)</span> inversions, and <span class="process-math">\(A_{n,k}\)</span> is the number of permutations in <span class="process-math">\(\ss_n\)</span> with <span class="process-math">\(k\)</span> descents. Give a combinatorial proof that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+I_{n,k}=I_{n,(n(n-1)/2)-k}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_{n,k}=A_{n,n-1-k} \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="autopermalink" data-description="Problem 10.0.14: P12"><a href="#ch-homework-15" title="Copy heading and permalink for Problem 10.0.14: P12" aria-label="Copy heading and permalink for Problem 10.0.14: P12">🔗</a></div></article></details><details id="ch-homework-16" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.15</span><span class="period">.</span><span class="space"> </span><span class="title">P13.</span>
-</h2></summary><article class="problem example-like knowl__content"><div class="para" id="ch-homework-16-2"><div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-16-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+</h2></summary><article class="problem example-like knowl__content"><div class="para logical" id="ch-homework-16-2">
+<ol class="decimal" id="ch-homework-16-2-1">
+<li id="ch-homework-16-2-1-1">
+<div class="para logical" id="ch-homework-16-2-1-1-1">
+<div class="para">In the first part of this problem, you will prove by induction that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{j=1}^n j=\frac{n(n+1)}{2}\, .
+\end{equation*}
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="ch-homework-16-2-1-1-1-2">
+<li id="ch-homework-16-2-1-1-1-2-1">
+<div class="para" id="ch-homework-16-2-1-1-1-2-1-1">First, verify the <em class="emphasis">base case</em> for the induction argument, i.e., check that this is true for <span class="process-math">\(n=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-16-2-1-1-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.a"><a href="#ch-homework-16-2-1-1-1-2-1" title="Copy heading and permalink for Item 1.a" aria-label="Copy heading and permalink for Item 1.a">🔗</a></div>
+</li>
+<li id="ch-homework-16-2-1-1-1-2-2">
+<div class="para logical" id="ch-homework-16-2-1-1-1-2-2-1">
+<div class="para">Second, assume that this is true for all values less than <span class="process-math">\(n\text{.}\)</span> In particular, this means that we assume we have already verified that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{j=1}^{n-1}j=\frac{(n-1)n}{2}\, .
+\end{equation*}
+</div>
+<div class="para">To prove that the <em class="emphasis">induction step</em> holds, use this to prove that the equation holds for <span class="process-math">\(n\)</span> as follows: write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{j=1}^n j = \left(\sum_{j=1}^{n-1} j\right) + n 
+\end{equation*}
+</div>
+<div class="para">and then substitute the formula for the <span class="process-math">\(n-1\)</span> case and simplify with algebra.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-16-2-1-1-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.b"><a href="#ch-homework-16-2-1-1-1-2-2" title="Copy heading and permalink for Item 1.b" aria-label="Copy heading and permalink for Item 1.b">🔗</a></div>
+</li>
+<li id="ch-homework-16-2-1-1-1-2-3">
+<div class="para" id="ch-homework-16-2-1-1-1-2-3-1">Explain in your own words why this shows that the formula is true for any positive integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-16-2-1-1-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.c"><a href="#ch-homework-16-2-1-1-1-2-3" title="Copy heading and permalink for Item 1.c" aria-label="Copy heading and permalink for Item 1.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-16-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ch-homework-16-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ch-homework-16-2-1-2">
+<div class="para logical" id="ch-homework-16-2-1-2-1">
+<div class="para">Prove by induction that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{j=1}^nj^2=\frac{n(n+1)(2n+1)}{6}\, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-16-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ch-homework-16-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="para">Comment for those who are interested: These two formulas are ones that students learn (and typically forget) in Calculus I. However, these are special cases of a beautiful formula called Faulhaber’s formula which is a formula for the sum of the <span class="process-math">\(p\)</span>-th powers of the first <span class="process-math">\(n\)</span> positive integers: <a class="external" href="https://en.wikipedia.org/wiki/Faulhaber%27s_formula" target="_blank"><code class="code-inline tex2jax_ignore">https://en.wikipedia.org/wiki/Faulhaber%27s_formula</code></a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-16-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="autopermalink" data-description="Problem 10.0.15: P13"><a href="#ch-homework-16" title="Copy heading and permalink for Problem 10.0.15: P13" aria-label="Copy heading and permalink for Problem 10.0.15: P13">🔗</a></div></article></details><details id="ch-homework-17" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.16</span><span class="period">.</span><span class="space"> </span><span class="title">P14.</span>
-</h2></summary><article class="problem example-like knowl__content"><div class="para" id="ch-homework-17-2"><div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-17-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+</h2></summary><article class="problem example-like knowl__content"><div class="para logical" id="ch-homework-17-2">
+<ol class="decimal" id="ch-homework-17-2-1">
+<li id="ch-homework-17-2-1-1">
+<div class="para" id="ch-homework-17-2-1-1-1">A graph is called <span class="process-math">\(k\)</span>-regular if every vertex has degree <span class="process-math">\(k\text{.}\)</span> How many edges does a <span class="process-math">\(5\)</span>-regular graph on <span class="process-math">\(10\)</span> vertices have?<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-17-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ch-homework-17-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ch-homework-17-2-1-2">
+<div class="para" id="ch-homework-17-2-1-2-1">Does there exist a <span class="process-math">\(121\)</span>-regular graph on <span class="process-math">\(1013\)</span> vertices? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-17-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ch-homework-17-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-17-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="autopermalink" data-description="Problem 10.0.16: P14"><a href="#ch-homework-17" title="Copy heading and permalink for Problem 10.0.16: P14" aria-label="Copy heading and permalink for Problem 10.0.16: P14">🔗</a></div></article></details><details id="ch-homework-18" class="problem example-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Problem</span><span class="space"> </span><span class="codenumber">10.0.17</span><span class="period">.</span><span class="space"> </span><span class="title">P15.</span>
 </h2></summary><article class="problem example-like knowl__content"><div class="para" id="ch-homework-18-2"><div class="autopermalink" data-description="Paragraph"><a href="#ch-homework-18-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
