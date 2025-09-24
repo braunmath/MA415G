@@ -2,7 +2,86 @@
     <title>Degree Sequences</title>
 
     <p>
-        
+        We have seen that the degrees of the vertices play several key roles for graphs.
+        This leads us to the following definition and theorem.
     </p>
+
+    <definition xml:id="def-degreesequence">
+        <statement>
+            <p>
+                Given a finite graph <m>G</m>, the <em>degree sequence</em> of <m>G</m> is the sequence of vertex degrees of <m>G</m> written in non-increasing order.
+                If a sequence <m>\mathbf{d}=(d_1,d_2,\ldots,d_n)</m> is the degree sequence of a graph, then we say <m>\mathbf{d}</m> is a <em>graphic sequence</em>.
+                Note that there might be more than one graph with the same graphic sequence.
+            </p>
+        </statement>
+    </definition>
+    <example>
+        <p>
+            The degree sequence of the following graph is <m>(7, 6, 6, 5, 5, 4, 3, 3, 3, 2)</m>.
+
+        </p>
+        <figure xml:id="fig-degree_sequence">
+    <caption>Example for graph degree sequence</caption>
+    <image source="degreesequencegraph.png" width="75%"/>
+</figure>
+    </example>
     
+    <exercise>
+        <p>
+            For each of the following degree sequences, create a graph having that degree sequence.
+            <ol>
+                <li>
+                    <p>
+                        <m>(2,2,2,2,2)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(5,2,2,1,1,1,1,1)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(6,3,3,3,3,3,3)</m>
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </exercise>
+
+    <p>
+        The two main questions we will ask about degree sequences are:
+        <ol>
+            <li>
+                <p>
+                    Which non-increasing lists of integers are graphic?
+                </p>
+            </li>
+            <li>
+                <p>
+                    Given a non-increasing list of integers, how can we test to see if it is graphic?
+                </p>
+            </li>
+        </ol>
+    </p>
+
+        <p>
+            Let's return to this graph again with degree sequence
+            <me>
+                (7, 6, 6, 5, 5, 4, 3, 3, 3, 2) \, .
+            </me>
+            What would be ideal would be if we removed the vertex of degree <m>7</m> and what was left was a graph with degree sequence
+            <me>
+                (5, 5, 4, 4, 3, 3, 2, 2, 2) \, .
+            </me>
+            Note that this is what would happen if the vertex of degree <m>7</m> was connected to the highest-degree other vertices.
+        </p>
+            <figure xml:id="fig-degree_sequence2">
+    <caption>Example for graph degree sequence</caption>
+    <image source="degreesequencegraph.png" width="75%"/>
+</figure>
+        <p>
+            However, there is a problem: the vertex of degree <m>7</m>, which is labeled vertex 7, is connected to a vertex of degree two.
+            So, for this particular graph, removing the vertex of highest degree does not cause the degree 
+        </p>
 </section>
