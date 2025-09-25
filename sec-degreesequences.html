@@ -183,7 +183,391 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-degreesequences"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">3.6</span><span class="space"> </span><span class="title">Degree Sequences</span>
 </h2>
-<div class="autopermalink" data-description="Section 3.6: Degree Sequences"><a href="#sec-degreesequences" title="Copy heading and permalink for Section 3.6: Degree Sequences" aria-label="Copy heading and permalink for Section 3.6: Degree Sequences">🔗</a></div></section></div>
+<div class="para" id="sec-degreesequences-2">We have seen that the degrees of the vertices play several key roles for graphs. This leads us to the following definition and theorem.<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-degreesequence"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.6.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="def-degreesequence-1-1">Given a finite graph <span class="process-math">\(G\text{,}\)</span> the <em class="emphasis">degree sequence</em> of <span class="process-math">\(G\)</span> is the sequence of vertex degrees of <span class="process-math">\(G\)</span> written in non-increasing order. If a sequence <span class="process-math">\(\mathbf{d}=(d_1,d_2,\ldots,d_n)\)</span> with <span class="process-math">\(d_1 \geq d_2 \geq \cdots \geq d_n\)</span> is the degree sequence of a graph, then we say <span class="process-math">\(\mathbf{d}\)</span> is a <em class="emphasis">graphic sequence</em>. Note that there might be more than one graph with the same graphic sequence.<div class="autopermalink" data-description="Paragraph"><a href="#def-degreesequence-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.6.1"><a href="#def-degreesequence" title="Copy heading and permalink for Definition 3.6.1" aria-label="Copy heading and permalink for Definition 3.6.1">🔗</a></div></article><details id="sec-degreesequences-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.6.2</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="sec-degreesequences-4-1">The degree sequence of the following graph is <span class="process-math">\((7, 6, 6, 5, 5, 4, 3, 3, 3, 2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-degree_sequence"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/degreesequencegraph.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.6.3<span class="period">.</span></span><span class="space"> </span>Example for graph degree sequence<div class="autopermalink" data-description="Figure 3.6.3"><a href="#fig-degree_sequence" title="Copy heading and permalink for Figure 3.6.3" aria-label="Copy heading and permalink for Figure 3.6.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 3.6.2"><a href="#sec-degreesequences-4" title="Copy heading and permalink for Example 3.6.2" aria-label="Copy heading and permalink for Example 3.6.2">🔗</a></div></article></details><details id="sec-degreesequences-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.4</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-degreesequences-5-1">
+<div class="para">For each of the following degree sequences, create a graph having that degree sequence.</div>
+<ol class="decimal" id="sec-degreesequences-5-1-1">
+<li id="sec-degreesequences-5-1-1-1">
+<div class="para" id="sec-degreesequences-5-1-1-1-1">
+<span class="process-math">\(\displaystyle (2,2,2,2,2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-5-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.4.1"><a href="#sec-degreesequences-5-1-1-1" title="Copy heading and permalink for Item 3.6.4.1" aria-label="Copy heading and permalink for Item 3.6.4.1">🔗</a></div>
+</li>
+<li id="sec-degreesequences-5-1-1-2">
+<div class="para" id="sec-degreesequences-5-1-1-2-1">
+<span class="process-math">\(\displaystyle (5,2,2,1,1,1,1,1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-5-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.4.2"><a href="#sec-degreesequences-5-1-1-2" title="Copy heading and permalink for Item 3.6.4.2" aria-label="Copy heading and permalink for Item 3.6.4.2">🔗</a></div>
+</li>
+<li id="sec-degreesequences-5-1-1-3">
+<div class="para" id="sec-degreesequences-5-1-1-3-1">
+<span class="process-math">\(\displaystyle (6,3,3,3,3,3,3)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-5-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.4.3"><a href="#sec-degreesequences-5-1-1-3" title="Copy heading and permalink for Item 3.6.4.3" aria-label="Copy heading and permalink for Item 3.6.4.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.4"><a href="#sec-degreesequences-5" title="Copy heading and permalink for Checkpoint 3.6.4" aria-label="Copy heading and permalink for Checkpoint 3.6.4">🔗</a></div></article></details><div class="para" id="sec-degreesequences-6">The main question we will ask about degree sequences is: which non-increasing lists of integers are graphic?<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-degreesequences-7">We will start by investigating a special class of graphs called <em class="emphasis">threshold graphs</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-thresholdgraph"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.6.5</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-thresholdgraph-1-1">
+<div class="para">Consider the following two operations on a finite graph <span class="process-math">\(G\text{:}\)</span>
+</div>
+<ul class="disc" id="def-thresholdgraph-1-1-2">
+<li id="def-thresholdgraph-1-1-2-1">
+<div class="para" id="def-thresholdgraph-1-1-2-1-1">
+<em class="emphasis">Isolated addition (I):</em> add a new vertex of degree zero to <span class="process-math">\(G\text{,}\)</span> i.e., add an isolated vertex.<div class="autopermalink" data-description="Paragraph"><a href="#def-thresholdgraph-1-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-thresholdgraph-1-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="def-thresholdgraph-1-1-2-2">
+<div class="para" id="def-thresholdgraph-1-1-2-2-1">
+<em class="emphasis">Suspension (S):</em> add a new vertex that is connected by an edge to every vertex of <span class="process-math">\(G\text{;}\)</span> the resulting graph is called the suspension of <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-thresholdgraph-1-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-thresholdgraph-1-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">A <em class="emphasis">threshold graph</em> is a graph obtained by starting with a single vertex and applying any sequence of isolated additions and suspensions.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-thresholdgraph-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.6.5"><a href="#def-thresholdgraph" title="Copy heading and permalink for Definition 3.6.5" aria-label="Copy heading and permalink for Definition 3.6.5">🔗</a></div></article><details id="sec-degreesequences-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.6</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-degreesequences-9-1">
+<div class="para">For each of the following sequences (read from left to right) of isolated additions and suspensions, find the resulting threshold graph and calculate its degree sequence. Remember to <em class="emphasis">start with a single vertex before you apply these operations!</em>
+</div>
+<ol class="decimal" id="sec-degreesequences-9-1-2">
+<li id="sec-degreesequences-9-1-2-1">
+<div class="para" id="sec-degreesequences-9-1-2-1-1">SSSSSS<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-9-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.6.1"><a href="#sec-degreesequences-9-1-2-1" title="Copy heading and permalink for Item 3.6.6.1" aria-label="Copy heading and permalink for Item 3.6.6.1">🔗</a></div>
+</li>
+<li id="sec-degreesequences-9-1-2-2">
+<div class="para" id="sec-degreesequences-9-1-2-2-1">IIISIIIS (i.e., add three isolated vertices to the first isolated vertex, followed by a suspension, followed by adding three more isolated vertices, followed by another suspension)<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-9-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.6.2"><a href="#sec-degreesequences-9-1-2-2" title="Copy heading and permalink for Item 3.6.6.2" aria-label="Copy heading and permalink for Item 3.6.6.2">🔗</a></div>
+</li>
+<li id="sec-degreesequences-9-1-2-3">
+<div class="para" id="sec-degreesequences-9-1-2-3-1">SISISIS<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-9-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.6.3"><a href="#sec-degreesequences-9-1-2-3" title="Copy heading and permalink for Item 3.6.6.3" aria-label="Copy heading and permalink for Item 3.6.6.3">🔗</a></div>
+</li>
+<li id="sec-degreesequences-9-1-2-4">
+<div class="para" id="sec-degreesequences-9-1-2-4-1">SSSIISISS<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-9-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.6.4"><a href="#sec-degreesequences-9-1-2-4" title="Copy heading and permalink for Item 3.6.6.4" aria-label="Copy heading and permalink for Item 3.6.6.4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.6"><a href="#sec-degreesequences-9" title="Copy heading and permalink for Checkpoint 3.6.6" aria-label="Copy heading and permalink for Checkpoint 3.6.6">🔗</a></div></article></details><details id="sec-degreesequences-10" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.7</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-degreesequences-10-1">
+<div class="para">For a threshold graph with <span class="process-math">\(n\)</span> vertices with degree sequence <span class="process-math">\((d_1,d_2,\ldots,d_n)\text{,}\)</span> explain why</div>
+<div class="displaymath process-math">
+\begin{equation*}
+d_1 = \sum_{j=2}^n\min(1,d_j) \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.7"><a href="#sec-degreesequences-10" title="Copy heading and permalink for Checkpoint 3.6.7" aria-label="Copy heading and permalink for Checkpoint 3.6.7">🔗</a></div></article></details><details id="sec-degreesequences-11" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.8</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-degreesequences-11-1">
+<div class="para">For a threshold graph with <span class="process-math">\(n\)</span> vertices with degree sequence <span class="process-math">\((d_1,d_2,\ldots,d_n)\)</span> and <span class="process-math">\(d_2\geq 1\text{,}\)</span> explain why</div>
+<div class="displaymath process-math">
+\begin{equation*}
+d_1 + d_2 = 2 + \sum_{j=3}^n\min(2,d_j) \, .
+\end{equation*}
+</div>
+<div class="para">Hint: Think about counting the vertex-edge adjacencies for each edge adjacent to <span class="process-math">\(v_1\)</span> or <span class="process-math">\(v_2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.8"><a href="#sec-degreesequences-11" title="Copy heading and permalink for Checkpoint 3.6.8" aria-label="Copy heading and permalink for Checkpoint 3.6.8">🔗</a></div></article></details><div class="para" id="sec-degreesequences-12">These observations lead us to the following property of threshold graphs.<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-correctedDurfeenumber"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.6.9</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-correctedDurfeenumber-1-1">
+<div class="para">Given a graphic degree sequence <span class="process-math">\(\mathbf{d}=(d_1,d_2,\ldots,d_n)\text{,}\)</span> the <em class="emphasis">corrected Durfee number</em> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+m=m(\mathbf{d})= |\{j:d_j\geq j-1\}| \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-correctedDurfeenumber-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.6.9"><a href="#def-correctedDurfeenumber" title="Copy heading and permalink for Definition 3.6.9" aria-label="Copy heading and permalink for Definition 3.6.9">🔗</a></div></article><details id="sec-degreesequences-14" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.10</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-degreesequences-14-1">
+<div class="para">Find the corrected Durfee number for each of the following degree sequences:</div>
+<ol class="decimal" id="sec-degreesequences-14-1-1">
+<li id="sec-degreesequences-14-1-1-1">
+<div class="para" id="sec-degreesequences-14-1-1-1-1">
+<span class="process-math">\(\displaystyle (2,2,2,2,2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-14-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.10.1"><a href="#sec-degreesequences-14-1-1-1" title="Copy heading and permalink for Item 3.6.10.1" aria-label="Copy heading and permalink for Item 3.6.10.1">🔗</a></div>
+</li>
+<li id="sec-degreesequences-14-1-1-2">
+<div class="para" id="sec-degreesequences-14-1-1-2-1">
+<span class="process-math">\(\displaystyle (5,2,2,1,1,1,1,1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-14-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.10.2"><a href="#sec-degreesequences-14-1-1-2" title="Copy heading and permalink for Item 3.6.10.2" aria-label="Copy heading and permalink for Item 3.6.10.2">🔗</a></div>
+</li>
+<li id="sec-degreesequences-14-1-1-3">
+<div class="para" id="sec-degreesequences-14-1-1-3-1">
+<span class="process-math">\(\displaystyle (6,3,3,3,3,3,3)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-14-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.10.3"><a href="#sec-degreesequences-14-1-1-3" title="Copy heading and permalink for Item 3.6.10.3" aria-label="Copy heading and permalink for Item 3.6.10.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.10"><a href="#sec-degreesequences-14" title="Copy heading and permalink for Checkpoint 3.6.10" aria-label="Copy heading and permalink for Checkpoint 3.6.10">🔗</a></div></article></details><article class="theorem theorem-like" id="thm-thresholdcharacterization"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.6.11</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="thm-thresholdcharacterization-1-1">
+<div class="para">If <span class="process-math">\(G\)</span> is a threshold graph on <span class="process-math">\(n\)</span> vertices with degree sequence <span class="process-math">\(\mathbf{d}=(d_1,d_2,\ldots,d_n)\text{,}\)</span> then for every <span class="process-math">\(1\leq k \leq m(\mathbf{d})\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{i=1}^k d_i = k(k-1) + \sum_{j=k+1}^n \min(k,d_j) \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-thresholdcharacterization-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.6.11"><a href="#thm-thresholdcharacterization" title="Copy heading and permalink for Theorem 3.6.11" aria-label="Copy heading and permalink for Theorem 3.6.11">🔗</a></div></article><details id="sec-degreesequences-16" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.12</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-degreesequences-16-1">Write out each of these equalities for <span class="process-math">\(n=6\)</span> and <span class="process-math">\(k=1,2,3,4,5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.12"><a href="#sec-degreesequences-16" title="Copy heading and permalink for Checkpoint 3.6.12" aria-label="Copy heading and permalink for Checkpoint 3.6.12">🔗</a></div></article></details><div class="para" id="sec-degreesequences-17">We start with the following lemma. We write <span class="process-math">\(N_G(v)\)</span> or <span class="process-math">\(N(v)\)</span> to denote the set of vertices in <span class="process-math">\(G\)</span> that are adjacent to <span class="process-math">\(v\text{,}\)</span> i.e., connected to <span class="process-math">\(v\)</span> by an edge. This set is called the <em class="emphasis">neighbors</em> of <span class="process-math">\(v\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="lemma theorem-like" id="lem-thresholdnesting"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.6.13</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="lem-thresholdnesting-1-1">
+<div class="para">Relabel the vertex set of a threshold graph <span class="process-math">\(G\)</span> as <span class="process-math">\(\{v_1,\ldots,v_n\}\)</span> such that <span class="process-math">\(d_i=\deg(v_i)\text{.}\)</span> With this labeling, if <span class="process-math">\(N(v_j)\)</span> contains <span class="process-math">\(s\)</span> elements, then <span class="process-math">\(N(v_j)\)</span> consists of the first <span class="process-math">\(s\)</span> vertices from the list</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(v_1,v_2,\ldots,v_{j-1},v_{j+1},\ldots,v_n) \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#lem-thresholdnesting-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Lemma 3.6.13"><a href="#lem-thresholdnesting" title="Copy heading and permalink for Lemma 3.6.13" aria-label="Copy heading and permalink for Lemma 3.6.13">🔗</a></div></article><details id="sec-degreesequences-19" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-degreesequences-19-1">We prove this by induction on the number of vertices in <span class="process-math">\(G\text{.}\)</span> If there are one or two vertices, then this is true since the sets under consideration are empty. Now, suppose that <span class="process-math">\(G'\)</span> is a threshold graph on <span class="process-math">\(n\)</span> vertices for which the lemma holds. When we add a vertex to <span class="process-math">\(G'\text{,}\)</span> resulting in a graph <span class="process-math">\(G\)</span> with one more vertex, then this can either happen through an isolated vertex or suspension move. If an isolated vertex is added, then none of the neighborhoods of the vertices change, and the new vertex (having degree zero) is labeled as <span class="process-math">\(v_{n+1}\text{,}\)</span> so the result holds since it already holds for <span class="process-math">\(G'\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-19-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-degreesequences-19-2">If a suspension vertex is added, then the new vertex has degree <span class="process-math">\(n\)</span> and is labeled <span class="process-math">\(v_1\text{,}\)</span> while all other vertices have their degrees increased by one and their labels are each increased by one. As <span class="process-math">\(v_1\)</span> is added to the neighborhood of every existing vertex, then since <span class="process-math">\(N_{G'}(v_j)\)</span> consists of the first <span class="process-math">\(s\)</span> vertices from the list for <span class="process-math">\(G'\text{,}\)</span> and the new <span class="process-math">\(v_1\)</span> is a neighbor in <span class="process-math">\(G\)</span> of every vertex in <span class="process-math">\(G'\text{,}\)</span> we have that the claim regarding the initial segment of vertices being neighbors also holds in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-19-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 3.6.1"><a href="#sec-degreesequences-19" title="Copy heading and permalink for Proof 3.6.1" aria-label="Copy heading and permalink for Proof 3.6.1">🔗</a></div></article></details><details id="sec-degreesequences-20" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.14</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-degreesequences-20-1">
+<div class="para">Let <span class="process-math">\(G\)</span> be the threshold graph obtained via the construction SSSIISISS</div>
+<ol class="decimal" id="sec-degreesequences-20-1-2">
+<li id="sec-degreesequences-20-1-2-1">
+<div class="para" id="sec-degreesequences-20-1-2-1-1">Verify that this lemma holds for <span class="process-math">\(G\)</span> .<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-20-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.14.1"><a href="#sec-degreesequences-20-1-2-1" title="Copy heading and permalink for Item 3.6.14.1" aria-label="Copy heading and permalink for Item 3.6.14.1">🔗</a></div>
+</li>
+<li id="sec-degreesequences-20-1-2-2">
+<div class="para" id="sec-degreesequences-20-1-2-2-1">Go through the induction step in the proof of the lemma above starting from <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-20-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.14.2"><a href="#sec-degreesequences-20-1-2-2" title="Copy heading and permalink for Item 3.6.14.2" aria-label="Copy heading and permalink for Item 3.6.14.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-20-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.14"><a href="#sec-degreesequences-20" title="Copy heading and permalink for Checkpoint 3.6.14" aria-label="Copy heading and permalink for Checkpoint 3.6.14">🔗</a></div></article></details><details id="sec-degreesequences-21" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Proof of Theorem 3.6.11.</span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-degreesequences-21-2">
+<div class="para">To prove that a threshold graph <span class="process-math">\(G\)</span> on <span class="process-math">\(n\)</span> vertices satisfies</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{i=1}^k d_i = k(k-1) + \sum_{j=k+1}^n \min(k,d_j)
+\end{equation*}
+</div>
+<div class="para">for every <span class="process-math">\(1\leq k\leq m(\mathbf{d})\text{,}\)</span> we will count the quantity <span class="process-math">\(\sum_{i=1}^k d_i\)</span> in two ways. First, observe that <span class="process-math">\(\sum_{i=1}^k d_i\)</span> counts the number of vertex-edge pairs <span class="process-math">\((v,e)\)</span> where <span class="process-math">\(v\in \{v_1,\ldots,v_k\}\)</span> and <span class="process-math">\(v\)</span> is incident to <span class="process-math">\(e\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-21-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-degreesequences-21-3">Second, since <span class="process-math">\(k\leq m(\mathbf{d})\text{,}\)</span> we have that <span class="process-math">\(d_i\geq i-1\)</span> for all <span class="process-math">\(i\leq k\text{,}\)</span> and thus <span class="process-math">\(v_1,\ldots,v_{i-1}\)</span> are all neighbors of each such <span class="process-math">\(v_i\text{.}\)</span> Thus, the first <span class="process-math">\(k\)</span> vertices in <span class="process-math">\(G\)</span> form a complete graph, which has <span class="process-math">\(k(k-1)/2\)</span> edges, leading to <span class="process-math">\(k(k-1)\)</span> vertex-edge pairs. Each vertex <span class="process-math">\(v_j\)</span> for <span class="process-math">\(j\geq k+1\)</span> is connected to the first <span class="process-math">\(d_j\)</span> vertices in <span class="process-math">\(G\text{.}\)</span> If <span class="process-math">\(d_j\geq k\text{,}\)</span> then this corresponds to <span class="process-math">\(k\)</span> vertex-edge adjacencies involving a vertex in <span class="process-math">\(\{v_1,\ldots,v_k\}\text{.}\)</span> If <span class="process-math">\(d_j\lt k\text{,}\)</span> then this corresponds to <span class="process-math">\(d_j\)</span> such adjacencies. Thus, the left-hand and right-hand side of the equality both enumerate the same set, and thus are equal.<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-21-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 3.6.2: Proof of Theorem 3.6.11"><a href="#sec-degreesequences-21" title="Copy heading and permalink for Proof 3.6.2: Proof of Theorem 3.6.11" aria-label="Copy heading and permalink for Proof 3.6.2: Proof of Theorem 3.6.11">🔗</a></div></article></details><details id="sec-degreesequences-22" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.15</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-degreesequences-22-1">
+<ol class="decimal" id="sec-degreesequences-22-1-1">
+<li id="sec-degreesequences-22-1-1-1">
+<div class="para" id="sec-degreesequences-22-1-1-1-1">What goes wrong with this argument if we have a <span class="process-math">\(k\)</span> where <span class="process-math">\(d_k\leq k-2\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-22-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.15.1"><a href="#sec-degreesequences-22-1-1-1" title="Copy heading and permalink for Item 3.6.15.1" aria-label="Copy heading and permalink for Item 3.6.15.1">🔗</a></div>
+</li>
+<li id="sec-degreesequences-22-1-1-2">
+<div class="para" id="sec-degreesequences-22-1-1-2-1">Discuss the above proof. What makes sense? What is confusing? Draw examples to investigate!<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-22-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.15.2"><a href="#sec-degreesequences-22-1-1-2" title="Copy heading and permalink for Item 3.6.15.2" aria-label="Copy heading and permalink for Item 3.6.15.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-22-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.15"><a href="#sec-degreesequences-22" title="Copy heading and permalink for Checkpoint 3.6.15" aria-label="Copy heading and permalink for Checkpoint 3.6.15">🔗</a></div></article></details><div class="para" id="sec-degreesequences-23">What is remarkable about threshold graphs is that they are the most extreme you can get with regard to these numerical relationships for degree sequences. Specifically, the following theorem due to Erdős and Gallai (which we will state without proof) characterizes graphical degree sequences by relaxing the equalities that we have been investigating.<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-erdosgallai"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.6.16</span><span class="period">.</span><span class="space"> </span><span class="title">Erdős-Gallai theorem.</span>
+</h3>
+<div class="para logical" id="thm-erdosgallai-2-1">
+<div class="para">A sequence of non-negative integers <span class="process-math">\((d_1,d_2,\ldots,d_n)\)</span> is graphic if and only if <span class="process-math">\(d_1+d_2+\cdots + d_n\)</span> is even and for every <span class="process-math">\(1\leq k \leq n\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{i=1}^k d_i \leq k(k-1) + \sum_{j=k+1}^n \min(k,d_j) \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-erdosgallai-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.6.16: Erdős-Gallai theorem"><a href="#thm-erdosgallai" title="Copy heading and permalink for Theorem 3.6.16: Erdős-Gallai theorem" aria-label="Copy heading and permalink for Theorem 3.6.16: Erdős-Gallai theorem">🔗</a></div></article><details id="sec-degreesequences-25" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.17</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-degreesequences-25-1">
+<div class="para">For each of the following sequences, determine whether or not it is graphic.</div>
+<ol class="decimal" id="sec-degreesequences-25-1-1">
+<li id="sec-degreesequences-25-1-1-1">
+<div class="para" id="sec-degreesequences-25-1-1-1-1">
+<span class="process-math">\(\displaystyle (5,5,5,5,5,3,3,1,1,1,1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-25-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.17.1"><a href="#sec-degreesequences-25-1-1-1" title="Copy heading and permalink for Item 3.6.17.1" aria-label="Copy heading and permalink for Item 3.6.17.1">🔗</a></div>
+</li>
+<li id="sec-degreesequences-25-1-1-2">
+<div class="para" id="sec-degreesequences-25-1-1-2-1">
+<span class="process-math">\(\displaystyle (7, 5, 5, 4, 4, 3, 3, 2, 2, 1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-25-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.17.2"><a href="#sec-degreesequences-25-1-1-2" title="Copy heading and permalink for Item 3.6.17.2" aria-label="Copy heading and permalink for Item 3.6.17.2">🔗</a></div>
+</li>
+<li id="sec-degreesequences-25-1-1-3">
+<div class="para" id="sec-degreesequences-25-1-1-3-1">
+<span class="process-math">\(\displaystyle (8,4,3,3,1,1,1,1,1,1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-25-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.17.3"><a href="#sec-degreesequences-25-1-1-3" title="Copy heading and permalink for Item 3.6.17.3" aria-label="Copy heading and permalink for Item 3.6.17.3">🔗</a></div>
+</li>
+<li id="sec-degreesequences-25-1-1-4">
+<div class="para" id="sec-degreesequences-25-1-1-4-1">
+<span class="process-math">\(\displaystyle (7, 6, 6, 5, 5, 5, 4, 4)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-25-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.17.4"><a href="#sec-degreesequences-25-1-1-4" title="Copy heading and permalink for Item 3.6.17.4" aria-label="Copy heading and permalink for Item 3.6.17.4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-25-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.17"><a href="#sec-degreesequences-25" title="Copy heading and permalink for Checkpoint 3.6.17" aria-label="Copy heading and permalink for Checkpoint 3.6.17">🔗</a></div></article></details><div class="para logical" id="sec-degreesequences-26">
+<div class="para">There is another beautiful recursive characterization of degree sequences. We call a sequence <span class="process-math">\((d_1,d_2,\ldots,d_n)\)</span> a <em class="emphasis">proper sequence</em> if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+n-1\geq d_1\geq d_2\geq \cdots \geq d_n \geq 0 \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-havelhakimi"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.6.18</span><span class="period">.</span><span class="space"> </span><span class="title">Havel-Hakimi Theorem.</span>
+</h3>
+<div class="para" id="thm-havelhakimi-2-1">Let <span class="process-math">\(\mathbf{d}=(d_1,d_2,\ldots,d_n)\)</span> be a proper sequence. For any <span class="process-math">\(i\text{,}\)</span> let <span class="process-math">\(\mathbf{c}=(c_1,c_2,\ldots,c_{n-1})\)</span> be the sequence obtained from <span class="process-math">\(\mathbf{d}\)</span> by deleting <span class="process-math">\(d_i\)</span> and decreasing each of the first <span class="process-math">\(d_i\)</span> remaining entries by <span class="process-math">\(1\text{;}\)</span> we call this operation a <em class="emphasis">Havel-Hakimi step</em> in position <span class="process-math">\(i\text{.}\)</span> Then   <span class="process-math">\(\mathbf{d}\)</span> is graphic if and only if <span class="process-math">\(\mathbf{c}\)</span> is.<div class="autopermalink" data-description="Paragraph"><a href="#thm-havelhakimi-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.6.18: Havel-Hakimi Theorem"><a href="#thm-havelhakimi" title="Copy heading and permalink for Theorem 3.6.18: Havel-Hakimi Theorem" aria-label="Copy heading and permalink for Theorem 3.6.18: Havel-Hakimi Theorem">🔗</a></div></article><details id="sec-degreesequences-28" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.19</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-degreesequences-28-1">
+<div class="para">For each of the following degree sequences, verify that this theorem holds when <span class="process-math">\(i=3\text{.}\)</span>
+</div>
+<ol class="decimal" id="sec-degreesequences-28-1-2">
+<li id="sec-degreesequences-28-1-2-1">
+<div class="para" id="sec-degreesequences-28-1-2-1-1">
+<span class="process-math">\(\displaystyle (2,2,2,2,2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-28-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.19.1"><a href="#sec-degreesequences-28-1-2-1" title="Copy heading and permalink for Item 3.6.19.1" aria-label="Copy heading and permalink for Item 3.6.19.1">🔗</a></div>
+</li>
+<li id="sec-degreesequences-28-1-2-2">
+<div class="para" id="sec-degreesequences-28-1-2-2-1">
+<span class="process-math">\(\displaystyle (5,2,2,1,1,1,1,1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-28-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.19.2"><a href="#sec-degreesequences-28-1-2-2" title="Copy heading and permalink for Item 3.6.19.2" aria-label="Copy heading and permalink for Item 3.6.19.2">🔗</a></div>
+</li>
+<li id="sec-degreesequences-28-1-2-3">
+<div class="para" id="sec-degreesequences-28-1-2-3-1">
+<span class="process-math">\(\displaystyle (6,3,3,3,3,3,3)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-28-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.19.3"><a href="#sec-degreesequences-28-1-2-3" title="Copy heading and permalink for Item 3.6.19.3" aria-label="Copy heading and permalink for Item 3.6.19.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-28-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.19"><a href="#sec-degreesequences-28" title="Copy heading and permalink for Checkpoint 3.6.19" aria-label="Copy heading and permalink for Checkpoint 3.6.19">🔗</a></div></article></details><details id="sec-degreesequences-29" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-degreesequences-29-1">We first prove that if <span class="process-math">\(\mathbf{c}\)</span> is graphic, then so is <span class="process-math">\(\mathbf{d}\text{.}\)</span> Suppose <span class="process-math">\(\mathbf{c}\)</span> is a graphic sequence, i.e., there is a graph that realizes the degree sequence <span class="process-math">\(\mathbf{c}\text{.}\)</span> Suppose <span class="process-math">\(i_1,\ldots,i_k\)</span> are the indices of the entries that had their degree dropped when <span class="process-math">\(d_i\)</span> was removed. Starting with a graph <span class="process-math">\(G_{\mathbf{c}}\)</span> with degree sequence <span class="process-math">\(\mathbf{c}\text{,}\)</span> add a new vertex and connect it to the vertices having degrees <span class="process-math">\(c_{i_r}\)</span> for <span class="process-math">\(1\leq r\leq k\text{.}\)</span> This produces a graph with degree sequence <span class="process-math">\(\mathbf{d}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-29-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-degreesequences-29-2">
+<div class="para">We next prove that if <span class="process-math">\(\mathbf{d}\)</span> is graphic, then so is <span class="process-math">\(\mathbf{c}\text{.}\)</span> Our first goal is to show that, much like the case of threshold graphs, if <span class="process-math">\(\mathbf{d}\)</span> is graphic then there is a graph realizing <span class="process-math">\(\mathbf{d}\)</span> such that a vertex of degree <span class="process-math">\(d_i\)</span> is connected to the <span class="process-math">\(d_i\)</span> vertices of highest degrees. Let <span class="process-math">\(G\)</span> be a graph with degree sequence <span class="process-math">\(\mathbf{d}\text{.}\)</span> Relabel the vertex set of <span class="process-math">\(G\)</span> as <span class="process-math">\(\{v_1,\ldots,v_n\}\)</span> such that <span class="process-math">\(d_i=\deg(v_i)\text{.}\)</span> We say that <span class="process-math">\(j\)</span> and <span class="process-math">\(k\)</span> are a <em class="emphasis">missing pair</em> if there is an <span class="process-math">\(i\)</span> so that <span class="process-math">\(v_j\)</span> is adjacent to <span class="process-math">\(v_i\text{,}\)</span> <span class="process-math">\(v_k\)</span> is not adjacent to <span class="process-math">\(v_i\text{,}\)</span> and <span class="process-math">\(d_j\lt d_k\text{.}\)</span> In other words, there is a neighbor of <span class="process-math">\(v_i\)</span> with strictly smaller degree than some non-neighbor of <span class="process-math">\(v_i\text{.}\)</span> If we have a missing pair, then there must be a fourth vertex <span class="process-math">\(v_t\)</span> that is a neighbor of <span class="process-math">\(v_k\)</span> but not of <span class="process-math">\(v_j\text{.}\)</span> We can then delete from <span class="process-math">\(G\)</span> the edges</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\{v_i,v_j\} \text{ and } \{v_k,v_t\}
+\end{equation*}
+</div>
+<div class="para">and replace them with the edges</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\{v_i,v_k\} \text{ and } \{v_j,v_t\} \, .
+\end{equation*}
+</div>
+<div class="para">This yields a new graph with degree sequence <span class="process-math">\(\mathbf{d}\)</span> and one less missing pair than <span class="process-math">\(G\text{.}\)</span> Iterating this process, we eventually reach a graph <span class="process-math">\(H\)</span> realizing <span class="process-math">\(\mathbf{d}\)</span> that has no missing pairs. If <span class="process-math">\(d_i\)</span> is the entry removed by the Havel-Hakimi step, then removing vertex <span class="process-math">\(v_i\)</span> from <span class="process-math">\(H\)</span> removes one edge from each of the highest degree vertices in <span class="process-math">\(H\text{,}\)</span> which yields a graph realizing the degree sequence <span class="process-math">\(\mathbf{c}\text{,}\)</span> as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-29-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 3.6.3"><a href="#sec-degreesequences-29" title="Copy heading and permalink for Proof 3.6.3" aria-label="Copy heading and permalink for Proof 3.6.3">🔗</a></div></article></details><div class="para" id="sec-degreesequences-30">The Havel-Hakimi theorem gives rise to an algorithm to test whether or not a proper sequence is graphic and to produce a graph realizing that sequence.<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="algorithm theorem-like" id="alg-havelhakimi"><h3 class="heading">
+<span class="type">Algorithm</span><span class="space"> </span><span class="codenumber">3.6.20</span><span class="period">.</span><span class="space"> </span><span class="title">The Havel-Hakimi test.</span>
+</h3>
+<div class="para" id="alg-havelhakimi-2-1">Given a proper sequence <span class="process-math">\(\mathbf{s}\text{,}\)</span> pick some entry <span class="process-math">\(i\)</span> and apply a Havel-Hakimi step. Rearrange the resulting sequence in non-increasing order. If any entries are negative, then it is not graphic. If the resulting sequence is proper, then pick another entry and apply a Havel-Hakimi step. Continue in this way until either a negative entry is found, in which case the sequence is not graphic, or the resulting sequence consists of all zeros, in which case adding vertices and edges by reversing all the steps produces a graph realizing the degree sequence <span class="process-math">\(\mathbf{s}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#alg-havelhakimi-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Algorithm 3.6.20: The Havel-Hakimi test"><a href="#alg-havelhakimi" title="Copy heading and permalink for Algorithm 3.6.20: The Havel-Hakimi test" aria-label="Copy heading and permalink for Algorithm 3.6.20: The Havel-Hakimi test">🔗</a></div></article><details id="sec-degreesequences-32" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.6.21</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-degreesequences-32-1">
+<div class="para">For each of the following proper sequences, determine whether or not it is graphic using the Havel-Hakimi test. If it is graphic, construct a graph realizing the degree sequence by applying the construction method given in the proof of the Havel-Hakimi theorem.</div>
+<ol class="decimal" id="sec-degreesequences-32-1-1">
+<li id="sec-degreesequences-32-1-1-1">
+<div class="para" id="sec-degreesequences-32-1-1-1-1">
+<span class="process-math">\(\displaystyle (5,5,5,5,5,3,3,1,1,1,1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-32-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.21.1"><a href="#sec-degreesequences-32-1-1-1" title="Copy heading and permalink for Item 3.6.21.1" aria-label="Copy heading and permalink for Item 3.6.21.1">🔗</a></div>
+</li>
+<li id="sec-degreesequences-32-1-1-2">
+<div class="para" id="sec-degreesequences-32-1-1-2-1">
+<span class="process-math">\(\displaystyle (7, 5, 5, 4, 4, 3, 3, 2, 2, 1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-32-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.21.2"><a href="#sec-degreesequences-32-1-1-2" title="Copy heading and permalink for Item 3.6.21.2" aria-label="Copy heading and permalink for Item 3.6.21.2">🔗</a></div>
+</li>
+<li id="sec-degreesequences-32-1-1-3">
+<div class="para" id="sec-degreesequences-32-1-1-3-1">
+<span class="process-math">\(\displaystyle (8,4,3,3,1,1,1,1,1,1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-32-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.21.3"><a href="#sec-degreesequences-32-1-1-3" title="Copy heading and permalink for Item 3.6.21.3" aria-label="Copy heading and permalink for Item 3.6.21.3">🔗</a></div>
+</li>
+<li id="sec-degreesequences-32-1-1-4">
+<div class="para" id="sec-degreesequences-32-1-1-4-1">
+<span class="process-math">\(\displaystyle (7, 6, 6, 5, 5, 5, 4, 4)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-32-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.6.21.4"><a href="#sec-degreesequences-32-1-1-4" title="Copy heading and permalink for Item 3.6.21.4" aria-label="Copy heading and permalink for Item 3.6.21.4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-degreesequences-32-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.6.21"><a href="#sec-degreesequences-32" title="Copy heading and permalink for Checkpoint 3.6.21" aria-label="Copy heading and permalink for Checkpoint 3.6.21">🔗</a></div></article></details><div class="autopermalink" data-description="Section 3.6: Degree Sequences"><a href="#sec-degreesequences" title="Copy heading and permalink for Section 3.6: Degree Sequences" aria-label="Copy heading and permalink for Section 3.6: Degree Sequences">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-prufercayley.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-stacksortable.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

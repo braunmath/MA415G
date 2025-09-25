@@ -1690,7 +1690,214 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.6",
   "title": "Degree Sequences",
-  "body": " Degree Sequences  "
+  "body": " Degree Sequences  We have seen that the degrees of the vertices play several key roles for graphs. This leads us to the following definition and theorem.    Given a finite graph , the degree sequence of is the sequence of vertex degrees of written in non-increasing order. If a sequence with is the degree sequence of a graph, then we say is a graphic sequence . Note that there might be more than one graph with the same graphic sequence.     The degree sequence of the following graph is .   Example for graph degree sequence      For each of the following degree sequences, create a graph having that degree sequence.                    The main question we will ask about degree sequences is: which non-increasing lists of integers are graphic?  We will start by investigating a special class of graphs called threshold graphs .    Consider the following two operations on a finite graph :    Isolated addition (I): add a new vertex of degree zero to , i.e., add an isolated vertex.     Suspension (S): add a new vertex that is connected by an edge to every vertex of ; the resulting graph is called the suspension of .   A threshold graph is a graph obtained by starting with a single vertex and applying any sequence of isolated additions and suspensions.     For each of the following sequences (read from left to right) of isolated additions and suspensions, find the resulting threshold graph and calculate its degree sequence. Remember to start with a single vertex before you apply these operations!    SSSSSS    IIISIIIS (i.e., add three isolated vertices to the first isolated vertex, followed by a suspension, followed by adding three more isolated vertices, followed by another suspension)    SISISIS    SSSIISISS       For a threshold graph with vertices with degree sequence , explain why     For a threshold graph with vertices with degree sequence and , explain why Hint: Think about counting the vertex-edge adjacencies for each edge adjacent to or .   These observations lead us to the following property of threshold graphs.    Given a graphic degree sequence , the corrected Durfee number is      Find the corrected Durfee number for each of the following degree sequences:                      If is a threshold graph on vertices with degree sequence , then for every we have      Write out each of these equalities for and .   We start with the following lemma. We write or to denote the set of vertices in that are adjacent to , i.e., connected to by an edge. This set is called the neighbors of .    Relabel the vertex set of a threshold graph as such that . With this labeling, if contains elements, then consists of the first vertices from the list      We prove this by induction on the number of vertices in . If there are one or two vertices, then this is true since the sets under consideration are empty. Now, suppose that is a threshold graph on vertices for which the lemma holds. When we add a vertex to , resulting in a graph with one more vertex, then this can either happen through an isolated vertex or suspension move. If an isolated vertex is added, then none of the neighborhoods of the vertices change, and the new vertex (having degree zero) is labeled as , so the result holds since it already holds for .  If a suspension vertex is added, then the new vertex has degree and is labeled , while all other vertices have their degrees increased by one and their labels are each increased by one. As is added to the neighborhood of every existing vertex, then since consists of the first vertices from the list for , and the new is a neighbor in of every vertex in , we have that the claim regarding the initial segment of vertices being neighbors also holds in .    Let be the threshold graph obtained via the construction SSSIISISS   Verify that this lemma holds for .    Go through the induction step in the proof of the lemma above starting from .       Proof of  To prove that a threshold graph on vertices satisfies for every , we will count the quantity in two ways. First, observe that counts the number of vertex-edge pairs where and is incident to .  Second, since , we have that for all , and thus are all neighbors of each such . Thus, the first vertices in form a complete graph, which has edges, leading to vertex-edge pairs. Each vertex for is connected to the first vertices in . If , then this corresponds to vertex-edge adjacencies involving a vertex in . If , then this corresponds to such adjacencies. Thus, the left-hand and right-hand side of the equality both enumerate the same set, and thus are equal.       What goes wrong with this argument if we have a where ?    Discuss the above proof. What makes sense? What is confusing? Draw examples to investigate!      What is remarkable about threshold graphs is that they are the most extreme you can get with regard to these numerical relationships for degree sequences. Specifically, the following theorem due to Erdős and Gallai (which we will state without proof) characterizes graphical degree sequences by relaxing the equalities that we have been investigating.   Erdős-Gallai theorem   A sequence of non-negative integers is graphic if and only if is even and for every we have      For each of the following sequences, determine whether or not it is graphic.                         There is another beautiful recursive characterization of degree sequences. We call a sequence a proper sequence if    Havel-Hakimi Theorem   Let be a proper sequence. For any , let be the sequence obtained from by deleting and decreasing each of the first remaining entries by ; we call this operation a Havel-Hakimi step in position . Then is graphic if and only if is.     For each of the following degree sequences, verify that this theorem holds when .                     We first prove that if is graphic, then so is . Suppose is a graphic sequence, i.e., there is a graph that realizes the degree sequence . Suppose are the indices of the entries that had their degree dropped when was removed. Starting with a graph with degree sequence , add a new vertex and connect it to the vertices having degrees for . This produces a graph with degree sequence .  We next prove that if is graphic, then so is . Our first goal is to show that, much like the case of threshold graphs, if is graphic then there is a graph realizing such that a vertex of degree is connected to the vertices of highest degrees. Let be a graph with degree sequence . Relabel the vertex set of as such that . We say that and are a missing pair if there is an so that is adjacent to , is not adjacent to , and . In other words, there is a neighbor of with strictly smaller degree than some non-neighbor of . If we have a missing pair, then there must be a fourth vertex that is a neighbor of but not of . We can then delete from the edges and replace them with the edges This yields a new graph with degree sequence and one less missing pair than . Iterating this process, we eventually reach a graph realizing that has no missing pairs. If is the entry removed by the Havel-Hakimi step, then removing vertex from removes one edge from each of the highest degree vertices in , which yields a graph realizing the degree sequence , as desired.   The Havel-Hakimi theorem gives rise to an algorithm to test whether or not a proper sequence is graphic and to produce a graph realizing that sequence.   The Havel-Hakimi test   Given a proper sequence , pick some entry and apply a Havel-Hakimi step. Rearrange the resulting sequence in non-increasing order. If any entries are negative, then it is not graphic. If the resulting sequence is proper, then pick another entry and apply a Havel-Hakimi step. Continue in this way until either a negative entry is found, in which case the sequence is not graphic, or the resulting sequence consists of all zeros, in which case adding vertices and edges by reversing all the steps produces a graph realizing the degree sequence .     For each of the following proper sequences, determine whether or not it is graphic using the Havel-Hakimi test. If it is graphic, construct a graph realizing the degree sequence by applying the construction method given in the proof of the Havel-Hakimi theorem.                         "
+},
+{
+  "id": "def-degreesequence",
+  "level": "2",
+  "url": "sec-degreesequences.html#def-degreesequence",
+  "type": "Definition",
+  "number": "3.6.1",
+  "title": "",
+  "body": "  Given a finite graph , the degree sequence of is the sequence of vertex degrees of written in non-increasing order. If a sequence with is the degree sequence of a graph, then we say is a graphic sequence . Note that there might be more than one graph with the same graphic sequence.   "
+},
+{
+  "id": "sec-degreesequences-4",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-4",
+  "type": "Example",
+  "number": "3.6.2",
+  "title": "",
+  "body": " The degree sequence of the following graph is .   Example for graph degree sequence    "
+},
+{
+  "id": "sec-degreesequences-5",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-5",
+  "type": "Checkpoint",
+  "number": "3.6.4",
+  "title": "",
+  "body": " For each of the following degree sequences, create a graph having that degree sequence.                   "
+},
+{
+  "id": "def-thresholdgraph",
+  "level": "2",
+  "url": "sec-degreesequences.html#def-thresholdgraph",
+  "type": "Definition",
+  "number": "3.6.5",
+  "title": "",
+  "body": "  Consider the following two operations on a finite graph :    Isolated addition (I): add a new vertex of degree zero to , i.e., add an isolated vertex.     Suspension (S): add a new vertex that is connected by an edge to every vertex of ; the resulting graph is called the suspension of .   A threshold graph is a graph obtained by starting with a single vertex and applying any sequence of isolated additions and suspensions.   "
+},
+{
+  "id": "sec-degreesequences-9",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-9",
+  "type": "Checkpoint",
+  "number": "3.6.6",
+  "title": "",
+  "body": " For each of the following sequences (read from left to right) of isolated additions and suspensions, find the resulting threshold graph and calculate its degree sequence. Remember to start with a single vertex before you apply these operations!    SSSSSS    IIISIIIS (i.e., add three isolated vertices to the first isolated vertex, followed by a suspension, followed by adding three more isolated vertices, followed by another suspension)    SISISIS    SSSIISISS     "
+},
+{
+  "id": "sec-degreesequences-10",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-10",
+  "type": "Checkpoint",
+  "number": "3.6.7",
+  "title": "",
+  "body": " For a threshold graph with vertices with degree sequence , explain why   "
+},
+{
+  "id": "sec-degreesequences-11",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-11",
+  "type": "Checkpoint",
+  "number": "3.6.8",
+  "title": "",
+  "body": " For a threshold graph with vertices with degree sequence and , explain why Hint: Think about counting the vertex-edge adjacencies for each edge adjacent to or .  "
+},
+{
+  "id": "def-correctedDurfeenumber",
+  "level": "2",
+  "url": "sec-degreesequences.html#def-correctedDurfeenumber",
+  "type": "Definition",
+  "number": "3.6.9",
+  "title": "",
+  "body": "  Given a graphic degree sequence , the corrected Durfee number is    "
+},
+{
+  "id": "sec-degreesequences-14",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-14",
+  "type": "Checkpoint",
+  "number": "3.6.10",
+  "title": "",
+  "body": " Find the corrected Durfee number for each of the following degree sequences:                   "
+},
+{
+  "id": "thm-thresholdcharacterization",
+  "level": "2",
+  "url": "sec-degreesequences.html#thm-thresholdcharacterization",
+  "type": "Theorem",
+  "number": "3.6.11",
+  "title": "",
+  "body": "  If is a threshold graph on vertices with degree sequence , then for every we have    "
+},
+{
+  "id": "sec-degreesequences-16",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-16",
+  "type": "Checkpoint",
+  "number": "3.6.12",
+  "title": "",
+  "body": " Write out each of these equalities for and .  "
+},
+{
+  "id": "lem-thresholdnesting",
+  "level": "2",
+  "url": "sec-degreesequences.html#lem-thresholdnesting",
+  "type": "Lemma",
+  "number": "3.6.13",
+  "title": "",
+  "body": "  Relabel the vertex set of a threshold graph as such that . With this labeling, if contains elements, then consists of the first vertices from the list    "
+},
+{
+  "id": "sec-degreesequences-19",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-19",
+  "type": "Proof",
+  "number": "3.6.1",
+  "title": "",
+  "body": " We prove this by induction on the number of vertices in . If there are one or two vertices, then this is true since the sets under consideration are empty. Now, suppose that is a threshold graph on vertices for which the lemma holds. When we add a vertex to , resulting in a graph with one more vertex, then this can either happen through an isolated vertex or suspension move. If an isolated vertex is added, then none of the neighborhoods of the vertices change, and the new vertex (having degree zero) is labeled as , so the result holds since it already holds for .  If a suspension vertex is added, then the new vertex has degree and is labeled , while all other vertices have their degrees increased by one and their labels are each increased by one. As is added to the neighborhood of every existing vertex, then since consists of the first vertices from the list for , and the new is a neighbor in of every vertex in , we have that the claim regarding the initial segment of vertices being neighbors also holds in .  "
+},
+{
+  "id": "sec-degreesequences-20",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-20",
+  "type": "Checkpoint",
+  "number": "3.6.14",
+  "title": "",
+  "body": " Let be the threshold graph obtained via the construction SSSIISISS   Verify that this lemma holds for .    Go through the induction step in the proof of the lemma above starting from .     "
+},
+{
+  "id": "sec-degreesequences-21",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-21",
+  "type": "Proof",
+  "number": "3.6.2",
+  "title": "Proof of Theorem 3.6.11.",
+  "body": " Proof of  To prove that a threshold graph on vertices satisfies for every , we will count the quantity in two ways. First, observe that counts the number of vertex-edge pairs where and is incident to .  Second, since , we have that for all , and thus are all neighbors of each such . Thus, the first vertices in form a complete graph, which has edges, leading to vertex-edge pairs. Each vertex for is connected to the first vertices in . If , then this corresponds to vertex-edge adjacencies involving a vertex in . If , then this corresponds to such adjacencies. Thus, the left-hand and right-hand side of the equality both enumerate the same set, and thus are equal.  "
+},
+{
+  "id": "sec-degreesequences-22",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-22",
+  "type": "Checkpoint",
+  "number": "3.6.15",
+  "title": "",
+  "body": "    What goes wrong with this argument if we have a where ?    Discuss the above proof. What makes sense? What is confusing? Draw examples to investigate!     "
+},
+{
+  "id": "thm-erdosgallai",
+  "level": "2",
+  "url": "sec-degreesequences.html#thm-erdosgallai",
+  "type": "Theorem",
+  "number": "3.6.16",
+  "title": "Erdős-Gallai theorem.",
+  "body": " Erdős-Gallai theorem   A sequence of non-negative integers is graphic if and only if is even and for every we have    "
+},
+{
+  "id": "sec-degreesequences-25",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-25",
+  "type": "Checkpoint",
+  "number": "3.6.17",
+  "title": "",
+  "body": " For each of the following sequences, determine whether or not it is graphic.                        "
+},
+{
+  "id": "thm-havelhakimi",
+  "level": "2",
+  "url": "sec-degreesequences.html#thm-havelhakimi",
+  "type": "Theorem",
+  "number": "3.6.18",
+  "title": "Havel-Hakimi Theorem.",
+  "body": " Havel-Hakimi Theorem   Let be a proper sequence. For any , let be the sequence obtained from by deleting and decreasing each of the first remaining entries by ; we call this operation a Havel-Hakimi step in position . Then is graphic if and only if is.   "
+},
+{
+  "id": "sec-degreesequences-28",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-28",
+  "type": "Checkpoint",
+  "number": "3.6.19",
+  "title": "",
+  "body": " For each of the following degree sequences, verify that this theorem holds when .                   "
+},
+{
+  "id": "sec-degreesequences-29",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-29",
+  "type": "Proof",
+  "number": "3.6.3",
+  "title": "",
+  "body": " We first prove that if is graphic, then so is . Suppose is a graphic sequence, i.e., there is a graph that realizes the degree sequence . Suppose are the indices of the entries that had their degree dropped when was removed. Starting with a graph with degree sequence , add a new vertex and connect it to the vertices having degrees for . This produces a graph with degree sequence .  We next prove that if is graphic, then so is . Our first goal is to show that, much like the case of threshold graphs, if is graphic then there is a graph realizing such that a vertex of degree is connected to the vertices of highest degrees. Let be a graph with degree sequence . Relabel the vertex set of as such that . We say that and are a missing pair if there is an so that is adjacent to , is not adjacent to , and . In other words, there is a neighbor of with strictly smaller degree than some non-neighbor of . If we have a missing pair, then there must be a fourth vertex that is a neighbor of but not of . We can then delete from the edges and replace them with the edges This yields a new graph with degree sequence and one less missing pair than . Iterating this process, we eventually reach a graph realizing that has no missing pairs. If is the entry removed by the Havel-Hakimi step, then removing vertex from removes one edge from each of the highest degree vertices in , which yields a graph realizing the degree sequence , as desired.  "
+},
+{
+  "id": "alg-havelhakimi",
+  "level": "2",
+  "url": "sec-degreesequences.html#alg-havelhakimi",
+  "type": "Algorithm",
+  "number": "3.6.20",
+  "title": "The Havel-Hakimi test.",
+  "body": " The Havel-Hakimi test   Given a proper sequence , pick some entry and apply a Havel-Hakimi step. Rearrange the resulting sequence in non-increasing order. If any entries are negative, then it is not graphic. If the resulting sequence is proper, then pick another entry and apply a Havel-Hakimi step. Continue in this way until either a negative entry is found, in which case the sequence is not graphic, or the resulting sequence consists of all zeros, in which case adding vertices and edges by reversing all the steps produces a graph realizing the degree sequence .   "
+},
+{
+  "id": "sec-degreesequences-32",
+  "level": "2",
+  "url": "sec-degreesequences.html#sec-degreesequences-32",
+  "type": "Checkpoint",
+  "number": "3.6.21",
+  "title": "",
+  "body": " For each of the following proper sequences, determine whether or not it is graphic using the Havel-Hakimi test. If it is graphic, construct a graph realizing the degree sequence by applying the construction method given in the proof of the Havel-Hakimi theorem.                        "
 },
 {
   "id": "sec-stacksortable",
@@ -1762,7 +1969,7 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "10",
   "title": "Homework Problems and Essays",
-  "body": " Homework Problems and Essays   P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that        P2  How many binary strings of length are there with exactly two ones and zeros? Express your answer as either a function of or as a recursive expression. Give an argument, i.e., a proof, explaining why your solution is correct.    Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P3  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have     P4  Give a combinatorial proof showing that     P5   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these. However, you need to provide a narrative in sentences\/paragraphs explaining your thinking and the results of your investigations. (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)    P6  For each positive integer , express in terms of Fibonacci numbers the number of sequences with each , such that     P7     Find a relationship between the Fibonacci numbers and the number of compositions of where every part is an odd number. Prove that your answer is correct.     A subset is called large if we have that for every . So, for example, is large while is not large. We define that the emptyset is large. Let be the number of large subsets of (including the emptyset). Find a relationship between and the Fibonacci numbers and prove that your answer is correct.       P8  In this problem you will prove that holds for all . Let denote the number of ways to select elements from and write them in a linear order, i.e., write them as a permutation.   Prove that using only the combinatorial interpretation of .    Prove that     Using the previous two parts of this problem, prove that        P9  Prove that Note that , and thus this shows that is approximately .    P10  A permutation is an involution if all cycles have length or . Let denote the number of involutions in . Prove that where and .    P11  A permutation is called connected if for every . Let denote the number of connected permutations in . Prove that     Essay 2  Read the following blog post by Keith Weber, a professor of math education at Rutgers University who studies how undergraduate students understand proofs in mathematics: After you read this article, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   The article describes four expectations that professors have for students, but which are usually mis-communicated. For each of these four expectations , do you respond more like the students in their surveys, or more like the professors? Why?    The discussion at the end of the article has some recommendations for faculty in their courses. Which of these recommendations do you think you would find most helpful for your learning, and why?    What is one thing you might change about your approach to your math courses after reading this article? Why is this the thing you would choose to change?      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P12  Recall that is the number of permutations in with inversions, and is the number of permutations in with descents. Give a combinatorial proof that and     P13     In the first part of this problem, you will prove by induction that    First, verify the base case for the induction argument, i.e., check that this is true for .    Second, assume that this is true for all values less than . In particular, this means that we assume we have already verified that To prove that the induction step holds, use this to prove that the equation holds for as follows: write and then substitute the formula for the case and simplify with algebra.    Explain in your own words why this shows that the formula is true for any positive integer .       Prove by induction that    Comment for those who are interested: These two formulas are ones that students learn (and typically forget) in Calculus I. However, these are special cases of a beautiful formula called Faulhaber's formula which is a formula for the sum of the -th powers of the first positive integers: .    P14     A graph is called -regular if every vertex has degree . How many edges does a -regular graph on vertices have?    Does there exist a -regular graph on vertices? Why or why not?       P15      P16      P17      Essay 3      P18      P19      P20      P21      P22      P23      Essay 4      P24      P25      P26      P27      P28      P29      Essay 5      P30      P31      P32      P33      P34      P35      Essay 6      P36      P37      P38      P39      P40      End-of-Class Reflection     "
+  "body": " Homework Problems and Essays   P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that        P2  How many binary strings of length are there with exactly two ones and zeros? Express your answer as either a function of or as a recursive expression. Give an argument, i.e., a proof, explaining why your solution is correct.    Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P3  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have     P4  Give a combinatorial proof showing that     P5   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these. However, you need to provide a narrative in sentences\/paragraphs explaining your thinking and the results of your investigations. (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)    P6  For each positive integer , express in terms of Fibonacci numbers the number of sequences with each , such that     P7     Find a relationship between the Fibonacci numbers and the number of compositions of where every part is an odd number. Prove that your answer is correct.     A subset is called large if we have that for every . So, for example, is large while is not large. We define that the emptyset is large. Let be the number of large subsets of (including the emptyset). Find a relationship between and the Fibonacci numbers and prove that your answer is correct.       P8  In this problem you will prove that holds for all . Let denote the number of ways to select elements from and write them in a linear order, i.e., write them as a permutation.   Prove that using only the combinatorial interpretation of .    Prove that     Using the previous two parts of this problem, prove that        P9  Prove that Note that , and thus this shows that is approximately .    P10  A permutation is an involution if all cycles have length or . Let denote the number of involutions in . Prove that where and .    P11  A permutation is called connected if for every . Let denote the number of connected permutations in . Prove that     Essay 2  Read the following blog post by Keith Weber, a professor of math education at Rutgers University who studies how undergraduate students understand proofs in mathematics: After you read this article, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   The article describes four expectations that professors have for students, but which are usually mis-communicated. For each of these four expectations , do you respond more like the students in their surveys, or more like the professors? Why?    The discussion at the end of the article has some recommendations for faculty in their courses. Which of these recommendations do you think you would find most helpful for your learning, and why?    What is one thing you might change about your approach to your math courses after reading this article? Why is this the thing you would choose to change?      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P12  Recall that is the number of permutations in with inversions, and is the number of permutations in with descents. Give a combinatorial proof that and     P13     In the first part of this problem, you will prove by induction that    First, verify the base case for the induction argument, i.e., check that this is true for .    Second, assume that this is true for all values less than . In particular, this means that we assume we have already verified that To prove that the induction step holds, use this to prove that the equation holds for as follows: write and then substitute the formula for the case and simplify with algebra.    Explain in your own words why this shows that the formula is true for any positive integer .       Prove by induction that    Comment for those who are interested: These two formulas are ones that students learn (and typically forget) in Calculus I. However, these are special cases of a beautiful formula called Faulhaber's formula which is a formula for the sum of the -th powers of the first positive integers: .    P14     A graph is called -regular if every vertex has degree . How many edges does a -regular graph on vertices have?    Does there exist a -regular graph on vertices? Why or why not?       P15  A graph is bipartite if the vertex set of can be partitioned as in such a way that every edge in has one endpoint in and one in . Prove that is bipartite if and only if every cycle in has an even number of edges.    P16  Suppose a tree has exactly one vertex of degree for each and all other vertices have degree .   How many vertices does have?    For each , explain how to construct an example of a tree with this property.       P17  A graceful labeling of a tree on vertices is a mapping so that for each edge , the value of is distinct from the value on any other edge. The path graph of length , denoted , is the graph with vertex set and edges for every . Show that every has a graceful labeling.  NOTE: A well-known and extremely challenging unsolved conjecture is that all trees admit graceful labelings. This is known for some trees but not all trees.    Essay 3  Watch the following YouTube video from Numberphile (13 minutes, published 29 Jan 2024): After you watch this video, complete the following essay.   This will be an essay of length 500 words, which is equivalent to 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced.    Write a critical review of this Numberphile video. Imagine that you are writing your review for a journal for undergraduates in mathematics and the sciences, so your primary audience is undergraduate math\/cs\/engineering\/etc majors and minors.    Like any critic, you will respond positively to some things and negatively to others. Unlike many critics, you need to justify your opinions and provide detailed explanations for your claims.    You should consider the following questions:    Does the video effectively communicate the mathematics it discusses? Why or why not? Justify your claims with specific details about the video.    We have discussed multiple approaches\/themes to enumeration in this course, for example, recursions, bijections, systematic listing, etc. Which of these approaches\/themes to enumeration are used in this video? Be detailed, give specific examples from the video!    Is the mathematics clearly explained? If yes, what did they do especially well? If no, what made it unclear? Again, justify your claims with specific examples from the video.     Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P18      P19      P20      P21      P22      P23      Essay 4      P24      P25      P26      P27      P28      P29      Essay 5      P30      P31      P32      P33      P34      P35      Essay 6      P36      P37      P38      P39      P40      End-of-Class Reflection     "
 },
 {
   "id": "ch-homework-2",
@@ -1915,7 +2122,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.17",
   "title": "P15.",
-  "body": " P15    "
+  "body": " P15  A graph is bipartite if the vertex set of can be partitioned as in such a way that every edge in has one endpoint in and one in . Prove that is bipartite if and only if every cycle in has an even number of edges.  "
 },
 {
   "id": "ch-homework-19",
@@ -1924,7 +2131,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.18",
   "title": "P16.",
-  "body": " P16    "
+  "body": " P16  Suppose a tree has exactly one vertex of degree for each and all other vertices have degree .   How many vertices does have?    For each , explain how to construct an example of a tree with this property.     "
 },
 {
   "id": "ch-homework-20",
@@ -1933,7 +2140,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.19",
   "title": "P17.",
-  "body": " P17    "
+  "body": " P17  A graceful labeling of a tree on vertices is a mapping so that for each edge , the value of is distinct from the value on any other edge. The path graph of length , denoted , is the graph with vertex set and edges for every . Show that every has a graceful labeling.  NOTE: A well-known and extremely challenging unsolved conjecture is that all trees admit graceful labelings. This is known for some trees but not all trees.  "
 },
 {
   "id": "ch-homework-21",
@@ -1942,7 +2149,7 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.20",
   "title": "Essay 3.",
-  "body": " Essay 3    "
+  "body": " Essay 3  Watch the following YouTube video from Numberphile (13 minutes, published 29 Jan 2024): After you watch this video, complete the following essay.   This will be an essay of length 500 words, which is equivalent to 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced.    Write a critical review of this Numberphile video. Imagine that you are writing your review for a journal for undergraduates in mathematics and the sciences, so your primary audience is undergraduate math\/cs\/engineering\/etc majors and minors.    Like any critic, you will respond positively to some things and negatively to others. Unlike many critics, you need to justify your opinions and provide detailed explanations for your claims.    You should consider the following questions:    Does the video effectively communicate the mathematics it discusses? Why or why not? Justify your claims with specific details about the video.    We have discussed multiple approaches\/themes to enumeration in this course, for example, recursions, bijections, systematic listing, etc. Which of these approaches\/themes to enumeration are used in this video? Be detailed, give specific examples from the video!    Is the mathematics clearly explained? If yes, what did they do especially well? If no, what made it unclear? Again, justify your claims with specific examples from the video.     Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).  "
 },
 {
   "id": "ch-homework-22",
