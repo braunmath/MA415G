@@ -10,7 +10,7 @@
         <statement>
             <p>
                 Given a finite graph <m>G</m>, the <em>degree sequence</em> of <m>G</m> is the sequence of vertex degrees of <m>G</m> written in non-increasing order.
-                If a sequence <m>\mathbf{d}=(d_1,d_2,\ldots,d_n)</m> is the degree sequence of a graph, then we say <m>\mathbf{d}</m> is a <em>graphic sequence</em>.
+                If a sequence <m>\mathbf{d}=(d_1,d_2,\ldots,d_n)</m> with <m>d_1 \geq d_2 \geq \ldots \geq d_n</m> is the degree sequence of a graph, then we say <m>\mathbf{d}</m> is a <em>graphic sequence</em>.
                 Note that there might be more than one graph with the same graphic sequence.
             </p>
         </statement>
@@ -50,23 +50,153 @@
     </exercise>
 
     <p>
-        The two main questions we will ask about degree sequences are:
-        <ol>
-            <li>
-                <p>
-                    Which non-increasing lists of integers are graphic?
-                </p>
-            </li>
-            <li>
-                <p>
-                    Given a non-increasing list of integers, how can we test to see if it is graphic?
-                </p>
-            </li>
-        </ol>
+        The main question we will ask about degree sequences is: which non-increasing lists of integers are graphic?
     </p>
 
+    <p>
+        We will start by investigating a special case of graphs called <em>threshold graphs</em>.
+    </p>
+
+    <definition xml:id="def-thresholdgraph">
+        <statement>
+            <p>
+                Consider the following two operations on a finite graph <m>G</m>:
+                <ul>
+                    <li>
+                        <p>
+                            <em>Isolated addition (I):</em> add a new vertex of degree zero to <m>G</m>, i.e., add an isolated vertex.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <em>Suspension (S):</em> add a new vertex that is connected by an edge to every vertex of <m>G</m>; the resulting graph is called the suspension of <m>G</m>.
+                        </p>
+                    </li>
+                </ul>
+                A <em>threshold graph</em> is a graph obtained by starting with a single vertex and applying any sequence of isolated additions and suspensions.
+            </p>
+        </statement>
+    </definition>
+
+    <exercise>
         <p>
-            Let's return to this graph again with degree sequence
+            For each of the following sequences (read from left to right) of isolated additions and suspensions, find the resulting threshold graph and calculate its degree sequence.
+            Remember to <em>start with a single vertex before you apply these operations!</em>
+            <ol>
+                <li>
+                    <p>
+                        SSSSSS
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        IIISIIIS (i.e., add three isolated vertices to the first isolated vertex, followed by a suspension, followed by adding three more isolated vertices, followed by another suspension)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        SISISIS
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        SSSIISISS
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </exercise>
+
+    <exercise>
+        <p>
+            For a threshold graph with <m>n</m> vertices with degree sequence <m>(d_1,d_2,\ldots,d_n)</m>, explain why 
+            <me>
+                n-1 = d_1 = \sum_{j=2}^n\min(1,d_j) \, .
+            </me>
+        </p>
+    </exercise>
+    <exercise>
+        <p>
+            For a threshold graph with <m>n</m> vertices with degree sequence <m>(d_1,d_2,\ldots,d_n)</m>, explain why 
+            <me>
+                d_1 + d_2 = 2 + \sum_{j=3}^n\min(2,d_j) \, .
+            </me>
+            Hint: If <m>v_1</m> has degree <m>d_1</m> and <m>v_2</m> has degree <m>d_2</m>, what can you say about the neighbors of <m>v_1</m> compared to the neighbors of <m>v_2</m>?
+        </p>
+    </exercise>
+
+    <p>
+        These observations lead us to the following property of threshold graphs.
+    </p>
+
+    <theorem xml:id="thm-thresholdcharacterization">
+        <statement>
+            <p>
+                If <m>G</m> is a threshold graph on <m>n</m> vertices with degree sequence <m>(d_1,d_2,\ldots,d_n)</m>, then for every <m>1\leq k \leq n</m> we have
+                    <me>
+                        \sum_{i=1}^k d_i = k(k-1) + \sum_{j=k+1}^n \min(k,d_j) \, .
+                    </me>
+            </p>
+        </statement>
+    </theorem>
+
+    <exercise>
+        <p>
+            Write out each of these equalities for <m>n=6</m>.
+        </p>
+    </exercise>
+
+    <proof>
+        <p>
+            
+        </p>
+    </proof>
+
+    <p>
+        What is remarkable about threshold graphs is that they are the most extreme you can get with regard to these relationships among the degree sequence.
+        Specifically, the following theorem due to Erdős and Gallai characterizes graphical degree sequences.
+    </p>
+
+    <theorem xml:id="thm-erdosgallai">
+        <title>Erdős-Gallai theorem</title>
+        <statement>
+            <p>
+                A sequence of non-negative integers <m>(d_1,d_2,\ldots,d_n)</m> is graphic if and only if the sum of the sequence is even and for every <m>1\leq k \leq n</m> we have
+                <me>
+                        \sum_{i=1}^k d_i \leq k(k-1) + \sum_{j=k+1}^n \min(k,d_j) \, .
+                    </me>
+            </p>
+        </statement>
+    </theorem>
+
+<exercise>
+        <p>
+            For each of the following degree sequences, verify that the Erdős-Gallai conditions hold.
+            <ol>
+                <li>
+                    <p>
+                        <m>(2,2,2,2,2)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(5,2,2,1,1,1,1,1)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(6,3,3,3,3,3,3)</m>
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </exercise>
+
+    
+    
+    <!--
+        <p>
+            Let's return to the following graph again, which has degree sequence
             <me>
                 (7, 6, 6, 5, 5, 4, 3, 3, 3, 2) \, .
             </me>
@@ -77,11 +207,15 @@
             Note that this is what would happen if the vertex of degree <m>7</m> was connected to the highest-degree other vertices.
         </p>
             <figure xml:id="fig-degree_sequence2">
-    <caption>Example for graph degree sequence</caption>
+    <caption>Degree sequence <m>(7, 6, 6, 5, 5, 4, 3, 3, 3, 2)</m></caption>
     <image source="degreesequencegraph.png" width="75%"/>
 </figure>
         <p>
-            However, there is a problem: the vertex of degree <m>7</m>, which is labeled vertex 7, is connected to a vertex of degree two.
-            So, for this particular graph, removing the vertex of highest degree does not cause the degree 
+            However, <em>there is a problem</em>: the vertex of degree <m>7</m>, which is labeled vertex 7, is connected to a vertex of degree two.
+            So, for this particular graph, removing the vertex of highest degree does not cause the degree sequence to decrease in such a nice manner.
+            What is remarkable is that for every graphic degree sequence, there exists a graph where this strategy does work.
         </p>
+-->
+
+
 </section>
