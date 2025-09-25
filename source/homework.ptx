@@ -296,25 +296,89 @@ Your grade is based on completion only (in other words, if you complete the assi
                 <problem>
         <title>P15</title>
         <p>
-            
+            A graph <m>G</m> is <em>bipartite</em> if the vertex set of <m>G</m> can be partitioned as <m>V=A\uplus B</m> in such a way that every edge in <m>G</m> has one endpoint in <m>A</m> and one in <m>B</m>.
+            Prove that <m>G</m> is bipartite if and only if every cycle in <m>G</m> has an even number of edges.
         </p>
     </problem>
         <problem>
         <title>P16</title>
         <p>
-            
+            Suppose a tree <m>T</m> has exactly one vertex of degree <m>i</m> for each <m>2\leq i\leq m</m> and all other vertices have degree <m>1</m>.
+            <ol>
+                <li>
+                    <p>
+                        How many vertices does <m>T</m> have?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        For each <m>m</m>, explain how to construct an example of a tree with this property. 
+                    </p>
+                </li>
+            </ol>
         </p>
     </problem>
         <problem>
         <title>P17</title>
         <p>
-            
+            A <em>graceful labeling</em> of a tree <m>T</m> on <m>n</m> vertices is a mapping <me>f:V(T)\rightarrow \{1,\ldots,n\}</me> so that for each edge <m>\{x,y\}</m>, the value of <me>|f(x)-f(y)|</me> is distinct from the value on any other edge.
+            The <em>path graph of length <m>n</m></em>, denoted <m>P_n</m>, is the graph with vertex set <m>\{1,2,\ldots,n,n+1\}</m> and edges <m>\{i,i+1\}</m> for every <m>1\leq i\leq n</m>.
+            Show that every <m>P_n</m> has a graceful labeling.
+        </p>
+        <p>
+            NOTE: A well-known and extremely challenging unsolved conjecture is that all trees admit graceful labelings. This is known for some trees but not all trees.
         </p>
     </problem>
         <problem>
         <title>Essay 3</title>
         <p>
-            
+            Watch the following YouTube video from <em>Numberphile</em> (13 minutes, published 29 Jan 2024): <url href="https://www.youtube.com/watch?v=fczN0BCx0xs" />
+
+After you watch this video, complete the following essay.
+<ul>
+    <li>
+        <p>
+            This will be an essay of length 500 words, which is equivalent to 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Write a critical review of this Numberphile video.
+      Imagine that you are writing your review for a journal for undergraduates in mathematics and the sciences, so your primary audience is undergraduate math/cs/engineering/etc majors and minors.
+        </p>
+    </li>
+    <li>
+        <p>
+            Like any critic, you will respond positively to some things and negatively to others.  
+        Unlike many critics, you need to justify your opinions and provide detailed explanations for your claims.
+        </p>
+    </li>
+    <li>
+        <p>
+            You should consider the following questions:
+        </p>
+    <ol>
+        <li>
+            <p>
+                Does the video effectively communicate the mathematics it discusses? Why or why not? Justify your claims with specific details about the video.
+            </p>
+        </li>
+        <li>
+            <p>
+                We have discussed multiple approaches/themes to enumeration in this course, for example, recursions, bijections, systematic listing, etc. 
+                Which of these approaches/themes to enumeration are used in this video? Be detailed, give specific examples from the video!
+            </p>
+        </li>
+        <li>
+            <p>
+                Is the mathematics clearly explained? If yes, what did they do especially well? If no, what made it unclear? Again, justify your claims with specific examples from the video.
+            </p>
+        </li>
+    </ol>
+</li>
+</ul>        
+  
+Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).
         </p>
     </problem>
         <problem>
