@@ -117,11 +117,11 @@
     </exercise>
     <exercise>
         <p>
-            For a threshold graph with <m>n</m> vertices with degree sequence <m>(d_1,d_2,\ldots,d_n)</m>, explain why 
+            For a threshold graph with <m>n</m> vertices with degree sequence <m>(d_1,d_2,\ldots,d_n)</m> and <m>d_2\geq 1</m>, explain why 
             <me>
                 d_1 + d_2 = 2 + \sum_{j=3}^n\min(2,d_j) \, .
             </me>
-            Hint: If <m>v_1</m> has degree <m>d_1</m> and <m>v_2</m> has degree <m>d_2</m>, what can you say about the neighbors of <m>v_1</m> compared to the neighbors of <m>v_2</m>?
+            Hint: Think about counting the vertex-edge adjacencies for each edge adjacent to <m>v_1</m> or <m>v_2</m>.
         </p>
     </exercise>
 
@@ -129,10 +129,44 @@
         These observations lead us to the following property of threshold graphs.
     </p>
 
+    <definition xml:id="def-correctedDurfeenumber">
+        <statement>
+            <p>
+                Given a graphic degree sequence <m>\mathbf{d}=(d_1,d_2,\ldots,d_n)</m>, the <em>corrected Durfee number</em> is
+                <me>
+                    m=m(\mathbf{d})= |\{j:d_j\geq j-1\}| \, .
+                </me>
+            </p>
+        </statement>
+    </definition>
+
+    <exercise>
+        <p>
+            Find the corrected Durfee number for each of the following degree sequences:
+            <ol>
+                <li>
+                    <p>
+                        <m>(2,2,2,2,2)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(5,2,2,1,1,1,1,1)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(6,3,3,3,3,3,3)</m>
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </exercise>
+
     <theorem xml:id="thm-thresholdcharacterization">
         <statement>
             <p>
-                If <m>G</m> is a threshold graph on <m>n</m> vertices with degree sequence <m>(d_1,d_2,\ldots,d_n)</m>, then for every <m>1\leq k \leq n</m> we have
+                If <m>G</m> is a threshold graph on <m>n</m> vertices with degree sequence <m>\mathbf{d}=(d_1,d_2,\ldots,d_n)</m>, then for every <m>1\leq k \leq m(\mathbf{d})</m> we have
                     <me>
                         \sum_{i=1}^k d_i = k(k-1) + \sum_{j=k+1}^n \min(k,d_j) \, .
                     </me>
@@ -155,10 +189,11 @@
     <lemma xml:id="lem-thresholdnesting">
         <statement>
             <p>
-                Relabel the vertex set of a threshold graph <m>G</m> as <m>\{v_1,\ldots,v_n\}</m> such that <m>d_i=\deg(v_i)</m>. With this labeling, if <m>i\lt j</m>, we have 
-                <me>
-                    N(v_j)\setminus \{v_i\} \subseteq  N(v_i)\setminus \{v_j\} \, . 
-                </me>
+                Relabel the vertex set of a threshold graph <m>G</m> as <m>\{v_1,\ldots,v_n\}</m> such that <m>d_i=\deg(v_i)</m>. 
+                With this labeling, if <m>N(v_j)</m> contains <m>s</m> elements, then <m>N(v_j)</m> consists of the first <m>s</m> vertices from the list
+                 <me>
+                    (v_1,v_2,\ldots,v_{j-1},v_{j+1},\ldots,v_n) \, .
+                 </me>
             </p>
         </statement>
     </lemma>
@@ -169,12 +204,31 @@
             If there are one or two vertices, then this is true since the sets under consideration are empty.
             Now, suppose that <m>G'</m> is a threshold graph on <m>n</m> vertices for which the lemma holds. 
             When we add a vertex to <m>G'</m>, resulting in a graph <m>G</m> with one more vertex, then this can either happen through an isolated vertex or suspension move.
-            If an isolated vertex is added, then none of the neighborhoods of the vertices change, and the new vertex (having degree zero) is labeled as <m>v_{n+1}</m>.
-            If a suspension vertex is added, then the new vertex has degree <m>n</m> and is labeled <m>v_1</m>, while all other vertices have their degrees increased by one and hence their labels are each increased by one.
-            Since <m>v_1</m> is added to the neighborhood of every existing vertex, then for any <m>1\lt i\lt j</m> the containment of neighborhoods still holds.
-            If <m>i=1</m>, then since <m>N(v_1)=\{v_2,\ldots,v_{n+1}\}</m>, subset containment also holds for <m>1=i\lt j</m>.
+            If an isolated vertex is added, then none of the neighborhoods of the vertices change, and the new vertex (having degree zero) is labeled as <m>v_{n+1}</m>, so the result holds since it already holds for <m>G'</m>.
+        </p>
+        <p>
+            If a suspension vertex is added, then the new vertex has degree <m>n</m> and is labeled <m>v_1</m>, while all other vertices have their degrees increased by one and their labels are each increased by one.
+            As <m>v_1</m> is added to the neighborhood of every existing vertex, then since <m>N_{G'}(v_j)</m> consists of the first <m>s</m> vertices from the list for <m>G'</m>, and the new <m>v_1</m> is a neighbor in <m>G</m> of every vertex in <m>G'</m>, we have that the claim regarding the initial segment of vertices being neighbors also holds in <m>G</m>.
         </p>
     </proof>
+
+       <exercise>
+        <p>
+            Let <m>G</m> be the threshold graph obtained via the construction SSSIISISS
+            <ol>
+                <li>
+                    <p>
+                        Verify that this lemma holds for <m>G</m> .
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Go through the induction step in the proof of the lemma above starting from <m>G</m>.
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </exercise>
 
     <proof>
         <title>Proof of <xref ref="thm-thresholdcharacterization"/></title>
@@ -183,14 +237,41 @@
             <me>
                 \sum_{i=1}^k d_i = k(k-1) + \sum_{j=k+1}^n \min(k,d_j)
             </me>
-            for every <m>1\leq k\leq n</m>, we will count the quantity <m>\sum_{i=1}^k d_i</m> in two ways.
-            
+            for every <m>1\leq k\leq m(\mathbf{d})</m>, we will count the quantity <m>\sum_{i=1}^k d_i</m> in two ways.
+        First, observe that <m>\sum_{i=1}^k d_i</m> counts the number of vertex-edge pairs <m>(v,e)</m> where <m>v\in \{v_1,\ldots,v_k\}</m> and <m>v</m> is incident to <m>e</m>.
+        </p>
+        <p>
+            Second, since <m>k\leq m(\mathbf{d})</m>, we have that <m>d_i\geq i-1</m> for all <m>i\leq k</m>, and thus <m>v_1,\ldots,v_{i-1}</m> are all neighbors of each such <m>v_i</m>.
+            Thus, the first <m>k</m> vertices in <m>G</m> form a complete graph, which has <m>k(k-1)/2</m> edges, leading to <m>k(k-1)</m> vertex-edge pairs.
+            Each vertex <m>v_j</m> for <m>j\geq k+1</m> is connected to the first <m>d_j</m> vertices in <m>G</m>.
+            If <m>d_j\geq k</m>, then this corresponds to <m>k</m> vertex-edge adjacencies involving a vertex in <m>\{v_1,\ldots,v_k\}</m>.
+            If <m>d_j\lt k</m>, then this corresponds to <m>d_j</m> such adjacencies.
+            Thus, the left-hand and right-hand side of the equality both enumerate the same set, and thus are equal.
         </p>
     </proof>
 
+    <exercise>
+        <p>
+            <ol>
+                <li>
+                    <p>
+                        What goes wrong with this argument if we have a <m>k</m> where <m>d_k\leq k-2</m>?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Discuss the above proof. What makes sense? What is confusing? Draw examples to investigate!
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </exercise>
+ 
+
     <p>
-        What is remarkable about threshold graphs is that they are the most extreme you can get with regard to these relationships among the degree sequence.
-        Specifically, the following theorem due to Erdős and Gallai characterizes graphical degree sequences.
+        What is remarkable about threshold graphs is that they are the most extreme you can get with regard to these numerical relationships for degree sequences.
+        Specifically, the following theorem due to Erdős and Gallai (which we will state without proof) characterizes graphical degree sequences by relaxing the equalities that we have been investigating.
+
     </p>
 
     <theorem xml:id="thm-erdosgallai">
@@ -228,34 +309,55 @@
         </p>
     </exercise>
 
+    <p>
+        There is another beautiful recursive characterization of degree sequences.
+        We call a sequence <m>(d_1,d_2,\ldots,d_n)</m> a <em>proper sequence</em> if 
+        <me>
+            n-1\geq d_1\geq d_2\geq \cdots \geq d_n \geq 0 \, .
+        </me>
+    </p>
+
+    <theorem xml:id="thm-havelhakimi">
+        <title>Havel-Hakimi Theorem</title>
+        
+        
+        <statement>
+            <p>
+                Let <m>\mathbf{d}=(d_1,d_2,\ldots,d_n)</m> be a proper sequence.
+                For any <m>j</m>, let <m>\mathbf{c}=(c_1,c_2,\ldots,c_{n-1})</m> be the sequence obtained from <m>\mathbf{d}</m> by deleting <m>d_i</m> and decreasing the first <m>d_i</m> remaining entries by <m>1</m>.
+                Then   <m>\mathbf{d}</m> is graphic if and only if <m>\mathbf{c}</m> is.
+            </p>
+        </statement>
+    </theorem>
+
+<exercise>
+        <p>
+            For each of the following degree sequences, verify that this theorem holds when <m>i=3</m>.
+            <ol>
+                <li>
+                    <p>
+                        <m>(2,2,2,2,2)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(5,2,2,1,1,1,1,1)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(6,3,3,3,3,3,3)</m>
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </exercise>
+
+
     <proof>
         <p>
             
         </p>
     </proof>
-    
-    <!--
-        <p>
-            Let's return to the following graph again, which has degree sequence
-            <me>
-                (7, 6, 6, 5, 5, 4, 3, 3, 3, 2) \, .
-            </me>
-            What would be ideal would be if we removed the vertex of degree <m>7</m> and what was left was a graph with degree sequence
-            <me>
-                (5, 5, 4, 4, 3, 3, 2, 2, 2) \, .
-            </me>
-            Note that this is what would happen if the vertex of degree <m>7</m> was connected to the highest-degree other vertices.
-        </p>
-            <figure xml:id="fig-degree_sequence2">
-    <caption>Degree sequence <m>(7, 6, 6, 5, 5, 4, 3, 3, 3, 2)</m></caption>
-    <image source="degreesequencegraph.png" width="75%"/>
-</figure>
-        <p>
-            However, <em>there is a problem</em>: the vertex of degree <m>7</m>, which is labeled vertex 7, is connected to a vertex of degree two.
-            So, for this particular graph, removing the vertex of highest degree does not cause the degree sequence to decrease in such a nice manner.
-            What is remarkable is that for every graphic degree sequence, there exists a graph where this strategy does work.
-        </p>
--->
-
 
 </section>
