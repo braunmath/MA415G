@@ -10,7 +10,7 @@
         <statement>
             <p>
                 Given a finite graph <m>G</m>, the <em>degree sequence</em> of <m>G</m> is the sequence of vertex degrees of <m>G</m> written in non-increasing order.
-                If a sequence <m>\mathbf{d}=(d_1,d_2,\ldots,d_n)</m> with <m>d_1 \geq d_2 \geq \ldots \geq d_n</m> is the degree sequence of a graph, then we say <m>\mathbf{d}</m> is a <em>graphic sequence</em>.
+                If a sequence <m>\mathbf{d}=(d_1,d_2,\ldots,d_n)</m> with <m>d_1 \geq d_2 \geq \cdots \geq d_n</m> is the degree sequence of a graph, then we say <m>\mathbf{d}</m> is a <em>graphic sequence</em>.
                 Note that there might be more than one graph with the same graphic sequence.
             </p>
         </statement>
@@ -54,7 +54,7 @@
     </p>
 
     <p>
-        We will start by investigating a special case of graphs called <em>threshold graphs</em>.
+        We will start by investigating a special class of graphs called <em>threshold graphs</em>.
     </p>
 
     <definition xml:id="def-thresholdgraph">
@@ -111,7 +111,7 @@
         <p>
             For a threshold graph with <m>n</m> vertices with degree sequence <m>(d_1,d_2,\ldots,d_n)</m>, explain why 
             <me>
-                n-1 = d_1 = \sum_{j=2}^n\min(1,d_j) \, .
+                d_1 = \sum_{j=2}^n\min(1,d_j) \, .
             </me>
         </p>
     </exercise>
@@ -146,8 +146,44 @@
         </p>
     </exercise>
 
+    <p>
+        We start with the following lemma.
+        We write <m>N_G(v)</m> or <m>N(v)</m> to denote the set of vertices in <m>G</m> that are adjacent to <m>v</m>, i.e., connected to <m>v</m> by an edge.
+        This set is called the <em>neighbors</em> of <m>v</m>.
+    </p>
+
+    <lemma xml:id="lem-thresholdnesting">
+        <statement>
+            <p>
+                Relabel the vertex set of a threshold graph <m>G</m> as <m>\{v_1,\ldots,v_n\}</m> such that <m>d_i=\deg(v_i)</m>. With this labeling, if <m>i\lt j</m>, we have 
+                <me>
+                    N(v_j)\setminus \{v_i\} \subseteq  N(v_i)\setminus \{v_j\} \, . 
+                </me>
+            </p>
+        </statement>
+    </lemma>
+
     <proof>
         <p>
+            We prove this by induction on the number of vertices in <m>G</m>.
+            If there are one or two vertices, then this is true since the sets under consideration are empty.
+            Now, suppose that <m>G'</m> is a threshold graph on <m>n</m> vertices for which the lemma holds. 
+            When we add a vertex to <m>G'</m>, resulting in a graph <m>G</m> with one more vertex, then this can either happen through an isolated vertex or suspension move.
+            If an isolated vertex is added, then none of the neighborhoods of the vertices change, and the new vertex (having degree zero) is labeled as <m>v_{n+1}</m>.
+            If a suspension vertex is added, then the new vertex has degree <m>n</m> and is labeled <m>v_1</m>, while all other vertices have their degrees increased by one and hence their labels are each increased by one.
+            Since <m>v_1</m> is added to the neighborhood of every existing vertex, then for any <m>1\lt i\lt j</m> the containment of neighborhoods still holds.
+            If <m>i=1</m>, then since <m>N(v_1)=\{v_2,\ldots,v_{n+1}\}</m>, subset containment also holds for <m>1=i\lt j</m>.
+        </p>
+    </proof>
+
+    <proof>
+        <title>Proof of <xref ref="thm-thresholdcharacterization"/></title>
+        <p>
+            To prove that a threshold graph <m>G</m> on <m>n</m> vertices satisfies 
+            <me>
+                \sum_{i=1}^k d_i = k(k-1) + \sum_{j=k+1}^n \min(k,d_j)
+            </me>
+            for every <m>1\leq k\leq n</m>, we will count the quantity <m>\sum_{i=1}^k d_i</m> in two ways.
             
         </p>
     </proof>
@@ -161,7 +197,7 @@
         <title>Erdős-Gallai theorem</title>
         <statement>
             <p>
-                A sequence of non-negative integers <m>(d_1,d_2,\ldots,d_n)</m> is graphic if and only if the sum of the sequence is even and for every <m>1\leq k \leq n</m> we have
+                A sequence of non-negative integers <m>(d_1,d_2,\ldots,d_n)</m> is graphic if and only if <m>d_1+d_2+\cdots + d_n</m> is even and for every <m>1\leq k \leq n</m> we have
                 <me>
                         \sum_{i=1}^k d_i \leq k(k-1) + \sum_{j=k+1}^n \min(k,d_j) \, .
                     </me>
