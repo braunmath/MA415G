@@ -176,7 +176,7 @@
 
     <exercise>
         <p>
-            Write out each of these equalities for <m>n=6</m>.
+            Write out each of these equalities for <m>n=6</m> and <m>k=1,2,3,4,5</m>.
         </p>
     </exercise>
 
@@ -288,21 +288,26 @@
 
 <exercise>
         <p>
-            For each of the following degree sequences, verify that the Erdős-Gallai conditions hold.
+            For each of the following sequences, determine whether or not it is graphic.
             <ol>
                 <li>
                     <p>
-                        <m>(2,2,2,2,2)</m>
+                        <m>(5,5,5,5,5,3,3,1,1,1,1)</m>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <m>(5,2,2,1,1,1,1,1)</m>
+                        <m>(7, 5, 5, 4, 4, 3, 3, 2, 2, 1)</m>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <m>(6,3,3,3,3,3,3)</m>
+                        <m>(8,4,3,3,1,1,1,1,1,1)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(7, 6, 6, 5, 5, 5, 4, 4)</m>
                     </p>
                 </li>
             </ol>
@@ -324,7 +329,7 @@
         <statement>
             <p>
                 Let <m>\mathbf{d}=(d_1,d_2,\ldots,d_n)</m> be a proper sequence.
-                For any <m>j</m>, let <m>\mathbf{c}=(c_1,c_2,\ldots,c_{n-1})</m> be the sequence obtained from <m>\mathbf{d}</m> by deleting <m>d_i</m> and decreasing the first <m>d_i</m> remaining entries by <m>1</m>.
+                For any <m>i</m>, let <m>\mathbf{c}=(c_1,c_2,\ldots,c_{n-1})</m> be the sequence obtained from <m>\mathbf{d}</m> by deleting <m>d_i</m> and decreasing each of the first <m>d_i</m> remaining entries by <m>1</m>; we call this operation a <em>Havel-Hakimi step</em> in position <m>i</m>.
                 Then   <m>\mathbf{d}</m> is graphic if and only if <m>\mathbf{c}</m> is.
             </p>
         </statement>
@@ -356,8 +361,76 @@
 
     <proof>
         <p>
-            
+            We first prove that if <m>\mathbf{c}</m> is graphic, then so is <m>\mathbf{d}</m>. 
+            Suppose <m>\mathbf{c}</m> is a graphic sequence, i.e., there is a graph that realizes the degree sequence <m>\mathbf{c}</m>.
+            Suppose <m>i_1,\ldots,i_k</m> are the indices of the entries that had their degree dropped when <m>d_i</m> was removed.
+            Starting with a graph <m>G_{\mathbf{c}}</m> with degree sequence <m>\mathbf{c}</m>, add a new vertex and connect it to the vertices having degrees <m>c_{i_r}</m> for <m>1\leq r\leq k</m>.
+            This produces a graph with degree sequence <m>\mathbf{d}</m>.
+        </p>
+        <p>
+            We next prove that if <m>\mathbf{d}</m> is graphic, then so is <m>\mathbf{c}</m>.
+            Our first goal is to show that, much like the case of threshold graphs, if <m>\mathbf{d}</m> is graphic then there is a graph realizing <m>\mathbf{d}</m> such that a vertex of degree <m>d_i</m> is connected to the <m>d_i</m> vertices of highest degrees.
+            Let <m>G</m> be a graph with degree sequence <m>\mathbf{d}</m>.
+            Relabel the vertex set of <m>G</m> as <m>\{v_1,\ldots,v_n\}</m> such that <m>d_i=\deg(v_i)</m>. 
+            We say that <m>j</m> and <m>k</m> are a <em>missing pair</em> if there is an <m>i</m> so that <m>v_j</m> is adjacent to <m>v_i</m>, <m>v_k</m> is not adjacent to <m>v_i</m>, and <m>d_j\lt d_k</m>.
+            In other words, there is a neighbor of <m>v_i</m> with strictly smaller degree than some non-neighbor of <m>v_i</m>.
+            If we have a missing pair, then there must be a fourth vertex <m>v_t</m> that is a neighbor of <m>v_k</m> but not of <m>v_j</m>.
+            We can then delete from <m>G</m> the edges
+            <me>
+                \{v_i,v_j\} \text{ and } \{v_k,v_t\}
+            </me>
+            and replace them with the edges
+            <me>
+                \{v_i,v_k\} \text{ and } \{v_j,v_t\} \, .
+            </me>
+            This yields a new graph with degree sequence <m>\mathbf{d}</m> and one less missing pair than <m>G</m>.
+            Iterating this process, we eventually reach a graph <m>H</m> realizing <m>\mathbf{d}</m> that has no missing pairs.
+            If <m>d_i</m> is the entry removed by the Havel-Hakimi step, then removing vertex <m>v_i</m> from <m>H</m> removes one edge from each of the highest degree vertices in <m>H</m>, which yields a graph realizing the degree sequence <m>\mathbf{c}</m>, as desired.
         </p>
     </proof>
 
+    <p>
+        The Havel-Hakimi theorem gives rise to an algorithm to test whether or not a proper sequence is graphic and to produce a graph realizing that sequence.
+    </p>
+        
+    <algorithm xml:id="alg-havelhakimi">
+        <title>The Havel-Hakimi test</title>  
+        <statement>
+            <p>
+                Given a proper sequence <m>\mathbf{s}</m>, pick some entry <m>i</m> and apply a Havel-Hakimi step.
+        Rearrange the resulting sequence in non-increasing order.
+        If any entries are negative, then it is not graphic.
+        If the resulting sequence is proper, then pick another entry and apply a Havel-Hakimi step.
+        Continue in this way until either a negative entry is found, in which case the sequence is not graphic, or the resulting sequence consists of all zeros, in which case adding vertices and edges by reversing all the steps produces a graph realizing the degree sequence <m>\mathbf{s}</m>.
+            </p>
+        </statement>
+    </algorithm>
+    <exercise>
+        <p>
+            For each of the following proper sequences, determine whether or not it is graphic using the Havel-Hakimi test.
+            If it is graphic, construct a graph realizing the degree sequence by applying the construction method given in the proof of the Havel-Hakimi theorem.
+            <ol>
+                <li>
+                    <p>
+                        <m>(5,5,5,5,5,3,3,1,1,1,1)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(7, 5, 5, 4, 4, 3, 3, 2, 2, 1)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(8,4,3,3,1,1,1,1,1,1)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(7, 6, 6, 5, 5, 5, 4, 4)</m>
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </exercise>
 </section>
