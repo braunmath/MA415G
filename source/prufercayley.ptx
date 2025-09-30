@@ -247,4 +247,29 @@
         </p>
     </exercise>
 
+    <proposition xml:id="prop-pruferdegrees">
+        <statement>
+            <p>
+                Leaves of <m>T</m> do not appear in the Prufer code, and the number of times <m>i</m> appears in the Prufer code is <m>\deg_T(i)-1</m>.
+            </p>
+        </statement>
+    </proposition>
+
+    <proof>
+        <p>
+            If <m>j</m> is a leaf of <m>T</m>, then it will only appear in a column of the array for <m>T</m> when it is the smallest labeled leaf in a tree during the Prufer code algorithm.
+            Thus, <m>j</m> will only appear in the top row of the array, not the bottom row.
+        </p>
+        <p>
+            For every vertex <m>i</m> that is not a leaf of <m>T</m>, it will appear as the lower-column-entry in the array for edges until <m>i</m> is the least-labeled leaf in one of the trees appearing in the algorithm.
+            Thus, <m>i</m> will appear in the Prufer code <m>\deg_T(i)-1</m> many times, as it will not become a leaf until it has had enough edges removed so that it has degree <m>1</m> in a tree arising in the Prufer code algorithm.
+        </p>
+    </proof>
+
+    <exercise>
+        <p>
+            Check the argument from this proof using the checkpoint examples above.
+        </p>
+    </exercise>
+
 </section>
