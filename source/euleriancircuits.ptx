@@ -9,7 +9,7 @@
     <definition xml:id="def-euleriancircuit">
         <statement>
             <p>
-                Given a finite graph <m>G</m>, an <em>Eulerian circuit</em> is a circuit in <m>G</m> that crosses every edge exactly one time.
+                Given a finite graph <m>G</m>, an <em>Eulerian circuit</em> is a circuit in <m>G</m> that crosses every edge exactly one time and is incident to every vertex in the graph.
                 If <m>G</m> has an Eulerian circuit, then we say that <m>G</m> is an <em>Eulerian graph</em>.
             </p>
         </statement>
