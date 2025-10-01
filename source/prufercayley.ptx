@@ -216,7 +216,7 @@
             </li>
             <li>
                 <p>
-                    Continue in this fashion until you have created a tree <m>T_3</m> with <m>n-1</m> edges.
+                    Continue in this fashion until you have created a tree <m>T</m> with <m>n-1</m> edges.
                 </p>
             </li>
         </ol>
