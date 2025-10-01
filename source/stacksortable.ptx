@@ -7,22 +7,188 @@
     </p>
     <p>
         One way to think about sorting a permutation is that we would need to eliminate inversions one at a time, until no inversions remain -- this would yield the identity permutation.
-    </p>
-    <exercise>
-        <p>
-            With your group, brainstorm ways that you might systematically (as a deterministic algorithm) eliminate inversions in a permutation.
-        </p>
-    </exercise>
-    <p>
         A simple sorting algorithm of this type that is <em>horribly inefficient and never used</em> is <em>bubble sort</em>, defined as follows.
     </p>
     <definition xml:id="def-bubblesort">
         <statement>
             <p>
                 A <em>pass</em> in the bubble sort algorithm applied to a permutation <m>\pi</m> does the following:
+                <ul>
+                    <li>
+                        <p>
+                            For <m>i</m> from <m>1</m> to <m>n-1</m>:
+                        </p>
+                        <ul>
+                            <li>
+                                <p>
+                                    if <m>\pi_i\gt \pi_{i+1}</m>, swap those entries.
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </p>
-            
+            <p>
+                The <em>bubble sort algorithm</em> consists of making <m>n-1</m> passes through the permutation.
+            </p>
         </statement>
     </definition>
+    <example>
+        <p>
+            Bubble sort applied to the permutation <m>35142</m> does the following on pass 1:
+        <me>
+            35142, 31542, 31452, 31425
+        </me>
+        Note that the effect of the first pass is to move <m>5</m> to the final position.
+        </p>
+        <p>
+            On pass 2, we start with <m>31425</m> and obtain:
+        <me>
+            13425, 13425, 13245
+        </me>
+        Note that the effect of the second pass is to move <m>4</m> to the second to last position.
+        </p>
+        <p>
+            On pass 3, we start with <m>13245</m> and obtain:
+        <me>
+            13245, 12345, 12345
+        </me>
+        Note that the effect of the second pass is to move <m>3</m> to the third to last position.
+        </p>
+        <p>
+            We would run through the remaining passes without making any further changes, since the permutation is now sorted.
+        </p>
+    </example>
+    <exercise>
+        <p>
+            Apply the bubble sort algorithm to <m>624135</m>.
+        </p>
+    </exercise>
+
+    <p>
+        There are many interesting sorting algorithms! See <url href="https://en.wikipedia.org/wiki/Sorting_algorithm" /> for a list.
+        Our next goal is to investigate a sorting algorithm created by Knuth that <em>does not always work</em>, but leads to <em>very interesting mathematics</em>.
+    </p>
+    <definition xml:id="def-stacksorting">
+        <statement>
+            <p>
+                Given a permutation <m>\pi\in \ss_n</m>, we create two additional objects: a "vertical stack" <m>S</m> that starts empty and a list <m>L</m> that starts empty.
+                First, add <m>\pi_1</m> to the stack.
+                Second, if <m>\pi_2\lt \pi_1</m>, place <m>\pi_2</m> on the stack above <m>\pi_1</m>; otherwise, place <m>\pi_1</m> into the list and add <m>\pi_2</m> to the stack.
+            </p>
+            <p> 
+                For each subsequent step, compare the next element in the permutation with the top element of the stack.
+                <ul>
+                    <li>
+                        <p>
+                            If the next element in the permutation is smaller than the top entry of the stack, add the element to the stack. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Otherwise, move the top entry of the stack to the right end of the list and move the new element in the permutation to the top of the stack.
+                        </p>
+                    </li>
+                </ul>
+                Continue until every element of the permutation has been analyzed, and any elements that are left in the stack we pop sequentially and add to the right side of the list.
+            </p>
+            <p>
+                If a permutation is correctly sorted by this operation, then we call it <em>1-stack sortable</em>.
+            </p>
+        </statement>
+    </definition>
+    <example>
+        <p>
+            Consider <m>4132</m>, with stack <m>S</m> and list <m>L</m>.
+            We start by setting <m>S=(4)</m>.
+            The next element is <m>1</m>, which is less than <m>4</m>, so we put <m>1</m> at the top of the stack yielding <m>S=(1,4)^T</m>.
+        </p>
+        <p>
+            The next element is <m>3</m>, which is greater than <m>1</m>, so we move <m>1</m> to the list <m>L=1</m> and put <m>3</m> in the stack <m>S=(3,4)^T</m>.
+        </p>
+        <p>
+            The next element is <m>2</m>, which is less than <m>3</m>, so we put <m>2</m> at the top of the stack to yield <m>S=(2,3,4)^T</m>.
+        </p>
+        <p>
+            At this point, we sequentially pop each remaining element from the top of the stack, appending to <m>L</m>, yielding <m>L=1234</m>.
+        </p>
+    </example>
+    <example>
+        <p>
+            Consider <m>\pi=624351</m>, with stack <m>S</m> and list <m>L</m>.
+            Then our process yields:
+            <ol>
+                <li>
+                    <p>
+                        <m>\pi=24351</m>, <m>S=(6)</m>, <m>L</m> empty.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\pi=4351</m>, <m>S=(2,6)^T</m>, <m>L</m> empty.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\pi=351</m>, <m>S=(4,6)^T</m>, <m>L=2</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\pi=51</m>, <m>S=(3,4,6)^T</m>, <m>L=2</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\pi=1</m>, <m>S=(5,4,6)^T</m>, <m>L=23</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>S=(1,5,4,6)^T</m>, <m>L=23</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>L=231546</m>.
+                    </p>
+                </li>
+            </ol>
+        </p>
+        <p>
+            Note that the resulting list is <em>not correctly ordered</em>.
+        </p>
+    </example>
+    <exercise>
+        <p>
+            What caused the permutation above to NOT be sorted correctly by the stack sorting process?
+        </p>
+    </exercise>
+
+    <exercise>
+        <p>
+            Which of the following permutations are 1-stack sortable?
+            <ol>
+                <li>
+                    <p>
+                        <m>83426517</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>21436587</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>87654321</m>
+                    </p>
+                </li>
+            </ol>
+        </p>
+    
+    </exercise>
+
+
 
 </section>
