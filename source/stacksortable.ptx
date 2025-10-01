@@ -2,6 +2,27 @@
     <title>Stack Sortable Permutations</title>
     
     <p>
-        
+        Our final classification problem arises in the context of sorting permutations.
+        The sorting problem is as follows: given a permutation <m>\pi\in \ss_n</m>, produce an efficient algorithm to sort the permutation so that the result is the identity element.
     </p>
+    <p>
+        One way to think about sorting a permutation is that we would need to eliminate inversions one at a time, until no inversions remain -- this would yield the identity permutation.
+    </p>
+    <exercise>
+        <p>
+            With your group, brainstorm ways that you might systematically (as a deterministic algorithm) eliminate inversions in a permutation.
+        </p>
+    </exercise>
+    <p>
+        A simple sorting algorithm of this type that is <em>horribly inefficient and never used</em> is <em>bubble sort</em>, defined as follows.
+    </p>
+    <definition xml:id="def-bubblesort">
+        <statement>
+            <p>
+                A <em>pass</em> in the bubble sort algorithm applied to a permutation <m>\pi</m> does the following:
+            </p>
+            
+        </statement>
+    </definition>
+
 </section>
