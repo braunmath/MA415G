@@ -101,15 +101,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.11';
+eBookConfig.runestone_version = '7.9.12';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.59de9dca80a62a76.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.b37c97cbe7a5455b.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.a85e2f1fefeea635.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.a707b621c77f7e48.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -183,7 +183,329 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-stacksortable"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">3.7</span><span class="space"> </span><span class="title">Stack Sortable Permutations</span>
 </h2>
-<div class="autopermalink" data-description="Section 3.7: Stack Sortable Permutations"><a href="#sec-stacksortable" title="Copy heading and permalink for Section 3.7: Stack Sortable Permutations" aria-label="Copy heading and permalink for Section 3.7: Stack Sortable Permutations">🔗</a></div></section></div>
+<div class="para" id="sec-stacksortable-2">Our final classification problem arises in the context of sorting permutations. The sorting problem is as follows: given a permutation <span class="process-math">\(\pi\in \ss_n\text{,}\)</span> produce an efficient algorithm to sort the permutation so that the result is the identity element.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-stacksortable-3">One way to think about sorting a permutation is that we would need to eliminate inversions one at a time, until no inversions remain -- this would yield the identity permutation. A simple sorting algorithm of this type that is <em class="emphasis">horribly inefficient and never used</em> is <em class="emphasis">bubble sort</em>, defined as follows.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-bubblesort"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.7.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-bubblesort-1-1">
+<div class="para">A <em class="emphasis">pass</em> in the bubble sort algorithm applied to a permutation <span class="process-math">\(\pi\)</span> does the following:</div>
+<ul class="disc" id="def-bubblesort-1-1-3"><li id="def-bubblesort-1-1-3-1">
+<div class="para" id="def-bubblesort-1-1-3-1-1">For <span class="process-math">\(i\)</span> from <span class="process-math">\(1\)</span> to <span class="process-math">\(n-1\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-bubblesort-1-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="circle" id="def-bubblesort-1-1-3-1-2"><li id="def-bubblesort-1-1-3-1-2-1">
+<div class="para" id="def-bubblesort-1-1-3-1-2-1-1">if <span class="process-math">\(\pi_i\gt \pi_{i+1}\text{,}\)</span> swap those entries.<div class="autopermalink" data-description="Paragraph"><a href="#def-bubblesort-1-1-3-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-bubblesort-1-1-3-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li></ul>
+<div class="autopermalink" data-description="Item"><a href="#def-bubblesort-1-1-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li></ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-bubblesort-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="def-bubblesort-1-2">The <em class="emphasis">bubble sort algorithm</em> consists of making <span class="process-math">\(n-1\)</span> passes through the permutation.<div class="autopermalink" data-description="Paragraph"><a href="#def-bubblesort-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.7.1"><a href="#def-bubblesort" title="Copy heading and permalink for Definition 3.7.1" aria-label="Copy heading and permalink for Definition 3.7.1">🔗</a></div></article><details id="sec-stacksortable-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.7.2</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-stacksortable-5-1">
+<div class="para">Bubble sort applied to the permutation <span class="process-math">\(35142\)</span> does the following on pass 1:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+35142, 31542, 31452, 31425
+\end{equation*}
+</div>
+<div class="para">Note that the effect of the first pass is to move <span class="process-math">\(5\)</span> to the final position.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-stacksortable-5-2">
+<div class="para">On pass 2, we start with <span class="process-math">\(31425\)</span> and obtain:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+13425, 13425, 13245
+\end{equation*}
+</div>
+<div class="para">Note that the effect of the second pass is to move <span class="process-math">\(4\)</span> to the second to last position.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-stacksortable-5-3">
+<div class="para">On pass 3, we start with <span class="process-math">\(13245\)</span> and obtain:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+13245, 12345, 12345
+\end{equation*}
+</div>
+<div class="para">Note that the effect of the second pass is to move <span class="process-math">\(3\)</span> to the third to last position.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-stacksortable-5-4">We would run through the remaining passes without making any further changes, since the permutation is now sorted.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 3.7.2"><a href="#sec-stacksortable-5" title="Copy heading and permalink for Example 3.7.2" aria-label="Copy heading and permalink for Example 3.7.2">🔗</a></div></article></details><details id="sec-stacksortable-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.7.3</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-stacksortable-6-1">Apply the bubble sort algorithm to <span class="process-math">\(624135\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.7.3"><a href="#sec-stacksortable-6" title="Copy heading and permalink for Checkpoint 3.7.3" aria-label="Copy heading and permalink for Checkpoint 3.7.3">🔗</a></div></article></details><div class="para" id="sec-stacksortable-7">There are many interesting sorting algorithms! See <a class="external" href="https://en.wikipedia.org/wiki/Sorting_algorithm" target="_blank"><code class="code-inline tex2jax_ignore">https://en.wikipedia.org/wiki/Sorting_algorithm</code></a> for a list. Our next goal is to investigate a sorting algorithm created by Knuth that <em class="emphasis">does not always work</em>, but leads to <em class="emphasis">very interesting mathematics</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-stacksorting"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.7.4</span><span class="period">.</span>
+</h3>
+<div class="para" id="def-stacksorting-1-1">Given a permutation <span class="process-math">\(\pi\in \ss_n\text{,}\)</span> we create two additional objects: a "vertical stack" <span class="process-math">\(S\)</span> that starts empty and a list <span class="process-math">\(L\)</span> that starts empty. First, add <span class="process-math">\(\pi_1\)</span> to the stack. Second, if <span class="process-math">\(\pi_2\lt \pi_1\text{,}\)</span> place <span class="process-math">\(\pi_2\)</span> on the stack above <span class="process-math">\(\pi_1\text{;}\)</span> otherwise, place <span class="process-math">\(\pi_1\)</span> into the list and add <span class="process-math">\(\pi_2\)</span> to the stack.<div class="autopermalink" data-description="Paragraph"><a href="#def-stacksorting-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="def-stacksorting-1-2">
+<div class="para">For each subsequent step, compare the next element in the permutation with the top element of the stack.</div>
+<ul class="disc" id="def-stacksorting-1-2-1">
+<li id="def-stacksorting-1-2-1-1">
+<div class="para" id="def-stacksorting-1-2-1-1-1">If the next element in the permutation is smaller than the top entry of the stack, add the element to the stack.<div class="autopermalink" data-description="Paragraph"><a href="#def-stacksorting-1-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-stacksorting-1-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="def-stacksorting-1-2-1-2">
+<div class="para" id="def-stacksorting-1-2-1-2-1">Otherwise, move the top entry of the stack to the right end of the list and move the new element in the permutation to the top of the stack.<div class="autopermalink" data-description="Paragraph"><a href="#def-stacksorting-1-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-stacksorting-1-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Continue until every element of the permutation has been analyzed, and any elements that are left in the stack we pop sequentially and add to the right side of the list.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-stacksorting-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="def-stacksorting-1-3">If a permutation is correctly sorted by this operation, then we call it <em class="emphasis">1-stack sortable</em>, or just <em class="emphasis">stack sortable</em>.<div class="autopermalink" data-description="Paragraph"><a href="#def-stacksorting-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.7.4"><a href="#def-stacksorting" title="Copy heading and permalink for Definition 3.7.4" aria-label="Copy heading and permalink for Definition 3.7.4">🔗</a></div></article><div class="para" id="sec-stacksortable-9">In the notes, I will use the vector transpose notation <span class="process-math">\(S=(s_1,s_2,s_4,\ldots,s_k)^T\)</span> to denote the vertical stack with <span class="process-math">\(s_1\)</span> on top and <span class="process-math">\(s_k\)</span> at the bottom of the stack.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-stacksortable-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.7.5</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="sec-stacksortable-10-1">Consider <span class="process-math">\(4132\text{,}\)</span> with stack <span class="process-math">\(S\)</span> and list <span class="process-math">\(L\text{.}\)</span> We start by setting <span class="process-math">\(S=(4)\text{.}\)</span> The next element is <span class="process-math">\(1\text{,}\)</span> which is less than <span class="process-math">\(4\text{,}\)</span> so we put <span class="process-math">\(1\)</span> at the top of the stack yielding <span class="process-math">\(S=(1,4)^T\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-stacksortable-10-2">The next element is <span class="process-math">\(3\text{,}\)</span> which is greater than <span class="process-math">\(1\text{,}\)</span> so we move <span class="process-math">\(1\)</span> to the list <span class="process-math">\(L=1\)</span> and put <span class="process-math">\(3\)</span> in the stack <span class="process-math">\(S=(3,4)^T\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-stacksortable-10-3">The next element is <span class="process-math">\(2\text{,}\)</span> which is less than <span class="process-math">\(3\text{,}\)</span> so we put <span class="process-math">\(2\)</span> at the top of the stack to yield <span class="process-math">\(S=(2,3,4)^T\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-10-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-stacksortable-10-4">At this point, we sequentially pop each remaining element from the top of the stack, appending to <span class="process-math">\(L\text{,}\)</span> yielding <span class="process-math">\(L=1234\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-10-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 3.7.5"><a href="#sec-stacksortable-10" title="Copy heading and permalink for Example 3.7.5" aria-label="Copy heading and permalink for Example 3.7.5">🔗</a></div></article></details><details id="sec-stacksortable-11" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.7.6</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-stacksortable-11-1">
+<div class="para">Consider <span class="process-math">\(\pi=624351\text{,}\)</span> with stack <span class="process-math">\(S\)</span> and list <span class="process-math">\(L\text{.}\)</span> Then our process yields:</div>
+<ol class="decimal" id="sec-stacksortable-11-1-4">
+<li id="sec-stacksortable-11-1-4-1">
+<div class="para" id="sec-stacksortable-11-1-4-1-1">
+<span class="process-math">\(\pi=24351\text{,}\)</span> <span class="process-math">\(S=(6)\text{,}\)</span> <span class="process-math">\(L\)</span> empty.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-11-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-stacksortable-11-1-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-stacksortable-11-1-4-2">
+<div class="para" id="sec-stacksortable-11-1-4-2-1">
+<span class="process-math">\(\pi=4351\text{,}\)</span> <span class="process-math">\(S=(2,6)^T\text{,}\)</span> <span class="process-math">\(L\)</span> empty.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-11-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-stacksortable-11-1-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-stacksortable-11-1-4-3">
+<div class="para" id="sec-stacksortable-11-1-4-3-1">
+<span class="process-math">\(\pi=351\text{,}\)</span> <span class="process-math">\(S=(4,6)^T\text{,}\)</span> <span class="process-math">\(L=2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-11-1-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-stacksortable-11-1-4-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="sec-stacksortable-11-1-4-4">
+<div class="para" id="sec-stacksortable-11-1-4-4-1">
+<span class="process-math">\(\pi=51\text{,}\)</span> <span class="process-math">\(S=(3,4,6)^T\text{,}\)</span> <span class="process-math">\(L=2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-11-1-4-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#sec-stacksortable-11-1-4-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="sec-stacksortable-11-1-4-5">
+<div class="para" id="sec-stacksortable-11-1-4-5-1">
+<span class="process-math">\(\pi=1\text{,}\)</span> <span class="process-math">\(S=(5,4,6)^T\text{,}\)</span> <span class="process-math">\(L=23\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-11-1-4-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#sec-stacksortable-11-1-4-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+<li id="sec-stacksortable-11-1-4-6">
+<div class="para" id="sec-stacksortable-11-1-4-6-1">
+<span class="process-math">\(S=(1,5,4,6)^T\text{,}\)</span> <span class="process-math">\(L=23\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-11-1-4-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6"><a href="#sec-stacksortable-11-1-4-6" title="Copy heading and permalink for Item 6" aria-label="Copy heading and permalink for Item 6">🔗</a></div>
+</li>
+<li id="sec-stacksortable-11-1-4-7">
+<div class="para" id="sec-stacksortable-11-1-4-7-1">
+<span class="process-math">\(L=231546\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-11-1-4-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7"><a href="#sec-stacksortable-11-1-4-7" title="Copy heading and permalink for Item 7" aria-label="Copy heading and permalink for Item 7">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-stacksortable-11-2">Note that the resulting list is <em class="emphasis">not correctly ordered</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 3.7.6"><a href="#sec-stacksortable-11" title="Copy heading and permalink for Example 3.7.6" aria-label="Copy heading and permalink for Example 3.7.6">🔗</a></div></article></details><details id="sec-stacksortable-12" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.7.7</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-stacksortable-12-1">What caused the permutation above to NOT be sorted correctly by the stack sorting process?<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.7.7"><a href="#sec-stacksortable-12" title="Copy heading and permalink for Checkpoint 3.7.7" aria-label="Copy heading and permalink for Checkpoint 3.7.7">🔗</a></div></article></details><details id="sec-stacksortable-13" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.7.8</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-stacksortable-13-1">
+<div class="para">Which of the following permutations are 1-stack sortable?</div>
+<ol class="decimal" id="sec-stacksortable-13-1-1">
+<li id="sec-stacksortable-13-1-1-1">
+<div class="para" id="sec-stacksortable-13-1-1-1-1">
+<span class="process-math">\(\displaystyle 83426517\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-13-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.7.8.1"><a href="#sec-stacksortable-13-1-1-1" title="Copy heading and permalink for Item 3.7.8.1" aria-label="Copy heading and permalink for Item 3.7.8.1">🔗</a></div>
+</li>
+<li id="sec-stacksortable-13-1-1-2">
+<div class="para" id="sec-stacksortable-13-1-1-2-1">
+<span class="process-math">\(\displaystyle 21436587\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-13-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.7.8.2"><a href="#sec-stacksortable-13-1-1-2" title="Copy heading and permalink for Item 3.7.8.2" aria-label="Copy heading and permalink for Item 3.7.8.2">🔗</a></div>
+</li>
+<li id="sec-stacksortable-13-1-1-3">
+<div class="para" id="sec-stacksortable-13-1-1-3-1">
+<span class="process-math">\(\displaystyle 87654321\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-13-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.7.8.3"><a href="#sec-stacksortable-13-1-1-3" title="Copy heading and permalink for Item 3.7.8.3" aria-label="Copy heading and permalink for Item 3.7.8.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.7.8"><a href="#sec-stacksortable-13" title="Copy heading and permalink for Checkpoint 3.7.8" aria-label="Copy heading and permalink for Checkpoint 3.7.8">🔗</a></div></article></details><div class="para" id="sec-stacksortable-14">We will see that there is a simple criteria that characterizes whether or not a permutation is stack sortable, involving the following definition.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-231avoiding"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.7.9</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-231avoiding-1-1">
+<div class="para">We say that a permutation <span class="process-math">\(\pi\in \ss_n\)</span> <em class="emphasis">contains the pattern <span class="process-math">\(231\)</span></em> if there exist indices <span class="process-math">\(i\lt j\lt k\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pi_j\gt \pi_i\gt \pi_k \, .
+\end{equation*}
+</div>
+<div class="para">If <span class="process-math">\(\pi\)</span> does not contain the pattern <span class="process-math">\(231\text{,}\)</span> then we say that <span class="process-math">\(\pi\)</span> is <em class="emphasis"><span class="process-math">\(231\)</span>-avoiding</em>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-231avoiding-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.7.9"><a href="#def-231avoiding" title="Copy heading and permalink for Definition 3.7.9" aria-label="Copy heading and permalink for Definition 3.7.9">🔗</a></div></article><details id="sec-stacksortable-16" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.7.10</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-stacksortable-16-1">
+<div class="para">The permutation <span class="process-math">\(\pi=364512\)</span> contains the pattern <span class="process-math">\(231\text{,}\)</span> for example since</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pi_1=3, \pi_2=6, \pi_6=2
+\end{equation*}
+</div>
+<div class="para">and this is a <span class="process-math">\(231\)</span> pattern.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 3.7.10"><a href="#sec-stacksortable-16" title="Copy heading and permalink for Example 3.7.10" aria-label="Copy heading and permalink for Example 3.7.10">🔗</a></div></article></details><details id="sec-stacksortable-17" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.7.11</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-stacksortable-17-1">Which of the following permutations are <span class="process-math">\(231\)</span>-avoiding?<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-17-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="decimal" id="sec-stacksortable-17-2">
+<li id="sec-stacksortable-17-2-1">
+<div class="para" id="sec-stacksortable-17-2-1-1">
+<span class="process-math">\(\displaystyle 83426517\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-17-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.7.11.1"><a href="#sec-stacksortable-17-2-1" title="Copy heading and permalink for Item 3.7.11.1" aria-label="Copy heading and permalink for Item 3.7.11.1">🔗</a></div>
+</li>
+<li id="sec-stacksortable-17-2-2">
+<div class="para" id="sec-stacksortable-17-2-2-1">
+<span class="process-math">\(\displaystyle 21436587\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-17-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.7.11.2"><a href="#sec-stacksortable-17-2-2" title="Copy heading and permalink for Item 3.7.11.2" aria-label="Copy heading and permalink for Item 3.7.11.2">🔗</a></div>
+</li>
+<li id="sec-stacksortable-17-2-3">
+<div class="para" id="sec-stacksortable-17-2-3-1">
+<span class="process-math">\(\displaystyle 87654321\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-17-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.7.11.3"><a href="#sec-stacksortable-17-2-3" title="Copy heading and permalink for Item 3.7.11.3" aria-label="Copy heading and permalink for Item 3.7.11.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Checkpoint 3.7.11"><a href="#sec-stacksortable-17" title="Copy heading and permalink for Checkpoint 3.7.11" aria-label="Copy heading and permalink for Checkpoint 3.7.11">🔗</a></div></article></details><article class="theorem theorem-like" id="thm-stacksortableclassification"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.7.12</span><span class="period">.</span>
+</h3>
+<div class="para" id="thm-stacksortableclassification-1-1">A permutation <span class="process-math">\(\pi\in \ss_n\)</span> is 1-stack sortable if and only if it is <span class="process-math">\(231\)</span>-avoiding.<div class="autopermalink" data-description="Paragraph"><a href="#thm-stacksortableclassification-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.7.12"><a href="#thm-stacksortableclassification" title="Copy heading and permalink for Theorem 3.7.12" aria-label="Copy heading and permalink for Theorem 3.7.12">🔗</a></div></article><details id="sec-stacksortable-19" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-stacksortable-19-1">
+<div class="para">We first prove that if <span class="process-math">\(\pi\)</span> is stack sortable then it is <span class="process-math">\(231\)</span>-avoiding. Suppose that the opposite happened, i.e., that there exist <span class="process-math">\(i\lt j\lt k\)</span> where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pi_j=b \gt \pi_i=a \gt \pi_k=c \, ,
+\end{equation*}
+</div>
+<div class="para">where we use the names <span class="process-math">\(a,b,c\)</span> to simplify notation. When we get to <span class="process-math">\(c\)</span> in the stack sorting process, there are several possibilities for what has occurred previously in the process.</div>
+<ul class="disc" id="sec-stacksortable-19-1-7">
+<li id="sec-stacksortable-19-1-7-1">
+<div class="para" id="sec-stacksortable-19-1-7-1-1">If <span class="process-math">\(a\)</span> or <span class="process-math">\(b\)</span> have already been popped from the stack, then that value will appear before <span class="process-math">\(c\)</span> in the list, which would result in the final list being out of order. So, we must have both <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> in the stack when <span class="process-math">\(c\)</span> is considered in the sorting process.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-19-1-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-stacksortable-19-1-7-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-stacksortable-19-1-7-2">
+<div class="para logical" id="sec-stacksortable-19-1-7-2-1">
+<div class="para">Note that in the stack when <span class="process-math">\(c\)</span> is considered, we must have <span class="process-math">\(a\)</span> below <span class="process-math">\(b\)</span> in the stack, because <span class="process-math">\(a\)</span> was pushed onto the stack before <span class="process-math">\(b\)</span> since <span class="process-math">\(a\)</span> was considered first in the sorting process:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S=(s_1,\ldots,b,\ldots,a,\ldots,s_k)^T
+\end{equation*}
+</div>
+<div class="para">We must pop <span class="process-math">\(c\)</span> before <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> and as the process continues, we must pop <span class="process-math">\(b\)</span> from the stack before we pop <span class="process-math">\(a\text{.}\)</span> However, this will result in <span class="process-math">\(b\)</span> appearing before <span class="process-math">\(a\)</span> in the final list, which would put the elements out of order. Therefore, cannot have a <span class="process-math">\(231\)</span>-pattern in <span class="process-math">\(\pi\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-19-1-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-stacksortable-19-1-7-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-19-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-stacksortable-19-2">We next prove that if <span class="process-math">\(\pi\)</span> avoids <span class="process-math">\(231\)</span> then it is stack sortable. For any two elements <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> such that <span class="process-math">\(a\)</span> comes before <span class="process-math">\(b\)</span> in <span class="process-math">\(\pi\text{,}\)</span> if <span class="process-math">\(a\gt b\)</span> then there is not a value <span class="process-math">\(c\gt a\)</span> between <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> in <span class="process-math">\(\pi\text{.}\)</span> Thus, <span class="process-math">\(a\)</span> will enter the stack and will not leave until <span class="process-math">\(b\)</span> has left the stack, meaning that <span class="process-math">\(b\)</span> will come before <span class="process-math">\(a\)</span> in the list, as desired. If <span class="process-math">\(a\lt b\text{,}\)</span> then <span class="process-math">\(a\)</span> will enter and leave the stack before <span class="process-math">\(b\)</span> enters the stack, and again they will appear in the correct order in the list. Since this is true for all pairs <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> the stack sorting procedure will correctly sort the permutation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-19-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 3.7.1"><a href="#sec-stacksortable-19" title="Copy heading and permalink for Proof 3.7.1" aria-label="Copy heading and permalink for Proof 3.7.1">🔗</a></div></article></details><details id="sec-stacksortable-20" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.7.13</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-stacksortable-20-1">Discuss the proof above. Does it make sense? Why or why not? Compare this proof with the examples you computed earlier.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-20-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.7.13"><a href="#sec-stacksortable-20" title="Copy heading and permalink for Checkpoint 3.7.13" aria-label="Copy heading and permalink for Checkpoint 3.7.13">🔗</a></div></article></details><div class="para" id="sec-stacksortable-21">There is a beautiful connection between the classification of stack sortable permutations and enumeration.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-231avoidingrecurrence"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.7.14</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="thm-231avoidingrecurrence-1-1">
+<div class="para">Let <span class="process-math">\(C_n\)</span> denote the number of stack sortable, i.e., <span class="process-math">\(231\)</span>-avoiding, permutations in <span class="process-math">\(\ss_n\text{,}\)</span> where we define <span class="process-math">\(C_0=1\)</span> and <span class="process-math">\(C_1=1\text{.}\)</span> Then for <span class="process-math">\(n\geq 2\text{,}\)</span> these numbers satisfy the recurrence</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C_{n}=\sum_{i=0}^{n-1}C_iC_{n-1-i} \, .
+\end{equation*}
+</div>
+<div class="para">Note that this is the <em class="emphasis">Catalan recurrence</em> which implies that <span class="process-math">\(C_n\)</span> is the <span class="process-math">\(n\)</span>-th <em class="emphasis">Catalan number</em>, which is equal to</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C_n=\frac{1}{n+1}\binom{2n}{n} \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-231avoidingrecurrence-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 3.7.14"><a href="#thm-231avoidingrecurrence" title="Copy heading and permalink for Theorem 3.7.14" aria-label="Copy heading and permalink for Theorem 3.7.14">🔗</a></div></article><details id="sec-stacksortable-23" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.7.15</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-stacksortable-23-1">Use the recurrence to compute the first seven Catalan numbers.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-23-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.7.15"><a href="#sec-stacksortable-23" title="Copy heading and permalink for Checkpoint 3.7.15" aria-label="Copy heading and permalink for Checkpoint 3.7.15">🔗</a></div></article></details><details id="sec-stacksortable-24" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-stacksortable-24-1">
+<div class="para">Let <span class="process-math">\(\pi\in \ss_n\)</span> be <span class="process-math">\(231\)</span>-avoiding. In this case, every entry to the left of <span class="process-math">\(n\)</span> in <span class="process-math">\(\pi\)</span> must be greater than every entry to the right of <span class="process-math">\(n\)</span> in <span class="process-math">\(\pi\text{.}\)</span> Thus, if <span class="process-math">\(\pi_{i}=n\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pi=\tau n\sigma
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\tau\)</span> is a <span class="process-math">\(231\)</span>-avoiding permutation of <span class="process-math">\(\{n-1,n-2,\ldots,n-1-(i-1)\}\)</span> and <span class="process-math">\(\sigma\)</span> is a <span class="process-math">\(231\)</span>-avoiding permutation of <span class="process-math">\(\{1,2,\ldots,n-1-i\}\text{.}\)</span> Thus, there are <span class="process-math">\(C_i\)</span> possible <span class="process-math">\(\tau\)</span> and <span class="process-math">\(C_{n-1-i}\)</span> possible <span class="process-math">\(\sigma\text{.}\)</span> As <span class="process-math">\(n\)</span> can be in any position in <span class="process-math">\(\pi\text{,}\)</span> this shows that there are</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{i=0}^{n-1}C_iC_{n-1-i}
+\end{equation*}
+</div>
+<div class="para">possible <span class="process-math">\(231\)</span>-avoiding permutations in <span class="process-math">\(\ss_n\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-24-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-stacksortable-24-2">
+<div class="para">We will omit the proof that the formula</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C_n=\frac{1}{n+1}\binom{2n}{n}
+\end{equation*}
+</div>
+<div class="para">satisfies the Catalan recurrence, but if you are interested in seeing it then you can search online and easily find proofs using the technique of generating functions (i.e., power series).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-stacksortable-24-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 3.7.2"><a href="#sec-stacksortable-24" title="Copy heading and permalink for Proof 3.7.2" aria-label="Copy heading and permalink for Proof 3.7.2">🔗</a></div></article></details><div class="autopermalink" data-description="Section 3.7: Stack Sortable Permutations"><a href="#sec-stacksortable" title="Copy heading and permalink for Section 3.7: Stack Sortable Permutations" aria-label="Copy heading and permalink for Section 3.7: Stack Sortable Permutations">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-degreesequences.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-expectation.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

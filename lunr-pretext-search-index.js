@@ -1933,7 +1933,160 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.7",
   "title": "Stack Sortable Permutations",
-  "body": " Stack Sortable Permutations  "
+  "body": " Stack Sortable Permutations  Our final classification problem arises in the context of sorting permutations. The sorting problem is as follows: given a permutation , produce an efficient algorithm to sort the permutation so that the result is the identity element.  One way to think about sorting a permutation is that we would need to eliminate inversions one at a time, until no inversions remain -- this would yield the identity permutation. A simple sorting algorithm of this type that is horribly inefficient and never used is bubble sort , defined as follows.    A pass in the bubble sort algorithm applied to a permutation does the following:   For from to :    if , swap those entries.       The bubble sort algorithm consists of making passes through the permutation.     Bubble sort applied to the permutation does the following on pass 1: Note that the effect of the first pass is to move to the final position.  On pass 2, we start with and obtain: Note that the effect of the second pass is to move to the second to last position.  On pass 3, we start with and obtain: Note that the effect of the second pass is to move to the third to last position.  We would run through the remaining passes without making any further changes, since the permutation is now sorted.    Apply the bubble sort algorithm to .   There are many interesting sorting algorithms! See for a list. Our next goal is to investigate a sorting algorithm created by Knuth that does not always work , but leads to very interesting mathematics .    Given a permutation , we create two additional objects: a \"vertical stack\" that starts empty and a list that starts empty. First, add to the stack. Second, if , place on the stack above ; otherwise, place into the list and add to the stack.  For each subsequent step, compare the next element in the permutation with the top element of the stack.   If the next element in the permutation is smaller than the top entry of the stack, add the element to the stack.    Otherwise, move the top entry of the stack to the right end of the list and move the new element in the permutation to the top of the stack.   Continue until every element of the permutation has been analyzed, and any elements that are left in the stack we pop sequentially and add to the right side of the list.  If a permutation is correctly sorted by this operation, then we call it 1-stack sortable , or just stack sortable .    In the notes, I will use the vector transpose notation to denote the vertical stack with on top and at the bottom of the stack.   Consider , with stack and list . We start by setting . The next element is , which is less than , so we put at the top of the stack yielding .  The next element is , which is greater than , so we move to the list and put in the stack .  The next element is , which is less than , so we put at the top of the stack to yield .  At this point, we sequentially pop each remaining element from the top of the stack, appending to , yielding .    Consider , with stack and list . Then our process yields:    , , empty.     , , empty.     , , .     , , .     , , .     , .     .     Note that the resulting list is not correctly ordered .    What caused the permutation above to NOT be sorted correctly by the stack sorting process?    Which of the following permutations are 1-stack sortable?                    We will see that there is a simple criteria that characterizes whether or not a permutation is stack sortable, involving the following definition.    We say that a permutation  contains the pattern if there exist indices such that If does not contain the pattern , then we say that is -avoiding .     The permutation contains the pattern , for example since and this is a pattern.    Which of the following permutations are -avoiding?                      A permutation is 1-stack sortable if and only if it is -avoiding.     We first prove that if is stack sortable then it is -avoiding. Suppose that the opposite happened, i.e., that there exist where where we use the names to simplify notation. When we get to in the stack sorting process, there are several possibilities for what has occurred previously in the process.   If or have already been popped from the stack, then that value will appear before in the list, which would result in the final list being out of order. So, we must have both and in the stack when is considered in the sorting process.    Note that in the stack when is considered, we must have below in the stack, because was pushed onto the stack before since was considered first in the sorting process: We must pop before and , and as the process continues, we must pop from the stack before we pop . However, this will result in appearing before in the final list, which would put the elements out of order. Therefore, cannot have a -pattern in .     We next prove that if avoids then it is stack sortable. For any two elements and such that comes before in , if then there is not a value between and in . Thus, will enter the stack and will not leave until has left the stack, meaning that will come before in the list, as desired. If , then will enter and leave the stack before enters the stack, and again they will appear in the correct order in the list. Since this is true for all pairs and , the stack sorting procedure will correctly sort the permutation.    Discuss the proof above. Does it make sense? Why or why not? Compare this proof with the examples you computed earlier.   There is a beautiful connection between the classification of stack sortable permutations and enumeration.    Let denote the number of stack sortable, i.e., -avoiding, permutations in , where we define and . Then for , these numbers satisfy the recurrence Note that this is the Catalan recurrence which implies that is the -th Catalan number , which is equal to      Use the recurrence to compute the first seven Catalan numbers.    Let be -avoiding. In this case, every entry to the left of in must be greater than every entry to the right of in . Thus, if , we have where is a -avoiding permutation of and is a -avoiding permutation of . Thus, there are possible and possible . As can be in any position in , this shows that there are possible -avoiding permutations in .  We will omit the proof that the formula satisfies the Catalan recurrence, but if you are interested in seeing it then you can search online and easily find proofs using the technique of generating functions (i.e., power series).   "
+},
+{
+  "id": "def-bubblesort",
+  "level": "2",
+  "url": "sec-stacksortable.html#def-bubblesort",
+  "type": "Definition",
+  "number": "3.7.1",
+  "title": "",
+  "body": "  A pass in the bubble sort algorithm applied to a permutation does the following:   For from to :    if , swap those entries.       The bubble sort algorithm consists of making passes through the permutation.   "
+},
+{
+  "id": "sec-stacksortable-5",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-5",
+  "type": "Example",
+  "number": "3.7.2",
+  "title": "",
+  "body": " Bubble sort applied to the permutation does the following on pass 1: Note that the effect of the first pass is to move to the final position.  On pass 2, we start with and obtain: Note that the effect of the second pass is to move to the second to last position.  On pass 3, we start with and obtain: Note that the effect of the second pass is to move to the third to last position.  We would run through the remaining passes without making any further changes, since the permutation is now sorted.  "
+},
+{
+  "id": "sec-stacksortable-6",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-6",
+  "type": "Checkpoint",
+  "number": "3.7.3",
+  "title": "",
+  "body": " Apply the bubble sort algorithm to .  "
+},
+{
+  "id": "def-stacksorting",
+  "level": "2",
+  "url": "sec-stacksortable.html#def-stacksorting",
+  "type": "Definition",
+  "number": "3.7.4",
+  "title": "",
+  "body": "  Given a permutation , we create two additional objects: a \"vertical stack\" that starts empty and a list that starts empty. First, add to the stack. Second, if , place on the stack above ; otherwise, place into the list and add to the stack.  For each subsequent step, compare the next element in the permutation with the top element of the stack.   If the next element in the permutation is smaller than the top entry of the stack, add the element to the stack.    Otherwise, move the top entry of the stack to the right end of the list and move the new element in the permutation to the top of the stack.   Continue until every element of the permutation has been analyzed, and any elements that are left in the stack we pop sequentially and add to the right side of the list.  If a permutation is correctly sorted by this operation, then we call it 1-stack sortable , or just stack sortable .   "
+},
+{
+  "id": "sec-stacksortable-10",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-10",
+  "type": "Example",
+  "number": "3.7.5",
+  "title": "",
+  "body": " Consider , with stack and list . We start by setting . The next element is , which is less than , so we put at the top of the stack yielding .  The next element is , which is greater than , so we move to the list and put in the stack .  The next element is , which is less than , so we put at the top of the stack to yield .  At this point, we sequentially pop each remaining element from the top of the stack, appending to , yielding .  "
+},
+{
+  "id": "sec-stacksortable-11",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-11",
+  "type": "Example",
+  "number": "3.7.6",
+  "title": "",
+  "body": " Consider , with stack and list . Then our process yields:    , , empty.     , , empty.     , , .     , , .     , , .     , .     .     Note that the resulting list is not correctly ordered .  "
+},
+{
+  "id": "sec-stacksortable-12",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-12",
+  "type": "Checkpoint",
+  "number": "3.7.7",
+  "title": "",
+  "body": " What caused the permutation above to NOT be sorted correctly by the stack sorting process?  "
+},
+{
+  "id": "sec-stacksortable-13",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-13",
+  "type": "Checkpoint",
+  "number": "3.7.8",
+  "title": "",
+  "body": " Which of the following permutations are 1-stack sortable?                   "
+},
+{
+  "id": "def-231avoiding",
+  "level": "2",
+  "url": "sec-stacksortable.html#def-231avoiding",
+  "type": "Definition",
+  "number": "3.7.9",
+  "title": "",
+  "body": "  We say that a permutation  contains the pattern if there exist indices such that If does not contain the pattern , then we say that is -avoiding .   "
+},
+{
+  "id": "sec-stacksortable-16",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-16",
+  "type": "Example",
+  "number": "3.7.10",
+  "title": "",
+  "body": " The permutation contains the pattern , for example since and this is a pattern.  "
+},
+{
+  "id": "sec-stacksortable-17",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-17",
+  "type": "Checkpoint",
+  "number": "3.7.11",
+  "title": "",
+  "body": " Which of the following permutations are -avoiding?                   "
+},
+{
+  "id": "thm-stacksortableclassification",
+  "level": "2",
+  "url": "sec-stacksortable.html#thm-stacksortableclassification",
+  "type": "Theorem",
+  "number": "3.7.12",
+  "title": "",
+  "body": "  A permutation is 1-stack sortable if and only if it is -avoiding.   "
+},
+{
+  "id": "sec-stacksortable-19",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-19",
+  "type": "Proof",
+  "number": "3.7.1",
+  "title": "",
+  "body": " We first prove that if is stack sortable then it is -avoiding. Suppose that the opposite happened, i.e., that there exist where where we use the names to simplify notation. When we get to in the stack sorting process, there are several possibilities for what has occurred previously in the process.   If or have already been popped from the stack, then that value will appear before in the list, which would result in the final list being out of order. So, we must have both and in the stack when is considered in the sorting process.    Note that in the stack when is considered, we must have below in the stack, because was pushed onto the stack before since was considered first in the sorting process: We must pop before and , and as the process continues, we must pop from the stack before we pop . However, this will result in appearing before in the final list, which would put the elements out of order. Therefore, cannot have a -pattern in .     We next prove that if avoids then it is stack sortable. For any two elements and such that comes before in , if then there is not a value between and in . Thus, will enter the stack and will not leave until has left the stack, meaning that will come before in the list, as desired. If , then will enter and leave the stack before enters the stack, and again they will appear in the correct order in the list. Since this is true for all pairs and , the stack sorting procedure will correctly sort the permutation.  "
+},
+{
+  "id": "sec-stacksortable-20",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-20",
+  "type": "Checkpoint",
+  "number": "3.7.13",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not? Compare this proof with the examples you computed earlier.  "
+},
+{
+  "id": "thm-231avoidingrecurrence",
+  "level": "2",
+  "url": "sec-stacksortable.html#thm-231avoidingrecurrence",
+  "type": "Theorem",
+  "number": "3.7.14",
+  "title": "",
+  "body": "  Let denote the number of stack sortable, i.e., -avoiding, permutations in , where we define and . Then for , these numbers satisfy the recurrence Note that this is the Catalan recurrence which implies that is the -th Catalan number , which is equal to    "
+},
+{
+  "id": "sec-stacksortable-23",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-23",
+  "type": "Checkpoint",
+  "number": "3.7.15",
+  "title": "",
+  "body": " Use the recurrence to compute the first seven Catalan numbers.  "
+},
+{
+  "id": "sec-stacksortable-24",
+  "level": "2",
+  "url": "sec-stacksortable.html#sec-stacksortable-24",
+  "type": "Proof",
+  "number": "3.7.2",
+  "title": "",
+  "body": " Let be -avoiding. In this case, every entry to the left of in must be greater than every entry to the right of in . Thus, if , we have where is a -avoiding permutation of and is a -avoiding permutation of . Thus, there are possible and possible . As can be in any position in , this shows that there are possible -avoiding permutations in .  We will omit the proof that the formula satisfies the Catalan recurrence, but if you are interested in seeing it then you can search online and easily find proofs using the technique of generating functions (i.e., power series).  "
 },
 {
   "id": "ch-expectation",
