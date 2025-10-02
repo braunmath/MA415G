@@ -93,10 +93,14 @@
                 Continue until every element of the permutation has been analyzed, and any elements that are left in the stack we pop sequentially and add to the right side of the list.
             </p>
             <p>
-                If a permutation is correctly sorted by this operation, then we call it <em>1-stack sortable</em>.
+                If a permutation is correctly sorted by this operation, then we call it <em>1-stack sortable</em>, or just <em>stack sortable</em>.
             </p>
         </statement>
     </definition>
+
+    <p>
+        In the notes, I will use the vector transpose notation <m>S=(s_1,s_2,s_4,\ldots,s_k)^T</m> to denote the vertical stack with <m>s_1</m> on top and <m>s_k</m> at the bottom of the stack.
+    </p>
     <example>
         <p>
             Consider <m>4132</m>, with stack <m>S</m> and list <m>L</m>.
@@ -186,9 +190,158 @@
                 </li>
             </ol>
         </p>
-    
     </exercise>
 
+    <p>
+        We will see that there is a simple criteria that characterizes whether or not a permutation is stack sortable, involving the following definition.
+    </p>
 
+    <definition xml:id="def-231avoiding">
+        <statement>
+            <p>
+                We say that a permutation <m>\pi\in \ss_n</m> <em>contains the pattern <m>231</m></em> if there exist indices <m>i\lt j\lt k</m> such that
+                <me>
+                    \pi_j\gt \pi_i\gt \pi_k \, .
+                </me>
+                If <m>\pi</m> does not contain the pattern <m>231</m>, then we say that <m>\pi</m> is <em><m>231</m>-avoiding</em>.
+            </p>
+        </statement>
+    </definition>
+    
+    <example>
+        <p>
+            The permutation <m>\pi=364512</m> contains the pattern <m>231</m>, for example since
+            <me>
+                \pi_1=3, \pi_2=6, \pi_6=2
+            </me>
+            and this is a <m>231</m> pattern.
+        </p>
+    </example>
+
+    <exercise>
+        <p>
+            Which of the following permutations are <m>231</m>-avoiding?
+        </p>
+        <ol>
+                <li>
+                    <p>
+                        <m>83426517</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>21436587</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>87654321</m>
+                    </p>
+                </li>
+            </ol>
+    </exercise>
+
+    <theorem xml:id="thm-stacksortableclassification">
+        <statement>
+            <p>
+                A permutation <m>\pi\in \ss_n</m> is 1-stack sortable if and only if it is <m>231</m>-avoiding.
+            </p>
+        </statement>
+    </theorem>
+
+    <proof>
+        <p>
+            We first prove that if <m>\pi</m> is stack sortable then it is <m>231</m>-avoiding.
+            Suppose that the opposite happened, i.e., that there exist <m>i\lt j\lt k</m> where
+            <me>
+                \pi_j=b \gt \pi_i=a \gt \pi_k=c \, ,
+            </me>
+            where we use the names <m>a,b,c</m> to simplify notation.
+            When we get to <m>c</m> in the stack sorting process, there are several possibilities for what has occurred previously in the process.
+            <ul>
+                <li>
+                    <p>
+                        If <m>a</m> or <m>b</m> have already been popped from the stack, then that value will appear before <m>c</m> in the list, which would result in the final list being out of order.
+                        So, we must have both <m>a</m> and <m>b</m> in the stack when <m>c</m> is considered in the sorting process.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Note that in the stack when <m>c</m> is considered, we must have <m>a</m> below <m>b</m> in the stack, because <m>a</m> was pushed onto the stack before <m>b</m> since <m>a</m> was considered first in the sorting process:
+                        <me>
+                            S=(s_1,\ldots,b,\ldots,a,\ldots,s_k)^T
+                        </me>
+                        We must pop <m>c</m> before <m>a</m> and <m>b</m>, and as the process continues, we must pop <m>b</m> from the stack before we pop <m>a</m>.
+                        However, this will result in <m>b</m> appearing before <m>a</m> in the final list, which would put the elements out of order.
+                        Therefore, cannot have a <m>231</m>-pattern in <m>\pi</m>.                     
+                    </p>
+                </li>
+            </ul>
+        </p>
+        <p>
+            We next prove that if <m>\pi</m> avoids <m>231</m> then it is stack sortable.
+            For any two elements <m>a</m> and <m>b</m> such that <m>a</m> comes before <m>b</m> in <m>\pi</m>, if <m>a\gt b</m> then there is not a value <m>c\gt a</m> between <m>a</m> and <m>b</m> in <m>\pi</m>.
+            Thus, <m>a</m> will enter the stack and will not leave until <m>b</m> has left the stack, meaning that <m>b</m> will come before <m>a</m> in the list, as desired.
+            If <m>a\lt b</m>, then <m>a</m> will enter and leave the stack before <m>b</m> enters the stack, and again they will appear in the correct order in the list.
+            Since this is true for all pairs <m>a</m> and <m>b</m>, the stack sorting procedure will correctly sort the permutation.
+        </p>
+    </proof>
+
+    <exercise>
+        <p>
+            Discuss the proof above. Does it make sense? Why or why not? Compare this proof with the examples you computed earlier.
+        </p>
+    </exercise>
+    
+    <p>
+        There is a beautiful connection between the classification of stack sortable permutations and enumeration.
+    </p>
+
+    <theorem xml:id="thm-231avoidingrecurrence">
+        <statement>
+            <p>
+                Let <m>C_n</m> denote the number of stack sortable, i.e., <m>231</m>-avoiding, permutations in <m>\ss_n</m>, where we define <m>C_0=1</m> and <m>C_1=1</m>.
+                Then for <m>n\geq 2</m>, these numbers satisfy the recurrence
+                <me>
+                    C_{n}=\sum_{i=0}^{n-1}C_iC_{n-1-i} \, .
+                </me>
+                Note that this is the <em>Catalan recurrence</em> which implies that <m>C_n</m> is the <m>n</m>-th <em>Catalan number</em>, which is equal to
+                <me>
+                    C_n=\frac{1}{n+1}\binom{2n}{n} \, .
+                </me>
+            </p>
+        </statement>
+    </theorem>
+
+    <exercise>
+        <p>
+            Use the recurrence to compute the first seven Catalan numbers.
+        </p>
+    </exercise>
+    
+    <proof>
+        <p>
+            Let <m>\pi\in \ss_n</m> be <m>231</m>-avoiding.
+            In this case, every entry to the left of <m>n</m> in <m>\pi</m> must be greater than every entry to the right of <m>n</m> in <m>\pi</m>.
+            Thus, if <m>\pi_{i}=n</m>, we have
+            <me>
+                \pi=\tau n\sigma
+            </me>
+            where <m>\tau</m> is a <m>231</m>-avoiding permutation of <m>\{n-1,n-2,\ldots,n-1-(i-1)\}</m> and <m>\sigma</m> is a <m>231</m>-avoiding permutation of <m>\{1,2,\ldots,n-1-i\}</m>.
+            Thus, there are <m>C_i</m> possible <m>\tau</m> and <m>C_{n-1-i}</m> possible <m>\sigma</m>.
+            As <m>n</m> can be in any position in <m>\pi</m>, this shows that there are 
+            <me>
+                \sum_{i=0}^{n-1}C_iC_{n-1-i}
+            </me>
+            possible <m>231</m>-avoiding permutations in <m>\ss_n</m>.
+        </p>
+        <p>
+            We will omit the proof that the formula 
+            <me>
+                C_n=\frac{1}{n+1}\binom{2n}{n}
+            </me>
+            satisfies the Catalan recurrence, but if you are interested in seeing it then you can search online and easily find proofs using the technique of generating functions (i.e., power series).
+        </p>
+    </proof>
 
 </section>
