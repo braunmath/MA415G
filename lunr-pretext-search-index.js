@@ -2149,7 +2149,7 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "10",
   "title": "Homework Problems and Essays",
-  "body": " Homework Problems and Essays   P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that        P2  How many binary strings of length are there with exactly two ones and zeros? Express your answer as either a function of or as a recursive expression. Give an argument, i.e., a proof, explaining why your solution is correct.    Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P3  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have     P4  Give a combinatorial proof showing that     P5   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these. However, you need to provide a narrative in sentences\/paragraphs explaining your thinking and the results of your investigations. (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)    P6  For each positive integer , express in terms of Fibonacci numbers the number of sequences with each , such that     P7     Find a relationship between the Fibonacci numbers and the number of compositions of where every part is an odd number. Prove that your answer is correct.     A subset is called large if we have that for every . So, for example, is large while is not large. We define that the emptyset is large. Let be the number of large subsets of (including the emptyset). Find a relationship between and the Fibonacci numbers and prove that your answer is correct.       P8  In this problem you will prove that holds for all . Let denote the number of ways to select elements from and write them in a linear order, i.e., write them as a permutation.   Prove that using only the combinatorial interpretation of .    Prove that     Using the previous two parts of this problem, prove that        P9  Prove that Note that , and thus this shows that is approximately .    P10  A permutation is an involution if all cycles have length or . Let denote the number of involutions in . Prove that where and .    P11  A permutation is called connected if for every . Let denote the number of connected permutations in . Prove that     Essay 2  Read the following blog post by Keith Weber, a professor of math education at Rutgers University who studies how undergraduate students understand proofs in mathematics: After you read this article, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   The article describes four expectations that professors have for students, but which are usually mis-communicated. For each of these four expectations , do you respond more like the students in their surveys, or more like the professors? Why?    The discussion at the end of the article has some recommendations for faculty in their courses. Which of these recommendations do you think you would find most helpful for your learning, and why?    What is one thing you might change about your approach to your math courses after reading this article? Why is this the thing you would choose to change?      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P12  Recall that is the number of permutations in with inversions, and is the number of permutations in with descents. Give a combinatorial proof that and     P13     In the first part of this problem, you will prove by induction that    First, verify the base case for the induction argument, i.e., check that this is true for .    Second, assume that this is true for all values less than . In particular, this means that we assume we have already verified that To prove that the induction step holds, use this to prove that the equation holds for as follows: write and then substitute the formula for the case and simplify with algebra.    Explain in your own words why this shows that the formula is true for any positive integer .       Prove by induction that    Comment for those who are interested: These two formulas are ones that students learn (and typically forget) in Calculus I. However, these are special cases of a beautiful formula called Faulhaber's formula which is a formula for the sum of the -th powers of the first positive integers: .    P14     A graph is called -regular if every vertex has degree . How many edges does a -regular graph on vertices have?    Does there exist a -regular graph on vertices? Why or why not?       P15  A graph is bipartite if the vertex set of can be partitioned as in such a way that every edge in has one endpoint in and one in . Prove that is bipartite if and only if every cycle in has an even number of edges.    P16  Suppose a tree has exactly one vertex of degree for each and all other vertices have degree .   How many vertices does have?    For each , explain how to construct an example of a tree with this property.       P17  A graceful labeling of a tree on vertices is a mapping so that for each edge , the value of is distinct from the value on any other edge. The path graph of length , denoted , is the graph with vertex set and edges for every . Show that every has a graceful labeling.  NOTE: A well-known and extremely challenging unsolved conjecture is that all trees admit graceful labelings. This is known for some trees but not all trees.    Essay 3  Watch the following YouTube video from Numberphile (13 minutes, published 29 Jan 2024): After you watch this video, complete the following essay.   This will be an essay of length 500 words, which is equivalent to 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced.    Write a critical review of this Numberphile video. Imagine that you are writing your review for a journal for undergraduates in mathematics and the sciences, so your primary audience is undergraduate math\/cs\/engineering\/etc majors and minors.    Like any critic, you will respond positively to some things and negatively to others. Unlike many critics, you need to justify your opinions and provide detailed explanations for your claims.    You should consider the following questions:    Does the video effectively communicate the mathematics it discusses? Why or why not? Justify your claims with specific details about the video.    We have discussed multiple approaches\/themes to enumeration in this course, for example, recursions, bijections, systematic listing, etc. Which of these approaches\/themes to enumeration are used in this video? Be detailed, give specific examples from the video!    Is the mathematics clearly explained? If yes, what did they do especially well? If no, what made it unclear? Again, justify your claims with specific examples from the video.     Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P18      P19      P20      P21      P22      P23      Essay 4      P24      P25      P26      P27      P28      P29      Essay 5      P30      P31      P32      P33      P34      P35      Essay 6      P36      P37      P38      P39      P40      End-of-Class Reflection     "
+  "body": " Homework Problems and Essays   P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that        P2  How many binary strings of length are there with exactly two ones and zeros? Express your answer as either a function of or as a recursive expression. Give an argument, i.e., a proof, explaining why your solution is correct.    Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P3  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have     P4  Give a combinatorial proof showing that     P5   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these. However, you need to provide a narrative in sentences\/paragraphs explaining your thinking and the results of your investigations. (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)    P6  For each positive integer , express in terms of Fibonacci numbers the number of sequences with each , such that     P7     Find a relationship between the Fibonacci numbers and the number of compositions of where every part is an odd number. Prove that your answer is correct.     A subset is called large if we have that for every . So, for example, is large while is not large. We define that the emptyset is large. Let be the number of large subsets of (including the emptyset). Find a relationship between and the Fibonacci numbers and prove that your answer is correct.       P8  In this problem you will prove that holds for all . Let denote the number of ways to select elements from and write them in a linear order, i.e., write them as a permutation.   Prove that using only the combinatorial interpretation of .    Prove that     Using the previous two parts of this problem, prove that        P9  Prove that Note that , and thus this shows that is approximately .    P10  A permutation is an involution if all cycles have length or . Let denote the number of involutions in . Prove that where and .    P11  A permutation is called connected if for every . Let denote the number of connected permutations in . Prove that     Essay 2  Read the following blog post by Keith Weber, a professor of math education at Rutgers University who studies how undergraduate students understand proofs in mathematics: After you read this article, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   The article describes four expectations that professors have for students, but which are usually mis-communicated. For each of these four expectations , do you respond more like the students in their surveys, or more like the professors? Why?    The discussion at the end of the article has some recommendations for faculty in their courses. Which of these recommendations do you think you would find most helpful for your learning, and why?    What is one thing you might change about your approach to your math courses after reading this article? Why is this the thing you would choose to change?      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P12  Recall that is the number of permutations in with inversions, and is the number of permutations in with descents. Give a combinatorial proof that and     P13     In the first part of this problem, you will prove by induction that    First, verify the base case for the induction argument, i.e., check that this is true for .    Second, assume that this is true for all values less than . In particular, this means that we assume we have already verified that To prove that the induction step holds, use this to prove that the equation holds for as follows: write and then substitute the formula for the case and simplify with algebra.    Explain in your own words why this shows that the formula is true for any positive integer .       Prove by induction that    Comment for those who are interested: These two formulas are ones that students learn (and typically forget) in Calculus I. However, these are special cases of a beautiful formula called Faulhaber's formula which is a formula for the sum of the -th powers of the first positive integers: .    P14     A graph is called -regular if every vertex has degree . How many edges does a -regular graph on vertices have?    Does there exist a -regular graph on vertices? Why or why not?       P15  A graph is bipartite if the vertex set of can be partitioned as in such a way that every edge in has one endpoint in and one in . Prove that is bipartite if and only if every cycle in has an even number of edges.    P16  Suppose a tree has exactly one vertex of degree for each and all other vertices have degree .   How many vertices does have?    For each , explain how to construct an example of a tree with this property.       P17  A graceful labeling of a tree on vertices is a mapping so that for each edge , the value of is distinct from the value on any other edge. The path graph of length , denoted , is the graph with vertex set and edges for every . Show that every has a graceful labeling.  NOTE: A well-known and extremely challenging unsolved conjecture is that all trees admit graceful labelings. This is known for some trees but not all trees.    Essay 3  Watch the following YouTube video from Numberphile (13 minutes, published 29 Jan 2024): After you watch this video, complete the following essay.   This will be an essay of length 500 words, which is equivalent to 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced.    Write a critical review of this Numberphile video. Imagine that you are writing your review for a journal for undergraduates in mathematics and the sciences, so your primary audience is undergraduate math\/cs\/engineering\/etc majors and minors.    Like any critic, you will respond positively to some things and negatively to others. Unlike many critics, you need to justify your opinions and provide detailed explanations for your claims.    You should consider the following questions:    Does the video effectively communicate the mathematics it discusses? Why or why not? Justify your claims with specific details about the video.    We have discussed multiple approaches\/themes to enumeration in this course, for example, recursions, bijections, systematic listing, etc. Which of these approaches\/themes to enumeration are used in this video? Be detailed, give specific examples from the video!    Is the mathematics clearly explained? If yes, what did they do especially well? If no, what made it unclear? Again, justify your claims with specific examples from the video.     Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P18     Find the sequences of edges to build the tree corresponding to the Prufer code , and explain your reasoning for how you find the edge at each step.    Find the Prufer code for the tree pictured below. Explain how you find the array step-by-step as you go through the algorithm.          P19  Fix a connected graph on vertex set . Let and be two spanning trees of . Prove that there exists a sequence of spanning trees of  such that is obtained from by deleting an edge from and adding an edge from .    P20  Let be a sequence of positive integers. Using Prufer codes , prove that the number of spanning trees of where the degree of vertex is is     P21      P22      P23      Essay 4      P24      P25      P26      P27      P28      P29      Essay 5      P30      P31      P32      P33      P34      P35      Essay 6      P36      P37      P38      P39      P40      End-of-Class Reflection     "
 },
 {
   "id": "ch-homework-2",
@@ -2338,32 +2338,32 @@ var ptx_lunr_docs = [
   "type": "Problem",
   "number": "10.0.21",
   "title": "P18.",
-  "body": " P18    "
+  "body": " P18     Find the sequences of edges to build the tree corresponding to the Prufer code , and explain your reasoning for how you find the edge at each step.    Find the Prufer code for the tree pictured below. Explain how you find the array step-by-step as you go through the algorithm.        "
 },
 {
   "id": "ch-homework-23",
   "level": "2",
   "url": "ch-homework.html#ch-homework-23",
   "type": "Problem",
-  "number": "10.0.22",
+  "number": "10.0.23",
   "title": "P19.",
-  "body": " P19    "
+  "body": " P19  Fix a connected graph on vertex set . Let and be two spanning trees of . Prove that there exists a sequence of spanning trees of  such that is obtained from by deleting an edge from and adding an edge from .  "
 },
 {
   "id": "ch-homework-24",
   "level": "2",
   "url": "ch-homework.html#ch-homework-24",
   "type": "Problem",
-  "number": "10.0.23",
+  "number": "10.0.24",
   "title": "P20.",
-  "body": " P20    "
+  "body": " P20  Let be a sequence of positive integers. Using Prufer codes , prove that the number of spanning trees of where the degree of vertex is is   "
 },
 {
   "id": "ch-homework-25",
   "level": "2",
   "url": "ch-homework.html#ch-homework-25",
   "type": "Problem",
-  "number": "10.0.24",
+  "number": "10.0.25",
   "title": "P21.",
   "body": " P21    "
 },
@@ -2372,7 +2372,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-26",
   "type": "Problem",
-  "number": "10.0.25",
+  "number": "10.0.26",
   "title": "P22.",
   "body": " P22    "
 },
@@ -2381,7 +2381,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-27",
   "type": "Problem",
-  "number": "10.0.26",
+  "number": "10.0.27",
   "title": "P23.",
   "body": " P23    "
 },
@@ -2390,7 +2390,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-28",
   "type": "Problem",
-  "number": "10.0.27",
+  "number": "10.0.28",
   "title": "Essay 4.",
   "body": " Essay 4    "
 },
@@ -2399,7 +2399,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-29",
   "type": "Problem",
-  "number": "10.0.28",
+  "number": "10.0.29",
   "title": "P24.",
   "body": " P24    "
 },
@@ -2408,7 +2408,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-30",
   "type": "Problem",
-  "number": "10.0.29",
+  "number": "10.0.30",
   "title": "P25.",
   "body": " P25    "
 },
@@ -2417,7 +2417,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-31",
   "type": "Problem",
-  "number": "10.0.30",
+  "number": "10.0.31",
   "title": "P26.",
   "body": " P26    "
 },
@@ -2426,7 +2426,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-32",
   "type": "Problem",
-  "number": "10.0.31",
+  "number": "10.0.32",
   "title": "P27.",
   "body": " P27    "
 },
@@ -2435,7 +2435,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-33",
   "type": "Problem",
-  "number": "10.0.32",
+  "number": "10.0.33",
   "title": "P28.",
   "body": " P28    "
 },
@@ -2444,7 +2444,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-34",
   "type": "Problem",
-  "number": "10.0.33",
+  "number": "10.0.34",
   "title": "P29.",
   "body": " P29    "
 },
@@ -2453,7 +2453,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-35",
   "type": "Problem",
-  "number": "10.0.34",
+  "number": "10.0.35",
   "title": "Essay 5.",
   "body": " Essay 5    "
 },
@@ -2462,7 +2462,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-36",
   "type": "Problem",
-  "number": "10.0.35",
+  "number": "10.0.36",
   "title": "P30.",
   "body": " P30    "
 },
@@ -2471,7 +2471,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-37",
   "type": "Problem",
-  "number": "10.0.36",
+  "number": "10.0.37",
   "title": "P31.",
   "body": " P31    "
 },
@@ -2480,7 +2480,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-38",
   "type": "Problem",
-  "number": "10.0.37",
+  "number": "10.0.38",
   "title": "P32.",
   "body": " P32    "
 },
@@ -2489,7 +2489,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-39",
   "type": "Problem",
-  "number": "10.0.38",
+  "number": "10.0.39",
   "title": "P33.",
   "body": " P33    "
 },
@@ -2498,7 +2498,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-40",
   "type": "Problem",
-  "number": "10.0.39",
+  "number": "10.0.40",
   "title": "P34.",
   "body": " P34    "
 },
@@ -2507,7 +2507,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-41",
   "type": "Problem",
-  "number": "10.0.40",
+  "number": "10.0.41",
   "title": "P35.",
   "body": " P35    "
 },
@@ -2516,7 +2516,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-42",
   "type": "Problem",
-  "number": "10.0.41",
+  "number": "10.0.42",
   "title": "Essay 6.",
   "body": " Essay 6    "
 },
@@ -2525,7 +2525,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-43",
   "type": "Problem",
-  "number": "10.0.42",
+  "number": "10.0.43",
   "title": "P36.",
   "body": " P36    "
 },
@@ -2534,7 +2534,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-44",
   "type": "Problem",
-  "number": "10.0.43",
+  "number": "10.0.44",
   "title": "P37.",
   "body": " P37    "
 },
@@ -2543,7 +2543,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-45",
   "type": "Problem",
-  "number": "10.0.44",
+  "number": "10.0.45",
   "title": "P38.",
   "body": " P38    "
 },
@@ -2552,7 +2552,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-46",
   "type": "Problem",
-  "number": "10.0.45",
+  "number": "10.0.46",
   "title": "P39.",
   "body": " P39    "
 },
@@ -2561,7 +2561,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-47",
   "type": "Problem",
-  "number": "10.0.46",
+  "number": "10.0.47",
   "title": "P40.",
   "body": " P40    "
 },
@@ -2570,7 +2570,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-48",
   "type": "Problem",
-  "number": "10.0.47",
+  "number": "10.0.48",
   "title": "End-of-Class Reflection.",
   "body": " End-of-Class Reflection    "
 }
