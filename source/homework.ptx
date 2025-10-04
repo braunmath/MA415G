@@ -384,18 +384,44 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P18</title>
         <p>
-            
+            <ol>
+                <li>
+                    <p>
+                        Find the sequences of edges to build the tree corresponding to the Prufer code <m>442233114</m>, and explain your reasoning for how you find the edge at each step.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Find the Prufer code for the tree pictured below.
+                        Explain how you find the array <m>A(T)</m> step-by-step as you go through the algorithm.
+                    </p>
+                </li>
+            </ol>
         </p>
+        <figure xml:id="fig-homeworktree">
+        <image source="treehomework.png" width="65%"/>
+        </figure>
     </problem>
         <problem>
         <title>P19</title>
         <p>
-            
+            Fix a connected graph <m>G</m> on vertex set <m>[n]</m>.
+            Let <m>T</m> and <m>T'</m> be two spanning trees of <m>G</m>.
+            Prove that there exists a sequence of spanning trees of <m>G</m>
+            <me>
+                T=T_1, T_2, T_3,\ldots, T_k=T'
+            </me>
+            such that <m>T_{i+1}</m> is obtained from <m>T_{i}</m> by deleting an edge from <m>T_{i}</m> and adding an edge from <m>T'</m>. 
         </p>
     </problem>
         <problem>
         <title>P20</title>
         <p>
+            Let <m>(d_1,\ldots,d_n)</m> be a sequence of positive integers.
+            <em>Using Prufer codes</em>, prove that the number of spanning trees of <m>K_n</m> where the degree of vertex <m>i</m> is <m>d_i</m> is 
+            <me>
+                \frac{(n-2)!}{(d_1-1)!(d_2-1)!\cdots (d_n-1)!} \, .
+            </me>
             
         </p>
     </problem>
