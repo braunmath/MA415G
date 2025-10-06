@@ -3,5 +3,12 @@
 <chapter xml:id="ch-expectation" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Expectation</title>
 
+  <!-- include sections -->
+  <xi:include href="expectationintro.ptx" />
+  <xi:include href="finiteprobability.ptx" />
+  <xi:include href="expectationindicators.ptx" />
+  <xi:include href="expectationsubsets.ptx" />
+  <xi:include href="expectationpermutations.ptx" />
+  <xi:include href="expectationgraphs.ptx" />
 
 </chapter>

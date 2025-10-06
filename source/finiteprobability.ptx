@@ -1,0 +1,86 @@
+<section xml:id="sec-finiteprobability">
+    <title>Finite Probability Spaces and Random Variables</title>
+    
+    <p>
+        Our first task is to clearly define what we mean when we talk about likelihood of an event occurring.
+    </p>
+
+    <definition xml:id="def-finiteprobabilityspace">
+        <statement>
+            <p>
+                Let <m>\Omega</m> be a finite set.
+		We refer to the elements of <m>\Omega</m> as <em>events</em>.
+		A <em>probability distribution</m> on <m>\Omega</m> is a function
+		<me>
+		P:\Omega\mapsto \mathbb{R_{\geq 0}}
+		</me>
+		such that 
+		<me>
+		\sum_{x\in \Omega}P(x)=1 \, .
+		</me>
+		If <m>P(x)=1/|\Omega|</m> for all <m>x\in \Omega</m>, then we call <m>P</m> the <em>uniform distribution</em>.
+            </p>
+        </statement>
+    </definition>
+
+	<example>
+		<p>
+		Consider the set
+<me>
+\Omega=\{00,10,01,11\}
+</me>
+ of binary strings of length two, with the uniform distribution <m>P(x)=1/4</m>.
+		The interpretation of this distribution is that if you pick one of the four binarys string of length two at random, you are equally likely to pick any of the four strings -- each will appear <m>1/4</m> of the time.
+		</p>
+	</example>
+
+		<example>
+		<p>
+		Consider the set of outcomes from rolling a die, which is the values appearing on the six sides:
+<me>
+\Omega=\{1,2,3,4,5,6\} \, .
+</me>
+ The uniform distribution in this case gives <m>P(x)=1/6</m>.
+		The interpretation of this distribution is that if you roll a fair die, you are equally likely to roll any of the six sides -- each will appear <m>1/6</m> of the time.
+		</p>
+	</example>
+
+<example>
+<p>
+Consider again the set
+<me>
+\Omega=\{00,10,01,11\}
+</me>
+ of binary strings of length two, but this time we will use a different probability distribution.
+Let <m>p=1/10</m> and set
+<me>
+P_{1/8}(x)=(1/8)^{\text{number of }<m>0</m>\text{'s in }x}(7/8)^{\text{number of }<m>1</m>\text{'s in }x} \, .
+</me>
+Is this a probability distribution? Let's check!
+</p>
+<p>
+First observe that
+<me>
+P_{1/8}(00)=(1/8)^2(7/8)^0, P_{1/8}(10)=P_{1/8}(01)=(1/8)^1(7/8)^1, P_{1/8}(11)=(1/8)^0(7/8)^2\, ,
+</me>
+and therefore we have
+<me>
+P_{1/8}(00)+P_{1/8}(10)+P_{1/8}(01)+P_{1/8}(11)=(1/8+7/8)^2 = 1 \, .
+</me>
+So, this is a probability distribution on <m>\{00,10,01,11\}</m> -- it is one which strongly favors binary strings that contain more <m>1</m>'s.
+</p>
+</example>
+
+<exercise>
+<p>
+Let <m>p\in (0,1)</m>.
+Prove that if <m>\Omega</m> is the set of all binary strings of length <m>3</m>, the function 
+<me>
+P_{p}(x)=(p)^{\text{number of }<m>0</m>\text{'s in }x}(1-p)^{\text{number of }<m>1</m>\text{'s in }x} 
+</me>
+is a probability distribution.
+</p>
+</exercise>
+
+
+</section>
