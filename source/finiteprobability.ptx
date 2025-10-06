@@ -10,7 +10,7 @@
             <p>
                 Let <m>\Omega</m> be a finite set.
 		We refer to the elements of <m>\Omega</m> as <em>events</em>.
-		A <em>probability distribution</m> on <m>\Omega</m> is a function
+		A <em>probability distribution</em> on <m>\Omega</m> is a function
 		<me>
 		P:\Omega\mapsto \mathbb{R_{\geq 0}}
 		</me>
@@ -54,7 +54,7 @@ Consider again the set
  of binary strings of length two, but this time we will use a different probability distribution.
 Let <m>p=1/10</m> and set
 <me>
-P_{1/8}(x)=(1/8)^{\text{number of }<m>0</m>\text{'s in }x}(7/8)^{\text{number of }<m>1</m>\text{'s in }x} \, .
+P_{1/8}(x)=(1/8)^{\text{number of }0\text{'s in }x}(7/8)^{\text{number of }1\text{'s in }x} \, .
 </me>
 Is this a probability distribution? Let's check!
 </p>
@@ -76,7 +76,7 @@ So, this is a probability distribution on <m>\{00,10,01,11\}</m> -- it is one wh
 Let <m>p\in (0,1)</m>.
 Prove that if <m>\Omega</m> is the set of all binary strings of length <m>3</m>, the function 
 <me>
-P_{p}(x)=(p)^{\text{number of }<m>0</m>\text{'s in }x}(1-p)^{\text{number of }<m>1</m>\text{'s in }x} 
+P_{p}(x)=(p)^{\text{number of }0\text{'s in }x}(1-p)^{\text{number of }1\text{'s in }x} 
 </me>
 is a probability distribution.
 </p>

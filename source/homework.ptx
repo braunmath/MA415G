@@ -375,7 +375,7 @@ After you watch this video, complete the following essay.
             </p>
         </li>
     </ol>
-</li>
+    </li>
 </ul>        
   
 Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).
@@ -399,9 +399,11 @@ Your grade is based on completion only (in other words, if you complete the assi
             </ol>
         </p>
         <figure xml:id="fig-homeworktree">
+        <caption>Tree for homework problem.</caption>
         <image source="treehomework.png" width="65%"/>
         </figure>
     </problem>
+
         <problem>
         <title>P19</title>
         <p>
