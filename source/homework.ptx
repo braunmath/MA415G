@@ -430,25 +430,110 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P21</title>
         <p>
-            
+            For each of the following sequences, (1) construct the corresponding threshold graph and (2) compute its degree sequence.
+            <ol>
+                <li>
+                    <p>
+                        SIIISSISI
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        IIIISIIIISS
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        SSSSIISS
+                    </p>
+                </li>
+            </ol>
         </p>
     </problem>
         <problem>
         <title>P22</title>
         <p>
-            
+            For each of the following degree sequences, (1) compute the corrected Durfee number and (2) determine whether or not it is the degree sequence of a threshold graph. 
+            If it is a threshold graph, find a sequence of S and I operations that produce a graph with this degree sequence.
+            Explain your reasoning.
+            <ol>
+                <li>
+                    <p>
+                        <m>(9, 8, 8, 8, 7, 7, 7, 7, 6, 5, 4)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(7, 5, 5, 3, 3, 3, 1, 1)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(6, 6, 6, 6, 6, 5, 5, 2)</m>
+                    </p>
+                </li>
+            </ol>
         </p>
     </problem>
         <problem>
         <title>P23</title>
         <p>
-            
+            For each of the following sequences, use the Havel-Hakimi test to determine whether or not it is a graphic sequence.
+            Show your work and explain your solution.
+            <ol>
+                <li>
+                    <p>
+                        <m>(5, 4, 4, 4, 4, 4, 4, 3)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(7, 6, 6, 5, 5, 5, 4, 3, 3, 2)</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(6,6,6,6,5,3,1,1)</m>
+                    </p>
+                </li>
+            </ol>
         </p>
     </problem>
         <problem>
         <title>Essay 4</title>
         <p>
-            
+            Read the following article from Quanta magazine: <url href="https://www.quantamagazine.org/maths-bunkbed-conjecture-has-been-debunked-20241101/" />
+            After you read this article, complete the following essay.
+            <ul>
+                <li>
+                    <p>
+                        This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Your essay should respond to the following three questions.
+                        <ul>
+                            <li>
+                                <p>
+                                    Was this article effective at communicating the mathematics of the bunkbed conjecture? Why or why not? (Give specific examples from the article to justify your claims!)    
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    What was something you thought was interesting about the article? Why was it interesting to you?
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    What do you personally think the answer should be to the questions raised at the end of the article about proofs that are only true with high probability? Be detailed with your reasoning! It is acceptable to have a mix of responses to this issue, but you need to clearly explain your thoughts.
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+            </ul>
+Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).
         </p>
     </problem>
         <problem>
