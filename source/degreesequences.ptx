@@ -329,15 +329,24 @@
         <statement>
             <p>
                 Let <m>\mathbf{d}=(d_1,d_2,\ldots,d_n)</m> be a proper sequence.
-                For any <m>i</m>, let <m>\mathbf{c}=(c_1,c_2,\ldots,c_{n-1})</m> be the sequence obtained from <m>\mathbf{d}</m> by deleting <m>d_i</m> and decreasing each of the first <m>d_i</m> remaining entries by <m>1</m>; we call this operation a <em>Havel-Hakimi step</em> in position <m>i</m>.
-                Then   <m>\mathbf{d}</m> is graphic if and only if <m>\mathbf{c}</m> is.
+                For any <m>i</m>, let <m>\mathbf{c}=(c_1,c_2,\ldots,c_{n-1})</m> be the sequence obtained from <m>\mathbf{d}</m> by deleting <m>d_i</m>, decreasing each of the first <m>d_i</m> remaining entries by <m>1</m>, and then rearranging the sequence in non-increasing order; we call this operation a <em>Havel-Hakimi step</em> in position <m>i</m>.
+                Then <m>\mathbf{d}</m> is graphic if and only if <m>\mathbf{c}</m> is.
             </p>
         </statement>
     </theorem>
 
+    <example>
+        <p>
+            Starting with the proper sequence <m>\mathbf{d}=(5,3,3,2,2,2,2)</m>, we can apply a Havel-Hakimi step in position <m>1</m>.
+            We first delete <m>d_1=5</m> to obtain <m>(3,3,2,2,2,2)</m>, then we subtract one from each of the first five entries to obtain to obtain the sequence <m>(2,2,1,1,1,2)</m>.
+            We then rearrange this to obtain the proper sequence <m>(2,2,2,1,1,1)</m>.    
+            Thus, by the Havel-Hakimi theorem, <m>(5,3,3,2,2,2,2)</m> is graphic if and only if <m>(2,2,2,1,1,1)</m> is graphic.
+        </p>
+    </example>
+
 <exercise>
         <p>
-            For each of the following degree sequences, verify that this theorem holds when <m>i=3</m>.
+            For each of the following degree sequences, apply the Havel-Hakimi step for <m>i=3</m>.
             <ol>
                 <li>
                     <p>
@@ -390,18 +399,42 @@
     </proof>
 
     <p>
-        The Havel-Hakimi theorem gives rise to an algorithm to test whether or not a proper sequence is graphic and to produce a graph realizing that sequence.
+        The Havel-Hakimi theorem gives rise to an algorithm to test whether or not a proper sequence is graphic.
+        Remember that <m>(d_1,d_2,\ldots,d_n)</m> is a <em>proper sequence</em> if 
+        <me>
+            n-1\geq d_1\geq d_2\geq \cdots \geq d_n \geq 0 \, .
+        </me>
     </p>
         
     <algorithm xml:id="alg-havelhakimi">
         <title>The Havel-Hakimi test</title>  
         <statement>
             <p>
-                Given a proper sequence <m>\mathbf{s}</m>, pick some entry <m>i</m> and apply a Havel-Hakimi step.
-        Rearrange the resulting sequence in non-increasing order.
-        If any entries are negative, then it is not graphic.
-        If the resulting sequence is proper, then pick another entry and apply a Havel-Hakimi step.
-        Continue in this way until either a negative entry is found, in which case the sequence is not graphic, or the resulting sequence consists of all zeros, in which case adding vertices and edges by reversing all the steps produces a graph realizing the degree sequence <m>\mathbf{s}</m>.
+                Start with a proper sequence <m>\mathbf{s}</m>.
+                The goal is to determine whether or not this is a graphic sequence.
+                <ol>
+                    <li>
+                        <p>
+                            Pick some entry <m>i</m> and apply a Havel-Hakimi step to <m>\mathbf{s}</m> in position <m>i</m> to obtain a new sequence <m>\mathbf{t}</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            If <m>\mathbf{t}</m> is not a proper sequence, then <m>\mathbf{s}</m> is not graphic.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            If <m>\mathbf{t}</m> is a proper sequence, then repeat from step 1 with <m>\mathbf{t}</m> in place of <m>\mathbf{s}</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Continue to repeat this process. 
+                            If the final resulting sequence is <m>(0)</m>, then the original sequence <m>\mathbf{s}</m> is graphic.
+                        </p>
+                    </li>
+                </ol>
             </p>
         </statement>
     </algorithm>
