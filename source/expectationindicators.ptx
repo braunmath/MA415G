@@ -1,0 +1,275 @@
+<section xml:id="sec-expectationindicators">
+    <title>Expected Values, Linearity of Expectation, and Indicator Functions</title>
+    
+    <p>
+		We next define the expected value of a random variable, which is our main tool for analyzing random variables.
+	</p>
+
+	<definition xml:id="def-expectedvalue">
+		<statement>
+			<p>
+				Given a random variable <m>X:\Omega\mapsto \mathbb{R}</m> on a finite probability space <m>(\Omega,P)</m>, the <em>expected value</em> of <m>X</m> is defined to be
+				<me>
+				E[X]=\sum_{x\in \Omega} P(x)X(x) \, .
+				</me>
+				Intuitively, the expected value of <m>X</m> is the average value of <m>X</m> if we select an event from <m>\Omega</m> according to the probability distribution <m>P</m>.
+			</p>
+		</statement>
+	</definition>
+		
+<example>
+<p>
+Consider again the set <m>\Omega=\{00,10,01,11\}</m> of binary strings of length two, with the uniform distribution and the random variable <m>X:\Omega\mapsto \mathbb{R}</m> by <me>X(00)=0, X(10)=1, X(01)=1, X(11)=2</me>.
+The expected value of <m>X</m> is
+<me>
+	E[X]=\sum_{w\in \Omega} P(w)X(w)=\frac{1}{4}(0)+\frac{1}{4}(1)+\frac{1}{4}(1)+\frac{1}{4}(2)=1 \, .
+</me>
+The interpretation of this expected value is that if we select a binary string of length two uniformly at random, we expect it to contain one <m>1</m> on average.	
+</p>
+</example>
+
+<example>
+<p>
+Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: <m>\Omega=\{1,2,3,4,5,6\}</m>, with the uniform distribution and the random variable <m>Y:\Omega\mapsto \mathbb{R}</m> by <me>Y(i)=i</me>.
+The expected value of <m>Y</m> is
+<md>
+	<mrow>E[Y]\amp =\sum_{i=1}^6 P(i)Y(i) </mrow>
+	<mrow> \amp = \frac{1}{6}(1)+\frac{1}{6}(2)+\frac{1}{6}(3)+\frac{1}{6}(4)+\frac{1}{6}(5)+\frac{1}{6}(6)</mrow>
+	<mrow>\amp =3.5 \, .</mrow>
+</md>
+The interpretation of this expected value is that if we roll a die uniformly at random, we expect the value appearing on the top face to be <m>3.5</m> on average.
+</p>
+</example>
+
+<p>
+	Note that the expected value of a random variable need not be a value that the random variable can actually take on.
+	For example, in the die-rolling example above, the expected value of <m>Y</m> is <m>3.5</m>, but <m>Y</m> never takes on the value <m>3.5</m>.
+</p>
+
+
+<exercise>
+<p>
+	Consider the set of permutations <m>\Omega=\ss_3</m> with the uniform distribution.
+	<ol>
+		<li>
+			<p>
+				For the random variable <me>X(\pi)=\text{number of fixed points of }\pi \, ,</me> what is <m>E[X]</m>?
+			</p>
+		</li>
+		<li>
+			<p>
+				For the random variable <me>X(\pi)=\text{number of inversions in }\pi \, ,</me> what is <m>E[X]</m>?			
+			</p>
+		</li>
+	</ol>
+</p>
+</exercise>
+
+
+<exercise>
+<p>
+	Consider the set <m>\Bin_3</m> of binary strings of length three with the binomial distribution
+	<me>
+	P_{p}(w)=(p)^{\text{number of }0\text{'s in }w}(1-p)^{\text{number of }1\text{'s in }w} \, .
+	</me>
+	with parameter <m>p=1/4</m>.
+	<ol>
+		<li>
+			<p>
+				For the random variable
+				<me>
+				X(w)=\text{number of }1\text{'s in }w \, ,
+				</me>
+				what is <m>E[X]</m>?
+			</p>
+		</li>
+		<li>
+			<p>
+				For the random variable <me>Y(w)=\text{number of }1\text{'s in first two positions of }w \, ,</me> what is <m>E[Y]</m>?
+			</p>
+		</li>
+	</ol>
+</p>
+</exercise>
+
+
+<p>
+	Here is a helpful observation to make about expected values that is specific to the uniform distribution.
+	Suppose that <m>|\Omega|=n</m>.
+	Then for any random variable <m>X:\Omega\mapsto \mathbb{R}</m>, we have that
+	<me>
+	E[X]=\sum_{x\in \Omega} P(x)X(x)=\sum_{x\in \Omega} \frac{1}{n}X(x)=\frac{1}{n}\sum_{x\in \Omega} X(x) \, .
+	</me>
+	In other words, when the probability distribution is uniform, the expected value of a random variable is simply the average of the values of the random variable.
+</p>
+
+<p>
+	It is important to remember that this observation only holds for the uniform distribution.
+	It does not hold for other probability distributions!
+</p>
+
+<p>
+	In general, it is difficult to compute expected values directly from the definition.
+	However, if we can express a random variable as a sum of simpler random variables, then it often becomes easier to compute the expected value.
+</p>
+
+<example>
+	<p>
+		Consider <m>\ss_n</m> with the uniform distribution and the random variable <m>X:\ss_n\mapsto \mathbb{R}</m> defined by <me>X(\pi)=\text{number of fixed points of }\pi \, .</me>
+		We can express <m>X</m> as a sum of simpler random variables as follows.
+		For <m>i=1,2,\ldots,n</m>, let <m>X_i:\ss_n\mapsto \mathbb{R}</m> be the random variable defined by
+		<me>
+		X_i(\pi)=
+		\begin{cases}
+		1 \amp \text{if } \pi(i)=i  \\
+		0 \amp \text{if } \pi(i)\neq i \, .
+		\end{cases}
+		</me>
+		Then <m>X_i</m> is the indicator function for the event that <m>i</m> is a fixed point of <m>\pi</m>, and we have that
+		<me>
+		X(\pi)=\sum_{i=1}^n X_i(\pi) \, .
+		</me>
+		Thus, we can express <m>X</m> as a sum of the simpler random variables <m>X_1,X_2,\ldots,X_n</m>.
+	</p>
+</example>
+
+<exercise>
+	<p>
+		Consider <m>\ss_n</m> with the uniform distribution and the random variable <m>Y:\ss_n\mapsto \mathbb{R}</m> defined by <me>Y(\pi)=\text{number of descents in }\pi \, .</me>
+		Express <m>Y</m> as a sum of simpler random variables.
+	</p>
+</exercise>
+
+<exercise>
+	<p>
+		Consider <m>\Bin_n</m> with the uniform distribution and the random variable <m>Z:\Bin_n\mapsto \mathbb{R}</m> defined by <me>Z(w)=\text{number of }1\text{'s in }w \, .</me>
+		Express <m>Z</m> as a sum of simpler random variables.
+	</p>
+</exercise>
+
+<p>
+	Given that we can express a random variable as a sum of simpler random variables, we want to be able to compute the expected value of the sum in terms of the expected values of the simpler random variables.
+	The following theorem allows us to do this.
+</p>
+
+<theorem xml:id="thm-linearityofexpectation">
+	<title>Linearity of Expectation</title>
+	<statement>
+		<p>
+			Let <m>\Omega</m> be a finite set with a probability distribution <m>P</m>, let <m>X,Y:\Omega\mapsto \mathbb{R}</m> be random variables, and let <m>a,b\in \mathbb{R}</m>.
+			Then <m>aX+bY</m> is a random variable with
+			<me>
+			E[aX+bY]=aE[X]+bE[Y] \, .
+			</me>
+			More generally, if <m>X_1,X_2,\ldots,X_n:\Omega\mapsto \mathbb{R}</m> are random variables and <m>a_1,a_2,\ldots,a_n\in \mathbb{R}</m>, then
+			<me>
+			E\left[\sum_{i=1}^n a_i X_i\right]=\sum_{i=1}^n a_i E[X_i] \, .
+			</me>
+		</p>
+	</statement>
+</theorem>
+
+<proof>
+	<p>
+		We prove the first part; the second part follows by induction.
+		Using the definition of expected value, we have that
+		<md>
+			<mrow>E[aX+bY] \amp =\sum_{x\in \Omega} P(x)(aX(x)+bY(x)) </mrow>
+			<mrow> \amp = a\sum_{x\in \Omega} P(x)X(x)+b\sum_{x\in \Omega} P(x)Y(x) </mrow>
+			<mrow> \amp = aE[X]+bE[Y] \, .</mrow>
+		</md>
+	</p>
+</proof>
+
+<exercise>
+<p>
+	Discuss the proof above. Does it make sense? Why or why not?
+</p>
+</exercise>
+
+<p>
+	A particularly useful type of random variable is an indicator function; we have already seen several examples of these in our earlier Checkpoints and Examples.
+	We will focus on indicator functions for events, which are subsets of the sample space, and we will use this tool to derive multiple results about subsets, permutations, and graphs.
+</p>
+
+<definition xml:id="def-indicatorfunction">
+	<statement>
+		<p>
+			An <em>indicator function</em> for an event <m>A\subseteq \Omega</m> is the random variable <m>I_A:\Omega\mapsto \mathbb{R}</m> defined by 
+			<me>
+				I_A(x)=
+				\begin{cases}
+				1 \amp \text{if } x\in A  \\
+				0 \amp \text{if } x\notin A \, .
+				\end{cases} 
+			</me>
+			Intuitively, the indicator function <m>I_A</m> indicates whether or not the event <m>A</m> has occurred.
+			Note that <m>I_A</m> only takes on the values <m>0</m> and <m>1</m>.
+			We often refer to <m>I_A(x)</m> as the indicator of the event <m>A</m> on the event <m>x</m>.
+		</p>
+	</statement>
+</definition>
+
+<p>	
+	Observe that 
+	<me>
+		\sum_{x\in \Omega}I_A(x)=|A| \, .
+	</me>
+	Thus, indicator functions can be used to count the size of sets.
+	This is one of the reasons that indicator functions are useful, especially in the context of computing expectation under the uniform distribution.
+</p>
+
+<example>
+	<p>
+	Note that for <m>\ss_n</m> with the uniform distribution and the random variable 
+	<me>
+		X_i(\pi)=
+		\begin{cases}
+		1 \amp \text{if } \pi(i)=i  \\
+		0 \amp \text{if } \pi(i)\neq i \, ,
+		\end{cases}
+		</me>
+	we have that <m>X_i</m> is the indicator function for the event that <m>i</m> is a fixed point of <m>\pi</m>.
+	In other words, let <m>A_i=\{\pi\in \ss_n : \pi(i)=i\}</m>.
+	Then <m>X_i=I_{A_i}</m>.
+	</p>
+</example>
+
+<exercise>
+	<p>
+		Consider the Checkpoint you completed earlier where you considered <m>\ss_n</m> with the uniform distribution and you wrote the random variable <m>Y:\ss_n\mapsto \mathbb{R}</m> defined by <me>Y(\pi)=\text{number of descents in }\pi </me>
+		as a sum of indicator functions.
+		What were those indicator functions?
+	</p>
+</exercise>
+
+<exercise>
+<p>
+	Consider again the set <m>\Bin_3</m> of binary strings of length three with the binomial distribution
+	<me>
+	P_{p}(w)=(p)^{\text{number of }0\text{'s in }w}(1-p)^{\text{number of }1\text{'s in }w} \, .
+	</me>
+	with parameter <m>p=1/4</m>.
+	<ol>
+		<li>
+			<p>
+				For the random variable
+				<me>
+				X(w)=\text{number of }1\text{'s in }w \, ,
+				</me>
+				write <m>X</m> as a sum of indicator functions
+				Does this help you compute <m>E[X]</m> in this case?
+			</p>
+		</li>
+		<li>
+			<p>
+				For the random variable <me>Y(w)=\text{number of }1\text{'s in first two positions of }w \, ,</me>
+				write <m>Y</m> as a sum of indicator functions.
+				Does this help you compute <m>E[Y]</m> in this case?
+			</p>
+		</li>
+	</ol>
+</p>
+</exercise>
+
+</section>

@@ -6,10 +6,11 @@
         </p>
     <p>
         In our next unit, we will focus on the question of <em>expectation</em>: How likely is ____?
-        For many combinatorial applications, especially in the setting of finite collections of objects, a closely related and important questions is: what is the average value of _____? In other words, if I "randomly select" an object, what property or properties do I expect to find?
+        For many combinatorial applications, especially in the setting of finite collections of objects that are equally likely, a closely related and important questions is: what is the average value of _____? 
+        In other words, if I "randomly select" an object, what property or properties do I expect to find?
 </p>
 <p>
-        In this section, we will focus on these latter two questions.
+        In this section, we will focus on these questions.
 We will introduce finite probability spaces, and then we will introduce one tool (indicator functions) and one theorem (linearity of expectation) and we will focus our attention on effectively using the technique of expected values of indicator functions to solve a variety of expectation problems in combinatorics and graph theory.
     </p>
 </section>

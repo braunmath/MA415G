@@ -60,13 +60,19 @@ Is this a probability distribution? Let's check!
 </p>
 <p>
 First observe that
-<me>
-P_{1/8}(00)=(1/8)^2(7/8)^0, P_{1/8}(10)=P_{1/8}(01)=(1/8)^1(7/8)^1, P_{1/8}(11)=(1/8)^0(7/8)^2\, ,
-</me>
-and therefore we have
-<me>
-P_{1/8}(00)+P_{1/8}(10)+P_{1/8}(01)+P_{1/8}(11)=(1/8+7/8)^2 = 1 \, .
-</me>
+  <md>
+    <mrow>P_{1/8}(00) \amp =(1/8)^2(7/8)^0</mrow>
+    <mrow>P_{1/8}(10)=P_{1/8}(01) \amp =(1/8)^1(7/8)^1</mrow>
+	<mrow>P_{1/8}(11) \amp =(1/8)^0(7/8)^2</mrow>
+  </md>
+and therefore using the binomial theorem we have
+<md>
+	<mrow> \amp P_{1/8}(00)+P_{1/8}(10)+P_{1/8}(01)+P_{1/8}(11) = </mrow>
+	<mrow> \amp (1/8)^2(7/8)^0 + 2(1/8)^1(7/8)^1 + (1/8)^0(7/8)^2 = </mrow>
+	<mrow> \amp (1/8+7/8)^2 =</mrow>
+	<mrow> \amp 1 \, .</mrow>
+</md>
+
 So, this is a probability distribution on <m>\{00,10,01,11\}</m> -- it is one which strongly favors binary strings that contain more <m>1</m>'s.
 </p>
 </example>
@@ -82,5 +88,98 @@ is a probability distribution.
 </p>
 </exercise>
 
+<p>
+
+The previous exercise is a special case of the following theorem.
+</p>
+
+<theorem xml:id="thm-binarybinomialdist">
+	<statement>
+		<p>
+			Let <m>p\in (0,1)</m>.
+			If <m>\Omega</m> is the set of all binary strings of length <m>n</m>, the function 
+			<me>
+			P_{p}(x)=(p)^{\text{number of }0\text{'s in }x}(1-p)^{\text{number of }1\text{'s in }x} 
+			</me>
+			is a probability distribution called the <em>binomial distribution</em> with parameter <m>p</m>.
+		</p>
+	</statement>
+</theorem>
+
+<proof>
+	<p>
+		Using the binomial theorem, we have that
+		<md>
+			<mrow> \sum_{w\in \Omega} [(p)^{\text{number of }0\text{'s in }x}(1-p)^{\text{number of }1\text{'s in }x}] \amp =\sum_{k=0}^n \binom{n}{k}p^k(1-p)^{n-k} </mrow>
+
+			<mrow> \amp = (p+(1-p))^n </mrow>
+			<mrow> \amp = 1 \, .</mrow>
+		</md>
+	</p>
+</proof>
+
+<exercise>
+<p>
+	Discuss the proof above. Does it make sense? Why or why not?
+</p>
+</exercise>
+
+
+<exercise>
+	<p>
+		Explain why the binomial distribution 
+		<me>
+	P_{p}(w)=(p)^{\text{number of }0\text{'s in }w}(1-p)^{\text{number of }1\text{'s in }w} \, .
+	</me>
+	on binary strings of length <m>n</m> with parameter <m>p=1/2</m> is the uniform distribution.
+	</p>
+</exercise>
+
+<definition xml:id="def-randomvariable">
+	<statement>
+		<p>
+			Given a probability distribution <m>P</m> on a finite set <m>\Omega</m>, a <em>random variable</em> is a function <m>X:\Omega\mapsto \mathbb{R}</m>.
+			If <m>x\in \Omega</m>, we refer to <m>X(x)</m> as the <em>value</em> of the random variable <m>X</m> on the event <m>x</m>.
+		</p>
+	</statement>
+</definition>
+
+<example>
+<p>
+Consider again the set <m>\Omega=\{00,10,01,11\}</m> of binary strings of length two, with the uniform distribution.
+Define the random variable <m>X:\Omega\mapsto \mathbb{R}</m> by <me>X(00)=0, X(10)=1, X(01)=1, X(11)=2</me>.
+The interpretation of this random variable is that <m>X(w)</m> counts the number of <m>1</m>'s in the binary string <m>w</m>.
+</p>
+</example>
+
+<example>
+<p>
+Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: <m>\Omega=\{1,2,3,4,5,6\}</m>, with the uniform distribution.
+Define the random variable <m>Y:\Omega\mapsto \mathbb{R}</m> by <me>Y(i)=i</me>.
+The interpretation of this random variable is that <m>Y(i)</m> is the value appearing on the side of the die when you roll a <m>i</m>.
+</p>
+</example>
+
+<example>
+<p>
+	Consider the set of permutations <m>\Omega=\ss_n</m> with the uniform distribution.
+	Let <m>X:\ss_n\mapsto \mathbb{R}</m> be the random variable defined by 
+	<me>X(\pi)=\text{number of fixed points of }\pi \, .</me>
+	The interpretation of this random variable is that <m>X(\pi)</m> counts the number of fixed points in the permutation <m>\pi</m>.
+</p>
+</example>
+
+<example>
+<p>
+	Consider the set of all graphs on <m>n</m> vertices, which we will write <m>\Omega=\mathcal{G}_n</m>, with the uniform distribution.
+	Let <m>X:\mathcal{G}_n\mapsto \mathbb{R}</m> be the random variable defined by 
+	<me>X(G)=\text{number of spanning trees of }G \, .</me>
+	The interpretation of this random variable is that <m>X(G)</m> counts the number of spanning trees in the graph <m>G</m>.
+</p>
+</example>
+
+<p>
+	The key question we want to answer is: given a random variable <m>X</m> on a finite probability space <m>(\Omega,P)</m>, if I pick an element of <m>\Omega</m> according to the distribution <m>P</m>, what is the expected value of <m>X(w)</m>?
+</p>
 
 </section>
