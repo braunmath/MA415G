@@ -101,14 +101,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.12';
+eBookConfig.runestone_version = '7.9.13';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a85e2f1fefeea635.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.a707b621c77f7e48.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.9f7f6b353cd8c357.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.629fdbd852876870.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -129,7 +129,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-expectationintro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-expectation.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-optimization.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-expectationintro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-expectation.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-expectationindicators.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deg}{\mathrm{deg}} \newcommand{\des}{\mathrm{des}} \newcommand{\Des}{\mathrm{Des}} \newcommand{\Inv}{\mathrm{Inv}} \newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} \newcommand{\Bin}{\mathrm{Bin}} \newcommand{\comp}{\mathrm{Comp}} \newcommand{\ss}{\mathfrak{S}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -177,6 +177,7 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-expectationintro.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Expectation Questions</span></a></div></li>
 <li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-finiteprobability.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Finite Probability Spaces and Random Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-expectationindicators.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Expected Values, Linearity of Expectation, and Indicator Functions</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-optimization.html" class="internal"><span class="codenumber">5</span> <span class="title">Optimization</span></a></div></li>
@@ -254,16 +255,21 @@ P_{1/8}(x)=(1/8)^{\text{number of }0\text{'s in }x}(7/8)^{\text{number of }1\tex
 </div>
 <div class="para logical" id="sec-finiteprobability-6-2">
 <div class="para">First observe that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-P_{1/8}(00)=(1/8)^2(7/8)^0, P_{1/8}(10)=P_{1/8}(01)=(1/8)^1(7/8)^1, P_{1/8}(11)=(1/8)^0(7/8)^2\, ,
-\end{equation*}
+<div class="displaymath process-math" id="sec-finiteprobability-6-2-1">
+\begin{align*}
+P_{1/8}(00) \amp =(1/8)^2(7/8)^0\\
+P_{1/8}(10)=P_{1/8}(01) \amp =(1/8)^1(7/8)^1\\
+P_{1/8}(11) \amp =(1/8)^0(7/8)^2
+\end{align*}
 </div>
-<div class="para">and therefore we have</div>
-<div class="displaymath process-math">
-\begin{equation*}
-P_{1/8}(00)+P_{1/8}(10)+P_{1/8}(01)+P_{1/8}(11)=(1/8+7/8)^2 = 1 \, .
-\end{equation*}
+<div class="para">and therefore using the binomial theorem we have</div>
+<div class="displaymath process-math" id="sec-finiteprobability-6-2-2">
+\begin{align*}
+\amp P_{1/8}(00)+P_{1/8}(10)+P_{1/8}(01)+P_{1/8}(11) = \\
+\amp (1/8)^2(7/8)^0 + 2(1/8)^1(7/8)^1 + (1/8)^0(7/8)^2 = \\
+\amp (1/8+7/8)^2 =\\
+\amp 1 \, .
+\end{align*}
 </div>
 <div class="para">So, this is a probability distribution on <span class="process-math">\(\{00,10,01,11\}\)</span> -- it is one which strongly favors binary strings that contain more <span class="process-math">\(1\)</span>’s.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -280,9 +286,111 @@ P_{p}(x)=(p)^{\text{number of }0\text{'s in }x}(1-p)^{\text{number of }1\text{'s
 <div class="para">is a probability distribution.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 4.2.5"><a href="#sec-finiteprobability-7" title="Copy heading and permalink for Checkpoint 4.2.5" aria-label="Copy heading and permalink for Checkpoint 4.2.5">🔗</a></div></article></details><div class="autopermalink" data-description="Section 4.2: Finite Probability Spaces and Random Variables"><a href="#sec-finiteprobability" title="Copy heading and permalink for Section 4.2: Finite Probability Spaces and Random Variables" aria-label="Copy heading and permalink for Section 4.2: Finite Probability Spaces and Random Variables">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Checkpoint 4.2.5"><a href="#sec-finiteprobability-7" title="Copy heading and permalink for Checkpoint 4.2.5" aria-label="Copy heading and permalink for Checkpoint 4.2.5">🔗</a></div></article></details><div class="para" id="sec-finiteprobability-8">The previous exercise is a special case of the following theorem.<div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-binarybinomialdist"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.6</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="thm-binarybinomialdist-1-1">
+<div class="para">Let <span class="process-math">\(p\in (0,1)\text{.}\)</span> If <span class="process-math">\(\Omega\)</span> is the set of all binary strings of length <span class="process-math">\(n\text{,}\)</span> the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P_{p}(x)=(p)^{\text{number of }0\text{'s in }x}(1-p)^{\text{number of }1\text{'s in }x} 
+\end{equation*}
+</div>
+<div class="para">is a probability distribution called the <em class="emphasis">binomial distribution</em> with parameter <span class="process-math">\(p\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-binarybinomialdist-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 4.2.6"><a href="#thm-binarybinomialdist" title="Copy heading and permalink for Theorem 4.2.6" aria-label="Copy heading and permalink for Theorem 4.2.6">🔗</a></div></article><details id="sec-finiteprobability-10" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-finiteprobability-10-1">
+<div class="para">Using the binomial theorem, we have that</div>
+<div class="displaymath process-math" id="sec-finiteprobability-10-1-1">
+\begin{align*}
+\sum_{w\in \Omega} [(p)^{\text{number of }0\text{'s in }x}(1-p)^{\text{number of }1\text{'s in }x}] \amp =\sum_{k=0}^n \binom{n}{k}p^k(1-p)^{n-k} \\
+\amp = (p+(1-p))^n \\
+\amp = 1 \, .
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 4.2.1"><a href="#sec-finiteprobability-10" title="Copy heading and permalink for Proof 4.2.1" aria-label="Copy heading and permalink for Proof 4.2.1">🔗</a></div></article></details><details id="sec-finiteprobability-11" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.2.7</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-finiteprobability-11-1">Discuss the proof above. Does it make sense? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.2.7"><a href="#sec-finiteprobability-11" title="Copy heading and permalink for Checkpoint 4.2.7" aria-label="Copy heading and permalink for Checkpoint 4.2.7">🔗</a></div></article></details><details id="sec-finiteprobability-12" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.2.8</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-finiteprobability-12-1">
+<div class="para">Explain why the binomial distribution</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P_{p}(w)=(p)^{\text{number of }0\text{'s in }w}(1-p)^{\text{number of }1\text{'s in }w} \, .
+\end{equation*}
+</div>
+<div class="para">on binary strings of length <span class="process-math">\(n\)</span> with parameter <span class="process-math">\(p=1/2\)</span> is the uniform distribution.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.2.8"><a href="#sec-finiteprobability-12" title="Copy heading and permalink for Checkpoint 4.2.8" aria-label="Copy heading and permalink for Checkpoint 4.2.8">🔗</a></div></article></details><article class="definition definition-like" id="def-randomvariable"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.9</span><span class="period">.</span>
+</h3>
+<div class="para" id="def-randomvariable-1-1">Given a probability distribution <span class="process-math">\(P\)</span> on a finite set <span class="process-math">\(\Omega\text{,}\)</span> a <em class="emphasis">random variable</em> is a function <span class="process-math">\(X:\Omega\mapsto \mathbb{R}\text{.}\)</span> If <span class="process-math">\(x\in \Omega\text{,}\)</span> we refer to <span class="process-math">\(X(x)\)</span> as the <em class="emphasis">value</em> of the random variable <span class="process-math">\(X\)</span> on the event <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-randomvariable-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.2.9"><a href="#def-randomvariable" title="Copy heading and permalink for Definition 4.2.9" aria-label="Copy heading and permalink for Definition 4.2.9">🔗</a></div></article><details id="sec-finiteprobability-14" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.10</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-finiteprobability-14-1">
+<div class="para">Consider again the set <span class="process-math">\(\Omega=\{00,10,01,11\}\)</span> of binary strings of length two, with the uniform distribution. Define the random variable <span class="process-math">\(X:\Omega\mapsto \mathbb{R}\)</span> by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(00)=0, X(10)=1, X(01)=1, X(11)=2\text{.}
+\end{equation*}
+</div>
+<div class="para">The interpretation of this random variable is that <span class="process-math">\(X(w)\)</span> counts the number of <span class="process-math">\(1\)</span>’s in the binary string <span class="process-math">\(w\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.2.10"><a href="#sec-finiteprobability-14" title="Copy heading and permalink for Example 4.2.10" aria-label="Copy heading and permalink for Example 4.2.10">🔗</a></div></article></details><details id="sec-finiteprobability-15" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.11</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-finiteprobability-15-1">
+<div class="para">Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: <span class="process-math">\(\Omega=\{1,2,3,4,5,6\}\text{,}\)</span> with the uniform distribution. Define the random variable <span class="process-math">\(Y:\Omega\mapsto \mathbb{R}\)</span> by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y(i)=i\text{.}
+\end{equation*}
+</div>
+<div class="para">The interpretation of this random variable is that <span class="process-math">\(Y(i)\)</span> is the value appearing on the side of the die when you roll a <span class="process-math">\(i\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.2.11"><a href="#sec-finiteprobability-15" title="Copy heading and permalink for Example 4.2.11" aria-label="Copy heading and permalink for Example 4.2.11">🔗</a></div></article></details><details id="sec-finiteprobability-16" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.12</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-finiteprobability-16-1">
+<div class="para">Consider the set of permutations <span class="process-math">\(\Omega=\ss_n\)</span> with the uniform distribution. Let <span class="process-math">\(X:\ss_n\mapsto \mathbb{R}\)</span> be the random variable defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(\pi)=\text{number of fixed points of }\pi \, .
+\end{equation*}
+</div>
+<div class="para">The interpretation of this random variable is that <span class="process-math">\(X(\pi)\)</span> counts the number of fixed points in the permutation <span class="process-math">\(\pi\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.2.12"><a href="#sec-finiteprobability-16" title="Copy heading and permalink for Example 4.2.12" aria-label="Copy heading and permalink for Example 4.2.12">🔗</a></div></article></details><details id="sec-finiteprobability-17" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.13</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-finiteprobability-17-1">
+<div class="para">Consider the set of all graphs on <span class="process-math">\(n\)</span> vertices, which we will write <span class="process-math">\(\Omega=\mathcal{G}_n\text{,}\)</span> with the uniform distribution. Let <span class="process-math">\(X:\mathcal{G}_n\mapsto \mathbb{R}\)</span> be the random variable defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(G)=\text{number of spanning trees of }G \, .
+\end{equation*}
+</div>
+<div class="para">The interpretation of this random variable is that <span class="process-math">\(X(G)\)</span> counts the number of spanning trees in the graph <span class="process-math">\(G\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-17-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.2.13"><a href="#sec-finiteprobability-17" title="Copy heading and permalink for Example 4.2.13" aria-label="Copy heading and permalink for Example 4.2.13">🔗</a></div></article></details><div class="para" id="sec-finiteprobability-18">The key question we want to answer is: given a random variable <span class="process-math">\(X\)</span> on a finite probability space <span class="process-math">\((\Omega,P)\text{,}\)</span> if I pick an element of <span class="process-math">\(\Omega\)</span> according to the distribution <span class="process-math">\(P\text{,}\)</span> what is the expected value of <span class="process-math">\(X(w)\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-finiteprobability-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 4.2: Finite Probability Spaces and Random Variables"><a href="#sec-finiteprobability" title="Copy heading and permalink for Section 4.2: Finite Probability Spaces and Random Variables" aria-label="Copy heading and permalink for Section 4.2: Finite Probability Spaces and Random Variables">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="sec-expectationintro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-optimization.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-expectationintro.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-expectationindicators.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

@@ -101,14 +101,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.12';
+eBookConfig.runestone_version = '7.9.13';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a85e2f1fefeea635.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.a707b621c77f7e48.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.9f7f6b353cd8c357.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.629fdbd852876870.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -177,6 +177,7 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-expectationintro.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Expectation Questions</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-finiteprobability.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Finite Probability Spaces and Random Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-expectationindicators.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Expected Values, Linearity of Expectation, and Indicator Functions</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-optimization.html" class="internal"><span class="codenumber">5</span> <span class="title">Optimization</span></a></div></li>
@@ -191,9 +192,9 @@ eBookConfig.enable_chatcodes =  false;
 </h2>
 <div class="para" id="sec-expectationintro-2">At this point, we have completed two units: in the first we learned to enumerate sets, and in the second we learned basic techniques of classification.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationintro-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-expectationintro-3">In our next unit, we will focus on the question of <em class="emphasis">expectation</em>: How likely is ____? For many combinatorial applications, especially in the setting of finite collections of objects, a closely related and important questions is: what is the average value of _____? In other words, if I "randomly select" an object, what property or properties do I expect to find?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationintro-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-expectationintro-3">In our next unit, we will focus on the question of <em class="emphasis">expectation</em>: How likely is ____? For many combinatorial applications, especially in the setting of finite collections of objects that are equally likely, a closely related and important questions is: what is the average value of _____? In other words, if I "randomly select" an object, what property or properties do I expect to find?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationintro-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-expectationintro-4">In this section, we will focus on these latter two questions. We will introduce finite probability spaces, and then we will introduce one tool (indicator functions) and one theorem (linearity of expectation) and we will focus our attention on effectively using the technique of expected values of indicator functions to solve a variety of expectation problems in combinatorics and graph theory.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationintro-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-expectationintro-4">In this section, we will focus on these questions. We will introduce finite probability spaces, and then we will introduce one tool (indicator functions) and one theorem (linearity of expectation) and we will focus our attention on effectively using the technique of expected values of indicator functions to solve a variety of expectation problems in combinatorics and graph theory.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationintro-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Section 4.1: Expectation Questions"><a href="#sec-expectationintro" title="Copy heading and permalink for Section 4.1: Expectation Questions" aria-label="Copy heading and permalink for Section 4.1: Expectation Questions">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">

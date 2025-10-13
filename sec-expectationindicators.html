@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: tacoma                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Expected Values, Linearity of Expectation, and Indicator Functions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA 415G course notes">
+<meta property="book:author" content="Benjamin Braun">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.13';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.9f7f6b353cd8c357.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.629fdbd852876870.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="ma415g.html"><span class="title">MA 415G course notes</span></a></h1>
+<p class="byline">Benjamin Braun</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-finiteprobability.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-expectation.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-optimization.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deg}{\mathrm{deg}} \newcommand{\des}{\mathrm{des}} \newcommand{\Des}{\mathrm{Des}} \newcommand{\Inv}{\mathrm{Inv}} \newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} \newcommand{\Bin}{\mathrm{Bin}} \newcommand{\comp}{\mathrm{Comp}} \newcommand{\ss}{\mathfrak{S}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-foundational-questions.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Eight Foundational Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Proofs.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Proofs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="enumeration.html" class="internal"><span class="codenumber">2</span> <span class="title">Enumeration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-binarystrings.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Binary Strings</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-binomialcoefficients.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-fibonacci.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pauseforenumerationreflection.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Pause for Reflection</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-permutations.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Permutations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-cycles.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Permutations: Cycle Structure and Derangements</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-inversions.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Permutations: Inversions and Descents</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-induction1.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Induction: Part 1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-classification.html" class="internal"><span class="codenumber">3</span> <span class="title">Classification</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-classificationproblems.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Classification Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-graphbasics.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Graphs and Networks</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-trees.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Trees</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-euleriancircuits.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Eulerian Circuits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-prufercayley.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Prufer Codes and Cayley’s Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-degreesequences.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Degree Sequences</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-stacksortable.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Stack Sortable Permutations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-expectation.html" class="internal"><span class="codenumber">4</span> <span class="title">Expectation</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-expectationintro.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Expectation Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-finiteprobability.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Finite Probability Spaces and Random Variables</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-expectationindicators.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Expected Values, Linearity of Expectation, and Indicator Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-optimization.html" class="internal"><span class="codenumber">5</span> <span class="title">Optimization</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-ethics.html" class="internal"><span class="codenumber">6</span> <span class="title">Ethics</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-samplingandconstruction.html" class="internal"><span class="codenumber">7</span> <span class="title">Sampling and Construction</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-existence.html" class="internal"><span class="codenumber">8</span> <span class="title">Existence</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-estimation.html" class="internal"><span class="codenumber">9</span> <span class="title">Estimation</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-homework.html" class="internal"><span class="codenumber">10</span> <span class="title">Homework Problems and Essays</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-expectationindicators"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.3</span><span class="space"> </span><span class="title">Expected Values, Linearity of Expectation, and Indicator Functions</span>
+</h2>
+<div class="para" id="sec-expectationindicators-2">We next define the expected value of a random variable, which is our main tool for analyzing random variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-expectedvalue"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.3.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-expectedvalue-1-1">
+<div class="para">Given a random variable <span class="process-math">\(X:\Omega\mapsto \mathbb{R}\)</span> on a finite probability space <span class="process-math">\((\Omega,P)\text{,}\)</span> the <em class="emphasis">expected value</em> of <span class="process-math">\(X\)</span> is defined to be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E[X]=\sum_{x\in \Omega} P(x)X(x) \, .
+\end{equation*}
+</div>
+<div class="para">Intuitively, the expected value of <span class="process-math">\(X\)</span> is the average value of <span class="process-math">\(X\)</span> if we select an event from <span class="process-math">\(\Omega\)</span> according to the probability distribution <span class="process-math">\(P\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-expectedvalue-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.3.1"><a href="#def-expectedvalue" title="Copy heading and permalink for Definition 4.3.1" aria-label="Copy heading and permalink for Definition 4.3.1">🔗</a></div></article><details id="sec-expectationindicators-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.2</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-expectationindicators-4-1">
+<div class="para">Consider again the set <span class="process-math">\(\Omega=\{00,10,01,11\}\)</span> of binary strings of length two, with the uniform distribution and the random variable <span class="process-math">\(X:\Omega\mapsto \mathbb{R}\)</span> by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(00)=0, X(10)=1, X(01)=1, X(11)=2\text{.}
+\end{equation*}
+</div>
+<div class="para">The expected value of <span class="process-math">\(X\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E[X]=\sum_{w\in \Omega} P(w)X(w)=\frac{1}{4}(0)+\frac{1}{4}(1)+\frac{1}{4}(1)+\frac{1}{4}(2)=1 \, .
+\end{equation*}
+</div>
+<div class="para">The interpretation of this expected value is that if we select a binary string of length two uniformly at random, we expect it to contain one <span class="process-math">\(1\)</span> on average.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.2"><a href="#sec-expectationindicators-4" title="Copy heading and permalink for Example 4.3.2" aria-label="Copy heading and permalink for Example 4.3.2">🔗</a></div></article></details><details id="sec-expectationindicators-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.3</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-expectationindicators-5-1">
+<div class="para">Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: <span class="process-math">\(\Omega=\{1,2,3,4,5,6\}\text{,}\)</span> with the uniform distribution and the random variable <span class="process-math">\(Y:\Omega\mapsto \mathbb{R}\)</span> by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y(i)=i\text{.}
+\end{equation*}
+</div>
+<div class="para">The expected value of <span class="process-math">\(Y\)</span> is</div>
+<div class="displaymath process-math" id="sec-expectationindicators-5-1-5">
+\begin{align*}
+E[Y]\amp =\sum_{i=1}^6 P(i)Y(i) \\
+\amp = \frac{1}{6}(1)+\frac{1}{6}(2)+\frac{1}{6}(3)+\frac{1}{6}(4)+\frac{1}{6}(5)+\frac{1}{6}(6)\\
+\amp =3.5 \, .
+\end{align*}
+</div>
+<div class="para">The interpretation of this expected value is that if we roll a die uniformly at random, we expect the value appearing on the top face to be <span class="process-math">\(3.5\)</span> on average.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.3"><a href="#sec-expectationindicators-5" title="Copy heading and permalink for Example 4.3.3" aria-label="Copy heading and permalink for Example 4.3.3">🔗</a></div></article></details><div class="para" id="sec-expectationindicators-6">Note that the expected value of a random variable need not be a value that the random variable can actually take on. For example, in the die-rolling example above, the expected value of <span class="process-math">\(Y\)</span> is <span class="process-math">\(3.5\text{,}\)</span> but <span class="process-math">\(Y\)</span> never takes on the value <span class="process-math">\(3.5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-expectationindicators-7" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.3.4</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-expectationindicators-7-1">
+<div class="para">Consider the set of permutations <span class="process-math">\(\Omega=\ss_3\)</span> with the uniform distribution.</div>
+<ol class="decimal" id="sec-expectationindicators-7-1-2">
+<li id="sec-expectationindicators-7-1-2-1">
+<div class="para logical" id="sec-expectationindicators-7-1-2-1-1">
+<div class="para">For the random variable</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(\pi)=\text{number of fixed points of }\pi \, ,
+\end{equation*}
+</div>
+<div class="para">what is <span class="process-math">\(E[X]\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-7-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.4.1"><a href="#sec-expectationindicators-7-1-2-1" title="Copy heading and permalink for Item 4.3.4.1" aria-label="Copy heading and permalink for Item 4.3.4.1">🔗</a></div>
+</li>
+<li id="sec-expectationindicators-7-1-2-2">
+<div class="para logical" id="sec-expectationindicators-7-1-2-2-1">
+<div class="para">For the random variable</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(\pi)=\text{number of inversions in }\pi \, ,
+\end{equation*}
+</div>
+<div class="para">what is <span class="process-math">\(E[X]\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-7-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.4.2"><a href="#sec-expectationindicators-7-1-2-2" title="Copy heading and permalink for Item 4.3.4.2" aria-label="Copy heading and permalink for Item 4.3.4.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.3.4"><a href="#sec-expectationindicators-7" title="Copy heading and permalink for Checkpoint 4.3.4" aria-label="Copy heading and permalink for Checkpoint 4.3.4">🔗</a></div></article></details><details id="sec-expectationindicators-8" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.3.5</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-expectationindicators-8-1">
+<div class="para">Consider the set <span class="process-math">\(\Bin_3\)</span> of binary strings of length three with the binomial distribution</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P_{p}(w)=(p)^{\text{number of }0\text{'s in }w}(1-p)^{\text{number of }1\text{'s in }w} \, .
+\end{equation*}
+</div>
+<div class="para">with parameter <span class="process-math">\(p=1/4\text{.}\)</span>
+</div>
+<ol class="decimal" id="sec-expectationindicators-8-1-4">
+<li id="sec-expectationindicators-8-1-4-1">
+<div class="para logical" id="sec-expectationindicators-8-1-4-1-1">
+<div class="para">For the random variable</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(w)=\text{number of }1\text{'s in }w \, ,
+\end{equation*}
+</div>
+<div class="para">what is <span class="process-math">\(E[X]\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-8-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.5.1"><a href="#sec-expectationindicators-8-1-4-1" title="Copy heading and permalink for Item 4.3.5.1" aria-label="Copy heading and permalink for Item 4.3.5.1">🔗</a></div>
+</li>
+<li id="sec-expectationindicators-8-1-4-2">
+<div class="para logical" id="sec-expectationindicators-8-1-4-2-1">
+<div class="para">For the random variable</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y(w)=\text{number of }1\text{'s in first two positions of }w \, ,
+\end{equation*}
+</div>
+<div class="para">what is <span class="process-math">\(E[Y]\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-8-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.5.2"><a href="#sec-expectationindicators-8-1-4-2" title="Copy heading and permalink for Item 4.3.5.2" aria-label="Copy heading and permalink for Item 4.3.5.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.3.5"><a href="#sec-expectationindicators-8" title="Copy heading and permalink for Checkpoint 4.3.5" aria-label="Copy heading and permalink for Checkpoint 4.3.5">🔗</a></div></article></details><div class="para logical" id="sec-expectationindicators-9">
+<div class="para">Here is a helpful observation to make about expected values that is specific to the uniform distribution. Suppose that <span class="process-math">\(|\Omega|=n\text{.}\)</span> Then for any random variable <span class="process-math">\(X:\Omega\mapsto \mathbb{R}\text{,}\)</span> we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E[X]=\sum_{x\in \Omega} P(x)X(x)=\sum_{x\in \Omega} \frac{1}{n}X(x)=\frac{1}{n}\sum_{x\in \Omega} X(x) \, .
+\end{equation*}
+</div>
+<div class="para">In other words, when the probability distribution is uniform, the expected value of a random variable is simply the average of the values of the random variable.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-expectationindicators-10">It is important to remember that this observation only holds for the uniform distribution. It does not hold for other probability distributions!<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-expectationindicators-11">In general, it is difficult to compute expected values directly from the definition. However, if we can express a random variable as a sum of simpler random variables, then it often becomes easier to compute the expected value.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-expectationindicators-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.6</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-expectationindicators-12-1">
+<div class="para">Consider <span class="process-math">\(\ss_n\)</span> with the uniform distribution and the random variable <span class="process-math">\(X:\ss_n\mapsto \mathbb{R}\)</span> defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(\pi)=\text{number of fixed points of }\pi \, .
+\end{equation*}
+</div>
+<div class="para">We can express <span class="process-math">\(X\)</span> as a sum of simpler random variables as follows. For <span class="process-math">\(i=1,2,\ldots,n\text{,}\)</span> let <span class="process-math">\(X_i:\ss_n\mapsto \mathbb{R}\)</span> be the random variable defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X_i(\pi)=
+\begin{cases}
+1 \amp \text{if } \pi(i)=i  \\
+0 \amp \text{if } \pi(i)\neq i \, .
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">Then <span class="process-math">\(X_i\)</span> is the indicator function for the event that <span class="process-math">\(i\)</span> is a fixed point of <span class="process-math">\(\pi\text{,}\)</span> and we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(\pi)=\sum_{i=1}^n X_i(\pi) \, .
+\end{equation*}
+</div>
+<div class="para">Thus, we can express <span class="process-math">\(X\)</span> as a sum of the simpler random variables <span class="process-math">\(X_1,X_2,\ldots,X_n\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.6"><a href="#sec-expectationindicators-12" title="Copy heading and permalink for Example 4.3.6" aria-label="Copy heading and permalink for Example 4.3.6">🔗</a></div></article></details><details id="sec-expectationindicators-13" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.3.7</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-expectationindicators-13-1">
+<div class="para">Consider <span class="process-math">\(\ss_n\)</span> with the uniform distribution and the random variable <span class="process-math">\(Y:\ss_n\mapsto \mathbb{R}\)</span> defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y(\pi)=\text{number of descents in }\pi \, .
+\end{equation*}
+</div>
+<div class="para">Express <span class="process-math">\(Y\)</span> as a sum of simpler random variables.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.3.7"><a href="#sec-expectationindicators-13" title="Copy heading and permalink for Checkpoint 4.3.7" aria-label="Copy heading and permalink for Checkpoint 4.3.7">🔗</a></div></article></details><details id="sec-expectationindicators-14" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.3.8</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-expectationindicators-14-1">
+<div class="para">Consider <span class="process-math">\(\Bin_n\)</span> with the uniform distribution and the random variable <span class="process-math">\(Z:\Bin_n\mapsto \mathbb{R}\)</span> defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Z(w)=\text{number of }1\text{'s in }w \, .
+\end{equation*}
+</div>
+<div class="para">Express <span class="process-math">\(Z\)</span> as a sum of simpler random variables.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.3.8"><a href="#sec-expectationindicators-14" title="Copy heading and permalink for Checkpoint 4.3.8" aria-label="Copy heading and permalink for Checkpoint 4.3.8">🔗</a></div></article></details><div class="para" id="sec-expectationindicators-15">Given that we can express a random variable as a sum of simpler random variables, we want to be able to compute the expected value of the sum in terms of the expected values of the simpler random variables. The following theorem allows us to do this.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-linearityofexpectation"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.3.9</span><span class="period">.</span><span class="space"> </span><span class="title">Linearity of Expectation.</span>
+</h3>
+<div class="para logical" id="thm-linearityofexpectation-2-1">
+<div class="para">Let <span class="process-math">\(\Omega\)</span> be a finite set with a probability distribution <span class="process-math">\(P\text{,}\)</span> let <span class="process-math">\(X,Y:\Omega\mapsto \mathbb{R}\)</span> be random variables, and let <span class="process-math">\(a,b\in \mathbb{R}\text{.}\)</span> Then <span class="process-math">\(aX+bY\)</span> is a random variable with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E[aX+bY]=aE[X]+bE[Y] \, .
+\end{equation*}
+</div>
+<div class="para">More generally, if <span class="process-math">\(X_1,X_2,\ldots,X_n:\Omega\mapsto \mathbb{R}\)</span> are random variables and <span class="process-math">\(a_1,a_2,\ldots,a_n\in \mathbb{R}\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E\left[\sum_{i=1}^n a_i X_i\right]=\sum_{i=1}^n a_i E[X_i] \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-linearityofexpectation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 4.3.9: Linearity of Expectation"><a href="#thm-linearityofexpectation" title="Copy heading and permalink for Theorem 4.3.9: Linearity of Expectation" aria-label="Copy heading and permalink for Theorem 4.3.9: Linearity of Expectation">🔗</a></div></article><details id="sec-expectationindicators-17" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-expectationindicators-17-1">
+<div class="para">We prove the first part; the second part follows by induction. Using the definition of expected value, we have that</div>
+<div class="displaymath process-math" id="sec-expectationindicators-17-1-1">
+\begin{align*}
+E[aX+bY] \amp =\sum_{x\in \Omega} P(x)(aX(x)+bY(x)) \\
+\amp = a\sum_{x\in \Omega} P(x)X(x)+b\sum_{x\in \Omega} P(x)Y(x) \\
+\amp = aE[X]+bE[Y] \, .
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-17-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 4.3.1"><a href="#sec-expectationindicators-17" title="Copy heading and permalink for Proof 4.3.1" aria-label="Copy heading and permalink for Proof 4.3.1">🔗</a></div></article></details><details id="sec-expectationindicators-18" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.3.10</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-expectationindicators-18-1">Discuss the proof above. Does it make sense? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.3.10"><a href="#sec-expectationindicators-18" title="Copy heading and permalink for Checkpoint 4.3.10" aria-label="Copy heading and permalink for Checkpoint 4.3.10">🔗</a></div></article></details><div class="para" id="sec-expectationindicators-19">A particularly useful type of random variable is an indicator function; we have already seen several examples of these in our earlier Checkpoints and Examples. We will focus on indicator functions for events, which are subsets of the sample space, and we will use this tool to derive multiple results about subsets, permutations, and graphs.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-indicatorfunction"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.3.11</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-indicatorfunction-1-1">
+<div class="para">An <em class="emphasis">indicator function</em> for an event <span class="process-math">\(A\subseteq \Omega\)</span> is the random variable <span class="process-math">\(I_A:\Omega\mapsto \mathbb{R}\)</span> defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+I_A(x)=
+\begin{cases}
+1 \amp \text{if } x\in A  \\
+0 \amp \text{if } x\notin A \, .
+\end{cases} 
+\end{equation*}
+</div>
+<div class="para">Intuitively, the indicator function <span class="process-math">\(I_A\)</span> indicates whether or not the event <span class="process-math">\(A\)</span> has occurred. Note that <span class="process-math">\(I_A\)</span> only takes on the values <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{.}\)</span> We often refer to <span class="process-math">\(I_A(x)\)</span> as the indicator of the event <span class="process-math">\(A\)</span> on the event <span class="process-math">\(x\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-indicatorfunction-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.3.11"><a href="#def-indicatorfunction" title="Copy heading and permalink for Definition 4.3.11" aria-label="Copy heading and permalink for Definition 4.3.11">🔗</a></div></article><div class="para logical" id="sec-expectationindicators-21">
+<div class="para">Observe that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{x\in \Omega}I_A(x)=|A| \, .
+\end{equation*}
+</div>
+<div class="para">Thus, indicator functions can be used to count the size of sets. This is one of the reasons that indicator functions are useful, especially in the context of computing expectation under the uniform distribution.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-expectationindicators-22" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.12</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-expectationindicators-22-1">
+<div class="para">Note that for <span class="process-math">\(\ss_n\)</span> with the uniform distribution and the random variable</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X_i(\pi)=
+\begin{cases}
+1 \amp \text{if } \pi(i)=i  \\
+0 \amp \text{if } \pi(i)\neq i \, ,
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">we have that <span class="process-math">\(X_i\)</span> is the indicator function for the event that <span class="process-math">\(i\)</span> is a fixed point of <span class="process-math">\(\pi\text{.}\)</span> In other words, let <span class="process-math">\(A_i=\{\pi\in \ss_n : \pi(i)=i\}\text{.}\)</span> Then <span class="process-math">\(X_i=I_{A_i}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-22-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 4.3.12"><a href="#sec-expectationindicators-22" title="Copy heading and permalink for Example 4.3.12" aria-label="Copy heading and permalink for Example 4.3.12">🔗</a></div></article></details><details id="sec-expectationindicators-23" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.3.13</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-expectationindicators-23-1">
+<div class="para">Consider the Checkpoint you completed earlier where you considered <span class="process-math">\(\ss_n\)</span> with the uniform distribution and you wrote the random variable <span class="process-math">\(Y:\ss_n\mapsto \mathbb{R}\)</span> defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y(\pi)=\text{number of descents in }\pi 
+\end{equation*}
+</div>
+<div class="para">as a sum of indicator functions. What were those indicator functions?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-23-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.3.13"><a href="#sec-expectationindicators-23" title="Copy heading and permalink for Checkpoint 4.3.13" aria-label="Copy heading and permalink for Checkpoint 4.3.13">🔗</a></div></article></details><details id="sec-expectationindicators-24" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.3.14</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-expectationindicators-24-1">
+<div class="para">Consider again the set <span class="process-math">\(\Bin_3\)</span> of binary strings of length three with the binomial distribution</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P_{p}(w)=(p)^{\text{number of }0\text{'s in }w}(1-p)^{\text{number of }1\text{'s in }w} \, .
+\end{equation*}
+</div>
+<div class="para">with parameter <span class="process-math">\(p=1/4\text{.}\)</span>
+</div>
+<ol class="decimal" id="sec-expectationindicators-24-1-4">
+<li id="sec-expectationindicators-24-1-4-1">
+<div class="para logical" id="sec-expectationindicators-24-1-4-1-1">
+<div class="para">For the random variable</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(w)=\text{number of }1\text{'s in }w \, ,
+\end{equation*}
+</div>
+<div class="para">write <span class="process-math">\(X\)</span> as a sum of indicator functions Does this help you compute <span class="process-math">\(E[X]\)</span> in this case?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-24-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.14.1"><a href="#sec-expectationindicators-24-1-4-1" title="Copy heading and permalink for Item 4.3.14.1" aria-label="Copy heading and permalink for Item 4.3.14.1">🔗</a></div>
+</li>
+<li id="sec-expectationindicators-24-1-4-2">
+<div class="para logical" id="sec-expectationindicators-24-1-4-2-1">
+<div class="para">For the random variable</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y(w)=\text{number of }1\text{'s in first two positions of }w \, ,
+\end{equation*}
+</div>
+<div class="para">write <span class="process-math">\(Y\)</span> as a sum of indicator functions. Does this help you compute <span class="process-math">\(E[Y]\)</span> in this case?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-24-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.3.14.2"><a href="#sec-expectationindicators-24-1-4-2" title="Copy heading and permalink for Item 4.3.14.2" aria-label="Copy heading and permalink for Item 4.3.14.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationindicators-24-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.3.14"><a href="#sec-expectationindicators-24" title="Copy heading and permalink for Checkpoint 4.3.14" aria-label="Copy heading and permalink for Checkpoint 4.3.14">🔗</a></div></article></details><div class="autopermalink" data-description="Section 4.3: Expected Values, Linearity of Expectation, and Indicator Functions"><a href="#sec-expectationindicators" title="Copy heading and permalink for Section 4.3: Expected Values, Linearity of Expectation, and Indicator Functions" aria-label="Copy heading and permalink for Section 4.3: Expected Values, Linearity of Expectation, and Indicator Functions">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-finiteprobability.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-optimization.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

@@ -2095,7 +2095,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.1",
   "title": "Expectation Questions",
-  "body": " Expectation Questions  At this point, we have completed two units: in the first we learned to enumerate sets, and in the second we learned basic techniques of classification.  In our next unit, we will focus on the question of expectation : How likely is ____? For many combinatorial applications, especially in the setting of finite collections of objects, a closely related and important questions is: what is the average value of _____? In other words, if I \"randomly select\" an object, what property or properties do I expect to find?  In this section, we will focus on these latter two questions. We will introduce finite probability spaces, and then we will introduce one tool (indicator functions) and one theorem (linearity of expectation) and we will focus our attention on effectively using the technique of expected values of indicator functions to solve a variety of expectation problems in combinatorics and graph theory.  "
+  "body": " Expectation Questions  At this point, we have completed two units: in the first we learned to enumerate sets, and in the second we learned basic techniques of classification.  In our next unit, we will focus on the question of expectation : How likely is ____? For many combinatorial applications, especially in the setting of finite collections of objects that are equally likely, a closely related and important questions is: what is the average value of _____? In other words, if I \"randomly select\" an object, what property or properties do I expect to find?  In this section, we will focus on these questions. We will introduce finite probability spaces, and then we will introduce one tool (indicator functions) and one theorem (linearity of expectation) and we will focus our attention on effectively using the technique of expected values of indicator functions to solve a variety of expectation problems in combinatorics and graph theory.  "
 },
 {
   "id": "sec-finiteprobability",
@@ -2104,7 +2104,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.2",
   "title": "Finite Probability Spaces and Random Variables",
-  "body": " Finite Probability Spaces and Random Variables  Our first task is to clearly define what we mean when we talk about likelihood of an event occurring.    Let be a finite set. We refer to the elements of as events . A probability distribution on is a function such that If for all , then we call the uniform distribution .     Consider the set of binary strings of length two, with the uniform distribution . The interpretation of this distribution is that if you pick one of the four binarys string of length two at random, you are equally likely to pick any of the four strings -- each will appear of the time.    Consider the set of outcomes from rolling a die, which is the values appearing on the six sides: The uniform distribution in this case gives . The interpretation of this distribution is that if you roll a fair die, you are equally likely to roll any of the six sides -- each will appear of the time.    Consider again the set of binary strings of length two, but this time we will use a different probability distribution. Let and set Is this a probability distribution? Let's check!  First observe that and therefore we have So, this is a probability distribution on -- it is one which strongly favors binary strings that contain more 's.    Let . Prove that if is the set of all binary strings of length , the function is a probability distribution.   "
+  "body": " Finite Probability Spaces and Random Variables  Our first task is to clearly define what we mean when we talk about likelihood of an event occurring.    Let be a finite set. We refer to the elements of as events . A probability distribution on is a function such that If for all , then we call the uniform distribution .     Consider the set of binary strings of length two, with the uniform distribution . The interpretation of this distribution is that if you pick one of the four binarys string of length two at random, you are equally likely to pick any of the four strings -- each will appear of the time.    Consider the set of outcomes from rolling a die, which is the values appearing on the six sides: The uniform distribution in this case gives . The interpretation of this distribution is that if you roll a fair die, you are equally likely to roll any of the six sides -- each will appear of the time.    Consider again the set of binary strings of length two, but this time we will use a different probability distribution. Let and set Is this a probability distribution? Let's check!  First observe that and therefore using the binomial theorem we have So, this is a probability distribution on -- it is one which strongly favors binary strings that contain more 's.    Let . Prove that if is the set of all binary strings of length , the function is a probability distribution.   The previous exercise is a special case of the following theorem.    Let . If is the set of all binary strings of length , the function is a probability distribution called the binomial distribution with parameter .     Using the binomial theorem, we have that     Discuss the proof above. Does it make sense? Why or why not?    Explain why the binomial distribution on binary strings of length with parameter is the uniform distribution.     Given a probability distribution on a finite set , a random variable is a function . If , we refer to as the value of the random variable on the event .     Consider again the set of binary strings of length two, with the uniform distribution. Define the random variable by . The interpretation of this random variable is that counts the number of 's in the binary string .    Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: , with the uniform distribution. Define the random variable by . The interpretation of this random variable is that is the value appearing on the side of the die when you roll a .    Consider the set of permutations with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of fixed points in the permutation .    Consider the set of all graphs on vertices, which we will write , with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of spanning trees in the graph .   The key question we want to answer is: given a random variable on a finite probability space , if I pick an element of according to the distribution , what is the expected value of ?  "
 },
 {
   "id": "def-finiteprobabilityspace",
@@ -2140,7 +2140,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "4.2.4",
   "title": "",
-  "body": " Consider again the set of binary strings of length two, but this time we will use a different probability distribution. Let and set Is this a probability distribution? Let's check!  First observe that and therefore we have So, this is a probability distribution on -- it is one which strongly favors binary strings that contain more 's.  "
+  "body": " Consider again the set of binary strings of length two, but this time we will use a different probability distribution. Let and set Is this a probability distribution? Let's check!  First observe that and therefore using the binomial theorem we have So, this is a probability distribution on -- it is one which strongly favors binary strings that contain more 's.  "
 },
 {
   "id": "sec-finiteprobability-7",
@@ -2150,6 +2150,231 @@ var ptx_lunr_docs = [
   "number": "4.2.5",
   "title": "",
   "body": " Let . Prove that if is the set of all binary strings of length , the function is a probability distribution.  "
+},
+{
+  "id": "thm-binarybinomialdist",
+  "level": "2",
+  "url": "sec-finiteprobability.html#thm-binarybinomialdist",
+  "type": "Theorem",
+  "number": "4.2.6",
+  "title": "",
+  "body": "  Let . If is the set of all binary strings of length , the function is a probability distribution called the binomial distribution with parameter .   "
+},
+{
+  "id": "sec-finiteprobability-10",
+  "level": "2",
+  "url": "sec-finiteprobability.html#sec-finiteprobability-10",
+  "type": "Proof",
+  "number": "4.2.1",
+  "title": "",
+  "body": " Using the binomial theorem, we have that   "
+},
+{
+  "id": "sec-finiteprobability-11",
+  "level": "2",
+  "url": "sec-finiteprobability.html#sec-finiteprobability-11",
+  "type": "Checkpoint",
+  "number": "4.2.7",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
+  "id": "sec-finiteprobability-12",
+  "level": "2",
+  "url": "sec-finiteprobability.html#sec-finiteprobability-12",
+  "type": "Checkpoint",
+  "number": "4.2.8",
+  "title": "",
+  "body": " Explain why the binomial distribution on binary strings of length with parameter is the uniform distribution.  "
+},
+{
+  "id": "def-randomvariable",
+  "level": "2",
+  "url": "sec-finiteprobability.html#def-randomvariable",
+  "type": "Definition",
+  "number": "4.2.9",
+  "title": "",
+  "body": "  Given a probability distribution on a finite set , a random variable is a function . If , we refer to as the value of the random variable on the event .   "
+},
+{
+  "id": "sec-finiteprobability-14",
+  "level": "2",
+  "url": "sec-finiteprobability.html#sec-finiteprobability-14",
+  "type": "Example",
+  "number": "4.2.10",
+  "title": "",
+  "body": " Consider again the set of binary strings of length two, with the uniform distribution. Define the random variable by . The interpretation of this random variable is that counts the number of 's in the binary string .  "
+},
+{
+  "id": "sec-finiteprobability-15",
+  "level": "2",
+  "url": "sec-finiteprobability.html#sec-finiteprobability-15",
+  "type": "Example",
+  "number": "4.2.11",
+  "title": "",
+  "body": " Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: , with the uniform distribution. Define the random variable by . The interpretation of this random variable is that is the value appearing on the side of the die when you roll a .  "
+},
+{
+  "id": "sec-finiteprobability-16",
+  "level": "2",
+  "url": "sec-finiteprobability.html#sec-finiteprobability-16",
+  "type": "Example",
+  "number": "4.2.12",
+  "title": "",
+  "body": " Consider the set of permutations with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of fixed points in the permutation .  "
+},
+{
+  "id": "sec-finiteprobability-17",
+  "level": "2",
+  "url": "sec-finiteprobability.html#sec-finiteprobability-17",
+  "type": "Example",
+  "number": "4.2.13",
+  "title": "",
+  "body": " Consider the set of all graphs on vertices, which we will write , with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of spanning trees in the graph .  "
+},
+{
+  "id": "sec-expectationindicators",
+  "level": "1",
+  "url": "sec-expectationindicators.html",
+  "type": "Section",
+  "number": "4.3",
+  "title": "Expected Values, Linearity of Expectation, and Indicator Functions",
+  "body": " Expected Values, Linearity of Expectation, and Indicator Functions  We next define the expected value of a random variable, which is our main tool for analyzing random variables.    Given a random variable on a finite probability space , the expected value of is defined to be Intuitively, the expected value of is the average value of if we select an event from according to the probability distribution .     Consider again the set of binary strings of length two, with the uniform distribution and the random variable by . The expected value of is The interpretation of this expected value is that if we select a binary string of length two uniformly at random, we expect it to contain one on average.    Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: , with the uniform distribution and the random variable by . The expected value of is The interpretation of this expected value is that if we roll a die uniformly at random, we expect the value appearing on the top face to be on average.   Note that the expected value of a random variable need not be a value that the random variable can actually take on. For example, in the die-rolling example above, the expected value of is , but never takes on the value .   Consider the set of permutations with the uniform distribution.   For the random variable what is ?    For the random variable what is ?       Consider the set of binary strings of length three with the binomial distribution with parameter .   For the random variable what is ?    For the random variable what is ?      Here is a helpful observation to make about expected values that is specific to the uniform distribution. Suppose that . Then for any random variable , we have that In other words, when the probability distribution is uniform, the expected value of a random variable is simply the average of the values of the random variable.  It is important to remember that this observation only holds for the uniform distribution. It does not hold for other probability distributions!  In general, it is difficult to compute expected values directly from the definition. However, if we can express a random variable as a sum of simpler random variables, then it often becomes easier to compute the expected value.   Consider with the uniform distribution and the random variable defined by We can express as a sum of simpler random variables as follows. For , let be the random variable defined by Then is the indicator function for the event that is a fixed point of , and we have that Thus, we can express as a sum of the simpler random variables .    Consider with the uniform distribution and the random variable defined by Express as a sum of simpler random variables.    Consider with the uniform distribution and the random variable defined by Express as a sum of simpler random variables.   Given that we can express a random variable as a sum of simpler random variables, we want to be able to compute the expected value of the sum in terms of the expected values of the simpler random variables. The following theorem allows us to do this.   Linearity of Expectation   Let be a finite set with a probability distribution , let be random variables, and let . Then is a random variable with More generally, if are random variables and , then      We prove the first part; the second part follows by induction. Using the definition of expected value, we have that     Discuss the proof above. Does it make sense? Why or why not?   A particularly useful type of random variable is an indicator function; we have already seen several examples of these in our earlier Checkpoints and Examples. We will focus on indicator functions for events, which are subsets of the sample space, and we will use this tool to derive multiple results about subsets, permutations, and graphs.    An indicator function for an event is the random variable defined by Intuitively, the indicator function indicates whether or not the event has occurred. Note that only takes on the values and . We often refer to as the indicator of the event on the event .    Observe that Thus, indicator functions can be used to count the size of sets. This is one of the reasons that indicator functions are useful, especially in the context of computing expectation under the uniform distribution.   Note that for with the uniform distribution and the random variable we have that is the indicator function for the event that is a fixed point of . In other words, let . Then .    Consider the Checkpoint you completed earlier where you considered with the uniform distribution and you wrote the random variable defined by as a sum of indicator functions. What were those indicator functions?    Consider again the set of binary strings of length three with the binomial distribution with parameter .   For the random variable write as a sum of indicator functions Does this help you compute in this case?    For the random variable write as a sum of indicator functions. Does this help you compute in this case?      "
+},
+{
+  "id": "def-expectedvalue",
+  "level": "2",
+  "url": "sec-expectationindicators.html#def-expectedvalue",
+  "type": "Definition",
+  "number": "4.3.1",
+  "title": "",
+  "body": "  Given a random variable on a finite probability space , the expected value of is defined to be Intuitively, the expected value of is the average value of if we select an event from according to the probability distribution .   "
+},
+{
+  "id": "sec-expectationindicators-4",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-4",
+  "type": "Example",
+  "number": "4.3.2",
+  "title": "",
+  "body": " Consider again the set of binary strings of length two, with the uniform distribution and the random variable by . The expected value of is The interpretation of this expected value is that if we select a binary string of length two uniformly at random, we expect it to contain one on average.  "
+},
+{
+  "id": "sec-expectationindicators-5",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-5",
+  "type": "Example",
+  "number": "4.3.3",
+  "title": "",
+  "body": " Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: , with the uniform distribution and the random variable by . The expected value of is The interpretation of this expected value is that if we roll a die uniformly at random, we expect the value appearing on the top face to be on average.  "
+},
+{
+  "id": "sec-expectationindicators-7",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-7",
+  "type": "Checkpoint",
+  "number": "4.3.4",
+  "title": "",
+  "body": " Consider the set of permutations with the uniform distribution.   For the random variable what is ?    For the random variable what is ?     "
+},
+{
+  "id": "sec-expectationindicators-8",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-8",
+  "type": "Checkpoint",
+  "number": "4.3.5",
+  "title": "",
+  "body": " Consider the set of binary strings of length three with the binomial distribution with parameter .   For the random variable what is ?    For the random variable what is ?     "
+},
+{
+  "id": "sec-expectationindicators-12",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-12",
+  "type": "Example",
+  "number": "4.3.6",
+  "title": "",
+  "body": " Consider with the uniform distribution and the random variable defined by We can express as a sum of simpler random variables as follows. For , let be the random variable defined by Then is the indicator function for the event that is a fixed point of , and we have that Thus, we can express as a sum of the simpler random variables .  "
+},
+{
+  "id": "sec-expectationindicators-13",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-13",
+  "type": "Checkpoint",
+  "number": "4.3.7",
+  "title": "",
+  "body": " Consider with the uniform distribution and the random variable defined by Express as a sum of simpler random variables.  "
+},
+{
+  "id": "sec-expectationindicators-14",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-14",
+  "type": "Checkpoint",
+  "number": "4.3.8",
+  "title": "",
+  "body": " Consider with the uniform distribution and the random variable defined by Express as a sum of simpler random variables.  "
+},
+{
+  "id": "thm-linearityofexpectation",
+  "level": "2",
+  "url": "sec-expectationindicators.html#thm-linearityofexpectation",
+  "type": "Theorem",
+  "number": "4.3.9",
+  "title": "Linearity of Expectation.",
+  "body": " Linearity of Expectation   Let be a finite set with a probability distribution , let be random variables, and let . Then is a random variable with More generally, if are random variables and , then    "
+},
+{
+  "id": "sec-expectationindicators-17",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-17",
+  "type": "Proof",
+  "number": "4.3.1",
+  "title": "",
+  "body": " We prove the first part; the second part follows by induction. Using the definition of expected value, we have that   "
+},
+{
+  "id": "sec-expectationindicators-18",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-18",
+  "type": "Checkpoint",
+  "number": "4.3.10",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
+  "id": "def-indicatorfunction",
+  "level": "2",
+  "url": "sec-expectationindicators.html#def-indicatorfunction",
+  "type": "Definition",
+  "number": "4.3.11",
+  "title": "",
+  "body": "  An indicator function for an event is the random variable defined by Intuitively, the indicator function indicates whether or not the event has occurred. Note that only takes on the values and . We often refer to as the indicator of the event on the event .   "
+},
+{
+  "id": "sec-expectationindicators-22",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-22",
+  "type": "Example",
+  "number": "4.3.12",
+  "title": "",
+  "body": " Note that for with the uniform distribution and the random variable we have that is the indicator function for the event that is a fixed point of . In other words, let . Then .  "
+},
+{
+  "id": "sec-expectationindicators-23",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-23",
+  "type": "Checkpoint",
+  "number": "4.3.13",
+  "title": "",
+  "body": " Consider the Checkpoint you completed earlier where you considered with the uniform distribution and you wrote the random variable defined by as a sum of indicator functions. What were those indicator functions?  "
+},
+{
+  "id": "sec-expectationindicators-24",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-24",
+  "type": "Checkpoint",
+  "number": "4.3.14",
+  "title": "",
+  "body": " Consider again the set of binary strings of length three with the binomial distribution with parameter .   For the random variable write as a sum of indicator functions Does this help you compute in this case?    For the random variable write as a sum of indicator functions. Does this help you compute in this case?     "
 },
 {
   "id": "ch-optimization",
