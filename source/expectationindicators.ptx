@@ -257,7 +257,7 @@ The interpretation of this expected value is that if we roll a die uniformly at 
 				<me>
 				X(w)=\text{number of }1\text{'s in }w \, ,
 				</me>
-				write <m>X</m> as a sum of indicator functions
+				write <m>X</m> as a sum of indicator functions.
 				Does this help you compute <m>E[X]</m> in this case?
 			</p>
 		</li>

@@ -7,8 +7,8 @@
   <xi:include href="expectationintro.ptx" />
   <xi:include href="finiteprobability.ptx" />
   <xi:include href="expectationindicators.ptx" />
-  <!-- <xi:include href="expectationsubsets.ptx" />
+  <xi:include href="expectationsubsets.ptx" />
   <xi:include href="expectationpermutations.ptx" />
-  <xi:include href="expectationgraphs.ptx" /> -->
+  <xi:include href="expectationgraphs.ptx" />
 
 </chapter>
