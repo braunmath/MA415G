@@ -438,10 +438,19 @@
             </p>
         </statement>
     </algorithm>
+
+    <example>
+        <p>
+            Consider the sequence <m>(5,5,5,5,2,1)</m> with <m>N=6</m>.
+            We can apply a Havel-Hakimi step in position <m>1</m> to obtain <m>(4,4,4,1,0)</m>, which is a proper sequence.
+            We can then apply a Havel-Hakimi step in position <m>5</m> to obtain <m>(4,4,4,1)</m>, which is not a proper sequence since <m>n=4</m> and <m>d_1=4\gt 3</m>.
+            Thus, by the Havel-Hakimi test, <m>(5,5,5,5,2,1)</m> is not graphic.
+        </p>
+    </example>
+
     <exercise>
         <p>
             For each of the following proper sequences, determine whether or not it is graphic using the Havel-Hakimi test.
-            If it is graphic, construct a graph realizing the degree sequence by applying the construction method given in the proof of the Havel-Hakimi theorem.
             <ol>
                 <li>
                     <p>
