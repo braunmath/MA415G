@@ -86,7 +86,8 @@
                     </li>
                     <li>
                         <p>
-                            Otherwise, until that element is smaller than the top entry, iterate moving the top entry of the stack to the right end of the list. Once this is done, move the new element in the permutation to the top of the stack.
+                            Otherwise, until that element is smaller than the top entry, iterate moving the top entry of the stack to the right end of the list. 
+                            Once this is done, move the new element in the permutation to the top of the stack.
                         </p>
                     </li>
                 </ul>
@@ -99,7 +100,7 @@
     </definition>
 
     <p>
-        In the notes, I will use the vector transpose notation <m>S=(s_1,s_2,s_4,\ldots,s_k)^T</m> to denote the vertical stack with <m>s_1</m> on top and <m>s_k</m> at the bottom of the stack.
+        In the notes, I will use the vector transpose notation <m>S=(s_1,s_2,s_3,s_4,\ldots,s_k)^T</m> to denote the vertical stack with <m>s_1</m> on top and <m>s_k</m> at the bottom of the stack.
     </p>
     <example>
         <p>
