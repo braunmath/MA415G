@@ -77,17 +77,17 @@
                 Second, if <m>\pi_2\lt \pi_1</m>, place <m>\pi_2</m> on the stack above <m>\pi_1</m>; otherwise, place <m>\pi_1</m> into the list and add <m>\pi_2</m> to the stack.
             </p>
             <p> 
-                For each subsequent step, compare the next element in the permutation with the top element of the stack.
+                For each subsequent step, compare the next element <m>\pi_i</m> in the permutation with the top element of the stack.
                 <ul>
                     <li>
                         <p>
-                            If the next element in the permutation is smaller than the top entry of the stack, add the element to the stack. 
+                            If <m>\pi_i</m> is smaller than the top entry of the stack, add <m>\pi_i</m> to the stack. 
                         </p>
                     </li>
                     <li>
                         <p>
-                            Otherwise, until that element is smaller than the top entry, iterate moving the top entry of the stack to the right end of the list. 
-                            Once this is done, move the new element in the permutation to the top of the stack.
+                            Otherwise, while <m>\pi_i</m> is larger than the top entry, iterate moving the top entry of the stack to the right end of the list. 
+                            Once <m>\pi_i</m> is smaller than the top entry of the stack, move <m>\pi_i</m> to the top of the stack.
                         </p>
                     </li>
                 </ul>
@@ -145,17 +145,17 @@
                 </li>
                 <li>
                     <p>
-                        <m>\pi=1</m>, <m>S=(5,4,6)^T</m>, <m>L=23</m>.
+                        <m>\pi=1</m>, <m>S=(5,6)^T</m>, <m>L=234</m>.
                     </p>
                 </li>
                 <li>
                     <p>
-                        <m>S=(1,5,4,6)^T</m>, <m>L=23</m>.
+                        <m>S=(1,5,6)^T</m>, <m>L=234</m>.
                     </p>
                 </li>
                 <li>
                     <p>
-                        <m>L=231546</m>.
+                        <m>L=234156</m>.
                     </p>
                 </li>
             </ol>
@@ -187,6 +187,16 @@
                 <li>
                     <p>
                         <m>87654321</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>43218756</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>31527864</m>
                     </p>
                 </li>
             </ol>
@@ -237,6 +247,16 @@
                 <li>
                     <p>
                         <m>87654321</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>43218756</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>31527864</m>
                     </p>
                 </li>
             </ol>
