@@ -539,19 +539,39 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P24</title>
         <p>
+            Apply the bubble sort algorithm to the following permutation. Show your work step-by-step.
+            <me>
+                \pi = 923856714
+            </me>
             
         </p>
     </problem>
         <problem>
         <title>P25</title>
         <p>
-            
+            Apply the stack sorting algorithm to the following permutation. Show your work step-by-step.
+            <me>
+                \pi = 21436587
+            </me>
         </p>
     </problem>
         <problem>
         <title>P26</title>
         <p>
-            
+            <ol>
+                <li>
+                    <p>
+                        Find a bijection between the set of stack-sortable permutations in <m>\ss_n</m> and the set of <m>213</m>-avoiding permutations in <m>\ss_n</m>.
+                        Explain why your bijection is correct.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Find a bijection between the set of stack-sortable permutations in <m>\ss_n</m> and the set of <m>132</m>-avoiding permutations in <m>\ss_n</m>.
+                        Explain why your bijection is correct.
+                    </p>
+                </li>
+            </ol>
         </p>
     </problem>
         <problem>
