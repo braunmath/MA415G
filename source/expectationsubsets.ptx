@@ -1,9 +1,161 @@
 <section xml:id="sec-expectationsubsets">
-    <title>Expected Values: Binary Strings, and Subsets</title>
+    <title>Expected Values: Binary Strings and Subsets</title>
 
 	<p>
 		We next apply the tools we have developed to investigate expected values of random variables defined on subsets of a finite set, which as we have seen is equivalent to binary strings.
 	</p>
+
+	<theorem xml:id="thm-numberofones">
+		<statement>
+			<p>
+				Given a binary string <m>x\in\Bin_n</m>, let <m>X(x)</m> be the number of <m>1</m>'s in <m>x</m>.
+				Then the expected value of <m>X</m> with respect to the uniform distribution on <m>\Bin_n</m> is
+				<me>
+					E[X]=\frac{n}{2} \, .
+				</me>
+			</p>
+		</statement>
+	</theorem>
+	<proof>
+		<p>
+			Note that if <m>X_i</m> is the random variable defined by
+			<me>
+				X_i(x)=\begin{cases}1 \amp \text{if the }i\text{-th entry of }x\text{ is }1 \\ 0 \amp \text{otherwise} \end{cases} \, ,
+			</me>
+			then we have that
+			<me>
+				X=\sum_{i=1}^n X_i \, .
+			</me>
+			Observe that 
+			<me>
+				E[X_i]= \sum_{x\in \Bin_n} P(x)X_i(x) = \sum_{x\in \Bin_n: x_i=1} \frac{1}{2^n}\cdot 1 = \frac{2^{n-1}}{2^n} = \frac{1}{2} \, .
+			</me>
+			Using linearity of expectation, we have that
+			<md>
+				<mrow> E[X] \amp = E\left[\sum_{i=1}^n X_i\right] </mrow>
+				<mrow> \amp = \sum_{i=1}^n E[X_i] </mrow>
+				<mrow> \amp = \sum_{i=1}^n \frac{1}{2} </mrow>
+				<mrow> \amp = \frac{n}{2} \, .</mrow>
+			</md>
+		</p>
+	</proof>
+
+	<p>
+		Using our bijection between binary strings and subsets of <m>[n]</m>, we can interpret this as saying that if we choose a subset of an <m>n</m>-element set uniformly at random, we expect the subset to have size <m>n/2</m>.
+	</p>
+
+<exercise>
+	<p>
+		Discuss the proof above. Does it make sense? Why or why not?
+	</p>
+</exercise>
+
+<p>
+	Note that the uniform distribution on binary strings of length <m>n</m> is a special case of the binomial distribution where <m>p=1/2</m>.
+	Thus, we can generalize the previous result by considering the binomial distribution with arbitrary parameter <m>p\in(0,1)</m>.
+</p>
+
+<theorem xml:id="thm-weightednumberofones">
+	<statement>
+		<p>
+			Given a binary string <m>x\in\Bin_n</m>, let <m>X(x)</m> be the number of <m>1</m>'s in <m>x</m>.
+			Then the expected value of <m>X</m> with respect to the binomial distribution on <m>\Bin_n</m> with parameter <m>p</m> is
+			<me>
+				E[X]=pn \, .
+			</me>
+		</p>
+	</statement>
+</theorem>
+
+<proof>
+	<p>
+		Let <m>X_i</m> be the same random variable as in the previous proof.
+		Using linearity of expectation, we have that
+		<md>
+			<mrow> E[X] \amp = E\left[\sum_{i=1}^n X_i\right] </mrow>
+			<mrow> \amp = \sum_{i=1}^n E[X_i] </mrow>
+			<mrow> \amp = \sum_{i=1}^n \sum_{x\in \Bin_n} P(x)X_i(x) </mrow>
+			<mrow> \amp = \sum_{i=1}^n \sum_{x\in \Bin_n: x_i=1} p^{|x|}(1-p)^{n-|x|} </mrow>
+			<mrow> \amp = \sum_{i=1}^n \left( p \sum_{y\in \Bin_{n-1}} p^{|y|}(1-p)^{n-1-|y|}\right) </mrow>
+			<mrow> \amp = \sum_{i=1}^n \left( p \cdot (p+(1-p))^{n-1}\right) </mrow>
+			<mrow> \amp = p n \, .</mrow>
+		</md>
+	</p>
+</proof>
+
+<exercise>
+	<p>
+		Discuss the proof above. Does it make sense? Why or why not?
+	</p>
+</exercise>
 	
+<p>
+	There are many other interesting random variables that can be defined on binary strings and subsets.
+	Next we will look at one such example.
+</p>
+
+<exercise>
+	<p>
+		Let <m>X</m> be the random variable on <m>2^{[n]}</m> with the uniform distribution that counts the number of pairs <m>\{i,i+1\}</m> that are contained in a set.
+		In other words, for <m>S\subseteq [n]</m>, let
+		<me>
+			X(S)=|\{i\in [n-1] : \{i,i+1\}\subseteq S\}| \, .
+		</me>
+		Here is a plot (note the different scales on the axes!!!) where for each <m>n</m> from <m>1</m> to <m>39</m>, we randomly select <m>1000</m> subsets of <m>[n]</m> and compute the average value of <m>X</m> on those subsets.
+		Do you have a guess for what <m>E[X]</m> might be? What is your reasoning?
+	</p>
+	<figure xml:id="fig-subsetconsecutiveexperimentplot">
+    <caption>Plot of experimental expected value of <m>X</m> versus <m>n</m>.</caption>
+    <image source="subsetconsecutiveexperimentplot.png" width="75%">
+        <shortdescription>Plot of experimental expected value of X versus n.</shortdescription>
+    </image>
+</figure>
+
+</exercise>
+
+<theorem xml:id="thm-subsetpairs">
+	<statement>
+		<p>
+			Let <m>X</m> be the random variable on <m>2^{[n]}</m> with the uniform distribution that counts the number of pairs <m>\{i,i+1\}</m> that are contained in a set.
+			Then <me>E[X]=\frac{n-1}{4}</me>.
+		</p>
+	</statement>
+</theorem>
+
+<proof>
+	<p>
+		Let <m>X_i</m> be the random variable defined by
+			<me>
+				X_i(S)=\begin{cases}1 \amp \text{if }\{i,i+1\}\subseteq S \\ 0 \amp \text{otherwise} \end{cases} \, .
+			</me>
+			Using linearity of expectation, we have that
+			<md>
+				<mrow> E[X] \amp = E\left[\sum_{i=1}^{n-1} X_i\right] </mrow>
+				<mrow> \amp = \sum_{i=1}^{n-1} E[X_i] </mrow>
+				<mrow> \amp = \sum_{i=1}^{n-1} \sum_{S\subseteq [n]} P(S)X_i(S) </mrow>
+				<mrow> \amp = \sum_{i=1}^{n-1} \sum_{S\subseteq [n]: \{i,i+1\}\subseteq S} \frac{1}{2^n}\cdot 1 </mrow>
+				<mrow> \amp = \sum_{i=1}^{n-1} \frac{2^{n-2}}{2^n} </mrow>
+				<mrow> \amp = \frac{n-1}{4} \, .</mrow>
+			</md>
+	</p>
+</proof>
+
+<exercise>
+	<p>
+		Discuss the proof above. Does it make sense? Why or why not?
+	</p>
+</exercise>
+
+<exercise>
+	<p>
+		What is the interpretation of the theorem above in terms of binary strings?
+	</p>
+</exercise>
+
+<exercise>
+	<p>
+		What does the theorem above <em>mean</em> to you? In other words, how would you explain it to someone who is not familiar with expected values or random variables?
+	</p>
+</exercise>
     
 </section>

@@ -52,7 +52,7 @@ Consider again the set
 \Omega=\{00,10,01,11\}
 </me>
  of binary strings of length two, but this time we will use a different probability distribution.
-Let <m>p=1/10</m> and set
+Set
 <me>
 P_{1/8}(x)=(1/8)^{\text{number of }0\text{'s in }x}(7/8)^{\text{number of }1\text{'s in }x} \, .
 </me>

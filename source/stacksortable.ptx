@@ -343,12 +343,12 @@
     <proof>
         <p>
             Let <m>\pi\in \ss_n</m> be <m>231</m>-avoiding.
-            In this case, every entry to the left of <m>n</m> in <m>\pi</m> must be greater than every entry to the right of <m>n</m> in <m>\pi</m>.
+            In this case, every entry to the left of <m>n</m> in <m>\pi</m> must be less than every entry to the right of <m>n</m> in <m>\pi</m>.
             Thus, if <m>\pi_{i}=n</m>, we have
             <me>
                 \pi=\tau n\sigma
             </me>
-            where <m>\tau</m> is a <m>231</m>-avoiding permutation of <m>\{n-1,n-2,\ldots,n-1-(i-1)\}</m> and <m>\sigma</m> is a <m>231</m>-avoiding permutation of <m>\{1,2,\ldots,n-1-i\}</m>.
+            where <m>\tau</m> is a <m>231</m>-avoiding permutation of <m>\{1,\ldots,i-1\}</m> and <m>\sigma</m> is a <m>231</m>-avoiding permutation of <m>\{i,\ldots,n-1\}</m>.
             Thus, there are <m>C_i</m> possible <m>\tau</m> and <m>C_{n-1-i}</m> possible <m>\sigma</m>.
             As <m>n</m> can be in any position in <m>\pi</m>, this shows that there are 
             <me>
