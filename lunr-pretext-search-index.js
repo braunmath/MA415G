@@ -1951,7 +1951,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.7",
   "title": "Stack Sortable Permutations",
-  "body": " Stack Sortable Permutations  Our final classification problem arises in the context of sorting permutations. The sorting problem is as follows: given a permutation , produce an efficient algorithm to sort the permutation so that the result is the identity element.  One way to think about sorting a permutation is that we would need to eliminate inversions one at a time, until no inversions remain -- this would yield the identity permutation. A simple sorting algorithm of this type that is horribly inefficient and never used is bubble sort , defined as follows.    A pass in the bubble sort algorithm applied to a permutation does the following:   For from to :    if , swap those entries.       The bubble sort algorithm consists of making passes through the permutation.     Bubble sort applied to the permutation does the following on pass 1: Note that the effect of the first pass is to move to the final position.  On pass 2, we start with and obtain: Note that the effect of the second pass is to move to the second to last position.  On pass 3, we start with and obtain: Note that the effect of the second pass is to move to the third to last position.  We would run through the remaining passes without making any further changes, since the permutation is now sorted.    Apply the bubble sort algorithm to .   There are many interesting sorting algorithms! See for a list. Our next goal is to investigate a sorting algorithm created by Knuth that does not always work , but leads to very interesting mathematics .    Given a permutation , we create two additional objects: a \"vertical stack\" that starts empty and a list that starts empty. First, add to the stack. Second, if , place on the stack above ; otherwise, place into the list and add to the stack.  For each subsequent step, compare the next element in the permutation with the top element of the stack.   If is smaller than the top entry of the stack, add to the stack.    Otherwise, while is larger than the top entry, iterate moving the top entry of the stack to the right end of the list. Once is smaller than the top entry of the stack, move to the top of the stack.   Continue until every element of the permutation has been analyzed, and any elements that are left in the stack we pop sequentially and add to the right side of the list.  If a permutation is correctly sorted by this operation, then we call it 1-stack sortable , or just stack sortable .    In the notes, I will use the vector transpose notation to denote the vertical stack with on top and at the bottom of the stack.   Consider , with stack and list . We start by setting . The next element is , which is less than , so we put at the top of the stack yielding .  The next element is , which is greater than , so we move to the list and put in the stack .  The next element is , which is less than , so we put at the top of the stack to yield .  At this point, we sequentially pop each remaining element from the top of the stack, appending to , yielding .    Consider , with stack and list . Then our process yields:    , , empty.     , , empty.     , , .     , , .     , , .     , .     .     Note that the resulting list is not correctly ordered .    What caused the permutation above to NOT be sorted correctly by the stack sorting process?    Which of the following permutations are 1-stack sortable?                              We will see that there is a simple criteria that characterizes whether or not a permutation is stack sortable, involving the following definition.    We say that a permutation  contains the pattern if there exist indices such that If does not contain the pattern , then we say that is -avoiding .     The permutation contains the pattern , for example since and this is a pattern.    Which of the following permutations are -avoiding?                                A permutation is 1-stack sortable if and only if it is -avoiding.     We first prove that if is stack sortable then it is -avoiding. Suppose that the opposite happened, i.e., that there exist where where we use the names to simplify notation. When we get to in the stack sorting process, there are several possibilities for what has occurred previously in the process.   If or have already been popped from the stack, then that value will appear before in the list, which would result in the final list being out of order. So, we must have both and in the stack when is considered in the sorting process.    Note that in the stack when is considered, we must have below in the stack, because was pushed onto the stack before since was considered first in the sorting process: We must pop before and , and as the process continues, we must pop from the stack before we pop . However, this will result in appearing before in the final list, which would put the elements out of order. Therefore, cannot have a -pattern in .     We next prove that if avoids then it is stack sortable. For any two elements and such that comes before in , if then there is not a value between and in . Thus, will enter the stack and will not leave until has left the stack, meaning that will come before in the list, as desired. If , then will enter and leave the stack before enters the stack, and again they will appear in the correct order in the list. Since this is true for all pairs and , the stack sorting procedure will correctly sort the permutation.    Discuss the proof above. Does it make sense? Why or why not? Compare this proof with the examples you computed earlier.   There is a beautiful connection between the classification of stack sortable permutations and enumeration.    Let denote the number of stack sortable, i.e., -avoiding, permutations in , where we define and . Then for , these numbers satisfy the recurrence Note that this is the Catalan recurrence which implies that is the -th Catalan number , which is equal to      Use the recurrence to compute the first seven Catalan numbers.    Let be -avoiding. In this case, every entry to the left of in must be greater than every entry to the right of in . Thus, if , we have where is a -avoiding permutation of and is a -avoiding permutation of . Thus, there are possible and possible . As can be in any position in , this shows that there are possible -avoiding permutations in .  We will omit the proof that the formula satisfies the Catalan recurrence, but if you are interested in seeing it then you can search online and easily find proofs using the technique of generating functions (i.e., power series).   "
+  "body": " Stack Sortable Permutations  Our final classification problem arises in the context of sorting permutations. The sorting problem is as follows: given a permutation , produce an efficient algorithm to sort the permutation so that the result is the identity element.  One way to think about sorting a permutation is that we would need to eliminate inversions one at a time, until no inversions remain -- this would yield the identity permutation. A simple sorting algorithm of this type that is horribly inefficient and never used is bubble sort , defined as follows.    A pass in the bubble sort algorithm applied to a permutation does the following:   For from to :    if , swap those entries.       The bubble sort algorithm consists of making passes through the permutation.     Bubble sort applied to the permutation does the following on pass 1: Note that the effect of the first pass is to move to the final position.  On pass 2, we start with and obtain: Note that the effect of the second pass is to move to the second to last position.  On pass 3, we start with and obtain: Note that the effect of the second pass is to move to the third to last position.  We would run through the remaining passes without making any further changes, since the permutation is now sorted.    Apply the bubble sort algorithm to .   There are many interesting sorting algorithms! See for a list. Our next goal is to investigate a sorting algorithm created by Knuth that does not always work , but leads to very interesting mathematics .    Given a permutation , we create two additional objects: a \"vertical stack\" that starts empty and a list that starts empty. First, add to the stack. Second, if , place on the stack above ; otherwise, place into the list and add to the stack.  For each subsequent step, compare the next element in the permutation with the top element of the stack.   If is smaller than the top entry of the stack, add to the stack.    Otherwise, while is larger than the top entry, iterate moving the top entry of the stack to the right end of the list. Once is smaller than the top entry of the stack, move to the top of the stack.   Continue until every element of the permutation has been analyzed, and any elements that are left in the stack we pop sequentially and add to the right side of the list.  If a permutation is correctly sorted by this operation, then we call it 1-stack sortable , or just stack sortable .    In the notes, I will use the vector transpose notation to denote the vertical stack with on top and at the bottom of the stack.   Consider , with stack and list . We start by setting . The next element is , which is less than , so we put at the top of the stack yielding .  The next element is , which is greater than , so we move to the list and put in the stack .  The next element is , which is less than , so we put at the top of the stack to yield .  At this point, we sequentially pop each remaining element from the top of the stack, appending to , yielding .    Consider , with stack and list . Then our process yields:    , , empty.     , , empty.     , , .     , , .     , , .     , .     .     Note that the resulting list is not correctly ordered .    What caused the permutation above to NOT be sorted correctly by the stack sorting process?    Which of the following permutations are 1-stack sortable?                              We will see that there is a simple criteria that characterizes whether or not a permutation is stack sortable, involving the following definition.    We say that a permutation  contains the pattern if there exist indices such that If does not contain the pattern , then we say that is -avoiding .     The permutation contains the pattern , for example since and this is a pattern.    Which of the following permutations are -avoiding?                                A permutation is 1-stack sortable if and only if it is -avoiding.     We first prove that if is stack sortable then it is -avoiding. Suppose that the opposite happened, i.e., that there exist where where we use the names to simplify notation. When we get to in the stack sorting process, there are several possibilities for what has occurred previously in the process.   If or have already been popped from the stack, then that value will appear before in the list, which would result in the final list being out of order. So, we must have both and in the stack when is considered in the sorting process.    Note that in the stack when is considered, we must have below in the stack, because was pushed onto the stack before since was considered first in the sorting process: We must pop before and , and as the process continues, we must pop from the stack before we pop . However, this will result in appearing before in the final list, which would put the elements out of order. Therefore, cannot have a -pattern in .     We next prove that if avoids then it is stack sortable. For any two elements and such that comes before in , if then there is not a value between and in . Thus, will enter the stack and will not leave until has left the stack, meaning that will come before in the list, as desired. If , then will enter and leave the stack before enters the stack, and again they will appear in the correct order in the list. Since this is true for all pairs and , the stack sorting procedure will correctly sort the permutation.    Discuss the proof above. Does it make sense? Why or why not? Compare this proof with the examples you computed earlier.   There is a beautiful connection between the classification of stack sortable permutations and enumeration.    Let denote the number of stack sortable, i.e., -avoiding, permutations in , where we define and . Then for , these numbers satisfy the recurrence Note that this is the Catalan recurrence which implies that is the -th Catalan number , which is equal to      Use the recurrence to compute the first seven Catalan numbers.    Let be -avoiding. In this case, every entry to the left of in must be less than every entry to the right of in . Thus, if , we have where is a -avoiding permutation of and is a -avoiding permutation of . Thus, there are possible and possible . As can be in any position in , this shows that there are possible -avoiding permutations in .  We will omit the proof that the formula satisfies the Catalan recurrence, but if you are interested in seeing it then you can search online and easily find proofs using the technique of generating functions (i.e., power series).   "
 },
 {
   "id": "def-bubblesort",
@@ -2104,7 +2104,7 @@ var ptx_lunr_docs = [
   "type": "Proof",
   "number": "3.7.2",
   "title": "",
-  "body": " Let be -avoiding. In this case, every entry to the left of in must be greater than every entry to the right of in . Thus, if , we have where is a -avoiding permutation of and is a -avoiding permutation of . Thus, there are possible and possible . As can be in any position in , this shows that there are possible -avoiding permutations in .  We will omit the proof that the formula satisfies the Catalan recurrence, but if you are interested in seeing it then you can search online and easily find proofs using the technique of generating functions (i.e., power series).  "
+  "body": " Let be -avoiding. In this case, every entry to the left of in must be less than every entry to the right of in . Thus, if , we have where is a -avoiding permutation of and is a -avoiding permutation of . Thus, there are possible and possible . As can be in any position in , this shows that there are possible -avoiding permutations in .  We will omit the proof that the formula satisfies the Catalan recurrence, but if you are interested in seeing it then you can search online and easily find proofs using the technique of generating functions (i.e., power series).  "
 },
 {
   "id": "sec-expectationintro",
@@ -2122,7 +2122,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.2",
   "title": "Finite Probability Spaces and Random Variables",
-  "body": " Finite Probability Spaces and Random Variables  Our first task is to clearly define what we mean when we talk about likelihood of an event occurring.    Let be a finite set. We refer to the elements of as events . A probability distribution on is a function such that If for all , then we call the uniform distribution .     Consider the set of binary strings of length two, with the uniform distribution . The interpretation of this distribution is that if you pick one of the four binarys string of length two at random, you are equally likely to pick any of the four strings -- each will appear of the time.    Consider the set of outcomes from rolling a die, which is the values appearing on the six sides: The uniform distribution in this case gives . The interpretation of this distribution is that if you roll a fair die, you are equally likely to roll any of the six sides -- each will appear of the time.    Consider again the set of binary strings of length two, but this time we will use a different probability distribution. Let and set Is this a probability distribution? Let's check!  First observe that and therefore using the binomial theorem we have So, this is a probability distribution on -- it is one which strongly favors binary strings that contain more 's.    Let . Prove that if is the set of all binary strings of length , the function is a probability distribution.   The previous exercise is a special case of the following theorem.    Let . If is the set of all binary strings of length , the function is a probability distribution called the binomial distribution with parameter .     Using the binomial theorem, we have that     Discuss the proof above. Does it make sense? Why or why not?    Explain why the binomial distribution on binary strings of length with parameter is the uniform distribution.     Given a probability distribution on a finite set , a random variable is a function . If , we refer to as the value of the random variable on the event .     Consider again the set of binary strings of length two, with the uniform distribution. Define the random variable by . The interpretation of this random variable is that counts the number of 's in the binary string .    Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: , with the uniform distribution. Define the random variable by . The interpretation of this random variable is that is the value appearing on the side of the die when you roll a .    Consider the set of permutations with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of fixed points in the permutation .    Consider the set of all graphs on vertices, which we will write , with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of spanning trees in the graph .   The key question we want to answer is: given a random variable on a finite probability space , if I pick an element of according to the distribution , what is the expected value of ?  "
+  "body": " Finite Probability Spaces and Random Variables  Our first task is to clearly define what we mean when we talk about likelihood of an event occurring.    Let be a finite set. We refer to the elements of as events . A probability distribution on is a function such that If for all , then we call the uniform distribution .     Consider the set of binary strings of length two, with the uniform distribution . The interpretation of this distribution is that if you pick one of the four binarys string of length two at random, you are equally likely to pick any of the four strings -- each will appear of the time.    Consider the set of outcomes from rolling a die, which is the values appearing on the six sides: The uniform distribution in this case gives . The interpretation of this distribution is that if you roll a fair die, you are equally likely to roll any of the six sides -- each will appear of the time.    Consider again the set of binary strings of length two, but this time we will use a different probability distribution. Set Is this a probability distribution? Let's check!  First observe that and therefore using the binomial theorem we have So, this is a probability distribution on -- it is one which strongly favors binary strings that contain more 's.    Let . Prove that if is the set of all binary strings of length , the function is a probability distribution.   The previous exercise is a special case of the following theorem.    Let . If is the set of all binary strings of length , the function is a probability distribution called the binomial distribution with parameter .     Using the binomial theorem, we have that     Discuss the proof above. Does it make sense? Why or why not?    Explain why the binomial distribution on binary strings of length with parameter is the uniform distribution.     Given a probability distribution on a finite set , a random variable is a function . If , we refer to as the value of the random variable on the event .     Consider again the set of binary strings of length two, with the uniform distribution. Define the random variable by . The interpretation of this random variable is that counts the number of 's in the binary string .    Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: , with the uniform distribution. Define the random variable by . The interpretation of this random variable is that is the value appearing on the side of the die when you roll a .    Consider the set of permutations with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of fixed points in the permutation .    Consider the set of all graphs on vertices, which we will write , with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of spanning trees in the graph .   The key question we want to answer is: given a random variable on a finite probability space , if I pick an element of according to the distribution , what is the expected value of ?  "
 },
 {
   "id": "def-finiteprobabilityspace",
@@ -2158,7 +2158,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "4.2.4",
   "title": "",
-  "body": " Consider again the set of binary strings of length two, but this time we will use a different probability distribution. Let and set Is this a probability distribution? Let's check!  First observe that and therefore using the binomial theorem we have So, this is a probability distribution on -- it is one which strongly favors binary strings that contain more 's.  "
+  "body": " Consider again the set of binary strings of length two, but this time we will use a different probability distribution. Set Is this a probability distribution? Let's check!  First observe that and therefore using the binomial theorem we have So, this is a probability distribution on -- it is one which strongly favors binary strings that contain more 's.  "
 },
 {
   "id": "sec-finiteprobability-7",
@@ -2400,8 +2400,116 @@ var ptx_lunr_docs = [
   "url": "sec-expectationsubsets.html",
   "type": "Section",
   "number": "4.4",
-  "title": "Expected Values: Binary Strings, and Subsets",
-  "body": " Expected Values: Binary Strings, and Subsets  We next apply the tools we have developed to investigate expected values of random variables defined on subsets of a finite set, which as we have seen is equivalent to binary strings.  "
+  "title": "Expected Values: Binary Strings and Subsets",
+  "body": " Expected Values: Binary Strings and Subsets  We next apply the tools we have developed to investigate expected values of random variables defined on subsets of a finite set, which as we have seen is equivalent to binary strings.    Given a binary string , let be the number of 's in . Then the expected value of with respect to the uniform distribution on is      Note that if is the random variable defined by then we have that Observe that Using linearity of expectation, we have that    Using our bijection between binary strings and subsets of , we can interpret this as saying that if we choose a subset of an -element set uniformly at random, we expect the subset to have size .   Discuss the proof above. Does it make sense? Why or why not?   Note that the uniform distribution on binary strings of length is a special case of the binomial distribution where . Thus, we can generalize the previous result by considering the binomial distribution with arbitrary parameter .    Given a binary string , let be the number of 's in . Then the expected value of with respect to the binomial distribution on with parameter is      Let be the same random variable as in the previous proof. Using linearity of expectation, we have that     Discuss the proof above. Does it make sense? Why or why not?   There are many other interesting random variables that can be defined on binary strings and subsets. Next we will look at one such example.   Let be the random variable on with the uniform distribution that counts the number of pairs that are contained in a set. In other words, for , let Here is a plot (note the different scales on the axes!!!) where for each from to , we randomly select subsets of and compute the average value of on those subsets. Do you have a guess for what might be? What is your reasoning?   Plot of experimental expected value of versus .   Plot of experimental expected value of X versus n.       Let be the random variable on with the uniform distribution that counts the number of pairs that are contained in a set. Then .     Let be the random variable defined by Using linearity of expectation, we have that     Discuss the proof above. Does it make sense? Why or why not?    What is the interpretation of the theorem above in terms of binary strings?    What does the theorem above mean to you? In other words, how would you explain it to someone who is not familiar with expected values or random variables?   "
+},
+{
+  "id": "thm-numberofones",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#thm-numberofones",
+  "type": "Theorem",
+  "number": "4.4.1",
+  "title": "",
+  "body": "  Given a binary string , let be the number of 's in . Then the expected value of with respect to the uniform distribution on is    "
+},
+{
+  "id": "sec-expectationsubsets-4",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-4",
+  "type": "Proof",
+  "number": "4.4.1",
+  "title": "",
+  "body": " Note that if is the random variable defined by then we have that Observe that Using linearity of expectation, we have that   "
+},
+{
+  "id": "sec-expectationsubsets-6",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-6",
+  "type": "Checkpoint",
+  "number": "4.4.2",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
+  "id": "thm-weightednumberofones",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#thm-weightednumberofones",
+  "type": "Theorem",
+  "number": "4.4.3",
+  "title": "",
+  "body": "  Given a binary string , let be the number of 's in . Then the expected value of with respect to the binomial distribution on with parameter is    "
+},
+{
+  "id": "sec-expectationsubsets-9",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-9",
+  "type": "Proof",
+  "number": "4.4.2",
+  "title": "",
+  "body": " Let be the same random variable as in the previous proof. Using linearity of expectation, we have that   "
+},
+{
+  "id": "sec-expectationsubsets-10",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-10",
+  "type": "Checkpoint",
+  "number": "4.4.4",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
+  "id": "sec-expectationsubsets-12",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-12",
+  "type": "Checkpoint",
+  "number": "4.4.5",
+  "title": "",
+  "body": " Let be the random variable on with the uniform distribution that counts the number of pairs that are contained in a set. In other words, for , let Here is a plot (note the different scales on the axes!!!) where for each from to , we randomly select subsets of and compute the average value of on those subsets. Do you have a guess for what might be? What is your reasoning?   Plot of experimental expected value of versus .   Plot of experimental expected value of X versus n.    "
+},
+{
+  "id": "thm-subsetpairs",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#thm-subsetpairs",
+  "type": "Theorem",
+  "number": "4.4.7",
+  "title": "",
+  "body": "  Let be the random variable on with the uniform distribution that counts the number of pairs that are contained in a set. Then .   "
+},
+{
+  "id": "sec-expectationsubsets-14",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-14",
+  "type": "Proof",
+  "number": "4.4.3",
+  "title": "",
+  "body": " Let be the random variable defined by Using linearity of expectation, we have that   "
+},
+{
+  "id": "sec-expectationsubsets-15",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-15",
+  "type": "Checkpoint",
+  "number": "4.4.8",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
+  "id": "sec-expectationsubsets-16",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-16",
+  "type": "Checkpoint",
+  "number": "4.4.9",
+  "title": "",
+  "body": " What is the interpretation of the theorem above in terms of binary strings?  "
+},
+{
+  "id": "sec-expectationsubsets-17",
+  "level": "2",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-17",
+  "type": "Checkpoint",
+  "number": "4.4.10",
+  "title": "",
+  "body": " What does the theorem above mean to you? In other words, how would you explain it to someone who is not familiar with expected values or random variables?  "
 },
 {
   "id": "sec-expectationpermutations",
