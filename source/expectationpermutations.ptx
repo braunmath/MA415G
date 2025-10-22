@@ -4,7 +4,175 @@
 	<p>
 		We next apply the tools we have developed to investigate expected values of random variables defined on permutations.
 	</p>
+	<exercise>
+	<p>
+		As our first example, let <m>\inv</m> be the random variable on <m>\ss_n</m> with the uniform distribution that counts the number of inversions in a permutation.
+		Here is a plot (note the different scales on the axes!!!) where for each <m>n</m> from <m>2</m> to <m>15</m>, we randomly select <m>1000</m> permutations and compute the average value of <m>\inv</m> on those subsets.
+		Do you have a guess for what <m>E[\inv]</m> might be? What is your reasoning?
+	</p>
+	<figure xml:id="fig-inversiontest">
+    <caption>Plot of experimental expected value of <m>\inv</m> versus <m>n</m>.</caption>
+    <image source="inversiontest.png" width="100%">
+        <shortdescription>Plot of experimental expected value of inv versus n.</shortdescription>
+    </image>
+</figure>
+</exercise>
 
+<example>
+	<p>
+		While it isn't obvious from the plot, it turns out that <me>E[\inv] = \frac{n(n-1)}{4}</me>.
+		Here is a plot of our experimental values versus the graph of this function.
+	</p>
+	<figure xml:id="fig-inversiontestfunction">
+    <caption>Plot of experimental expected value of <m>\inv</m> versus <m>n</m> with the function <m>y=x(x-1)/4</m>.</caption>
+    <image source="inversiontestfunction.png" width="100%">
+        <shortdescription>Plot of experimental expected value of inv versus n with the function x(x-1)/4.</shortdescription>
+    </image>
+</figure>
+</example>
+
+<p>
+	Before we consider the case of inversions, let's look at a simpler random variable on permutations.
+	Let <m>X</m> be the random variable on <m>\ss_n</m> with the uniform distribution that counts the number of fixed points of a permutation.
+	In other words, for <m>\pi\in \ss_n</m>, let <me>X(\pi)=|\{i\in [n] : \pi(i)=i\} |</me>.
 	
+</p>
+<exercise>
+	<p>
+		Here is a plot where for each <m>n</m> from <m>1</m> to <m>15</m>, we randomly select <m>1000</m> permutations and compute the average value of <m>X</m> on those permutations.
+	What do you think the expected value <m>E[X]</m> might be? What is your reasoning?
+</p>
+<figure xml:id="fig-fixedptsexperiment">
+    <caption>Plot of experimental expected value of number of fixed points versus <m>n</m>.</caption>
+    <image source="fixedptsexperiment.png" width="100%">
+        <shortdescription>Plot of experimental expected value of number of fixed points versus n.</shortdescription>
+    </image>
+</figure>
+</exercise>
+
+<theorem xml:id="thm-expectationfixedpoints">
+	<statement>
+		<p>
+			If <m>X</m> is the random variable on <m>\ss_n</m> with the uniform distribution that counts the number of fixed points of a permutation, then <me>E[X]=1</me>.
+		</p>
+	</statement>
+</theorem>
+<proof>
+	<p>
+		Let <m>X_i</m> be the random variable defined by <me>X_i(\pi)=\begin{cases} 1 \amp \text{if } \pi(i)=i \\ 0 \amp \text{otherwise} \end{cases}</me>.
+		Using linearity of expectation, we have that
+		<md>
+			<mrow> E[X] \amp = E\left[\sum_{i=1}^n X_i\right] </mrow>
+			<mrow> \amp = \sum_{i=1}^n E[X_i] </mrow>
+			<mrow> \amp = \sum_{i=1}^n \sum_{\pi\in \ss_n} P(\pi)X_i(\pi) </mrow>
+			<mrow> \amp = \sum_{i=1}^n \sum_{\pi\in \ss_n: \pi(i)=i} \frac{1}{n!} </mrow>
+			<mrow> \amp = \sum_{i=1}^n \frac{(n-1)!}{n!} </mrow>
+			<mrow> \amp = \sum_{i=1}^n \frac{1}{n} </mrow>
+			<mrow> \amp = 1 \, .</mrow>
+		</md>
+	</p>
+</proof>
+
+<p>
+	Thus, on average, a permutation has exactly one fixed point, no matter how large <m>n</m> is.
+</p>
+
+<p>
+	Next, we consider the case of descents in a permutation.
+</p>
+
+<theorem xml:id="thm-expecteddescents">
+	<statement>
+		<p>
+			Let <m>\des</m> be the random variable on <m>\ss_n</m> with the uniform distribution that counts the number of descents of a permutation.
+			Then <me>E[\des] = \frac{n-1}{2}</me>.
+		</p>
+	</statement>
+</theorem>
+<proof>
+	<p>
+		Let <m>Y_i</m> be the random variable defined by
+			<me>
+				Y_i(\pi)=\begin{cases}1 \amp \text{if } \pi(i)>\pi(i+1) \\ 0 \amp \text{otherwise} \end{cases} \, .
+			</me>
+			Note that half of the permutations in <m>\ss_n</m> have a descent at position <m>i</m> (since for any ordering of the other <m>n-2</m> elements, there are two ways to order <m>\pi(i)</m> and <m>\pi(i+1)</m>, one with a descent and one without).
+			Using linearity of expectation, we thus have that
+			<md>
+				<mrow> E[\des] \amp = E\left[\sum_{i=1}^{n-1} Y_i\right] </mrow>
+				<mrow> \amp = \sum_{i=1}^{n-1} E[Y_i] </mrow>
+				<mrow> \amp = \sum_{i=1}^{n-1} \sum_{\pi\in \ss_n} P(\pi)Y_i(\pi) </mrow>
+				<mrow> \amp = \sum_{i=1}^{n-1} \sum_{\pi\in \ss_n: \pi(i)>\pi(i+1)} \frac{1}{n!}\cdot 1 </mrow>
+				<mrow> \amp = \sum_{i=1}^{n-1} \frac{n! / 2}{n!} </mrow>
+				<mrow> \amp = \frac{n-1}{2} \, .</mrow>
+			</md>
+	</p>
+</proof>
+
+<p>
+	We are now in a position to tackle the expected number of inversions.
+</p>
+
+<theorem xml:id="thm-expectedinversions">
+	<statement>
+		<p>
+			Let <m>\inv</m> be the random variable on <m>\ss_n</m> with the uniform distribution that counts the number of inversions of a permutation.
+			Then <me>E[\inv] = \frac{n(n-1)}{4}</me>.
+		</p>
+	</statement>
+</theorem>
+
+<proof>
+	<p>
+		Let <m>Z_{i,j}</m> be the random variable defined by
+			<me>
+				Z_{i,j}(\pi)=\begin{cases}1 \amp \text{if } \pi(i)\gt \pi(j) \\ 0 \amp \text{otherwise} \end{cases} \, .
+			</me>
+			Note that half of the permutations in <m>\ss_n</m> have an inversion at the positions <m>(i,j)</m> (since for any ordering of the other <m>n-2</m> elements, there are two ways to order <m>\pi(i)</m> and <m>\pi(j)</m>, one with an inversion and one without).
+			Using linearity of expectation, we thus have that
+			<md>
+				<mrow> E[\inv] \amp = E\left[\sum_{1\leq i\lt j\leq n} Z_{i,j}\right] </mrow>
+				<mrow> \amp = \sum_{1\leq i\lt j\leq n} E[Z_{i,j}] </mrow>
+				<mrow> \amp = \sum_{1\leq i\lt j\leq n} \sum_{\pi\in \ss_n} P(\pi)Z_{i,j}(\pi) </mrow>
+				<mrow> \amp = \sum_{1\leq i\lt j\leq n} \sum_{\pi\in \ss_n: \pi(i)\gt \pi(j)} \frac{1}{n!}\cdot 1 </mrow>
+				<mrow> \amp = \sum_{1\leq i\lt j\leq n} \frac{n! / 2}{n!} </mrow>
+				<mrow> \amp = \binom{n}{2}\frac{1}{2} \, .</mrow>
+				<mrow> \amp = \frac{n(n-1)}{4} \, .</mrow>
+			</md>
+	</p>
+</proof>
+
+<p>
+	Let's consider next the expected number of cycles in a permutation.
+</p>
+
+<theorem xml:id="thm-expectedcycles">
+	<statement>
+		<p>
+			Let <m>C</m> be the random variable on <m>\ss_n</m> with the uniform distribution that counts the number of cycles in a permutation.
+			Then <me>E[C] = H_n = \sum_{k=1}^n \frac{1}{k}</me>, i.e., <m>H_n</m> is the <m>n</m>-th harmonic number.
+		</p>
+	</statement>
+</theorem>
+<proof>
+	<p>
+		Let <m>S=\{i_1,\ldots,i_k\}\subseteq [n]</m> be a subset of size <m>k</m>, and let <m>C_S</m> be the random variable defined by
+			<me>
+				C_S(\pi)=\begin{cases}1 \amp \text{if } S\text{ is a cycle in } \pi \\ 0 \amp \text{otherwise} \end{cases} \, .
+			</me>
+			Note that for a fixed ordering of the elements not in <m>S</m>, there are exactly <m>(k-1)! (n-k)!</m> permutations in <m>\ss_n</m> where <m>S</m> forms a cycle, since there are <m>(k-1)! </m> ways to arrange the elements of <m>S</m> into a cycle and <m>(n-k)! </m> ways to arrange the other elements.
+			Using linearity of expectation, we thus have that
+			<md>
+				<mrow> E[C] \amp = E\left[\sum_{S\subseteq [n]} C_S\right] </mrow>
+				<mrow> \amp = \sum_{S\subseteq [n]} E[C_S] </mrow>
+				<mrow> \amp = \sum_{S\subseteq [n]} \sum_{\pi\in \ss_n} P(\pi)C_S(\pi) </mrow>
+				<mrow> \amp = \sum_{S\subseteq [n]} \sum_{\pi\in \ss_n: S\text{ is a cycle in }\pi} \frac{1}{n!}\cdot 1 </mrow>
+				<mrow> \amp = \sum_{k=1}^n \sum_{\substack{S\subseteq [n] \\ |S|=k}} \frac{(k-1)! (n-k)!}{n!} </mrow>
+				<mrow> \amp = \sum_{k=1}^n \binom{n}{k} \frac{(k-1)! (n-k)!}{n!} </mrow>
+				<mrow> \amp = \sum_{k=1}^n \frac{1}{k} </mrow>
+				<mrow> \amp = H_n \, .</mrow>		
+			</md>
+	</p>
+</proof>
+
     
 </section>
