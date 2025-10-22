@@ -260,12 +260,34 @@ E[X] \amp = E\left[\sum_{i=1}^n X_i\right] \\
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 4.5.1"><a href="#sec-expectationpermutations-8" title="Copy heading and permalink for Proof 4.5.1" aria-label="Copy heading and permalink for Proof 4.5.1">🔗</a></div></article></details><div class="para" id="sec-expectationpermutations-9">Thus, on average, a permutation has exactly one fixed point, no matter how large <span class="process-math">\(n\)</span> is.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 4.5.1"><a href="#sec-expectationpermutations-8" title="Copy heading and permalink for Proof 4.5.1" aria-label="Copy heading and permalink for Proof 4.5.1">🔗</a></div></article></details><details id="sec-expectationpermutations-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.8</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-expectationpermutations-9-1">
+<ol class="decimal" id="sec-expectationpermutations-9-1-1">
+<li id="sec-expectationpermutations-9-1-1-1">
+<div class="para" id="sec-expectationpermutations-9-1-1-1-1">If we were to compute <span class="process-math">\(E[X_i]\)</span> in the proof above using the probability that <span class="process-math">\(X_i=1\text{,}\)</span> what would that probability be?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-9-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-expectationpermutations-10">Next, we consider the case of descents in a permutation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Item 4.5.8.1"><a href="#sec-expectationpermutations-9-1-1-1" title="Copy heading and permalink for Item 4.5.8.1" aria-label="Copy heading and permalink for Item 4.5.8.1">🔗</a></div>
+</li>
+<li id="sec-expectationpermutations-9-1-1-2">
+<div class="para" id="sec-expectationpermutations-9-1-1-2-1">How would you use it to compute <span class="process-math">\(E[X_i]\)</span> by summing over <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-9-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.5.8.2"><a href="#sec-expectationpermutations-9-1-1-2" title="Copy heading and permalink for Item 4.5.8.2" aria-label="Copy heading and permalink for Item 4.5.8.2">🔗</a></div>
+</li>
+<li id="sec-expectationpermutations-9-1-1-3">
+<div class="para" id="sec-expectationpermutations-9-1-1-3-1">How would this change/simplify the proof above?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-9-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4.5.8.3"><a href="#sec-expectationpermutations-9-1-1-3" title="Copy heading and permalink for Item 4.5.8.3" aria-label="Copy heading and permalink for Item 4.5.8.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.5.8"><a href="#sec-expectationpermutations-9" title="Copy heading and permalink for Checkpoint 4.5.8" aria-label="Copy heading and permalink for Checkpoint 4.5.8">🔗</a></div></article></details><div class="para" id="sec-expectationpermutations-10">Thus, on average, a permutation has exactly one fixed point, no matter how large <span class="process-math">\(n\)</span> is.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-expectationpermutations-11">Next, we consider the case of descents in a permutation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm-expecteddescents"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.5.8</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.5.9</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="thm-expecteddescents-1-1">
 <div class="para">Let <span class="process-math">\(\des\)</span> be the random variable on <span class="process-math">\(\ss_n\)</span> with the uniform distribution that counts the number of descents of a permutation. Then</div>
@@ -276,7 +298,7 @@ E[\des] = \frac{n-1}{2}\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm-expecteddescents-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 4.5.8"><a href="#thm-expecteddescents" title="Copy heading and permalink for Theorem 4.5.8" aria-label="Copy heading and permalink for Theorem 4.5.8">🔗</a></div></article><details id="sec-expectationpermutations-12" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-expectationpermutations-12-1">
+<div class="autopermalink" data-description="Theorem 4.5.9"><a href="#thm-expecteddescents" title="Copy heading and permalink for Theorem 4.5.9" aria-label="Copy heading and permalink for Theorem 4.5.9">🔗</a></div></article><details id="sec-expectationpermutations-13" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-expectationpermutations-13-1">
 <div class="para">Let <span class="process-math">\(Y_i\)</span> be the random variable defined by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -284,7 +306,7 @@ Y_i(\pi)=\begin{cases}1 \amp \text{if } \pi(i)&gt;\pi(i+1) \\ 0 \amp \text{other
 \end{equation*}
 </div>
 <div class="para">Note that half of the permutations in <span class="process-math">\(\ss_n\)</span> have a descent at position <span class="process-math">\(i\)</span> (since for any ordering of the other <span class="process-math">\(n-2\)</span> elements, there are two ways to order <span class="process-math">\(\pi(i)\)</span> and <span class="process-math">\(\pi(i+1)\text{,}\)</span> one with a descent and one without). Using linearity of expectation, we thus have that</div>
-<div class="displaymath process-math" id="sec-expectationpermutations-12-1-8">
+<div class="displaymath process-math" id="sec-expectationpermutations-13-1-8">
 \begin{align*}
 E[\des] \amp = E\left[\sum_{i=1}^{n-1} Y_i\right] \\
 \amp = \sum_{i=1}^{n-1} E[Y_i] \\
@@ -294,12 +316,16 @@ E[\des] \amp = E\left[\sum_{i=1}^{n-1} Y_i\right] \\
 \amp = \frac{n-1}{2} \, .
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 4.5.2"><a href="#sec-expectationpermutations-12" title="Copy heading and permalink for Proof 4.5.2" aria-label="Copy heading and permalink for Proof 4.5.2">🔗</a></div></article></details><div class="para" id="sec-expectationpermutations-13">We are now in a position to tackle the expected number of inversions.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 4.5.2"><a href="#sec-expectationpermutations-13" title="Copy heading and permalink for Proof 4.5.2" aria-label="Copy heading and permalink for Proof 4.5.2">🔗</a></div></article></details><details id="sec-expectationpermutations-14" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.5.10</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-expectationpermutations-14-1">In the proof above is the observation that for each <span class="process-math">\(i\in [n-1]\text{,}\)</span> exactly half of the permutations in <span class="process-math">\(\ss_n\)</span> have a descent at position <span class="process-math">\(i\text{.}\)</span> Does this observation help to simplify the calculation of <span class="process-math">\(E[Y_i]\)</span> in the proof above using a probability interpretation of the indicator function?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 4.5.10"><a href="#sec-expectationpermutations-14" title="Copy heading and permalink for Checkpoint 4.5.10" aria-label="Copy heading and permalink for Checkpoint 4.5.10">🔗</a></div></article></details><div class="para" id="sec-expectationpermutations-15">We are now in a position to tackle the expected number of inversions.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm-expectedinversions"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.5.9</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.5.11</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="thm-expectedinversions-1-1">
 <div class="para">Let <span class="process-math">\(\inv\)</span> be the random variable on <span class="process-math">\(\ss_n\)</span> with the uniform distribution that counts the number of inversions of a permutation. Then</div>
@@ -310,7 +336,7 @@ E[\inv] = \frac{n(n-1)}{4}\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm-expectedinversions-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 4.5.9"><a href="#thm-expectedinversions" title="Copy heading and permalink for Theorem 4.5.9" aria-label="Copy heading and permalink for Theorem 4.5.9">🔗</a></div></article><details id="sec-expectationpermutations-15" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-expectationpermutations-15-1">
+<div class="autopermalink" data-description="Theorem 4.5.11"><a href="#thm-expectedinversions" title="Copy heading and permalink for Theorem 4.5.11" aria-label="Copy heading and permalink for Theorem 4.5.11">🔗</a></div></article><details id="sec-expectationpermutations-17" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-expectationpermutations-17-1">
 <div class="para">Let <span class="process-math">\(Z_{i,j}\)</span> be the random variable defined by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -318,7 +344,7 @@ Z_{i,j}(\pi)=\begin{cases}1 \amp \text{if } \pi(i)\gt \pi(j) \\ 0 \amp \text{oth
 \end{equation*}
 </div>
 <div class="para">Note that half of the permutations in <span class="process-math">\(\ss_n\)</span> have an inversion at the positions <span class="process-math">\((i,j)\)</span> (since for any ordering of the other <span class="process-math">\(n-2\)</span> elements, there are two ways to order <span class="process-math">\(\pi(i)\)</span> and <span class="process-math">\(\pi(j)\text{,}\)</span> one with an inversion and one without). Using linearity of expectation, we thus have that</div>
-<div class="displaymath process-math" id="sec-expectationpermutations-15-1-8">
+<div class="displaymath process-math" id="sec-expectationpermutations-17-1-8">
 \begin{align*}
 E[\inv] \amp = E\left[\sum_{1\leq i\lt j\leq n} Z_{i,j}\right] \\
 \amp = \sum_{1\leq i\lt j\leq n} E[Z_{i,j}] \\
@@ -329,12 +355,12 @@ E[\inv] \amp = E\left[\sum_{1\leq i\lt j\leq n} Z_{i,j}\right] \\
 \amp = \frac{n(n-1)}{4} \, .
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-17-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 4.5.3"><a href="#sec-expectationpermutations-15" title="Copy heading and permalink for Proof 4.5.3" aria-label="Copy heading and permalink for Proof 4.5.3">🔗</a></div></article></details><div class="para" id="sec-expectationpermutations-16">Let’s consider next the expected number of cycles in a permutation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 4.5.3"><a href="#sec-expectationpermutations-17" title="Copy heading and permalink for Proof 4.5.3" aria-label="Copy heading and permalink for Proof 4.5.3">🔗</a></div></article></details><div class="para" id="sec-expectationpermutations-18">Let’s consider next the expected number of cycles in a permutation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm-expectedcycles"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.5.10</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.5.12</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="thm-expectedcycles-1-1">
 <div class="para">Let <span class="process-math">\(C\)</span> be the random variable on <span class="process-math">\(\ss_n\)</span> with the uniform distribution that counts the number of cycles in a permutation. Then</div>
@@ -346,7 +372,7 @@ E[C] = H_n = \sum_{k=1}^n \frac{1}{k}\text{,}
 <div class="para">i.e., <span class="process-math">\(H_n\)</span> is the <span class="process-math">\(n\)</span>-th harmonic number.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm-expectedcycles-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 4.5.10"><a href="#thm-expectedcycles" title="Copy heading and permalink for Theorem 4.5.10" aria-label="Copy heading and permalink for Theorem 4.5.10">🔗</a></div></article><details id="sec-expectationpermutations-18" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-expectationpermutations-18-1">
+<div class="autopermalink" data-description="Theorem 4.5.12"><a href="#thm-expectedcycles" title="Copy heading and permalink for Theorem 4.5.12" aria-label="Copy heading and permalink for Theorem 4.5.12">🔗</a></div></article><details id="sec-expectationpermutations-20" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-expectationpermutations-20-1">
 <div class="para">Let <span class="process-math">\(S=\{i_1,\ldots,i_k\}\subseteq [n]\)</span> be a subset of size <span class="process-math">\(k\text{,}\)</span> and let <span class="process-math">\(C_S\)</span> be the random variable defined by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -354,7 +380,7 @@ C_S(\pi)=\begin{cases}1 \amp \text{if } S\text{ is a cycle in } \pi \\ 0 \amp \t
 \end{equation*}
 </div>
 <div class="para">Note that for a fixed ordering of the elements not in <span class="process-math">\(S\text{,}\)</span> there are exactly <span class="process-math">\((k-1)! (n-k)!\)</span> permutations in <span class="process-math">\(\ss_n\)</span> where <span class="process-math">\(S\)</span> forms a cycle, since there are <span class="process-math">\((k-1)! \)</span> ways to arrange the elements of <span class="process-math">\(S\)</span> into a cycle and <span class="process-math">\((n-k)! \)</span> ways to arrange the other elements. Using linearity of expectation, we thus have that</div>
-<div class="displaymath process-math" id="sec-expectationpermutations-18-1-12">
+<div class="displaymath process-math" id="sec-expectationpermutations-20-1-12">
 \begin{align*}
 E[C] \amp = E\left[\sum_{S\subseteq [n]} C_S\right] \\
 \amp = \sum_{S\subseteq [n]} E[C_S] \\
@@ -366,9 +392,11 @@ E[C] \amp = E\left[\sum_{S\subseteq [n]} C_S\right] \\
 \amp = H_n \, .
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-20-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 4.5.4"><a href="#sec-expectationpermutations-18" title="Copy heading and permalink for Proof 4.5.4" aria-label="Copy heading and permalink for Proof 4.5.4">🔗</a></div></article></details><div class="autopermalink" data-description="Section 4.5: Expected Values: Permutations"><a href="#sec-expectationpermutations" title="Copy heading and permalink for Section 4.5: Expected Values: Permutations" aria-label="Copy heading and permalink for Section 4.5: Expected Values: Permutations">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Proof 4.5.4"><a href="#sec-expectationpermutations-20" title="Copy heading and permalink for Proof 4.5.4" aria-label="Copy heading and permalink for Proof 4.5.4">🔗</a></div></article></details><div class="para" id="sec-expectationpermutations-21">Note that in the proof above, a simplification could be made by recognizing that <span class="process-math">\(C_S\)</span> is an indicator random variable for the event that <span class="process-math">\(S\)</span> forms a cycle in the permutation, and the probability of this event is <span class="process-math">\(\frac{(k-1)!(n-k)!}{n!}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationpermutations-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 4.5: Expected Values: Permutations"><a href="#sec-expectationpermutations" title="Copy heading and permalink for Section 4.5: Expected Values: Permutations" aria-label="Copy heading and permalink for Section 4.5: Expected Values: Permutations">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-expectationsubsets.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-expectationgraphs.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

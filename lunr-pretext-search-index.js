@@ -2122,7 +2122,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.2",
   "title": "Finite Probability Spaces and Random Variables",
-  "body": " Finite Probability Spaces and Random Variables  Our first task is to clearly define what we mean when we talk about likelihood of an event occurring.    Let be a finite set. We refer to the elements of as events . A probability distribution on is a function such that If for all , then we call the uniform distribution .     Consider the set of binary strings of length two, with the uniform distribution . The interpretation of this distribution is that if you pick one of the four binarys string of length two at random, you are equally likely to pick any of the four strings -- each will appear of the time.    Consider the set of outcomes from rolling a die, which is the values appearing on the six sides: The uniform distribution in this case gives . The interpretation of this distribution is that if you roll a fair die, you are equally likely to roll any of the six sides -- each will appear of the time.    Consider again the set of binary strings of length two, but this time we will use a different probability distribution. Set Is this a probability distribution? Let's check!  First observe that and therefore using the binomial theorem we have So, this is a probability distribution on -- it is one which strongly favors binary strings that contain more 's.    Let . Prove that if is the set of all binary strings of length , the function is a probability distribution.   The previous exercise is a special case of the following theorem.    Let . If is the set of all binary strings of length , the function is a probability distribution called the binomial distribution with parameter .     Using the binomial theorem, we have that     Discuss the proof above. Does it make sense? Why or why not?    Explain why the binomial distribution on binary strings of length with parameter is the uniform distribution.     Given a probability distribution on a finite set , a random variable is a function . If , we refer to as the value of the random variable on the event .     Consider again the set of binary strings of length two, with the uniform distribution. Define the random variable by . The interpretation of this random variable is that counts the number of 's in the binary string .    Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: , with the uniform distribution. Define the random variable by . The interpretation of this random variable is that is the value appearing on the side of the die when you roll a .    Consider the set of permutations with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of fixed points in the permutation .    Consider the set of all graphs on vertices, which we will write , with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of spanning trees in the graph .   The key question we want to answer is: given a random variable on a finite probability space , if I pick an element of according to the distribution , what is the expected value of ?  "
+  "body": " Finite Probability Spaces and Random Variables  Our first task is to clearly define what we mean when we talk about likelihood of an event occurring.    Let be a finite set. We refer to the elements of as events . A probability distribution on is a function such that Given a finite set together with a probability distribution , we call the pair a finite probability space .  We call a subset an event set , and define the probability of the event set  to be If for all , then we call the uniform distribution .     Consider the set of binary strings of length two, with the uniform distribution . The interpretation of this distribution is that if you pick one of the four binarys string of length two at random, you are equally likely to pick any of the four strings -- each will appear of the time.    Consider the set of outcomes from rolling a die, which is the values appearing on the six sides: The uniform distribution in this case gives . The interpretation of this distribution is that if you roll a fair die, you are equally likely to roll any of the six sides -- each will appear of the time.    Consider again the set of binary strings of length two, but this time we will use a different probability distribution. Set Is this a probability distribution? Let's check!  First observe that and therefore using the binomial theorem we have So, this is a probability distribution on -- it is one which strongly favors binary strings that contain more 's.    Let . Prove that if is the set of all binary strings of length , the function is a probability distribution.   The previous exercise is a special case of the following theorem.    Let . If is the set of all binary strings of length , the function is a probability distribution called the binomial distribution with parameter .     Using the binomial theorem, we have that     Discuss the proof above. Does it make sense? Why or why not?    Explain why the binomial distribution on binary strings of length with parameter is the uniform distribution.     Given a probability distribution on a finite set , a random variable is a function . If , we refer to as the value of the random variable on the event .     Consider again the set of binary strings of length two, with the uniform distribution. Define the random variable by . The interpretation of this random variable is that counts the number of 's in the binary string .    Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: , with the uniform distribution. Define the random variable by . The interpretation of this random variable is that is the value appearing on the side of the die when you roll a .    Consider the set of permutations with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of fixed points in the permutation .    Consider the set of all graphs on vertices, which we will write , with the uniform distribution. Let be the random variable defined by The interpretation of this random variable is that counts the number of spanning trees in the graph .   The key question we want to answer is: given a random variable on a finite probability space , if I pick an element of according to the distribution , what is the expected value of ?  "
 },
 {
   "id": "def-finiteprobabilityspace",
@@ -2131,7 +2131,7 @@ var ptx_lunr_docs = [
   "type": "Definition",
   "number": "4.2.1",
   "title": "",
-  "body": "  Let be a finite set. We refer to the elements of as events . A probability distribution on is a function such that If for all , then we call the uniform distribution .   "
+  "body": "  Let be a finite set. We refer to the elements of as events . A probability distribution on is a function such that Given a finite set together with a probability distribution , we call the pair a finite probability space .  We call a subset an event set , and define the probability of the event set  to be If for all , then we call the uniform distribution .   "
 },
 {
   "id": "sec-finiteprobability-4",
@@ -2257,7 +2257,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.3",
   "title": "Expected Values, Linearity of Expectation, and Indicator Functions",
-  "body": " Expected Values, Linearity of Expectation, and Indicator Functions  We next define the expected value of a random variable, which is our main tool for analyzing random variables.    Given a random variable on a finite probability space , the expected value of is defined to be Intuitively, the expected value of is the average value of if we select an event from according to the probability distribution .     Consider again the set of binary strings of length two, with the uniform distribution and the random variable by . The expected value of is The interpretation of this expected value is that if we select a binary string of length two uniformly at random, we expect it to contain one on average.    Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: , with the uniform distribution and the random variable by . The expected value of is The interpretation of this expected value is that if we roll a die uniformly at random, we expect the value appearing on the top face to be on average.   Note that the expected value of a random variable need not be a value that the random variable can actually take on. For example, in the die-rolling example above, the expected value of is , but never takes on the value .   Consider the set of permutations with the uniform distribution.   For the random variable what is ?    For the random variable what is ?       Consider the set of binary strings of length three with the binomial distribution with parameter .   For the random variable what is ?    For the random variable what is ?      Here is a helpful observation to make about expected values that is specific to the uniform distribution. Suppose that . Then for any random variable , we have that In other words, when the probability distribution is uniform, the expected value of a random variable is simply the average of the values of the random variable.  It is important to remember that this observation only holds for the uniform distribution. It does not hold for other probability distributions!  In general, it is difficult to compute expected values directly from the definition. However, if we can express a random variable as a sum of simpler random variables, then it often becomes easier to compute the expected value.   Consider with the uniform distribution and the random variable defined by We can express as a sum of simpler random variables as follows. For , let be the random variable defined by Then is the indicator function for the event that is a fixed point of , and we have that Thus, we can express as a sum of the simpler random variables .    Consider with the uniform distribution and the random variable defined by Express as a sum of simpler random variables.    Consider with the uniform distribution and the random variable defined by Express as a sum of simpler random variables.   Given that we can express a random variable as a sum of simpler random variables, we want to be able to compute the expected value of the sum in terms of the expected values of the simpler random variables. The following theorem allows us to do this.   Linearity of Expectation   Let be a finite set with a probability distribution , let be random variables, and let . Then is a random variable with More generally, if are random variables and , then      We prove the first part; the second part follows by induction. Using the definition of expected value, we have that     Discuss the proof above. Does it make sense? Why or why not?   A particularly useful type of random variable is an indicator function; we have already seen several examples of these in our earlier Checkpoints and Examples. We will focus on indicator functions for events, which are subsets of the sample space, and we will use this tool to derive multiple results about subsets, permutations, and graphs.    An indicator function for an event is the random variable defined by Intuitively, the indicator function indicates whether or not the event has occurred. Note that only takes on the values and . We often refer to as the indicator of the event on the event .    Observe that Thus, indicator functions can be used to count the size of sets. This is one of the reasons that indicator functions are useful, especially in the context of computing expectation under the uniform distribution.   Note that for with the uniform distribution and the random variable we have that is the indicator function for the event that is a fixed point of . In other words, let . Then .    Consider the Checkpoint you completed earlier where you considered with the uniform distribution and you wrote the random variable defined by as a sum of indicator functions. What were those indicator functions?    Consider again the set of binary strings of length three with the binomial distribution with parameter .   For the random variable write as a sum of indicator functions. Does this help you compute in this case?    For the random variable write as a sum of indicator functions. Does this help you compute in this case?      "
+  "body": " Expected Values, Linearity of Expectation, and Indicator Functions  We next define the expected value of a random variable, which is our main tool for analyzing random variables.    Given a random variable on a finite probability space , the expected value of is defined to be Intuitively, the expected value of is the average value of if we select an event from according to the probability distribution .     Consider again the set of binary strings of length two, with the uniform distribution and the random variable by . The expected value of is The interpretation of this expected value is that if we select a binary string of length two uniformly at random, we expect it to contain one on average.    Consider again the set of outcomes from rolling a die, which is the values appearing on the six sides: , with the uniform distribution and the random variable by . The expected value of is The interpretation of this expected value is that if we roll a die uniformly at random, we expect the value appearing on the top face to be on average.   Note that the expected value of a random variable need not be a value that the random variable can actually take on. For example, in the die-rolling example above, the expected value of is , but never takes on the value .   Consider the set of permutations with the uniform distribution.   For the random variable what is ?    For the random variable what is ?       Consider the set of binary strings of length three with the binomial distribution with parameter .   For the random variable what is ?    For the random variable what is ?      Here is a helpful observation to make about expected values that is specific to the uniform distribution. Suppose that . Then for any random variable , we have that In other words, when the probability distribution is uniform, the expected value of a random variable is simply the average of the values of the random variable.  It is important to remember that this observation only holds for the uniform distribution. It does not hold for other probability distributions!  In general, it is difficult to compute expected values directly from the definition. However, if we can express a random variable as a sum of simpler random variables, then it often becomes easier to compute the expected value.   Consider with the uniform distribution and the random variable defined by We can express as a sum of simpler random variables as follows. For , let be the random variable defined by Then is the indicator function for the event that is a fixed point of , and we have that Thus, we can express as a sum of the simpler random variables .    Consider with the uniform distribution and the random variable defined by Express as a sum of simpler random variables.    Consider with the uniform distribution and the random variable defined by Express as a sum of simpler random variables.   Given that we can express a random variable as a sum of simpler random variables, we want to be able to compute the expected value of the sum in terms of the expected values of the simpler random variables. The following theorem allows us to do this.   Linearity of Expectation   Let be a finite set with a probability distribution , let be random variables, and let . Then is a random variable with More generally, if are random variables and , then      We prove the first part; the second part follows by induction. Using the definition of expected value, we have that     Discuss the proof above. Does it make sense? Why or why not?   A particularly useful type of random variable is an indicator function; we have already seen several examples of these in our earlier Checkpoints and Examples. We will focus on indicator functions for events, which are subsets of the sample space, and we will use this tool to derive multiple results about subsets, permutations, and graphs.    An indicator function for an event is the random variable defined by Intuitively, the indicator function indicates whether or not the event has occurred. Note that only takes on the values and . We often refer to as the indicator of the event on the event .    Observe that Thus, indicator functions can be used to count the size of sets. This is one of the reasons that indicator functions are useful, especially in the context of computing expectation under the uniform distribution.   Note that for with the uniform distribution and the random variable we have that is the indicator function for the event that is a fixed point of . In other words, let . Then .    Consider the Checkpoint you completed earlier where you considered with the uniform distribution and you wrote the random variable defined by as a sum of indicator functions. What were those indicator functions?    Consider again the set of binary strings of length three with the binomial distribution with parameter .   For the random variable write as a sum of indicator functions. Does this help you compute in this case?    For the random variable write as a sum of indicator functions. Does this help you compute in this case?      There is a useful way to rewrite the expected value for a random variable taking only finite many values.    Suppose that is a random variable that takes on the values ; in other words, the range of is the finite set . Then we can rewrite the expected value of as where is the probability that takes on the value , i.e.,      Using the definition of expected value, we have that    This formulation is often useful when the number of values taken on by is much smaller than the size of the sample space .   Consider again the case of binary strings of length two with the uniform distribution and the random variable defined by . The random variable takes on the values . Using the lemma above, we can rewrite the expected value of as This matches the expected value we computed earlier.   In the case of indicator functions, this gives a particularly simple expression for the expected value.    Given an indicator function for an event , we have that In other words, the expected value of an indicator function is simply the probability of the event it indicates.     We have that     Discuss the result and proof above. Does it make sense? Why or why not?   "
 },
 {
   "id": "def-expectedvalue",
@@ -2395,13 +2395,67 @@ var ptx_lunr_docs = [
   "body": " Consider again the set of binary strings of length three with the binomial distribution with parameter .   For the random variable write as a sum of indicator functions. Does this help you compute in this case?    For the random variable write as a sum of indicator functions. Does this help you compute in this case?     "
 },
 {
+  "id": "lem-expectedvaluerewrite",
+  "level": "2",
+  "url": "sec-expectationindicators.html#lem-expectedvaluerewrite",
+  "type": "Lemma",
+  "number": "4.3.15",
+  "title": "",
+  "body": "  Suppose that is a random variable that takes on the values ; in other words, the range of is the finite set . Then we can rewrite the expected value of as where is the probability that takes on the value , i.e.,    "
+},
+{
+  "id": "sec-expectationindicators-27",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-27",
+  "type": "Proof",
+  "number": "4.3.2",
+  "title": "",
+  "body": " Using the definition of expected value, we have that   "
+},
+{
+  "id": "sec-expectationindicators-29",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-29",
+  "type": "Example",
+  "number": "4.3.16",
+  "title": "",
+  "body": " Consider again the case of binary strings of length two with the uniform distribution and the random variable defined by . The random variable takes on the values . Using the lemma above, we can rewrite the expected value of as This matches the expected value we computed earlier.  "
+},
+{
+  "id": "cor-indicatorexpected",
+  "level": "2",
+  "url": "sec-expectationindicators.html#cor-indicatorexpected",
+  "type": "Corollary",
+  "number": "4.3.17",
+  "title": "",
+  "body": "  Given an indicator function for an event , we have that In other words, the expected value of an indicator function is simply the probability of the event it indicates.   "
+},
+{
+  "id": "sec-expectationindicators-32",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-32",
+  "type": "Proof",
+  "number": "4.3.3",
+  "title": "",
+  "body": " We have that   "
+},
+{
+  "id": "sec-expectationindicators-33",
+  "level": "2",
+  "url": "sec-expectationindicators.html#sec-expectationindicators-33",
+  "type": "Checkpoint",
+  "number": "4.3.18",
+  "title": "",
+  "body": " Discuss the result and proof above. Does it make sense? Why or why not?  "
+},
+{
   "id": "sec-expectationsubsets",
   "level": "1",
   "url": "sec-expectationsubsets.html",
   "type": "Section",
   "number": "4.4",
   "title": "Expected Values: Binary Strings and Subsets",
-  "body": " Expected Values: Binary Strings and Subsets  We next apply the tools we have developed to investigate expected values of random variables defined on subsets of a finite set, which as we have seen is equivalent to binary strings.    Given a binary string , let be the number of 's in . Then the expected value of with respect to the uniform distribution on is      Note that if is the random variable defined by then we have that Observe that Using linearity of expectation, we have that    Using our bijection between binary strings and subsets of , we can interpret this as saying that if we choose a subset of an -element set uniformly at random, we expect the subset to have size .   Discuss the proof above. Does it make sense? Why or why not?   Note that the uniform distribution on binary strings of length is a special case of the binomial distribution where . Thus, we can generalize the previous result by considering the binomial distribution with arbitrary parameter .    Given a binary string , let be the number of 's in . Then the expected value of with respect to the binomial distribution on with parameter is      Let be the same random variable as in the previous proof. Using linearity of expectation, we have that     Discuss the proof above. Does it make sense? Why or why not?   There are many other interesting random variables that can be defined on binary strings and subsets. Next we will look at one such example.   Let be the random variable on with the uniform distribution that counts the number of pairs that are contained in a set. In other words, for , let Here is a plot (note the different scales on the axes!!!) where for each from to , we randomly select subsets of and compute the average value of on those subsets. Do you have a guess for what might be? What is your reasoning?   Plot of experimental expected value of versus .   Plot of experimental expected value of X versus n.       Let be the random variable on with the uniform distribution that counts the number of pairs that are contained in a set. Then .     Let be the random variable defined by Using linearity of expectation, we have that     Discuss the proof above. Does it make sense? Why or why not?    What is the interpretation of the theorem above in terms of binary strings?    What does the theorem above mean to you? In other words, how would you explain it to someone who is not familiar with expected values or random variables?   "
+  "body": " Expected Values: Binary Strings and Subsets  We next apply the tools we have developed to investigate expected values of random variables defined on subsets of a finite set, which as we have seen is equivalent to binary strings.    Given a binary string , let be the number of 's in . Then the expected value of with respect to the uniform distribution on is      Note that if is the random variable defined by then we have that Observe that Equivalently, since is an indicator random variable for the event that the -th entry of is , and since half of all binary strings have a in the -th position, we have that , so .  Using linearity of expectation, we have that    Using our bijection between binary strings and subsets of , we can interpret this as saying that if we choose a subset of an -element set uniformly at random, we expect the subset to have size .   Discuss the proof above. Does it make sense? Why or why not?   Note that the uniform distribution on binary strings of length is a special case of the binomial distribution where . Thus, we can generalize the previous result by considering the binomial distribution with arbitrary parameter .    Given a binary string , let be the number of 's in . Then the expected value of with respect to the binomial distribution on with parameter is      Let be the same random variable as in the previous proof. Using linearity of expectation directly from the definition, we have that We can obtain the same result in a simpler manner when we recognize that is an indicator random variable for the event that the -th entry of is , and since the probability that the -th entry of is is , we have that . This avoids the need to sum over all binary strings of length in the above calculation.    Discuss the proof above. Does it make sense? Why or why not?   In these notes, we will frequently use the definition of expected value to compute expected values directly. However, it is important to note that the use of probabilities for indicator random variables and linearity of expectation can often simplify calculations significantly, as we have seen in the proofs above.  There are many other interesting random variables that can be defined on binary strings and subsets. Next we will look at one such example.   Let be the random variable on with the uniform distribution that counts the number of pairs that are contained in a set. In other words, for , let Here is a plot (note the different scales on the axes!!!) where for each from to , we randomly select subsets of and compute the average value of on those subsets. Do you have a guess for what might be? What is your reasoning?   Plot of experimental expected value of versus .   Plot of experimental expected value of X versus n.       Let be the random variable on with the uniform distribution that counts the number of pairs that are contained in a set. Then .     Let be the random variable defined by Using linearity of expectation, we have that     Discuss the proof above. Does it make sense? Why or why not?    What is the interpretation of the theorem above in terms of binary strings?    What does the theorem above mean to you? In other words, how would you explain it to someone who is not familiar with expected values or random variables?   "
 },
 {
   "id": "thm-numberofones",
@@ -2419,7 +2473,7 @@ var ptx_lunr_docs = [
   "type": "Proof",
   "number": "4.4.1",
   "title": "",
-  "body": " Note that if is the random variable defined by then we have that Observe that Using linearity of expectation, we have that   "
+  "body": " Note that if is the random variable defined by then we have that Observe that Equivalently, since is an indicator random variable for the event that the -th entry of is , and since half of all binary strings have a in the -th position, we have that , so .  Using linearity of expectation, we have that   "
 },
 {
   "id": "sec-expectationsubsets-6",
@@ -2446,7 +2500,7 @@ var ptx_lunr_docs = [
   "type": "Proof",
   "number": "4.4.2",
   "title": "",
-  "body": " Let be the same random variable as in the previous proof. Using linearity of expectation, we have that   "
+  "body": " Let be the same random variable as in the previous proof. Using linearity of expectation directly from the definition, we have that We can obtain the same result in a simpler manner when we recognize that is an indicator random variable for the event that the -th entry of is , and since the probability that the -th entry of is is , we have that . This avoids the need to sum over all binary strings of length in the above calculation.  "
 },
 {
   "id": "sec-expectationsubsets-10",
@@ -2458,9 +2512,9 @@ var ptx_lunr_docs = [
   "body": " Discuss the proof above. Does it make sense? Why or why not?  "
 },
 {
-  "id": "sec-expectationsubsets-12",
+  "id": "sec-expectationsubsets-13",
   "level": "2",
-  "url": "sec-expectationsubsets.html#sec-expectationsubsets-12",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-13",
   "type": "Checkpoint",
   "number": "4.4.5",
   "title": "",
@@ -2476,36 +2530,36 @@ var ptx_lunr_docs = [
   "body": "  Let be the random variable on with the uniform distribution that counts the number of pairs that are contained in a set. Then .   "
 },
 {
-  "id": "sec-expectationsubsets-14",
+  "id": "sec-expectationsubsets-15",
   "level": "2",
-  "url": "sec-expectationsubsets.html#sec-expectationsubsets-14",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-15",
   "type": "Proof",
   "number": "4.4.3",
   "title": "",
   "body": " Let be the random variable defined by Using linearity of expectation, we have that   "
 },
 {
-  "id": "sec-expectationsubsets-15",
+  "id": "sec-expectationsubsets-16",
   "level": "2",
-  "url": "sec-expectationsubsets.html#sec-expectationsubsets-15",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-16",
   "type": "Checkpoint",
   "number": "4.4.8",
   "title": "",
   "body": " Discuss the proof above. Does it make sense? Why or why not?  "
 },
 {
-  "id": "sec-expectationsubsets-16",
+  "id": "sec-expectationsubsets-17",
   "level": "2",
-  "url": "sec-expectationsubsets.html#sec-expectationsubsets-16",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-17",
   "type": "Checkpoint",
   "number": "4.4.9",
   "title": "",
   "body": " What is the interpretation of the theorem above in terms of binary strings?  "
 },
 {
-  "id": "sec-expectationsubsets-17",
+  "id": "sec-expectationsubsets-18",
   "level": "2",
-  "url": "sec-expectationsubsets.html#sec-expectationsubsets-17",
+  "url": "sec-expectationsubsets.html#sec-expectationsubsets-18",
   "type": "Checkpoint",
   "number": "4.4.10",
   "title": "",
@@ -2518,7 +2572,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.5",
   "title": "Expected Values: Permutations",
-  "body": " Expected Values: Permutations  We next apply the tools we have developed to investigate expected values of random variables defined on permutations.   As our first example, let be the random variable on with the uniform distribution that counts the number of inversions in a permutation. Here is a plot (note the different scales on the axes!!!) where for each from to , we randomly select permutations and compute the average value of on those subsets. Do you have a guess for what might be? What is your reasoning?   Plot of experimental expected value of versus .   Plot of experimental expected value of inv versus n.      While it isn't obvious from the plot, it turns out that . Here is a plot of our experimental values versus the graph of this function.   Plot of experimental expected value of versus with the function .   Plot of experimental expected value of inv versus n with the function x(x-1)\/4.     Before we consider the case of inversions, let's look at a simpler random variable on permutations. Let be the random variable on with the uniform distribution that counts the number of fixed points of a permutation. In other words, for , let .   Here is a plot where for each from to , we randomly select permutations and compute the average value of on those permutations. What do you think the expected value might be? What is your reasoning?   Plot of experimental expected value of number of fixed points versus .   Plot of experimental expected value of number of fixed points versus n.       If is the random variable on with the uniform distribution that counts the number of fixed points of a permutation, then .     Let be the random variable defined by . Using linearity of expectation, we have that    Thus, on average, a permutation has exactly one fixed point, no matter how large is.  Next, we consider the case of descents in a permutation.    Let be the random variable on with the uniform distribution that counts the number of descents of a permutation. Then .     Let be the random variable defined by Note that half of the permutations in have a descent at position (since for any ordering of the other elements, there are two ways to order and , one with a descent and one without). Using linearity of expectation, we thus have that    We are now in a position to tackle the expected number of inversions.    Let be the random variable on with the uniform distribution that counts the number of inversions of a permutation. Then .     Let be the random variable defined by Note that half of the permutations in have an inversion at the positions (since for any ordering of the other elements, there are two ways to order and , one with an inversion and one without). Using linearity of expectation, we thus have that    Let's consider next the expected number of cycles in a permutation.    Let be the random variable on with the uniform distribution that counts the number of cycles in a permutation. Then , i.e., is the -th harmonic number.     Let be a subset of size , and let be the random variable defined by Note that for a fixed ordering of the elements not in , there are exactly permutations in where forms a cycle, since there are ways to arrange the elements of into a cycle and ways to arrange the other elements. Using linearity of expectation, we thus have that    "
+  "body": " Expected Values: Permutations  We next apply the tools we have developed to investigate expected values of random variables defined on permutations.   As our first example, let be the random variable on with the uniform distribution that counts the number of inversions in a permutation. Here is a plot (note the different scales on the axes!!!) where for each from to , we randomly select permutations and compute the average value of on those subsets. Do you have a guess for what might be? What is your reasoning?   Plot of experimental expected value of versus .   Plot of experimental expected value of inv versus n.      While it isn't obvious from the plot, it turns out that . Here is a plot of our experimental values versus the graph of this function.   Plot of experimental expected value of versus with the function .   Plot of experimental expected value of inv versus n with the function x(x-1)\/4.     Before we consider the case of inversions, let's look at a simpler random variable on permutations. Let be the random variable on with the uniform distribution that counts the number of fixed points of a permutation. In other words, for , let .   Here is a plot where for each from to , we randomly select permutations and compute the average value of on those permutations. What do you think the expected value might be? What is your reasoning?   Plot of experimental expected value of number of fixed points versus .   Plot of experimental expected value of number of fixed points versus n.       If is the random variable on with the uniform distribution that counts the number of fixed points of a permutation, then .     Let be the random variable defined by . Using linearity of expectation, we have that        If we were to compute in the proof above using the probability that , what would that probability be?    How would you use it to compute by summing over and ?    How would this change\/simplify the proof above?      Thus, on average, a permutation has exactly one fixed point, no matter how large is.  Next, we consider the case of descents in a permutation.    Let be the random variable on with the uniform distribution that counts the number of descents of a permutation. Then .     Let be the random variable defined by Note that half of the permutations in have a descent at position (since for any ordering of the other elements, there are two ways to order and , one with a descent and one without). Using linearity of expectation, we thus have that     In the proof above is the observation that for each , exactly half of the permutations in have a descent at position . Does this observation help to simplify the calculation of in the proof above using a probability interpretation of the indicator function?   We are now in a position to tackle the expected number of inversions.    Let be the random variable on with the uniform distribution that counts the number of inversions of a permutation. Then .     Let be the random variable defined by Note that half of the permutations in have an inversion at the positions (since for any ordering of the other elements, there are two ways to order and , one with an inversion and one without). Using linearity of expectation, we thus have that    Let's consider next the expected number of cycles in a permutation.    Let be the random variable on with the uniform distribution that counts the number of cycles in a permutation. Then , i.e., is the -th harmonic number.     Let be a subset of size , and let be the random variable defined by Note that for a fixed ordering of the elements not in , there are exactly permutations in where forms a cycle, since there are ways to arrange the elements of into a cycle and ways to arrange the other elements. Using linearity of expectation, we thus have that    Note that in the proof above, a simplification could be made by recognizing that is an indicator random variable for the event that forms a cycle in the permutation, and the probability of this event is .  "
 },
 {
   "id": "sec-expectationpermutations-3",
@@ -2566,36 +2620,54 @@ var ptx_lunr_docs = [
   "body": " Let be the random variable defined by . Using linearity of expectation, we have that   "
 },
 {
+  "id": "sec-expectationpermutations-9",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-9",
+  "type": "Checkpoint",
+  "number": "4.5.8",
+  "title": "",
+  "body": "    If we were to compute in the proof above using the probability that , what would that probability be?    How would you use it to compute by summing over and ?    How would this change\/simplify the proof above?     "
+},
+{
   "id": "thm-expecteddescents",
   "level": "2",
   "url": "sec-expectationpermutations.html#thm-expecteddescents",
   "type": "Theorem",
-  "number": "4.5.8",
+  "number": "4.5.9",
   "title": "",
   "body": "  Let be the random variable on with the uniform distribution that counts the number of descents of a permutation. Then .   "
 },
 {
-  "id": "sec-expectationpermutations-12",
+  "id": "sec-expectationpermutations-13",
   "level": "2",
-  "url": "sec-expectationpermutations.html#sec-expectationpermutations-12",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-13",
   "type": "Proof",
   "number": "4.5.2",
   "title": "",
   "body": " Let be the random variable defined by Note that half of the permutations in have a descent at position (since for any ordering of the other elements, there are two ways to order and , one with a descent and one without). Using linearity of expectation, we thus have that   "
 },
 {
+  "id": "sec-expectationpermutations-14",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-14",
+  "type": "Checkpoint",
+  "number": "4.5.10",
+  "title": "",
+  "body": " In the proof above is the observation that for each , exactly half of the permutations in have a descent at position . Does this observation help to simplify the calculation of in the proof above using a probability interpretation of the indicator function?  "
+},
+{
   "id": "thm-expectedinversions",
   "level": "2",
   "url": "sec-expectationpermutations.html#thm-expectedinversions",
   "type": "Theorem",
-  "number": "4.5.9",
+  "number": "4.5.11",
   "title": "",
   "body": "  Let be the random variable on with the uniform distribution that counts the number of inversions of a permutation. Then .   "
 },
 {
-  "id": "sec-expectationpermutations-15",
+  "id": "sec-expectationpermutations-17",
   "level": "2",
-  "url": "sec-expectationpermutations.html#sec-expectationpermutations-15",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-17",
   "type": "Proof",
   "number": "4.5.3",
   "title": "",
@@ -2606,14 +2678,14 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-expectationpermutations.html#thm-expectedcycles",
   "type": "Theorem",
-  "number": "4.5.10",
+  "number": "4.5.12",
   "title": "",
   "body": "  Let be the random variable on with the uniform distribution that counts the number of cycles in a permutation. Then , i.e., is the -th harmonic number.   "
 },
 {
-  "id": "sec-expectationpermutations-18",
+  "id": "sec-expectationpermutations-20",
   "level": "2",
-  "url": "sec-expectationpermutations.html#sec-expectationpermutations-18",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-20",
   "type": "Proof",
   "number": "4.5.4",
   "title": "",
@@ -2626,7 +2698,178 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.6",
   "title": "Expected Values: Graphs",
-  "body": " Expected Values: Graphs  We next apply the tools we have developed to investigate expected values of random variables defined on random graphs.  "
+  "body": " Expected Values: Graphs  We next apply the tools we have developed to investigate expected values of random variables defined on random graphs. We begin with the Erdos-Renyi random graph model , which is defined as follows.    Let be a positive integer and be a real number with . The Erdos-Renyi random graph model  is the probability space whose set of events consists of all graphs with vertex set , where each edge is included independently with probability . Thus, the probability of a particular graph with edges is .    The Erdos-Renyi model is one of the most well-studied random graph models. It is actually a binomial distribution in disguise, since it is equivalent to considering binary strings of length , where each bit corresponds to the presence or absence of a particular edge, as the following example illustrates.   Let and . Then the probability space consists of all graphs with vertex set , where each edge is included independently with probability . There are possible edges, so there are possible graphs in this model, each with probability . Thus, this model gives the uniform distribution on the set of all graphs with vertex set . Further, each graph can be represented by a binary string of length , where we index the entries of the string by the edges . Then, the entry is if the corresponding edge is present, and otherwise. For example, the graph with edges , and corresponds to the binary string .   Using this connection to the binomial distribution, we can compute expected values of various graph statistics in the Erdos-Renyi model. We illustrate this with the following theorem.    The expected number of edges in a graph drawn from the Erdos-Renyi model is .     Using the fact that is equivalent to a binomial distribution on binary strings of length and probability , we have that the expected number of edges is .   We can also investigate properties of Erdos-Renyi graphs that do not immediately make sense for only binary strings. This is because binary strings do not have an automatic relationship between the different positions in the string, but graphs do via their vertices and edges, and the binary strings corresponding to graphs in the Erdos-Renyi model respect this structure.    The expected number of isolated vertices in a graph drawn from the Erdos-Renyi model is .     Let be the random variable giving the number of isolated vertices in a graph drawn from . For , let be the indicator random variable for the event that vertex is isolated. Then we have By linearity of expectation, we have Now, for each , we have since for vertex to be isolated, none of the edges connecting it to the other vertices can be present, and each edge is absent with probability . Thus, we have     Discuss the proof above. Does it make sense? Why or why not?   We can also compute the expected number of triangles, i.e., the number of 's, in an Erdos-Renyi graph.    Let be the random variable giving the number of triangles in a graph drawn from the Erdos-Renyi model . Then      Let be the random variable giving the number of triangles in a graph drawn from . For , let be the indicator random variable for the event that the vertices form a triangle, i.e., that the edges are all present in the graph. Then we have By linearity of expectation, we have Now, for each triple , we have since for vertices to form a triangle, all three edges connecting them must be present, and each edge is present with probability . Thus, we have     Discuss the proof above. Does it make sense? Why or why not?   It is good to get in the habit of checking whether your expected value results make sense. For example, in the last theorem, as approaches , the expected number of triangles approaches , which makes sense since there are fewer edges in the graph. Similarly, as approaches , the expected number of triangles approaches , which makes sense since the graph is approaching the complete graph , which has triangles.  We can also get in the habit of comparing our expected value results to actual values obtained from simulations. For example, we can simulate drawing graphs from and counting the number of triangles in each graph. Doing this for various values of should give values close to those predicted by our theorem. Note that , so the expected number of triangles in is . How does this compare to simulations where we randomly generate graphs from for and compute the average number of triangles per graph for each sample?   Plot of experimental expected value of number of triangles versus overlaid with the plot of .   Plot of experimental expected value of number of triangles versus p.     Discuss the simulation results above. Do they make sense? Why or why not?   Let's look at two more examples of computing expected values in the Erdos-Renyi model. First, we will consider the expected average degree of a vertex.    Let be the random variable giving the average degree of a vertex in a graph drawn from the Erdos-Renyi model . Then .     Let be the random variable giving the average degree of a vertex in a graph drawn from . By definition, we have where is the degree of vertex . By linearity of expectation, we have Now, for each , we have since the degree of vertex is the sum of indicator random variables for the presence of each edge connecting vertex to the other vertices, each of which has expected value . Thus, we have     Discuss the proof above. Does it make sense? Why or why not?   As our final example, we will find the expected number of spanning trees in an Erdos-Renyi graph.    Let be the random variable giving the number of spanning trees in a graph drawn from the Erdos-Renyi model . Then .     Let be the random variable giving the number of spanning trees in a graph drawn from . For each spanning tree on vertex set , let be the indicator random variable for the event that spanning tree is present in the graph. Then we have where the sum is over all spanning trees on vertex set . By linearity of expectation, we have Now, for each spanning tree , we have since a spanning tree on vertices has edges, and each edge is present with probability . By Cayley's formula, there are spanning trees on vertex set . Thus, we have     Discuss the proof above. Does it make sense? Why or why not?   Let's do one final check to see if this result makes sense. As approaches , the expected number of spanning trees approaches , which makes sense since there are fewer edges in the graph. Similarly, as approaches , the expected number of spanning trees approaches , which makes sense since the graph is approaching the complete graph , which has spanning trees by Cayley's formula. Finally, we can simulate drawing graphs from and counting the number of spanning trees in each graph, as we did for triangles above.   Plot of experimental expected value of number of spanning trees versus overlaid with the plot of .   Plot of experimental expected value of number of spanning trees versus p overlaid with the plot of y=10^8p^9.    "
+},
+{
+  "id": "def-erdosrenyi",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#def-erdosrenyi",
+  "type": "Definition",
+  "number": "4.6.1",
+  "title": "",
+  "body": "  Let be a positive integer and be a real number with . The Erdos-Renyi random graph model  is the probability space whose set of events consists of all graphs with vertex set , where each edge is included independently with probability . Thus, the probability of a particular graph with edges is .   "
+},
+{
+  "id": "sec-expectationgraphs-5",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-5",
+  "type": "Example",
+  "number": "4.6.2",
+  "title": "",
+  "body": " Let and . Then the probability space consists of all graphs with vertex set , where each edge is included independently with probability . There are possible edges, so there are possible graphs in this model, each with probability . Thus, this model gives the uniform distribution on the set of all graphs with vertex set . Further, each graph can be represented by a binary string of length , where we index the entries of the string by the edges . Then, the entry is if the corresponding edge is present, and otherwise. For example, the graph with edges , and corresponds to the binary string .  "
+},
+{
+  "id": "thm-erdosrenyiexpectednumberedges",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#thm-erdosrenyiexpectednumberedges",
+  "type": "Theorem",
+  "number": "4.6.3",
+  "title": "",
+  "body": "  The expected number of edges in a graph drawn from the Erdos-Renyi model is .   "
+},
+{
+  "id": "sec-expectationgraphs-8",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-8",
+  "type": "Proof",
+  "number": "4.6.1",
+  "title": "",
+  "body": " Using the fact that is equivalent to a binomial distribution on binary strings of length and probability , we have that the expected number of edges is .  "
+},
+{
+  "id": "thm-erdosrenyiisolated",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#thm-erdosrenyiisolated",
+  "type": "Theorem",
+  "number": "4.6.4",
+  "title": "",
+  "body": "  The expected number of isolated vertices in a graph drawn from the Erdos-Renyi model is .   "
+},
+{
+  "id": "sec-expectationgraphs-11",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-11",
+  "type": "Proof",
+  "number": "4.6.2",
+  "title": "",
+  "body": " Let be the random variable giving the number of isolated vertices in a graph drawn from . For , let be the indicator random variable for the event that vertex is isolated. Then we have By linearity of expectation, we have Now, for each , we have since for vertex to be isolated, none of the edges connecting it to the other vertices can be present, and each edge is absent with probability . Thus, we have   "
+},
+{
+  "id": "sec-expectationgraphs-12",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-12",
+  "type": "Checkpoint",
+  "number": "4.6.5",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
+  "id": "thm-erdosrenyitriangles",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#thm-erdosrenyitriangles",
+  "type": "Theorem",
+  "number": "4.6.6",
+  "title": "",
+  "body": "  Let be the random variable giving the number of triangles in a graph drawn from the Erdos-Renyi model . Then    "
+},
+{
+  "id": "sec-expectationgraphs-15",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-15",
+  "type": "Proof",
+  "number": "4.6.3",
+  "title": "",
+  "body": " Let be the random variable giving the number of triangles in a graph drawn from . For , let be the indicator random variable for the event that the vertices form a triangle, i.e., that the edges are all present in the graph. Then we have By linearity of expectation, we have Now, for each triple , we have since for vertices to form a triangle, all three edges connecting them must be present, and each edge is present with probability . Thus, we have   "
+},
+{
+  "id": "sec-expectationgraphs-16",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-16",
+  "type": "Checkpoint",
+  "number": "4.6.7",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
+  "id": "fig-trianglesexperiment",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#fig-trianglesexperiment",
+  "type": "Figure",
+  "number": "4.6.8",
+  "title": "",
+  "body": " Plot of experimental expected value of number of triangles versus overlaid with the plot of .   Plot of experimental expected value of number of triangles versus p.   "
+},
+{
+  "id": "sec-expectationgraphs-20",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-20",
+  "type": "Checkpoint",
+  "number": "4.6.9",
+  "title": "",
+  "body": " Discuss the simulation results above. Do they make sense? Why or why not?  "
+},
+{
+  "id": "thm-expectedaveragedegree",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#thm-expectedaveragedegree",
+  "type": "Theorem",
+  "number": "4.6.10",
+  "title": "",
+  "body": "  Let be the random variable giving the average degree of a vertex in a graph drawn from the Erdos-Renyi model . Then .   "
+},
+{
+  "id": "sec-expectationgraphs-23",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-23",
+  "type": "Proof",
+  "number": "4.6.4",
+  "title": "",
+  "body": " Let be the random variable giving the average degree of a vertex in a graph drawn from . By definition, we have where is the degree of vertex . By linearity of expectation, we have Now, for each , we have since the degree of vertex is the sum of indicator random variables for the presence of each edge connecting vertex to the other vertices, each of which has expected value . Thus, we have   "
+},
+{
+  "id": "sec-expectationgraphs-24",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-24",
+  "type": "Checkpoint",
+  "number": "4.6.11",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
+  "id": "thm-expectedspanningtrees",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#thm-expectedspanningtrees",
+  "type": "Theorem",
+  "number": "4.6.12",
+  "title": "",
+  "body": "  Let be the random variable giving the number of spanning trees in a graph drawn from the Erdos-Renyi model . Then .   "
+},
+{
+  "id": "sec-expectationgraphs-27",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-27",
+  "type": "Proof",
+  "number": "4.6.5",
+  "title": "",
+  "body": " Let be the random variable giving the number of spanning trees in a graph drawn from . For each spanning tree on vertex set , let be the indicator random variable for the event that spanning tree is present in the graph. Then we have where the sum is over all spanning trees on vertex set . By linearity of expectation, we have Now, for each spanning tree , we have since a spanning tree on vertices has edges, and each edge is present with probability . By Cayley's formula, there are spanning trees on vertex set . Thus, we have   "
+},
+{
+  "id": "sec-expectationgraphs-28",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#sec-expectationgraphs-28",
+  "type": "Checkpoint",
+  "number": "4.6.13",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
+  "id": "fig-spanningtreesexperiment",
+  "level": "2",
+  "url": "sec-expectationgraphs.html#fig-spanningtreesexperiment",
+  "type": "Figure",
+  "number": "4.6.14",
+  "title": "",
+  "body": " Plot of experimental expected value of number of spanning trees versus overlaid with the plot of .   Plot of experimental expected value of number of spanning trees versus p overlaid with the plot of y=10^8p^9.   "
 },
 {
   "id": "ch-optimization",

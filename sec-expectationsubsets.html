@@ -226,8 +226,17 @@ X=\sum_{i=1}^n X_i \, .
 E[X_i]= \sum_{x\in \Bin_n} P(x)X_i(x) = \sum_{x\in \Bin_n: x_i=1} \frac{1}{2^n}\cdot 1 = \frac{2^{n-1}}{2^n} = \frac{1}{2} \, .
 \end{equation*}
 </div>
+<div class="para">Equivalently, since <span class="process-math">\(X_i\)</span> is an indicator random variable for the event that the <span class="process-math">\(i\)</span>-th entry of <span class="process-math">\(x\)</span> is <span class="process-math">\(1\text{,}\)</span> and since half of all binary strings have a <span class="process-math">\(1\)</span> in the <span class="process-math">\(i\)</span>-th position, we have that <span class="process-math">\(P(X_i=1)=1/2\text{,}\)</span> so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E[X_i]=1\cdot P(X_i=1)+0\cdot P(X_i=0)=1/2\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-expectationsubsets-4-2">
 <div class="para">Using linearity of expectation, we have that</div>
-<div class="displaymath process-math" id="sec-expectationsubsets-4-1-5">
+<div class="displaymath process-math" id="sec-expectationsubsets-4-2-1">
 \begin{align*}
 E[X] \amp = E\left[\sum_{i=1}^n X_i\right] \\
 \amp = \sum_{i=1}^n E[X_i] \\
@@ -235,7 +244,7 @@ E[X] \amp = E\left[\sum_{i=1}^n X_i\right] \\
 \amp = \frac{n}{2} \, .
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 4.4.1"><a href="#sec-expectationsubsets-4" title="Copy heading and permalink for Proof 4.4.1" aria-label="Copy heading and permalink for Proof 4.4.1">🔗</a></div></article></details><div class="para" id="sec-expectationsubsets-5">Using our bijection between binary strings and subsets of <span class="process-math">\([n]\text{,}\)</span> we can interpret this as saying that if we choose a subset of an <span class="process-math">\(n\)</span>-element set uniformly at random, we expect the subset to have size <span class="process-math">\(n/2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -258,7 +267,7 @@ E[X]=pn \, .
 <div class="autopermalink" data-description="Paragraph"><a href="#thm-weightednumberofones-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Theorem 4.4.3"><a href="#thm-weightednumberofones" title="Copy heading and permalink for Theorem 4.4.3" aria-label="Copy heading and permalink for Theorem 4.4.3">🔗</a></div></article><details id="sec-expectationsubsets-9" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-expectationsubsets-9-1">
-<div class="para">Let <span class="process-math">\(X_i\)</span> be the same random variable as in the previous proof. Using linearity of expectation, we have that</div>
+<div class="para">Let <span class="process-math">\(X_i\)</span> be the same random variable as in the previous proof. Using linearity of expectation directly from the definition, we have that</div>
 <div class="displaymath process-math" id="sec-expectationsubsets-9-1-2">
 \begin{align*}
 E[X] \amp = E\left[\sum_{i=1}^n X_i\right] \\
@@ -270,17 +279,26 @@ E[X] \amp = E\left[\sum_{i=1}^n X_i\right] \\
 \amp = p n \, .
 \end{align*}
 </div>
+<div class="para">We can obtain the same result in a simpler manner when we recognize that <span class="process-math">\(X_i\)</span> is an indicator random variable for the event that the <span class="process-math">\(i\)</span>-th entry of <span class="process-math">\(x\)</span> is <span class="process-math">\(1\text{,}\)</span> and since the probability that the <span class="process-math">\(i\)</span>-th entry of <span class="process-math">\(x\)</span> is <span class="process-math">\(1\)</span> is <span class="process-math">\(p\text{,}\)</span> we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E[X_i]=1\cdot P(X_i=1)+0\cdot P(X_i=0)=p\text{.}
+\end{equation*}
+</div>
+<div class="para">This avoids the need to sum over all binary strings of length <span class="process-math">\(n-1\)</span> in the above calculation.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 4.4.2"><a href="#sec-expectationsubsets-9" title="Copy heading and permalink for Proof 4.4.2" aria-label="Copy heading and permalink for Proof 4.4.2">🔗</a></div></article></details><details id="sec-expectationsubsets-10" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.4.4</span><span class="period">.</span>
 </h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-expectationsubsets-10-1">Discuss the proof above. Does it make sense? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 4.4.4"><a href="#sec-expectationsubsets-10" title="Copy heading and permalink for Checkpoint 4.4.4" aria-label="Copy heading and permalink for Checkpoint 4.4.4">🔗</a></div></article></details><div class="para" id="sec-expectationsubsets-11">There are many other interesting random variables that can be defined on binary strings and subsets. Next we will look at one such example.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Checkpoint 4.4.4"><a href="#sec-expectationsubsets-10" title="Copy heading and permalink for Checkpoint 4.4.4" aria-label="Copy heading and permalink for Checkpoint 4.4.4">🔗</a></div></article></details><div class="para" id="sec-expectationsubsets-11">In these notes, we will frequently use the definition of expected value to compute expected values directly. However, it is important to note that the use of probabilities for indicator random variables and linearity of expectation can often simplify calculations significantly, as we have seen in the proofs above.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="sec-expectationsubsets-12" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<div class="para" id="sec-expectationsubsets-12">There are many other interesting random variables that can be defined on binary strings and subsets. Next we will look at one such example.<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-expectationsubsets-13" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.4.5</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-expectationsubsets-12-1">
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-expectationsubsets-13-1">
 <div class="para">Let <span class="process-math">\(X\)</span> be the random variable on <span class="process-math">\(2^{[n]}\)</span> with the uniform distribution that counts the number of pairs <span class="process-math">\(\{i,i+1\}\)</span> that are contained in a set. In other words, for <span class="process-math">\(S\subseteq [n]\text{,}\)</span> let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -288,10 +306,10 @@ X(S)=|\{i\in [n-1] : \{i,i+1\}\subseteq S\}| \, .
 \end{equation*}
 </div>
 <div class="para">Here is a plot (note the different scales on the axes!!!) where for each <span class="process-math">\(n\)</span> from <span class="process-math">\(1\)</span> to <span class="process-math">\(39\text{,}\)</span> we randomly select <span class="process-math">\(1000\)</span> subsets of <span class="process-math">\([n]\)</span> and compute the average value of <span class="process-math">\(X\)</span> on those subsets. Do you have a guess for what <span class="process-math">\(E[X]\)</span> might be? What is your reasoning?</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-subsetconsecutiveexperimentplot"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/subsetconsecutiveexperimentplot.png" class="contained" alt="Plot of experimental expected value of X versus n."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.6<span class="period">.</span></span><span class="space"> </span>Plot of experimental expected value of <span class="process-math">\(X\)</span> versus <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Figure 4.4.6"><a href="#fig-subsetconsecutiveexperimentplot" title="Copy heading and permalink for Figure 4.4.6" aria-label="Copy heading and permalink for Figure 4.4.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 4.4.5"><a href="#sec-expectationsubsets-12" title="Copy heading and permalink for Checkpoint 4.4.5" aria-label="Copy heading and permalink for Checkpoint 4.4.5">🔗</a></div></article></details><article class="theorem theorem-like" id="thm-subsetpairs"><h3 class="heading">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.6<span class="period">.</span></span><span class="space"> </span>Plot of experimental expected value of <span class="process-math">\(X\)</span> versus <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Figure 4.4.6"><a href="#fig-subsetconsecutiveexperimentplot" title="Copy heading and permalink for Figure 4.4.6" aria-label="Copy heading and permalink for Figure 4.4.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 4.4.5"><a href="#sec-expectationsubsets-13" title="Copy heading and permalink for Checkpoint 4.4.5" aria-label="Copy heading and permalink for Checkpoint 4.4.5">🔗</a></div></article></details><article class="theorem theorem-like" id="thm-subsetpairs"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.4.7</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="thm-subsetpairs-1-1">
@@ -303,7 +321,7 @@ E[X]=\frac{n-1}{4}\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm-subsetpairs-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 4.4.7"><a href="#thm-subsetpairs" title="Copy heading and permalink for Theorem 4.4.7" aria-label="Copy heading and permalink for Theorem 4.4.7">🔗</a></div></article><details id="sec-expectationsubsets-14" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-expectationsubsets-14-1">
+<div class="autopermalink" data-description="Theorem 4.4.7"><a href="#thm-subsetpairs" title="Copy heading and permalink for Theorem 4.4.7" aria-label="Copy heading and permalink for Theorem 4.4.7">🔗</a></div></article><details id="sec-expectationsubsets-15" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-expectationsubsets-15-1">
 <div class="para">Let <span class="process-math">\(X_i\)</span> be the random variable defined by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -311,7 +329,7 @@ X_i(S)=\begin{cases}1 \amp \text{if }\{i,i+1\}\subseteq S \\ 0 \amp \text{otherw
 \end{equation*}
 </div>
 <div class="para">Using linearity of expectation, we have that</div>
-<div class="displaymath process-math" id="sec-expectationsubsets-14-1-3">
+<div class="displaymath process-math" id="sec-expectationsubsets-15-1-3">
 \begin{align*}
 E[X] \amp = E\left[\sum_{i=1}^{n-1} X_i\right] \\
 \amp = \sum_{i=1}^{n-1} E[X_i] \\
@@ -321,21 +339,21 @@ E[X] \amp = E\left[\sum_{i=1}^{n-1} X_i\right] \\
 \amp = \frac{n-1}{4} \, .
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 4.4.3"><a href="#sec-expectationsubsets-14" title="Copy heading and permalink for Proof 4.4.3" aria-label="Copy heading and permalink for Proof 4.4.3">🔗</a></div></article></details><details id="sec-expectationsubsets-15" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<div class="autopermalink" data-description="Proof 4.4.3"><a href="#sec-expectationsubsets-15" title="Copy heading and permalink for Proof 4.4.3" aria-label="Copy heading and permalink for Proof 4.4.3">🔗</a></div></article></details><details id="sec-expectationsubsets-16" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.4.8</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-expectationsubsets-15-1">Discuss the proof above. Does it make sense? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-expectationsubsets-16-1">Discuss the proof above. Does it make sense? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 4.4.8"><a href="#sec-expectationsubsets-15" title="Copy heading and permalink for Checkpoint 4.4.8" aria-label="Copy heading and permalink for Checkpoint 4.4.8">🔗</a></div></article></details><details id="sec-expectationsubsets-16" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<div class="autopermalink" data-description="Checkpoint 4.4.8"><a href="#sec-expectationsubsets-16" title="Copy heading and permalink for Checkpoint 4.4.8" aria-label="Copy heading and permalink for Checkpoint 4.4.8">🔗</a></div></article></details><details id="sec-expectationsubsets-17" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.4.9</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-expectationsubsets-16-1">What is the interpretation of the theorem above in terms of binary strings?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-expectationsubsets-17-1">What is the interpretation of the theorem above in terms of binary strings?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-17-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 4.4.9"><a href="#sec-expectationsubsets-16" title="Copy heading and permalink for Checkpoint 4.4.9" aria-label="Copy heading and permalink for Checkpoint 4.4.9">🔗</a></div></article></details><details id="sec-expectationsubsets-17" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<div class="autopermalink" data-description="Checkpoint 4.4.9"><a href="#sec-expectationsubsets-17" title="Copy heading and permalink for Checkpoint 4.4.9" aria-label="Copy heading and permalink for Checkpoint 4.4.9">🔗</a></div></article></details><details id="sec-expectationsubsets-18" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.4.10</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-expectationsubsets-17-1">What does the theorem above <em class="emphasis">mean</em> to you? In other words, how would you explain it to someone who is not familiar with expected values or random variables?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-17-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-expectationsubsets-18-1">What does the theorem above <em class="emphasis">mean</em> to you? In other words, how would you explain it to someone who is not familiar with expected values or random variables?<div class="autopermalink" data-description="Paragraph"><a href="#sec-expectationsubsets-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Checkpoint 4.4.10"><a href="#sec-expectationsubsets-17" title="Copy heading and permalink for Checkpoint 4.4.10" aria-label="Copy heading and permalink for Checkpoint 4.4.10">🔗</a></div></article></details><div class="autopermalink" data-description="Section 4.4: Expected Values: Binary Strings and Subsets"><a href="#sec-expectationsubsets" title="Copy heading and permalink for Section 4.4: Expected Values: Binary Strings and Subsets" aria-label="Copy heading and permalink for Section 4.4: Expected Values: Binary Strings and Subsets">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Checkpoint 4.4.10"><a href="#sec-expectationsubsets-18" title="Copy heading and permalink for Checkpoint 4.4.10" aria-label="Copy heading and permalink for Checkpoint 4.4.10">🔗</a></div></article></details><div class="autopermalink" data-description="Section 4.4: Expected Values: Binary Strings and Subsets"><a href="#sec-expectationsubsets" title="Copy heading and permalink for Section 4.4: Expected Values: Binary Strings and Subsets" aria-label="Copy heading and permalink for Section 4.4: Expected Values: Binary Strings and Subsets">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-expectationindicators.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-expectationpermutations.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
