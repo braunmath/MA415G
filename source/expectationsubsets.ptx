@@ -30,6 +30,9 @@
 			<me>
 				E[X_i]= \sum_{x\in \Bin_n} P(x)X_i(x) = \sum_{x\in \Bin_n: x_i=1} \frac{1}{2^n}\cdot 1 = \frac{2^{n-1}}{2^n} = \frac{1}{2} \, .
 			</me>
+			Equivalently, since <m>X_i</m> is an indicator random variable for the event that the <m>i</m>-th entry of <m>x</m> is <m>1</m>, and since half of all binary strings have a <m>1</m> in the <m>i</m>-th position, we have that <m>P(X_i=1)=1/2</m>, so <me>E[X_i]=1\cdot P(X_i=1)+0\cdot P(X_i=0)=1/2</me>.
+		</p>
+		<p>
 			Using linearity of expectation, we have that
 			<md>
 				<mrow> E[X] \amp = E\left[\sum_{i=1}^n X_i\right] </mrow>
@@ -70,7 +73,7 @@
 <proof>
 	<p>
 		Let <m>X_i</m> be the same random variable as in the previous proof.
-		Using linearity of expectation, we have that
+		Using linearity of expectation directly from the definition, we have that
 		<md>
 			<mrow> E[X] \amp = E\left[\sum_{i=1}^n X_i\right] </mrow>
 			<mrow> \amp = \sum_{i=1}^n E[X_i] </mrow>
@@ -80,6 +83,8 @@
 			<mrow> \amp = \sum_{i=1}^n \left( p \cdot (p+(1-p))^{n-1}\right) </mrow>
 			<mrow> \amp = p n \, .</mrow>
 		</md>
+		We can obtain the same result in a simpler manner when we recognize that <m>X_i</m> is an indicator random variable for the event that the <m>i</m>-th entry of <m>x</m> is <m>1</m>, and since the probability that the <m>i</m>-th entry of <m>x</m> is <m>1</m> is <m>p</m>, we have that <me>E[X_i]=1\cdot P(X_i=1)+0\cdot P(X_i=0)=p</me>.
+		This avoids the need to sum over all binary strings of length <m>n-1</m> in the above calculation.
 	</p>
 </proof>
 
@@ -88,6 +93,11 @@
 		Discuss the proof above. Does it make sense? Why or why not?
 	</p>
 </exercise>
+
+<p>
+	In these notes, we will frequently use the definition of expected value to compute expected values directly.
+	However, it is important to note that the use of probabilities for indicator random variables and linearity of expectation can often simplify calculations significantly, as we have seen in the proofs above.
+</p>
 	
 <p>
 	There are many other interesting random variables that can be defined on binary strings and subsets.

@@ -73,6 +73,28 @@
 	</p>
 </proof>
 
+<exercise>
+	<p>
+		<ol>
+			<li>
+				<p>
+					If we were to compute <m>E[X_i]</m> in the proof above using the probability that <m>X_i=1</m>, what would that probability be? 
+				</p>
+			</li>
+			<li>
+				<p>
+					How would you use it to compute <m>E[X_i]</m> by summing over <m>0</m> and <m>1</m>?
+				</p>
+			</li>
+			<li>
+				<p>
+					How would this change/simplify the proof above?
+				</p>
+			</li>
+		</ol>
+	</p>
+</exercise>
+
 <p>
 	Thus, on average, a permutation has exactly one fixed point, no matter how large <m>n</m> is.
 </p>
@@ -107,6 +129,13 @@
 			</md>
 	</p>
 </proof>
+
+<exercise>
+	<p>
+		In the proof above is the observation that for each <m>i\in [n-1]</m>, exactly half of the permutations in <m>\ss_n</m> have a descent at position <m>i</m>.
+		Does this observation help to simplify the calculation of <m>E[Y_i]</m> in the proof above using a probability interpretation of the indicator function?
+	</p>
+</exercise>
 
 <p>
 	We are now in a position to tackle the expected number of inversions.
@@ -173,6 +202,10 @@
 			</md>
 	</p>
 </proof>
+
+<p>
+	Note that in the proof above, a simplification could be made by recognizing that <m>C_S</m> is an indicator random variable for the event that <m>S</m> forms a cycle in the permutation, and the probability of this event is <m>\frac{(k-1)!(n-k)!}{n!}</m>.
+</p>
 
     
 </section>

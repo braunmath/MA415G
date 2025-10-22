@@ -18,6 +18,13 @@
 		<me>
 		\sum_{x\in \Omega}P(x)=1 \, .
 		</me>
+		Given a finite set <m>\Omega</m> together with a probability distribution <m>P</m>, we call the pair <m>(\Omega,P)</m> a <em>finite probability space</em>.
+	</p>
+		<p>
+		We call a subset <m>A\subseteq \Omega</m> an <em>event set</em>, and define the <em>probability of the event set</em> <m>A</m> to be
+		<me>
+		P(A):=\sum_{x\in A}P(x) \, .
+		</me>
 		If <m>P(x)=1/|\Omega|</m> for all <m>x\in \Omega</m>, then we call <m>P</m> the <em>uniform distribution</em>.
             </p>
         </statement>

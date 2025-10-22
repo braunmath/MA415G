@@ -272,4 +272,87 @@ The interpretation of this expected value is that if we roll a die uniformly at 
 </p>
 </exercise>
 
+<p>
+	There is a useful way to rewrite the expected value for a random variable taking only finite many values.
+	
+</p>
+<lemma xml:id="lem-expectedvaluerewrite">
+	<statement>
+		<p>
+			Suppose that <m>X:\Omega\mapsto \mathbb{R}</m> is a random variable that takes on the values <m>x_1,x_2,\ldots,x_k</m>; in other words, the range of <m>X</m> is the finite set <m>\{x_1,x_2,\ldots,x_k\}</m>.
+			Then we can rewrite the expected value of <m>X</m> as
+			<me>
+			E[X]=\sum_{i=1}^k x_i P(X=x_i) \, ,
+			</me>
+			where <m>P(X=x_i)</m> is the probability that <m>X</m> takes on the value <m>x_i</m>, i.e., 
+			<me>P(X=x_i):=\sum_{\substack{x\in \Omega \\ X(x)=x_i}} P(x) \, .</me>
+		</p>
+	</statement>
+</lemma>
+
+<proof>
+	<p>
+		Using the definition of expected value, we have that
+		<md>
+			<mrow>E[X] \amp =\sum_{x\in \Omega} P(x)X(x) </mrow>
+			<mrow> \amp =\sum_{i=1}^k \sum_{\substack{x\in \Omega \\ X(x)=x_i}} P(x)X(x) </mrow>
+			<mrow> \amp =\sum_{i=1}^k \sum_{\substack{x\in \Omega \\ X(x)=x_i}} P(x)x_i </mrow>
+			<mrow> \amp =\sum_{i=1}^k x_i \sum_{\substack{x\in \Omega \\ X(x)=x_i}} P(x) </mrow>
+			<mrow> \amp =\sum_{i=1}^k x_i P(X=x_i) \, .</mrow>
+		</md>
+	</p>
+</proof>
+
+<p>
+	This formulation is often useful when the number of values taken on by <m>X</m> is much smaller than the size of the sample space <m>\Omega</m>.
+</p>
+
+<example>
+	<p>
+	 Consider again the case of binary strings of length two with the uniform distribution and the random variable <m>X:\Omega\mapsto \mathbb{R}</m> defined by <me>X(00)=0, X(10)=1, X(01)=1, X(11)=2</me>.
+	 The random variable <m>X</m> takes on the values <m>0,1,2</m>.
+	 Using the lemma above, we can rewrite the expected value of <m>X</m> as
+	 <md>
+	 	<mrow>E[X] \amp =\sum_{i=1}^3 x_i P(X=x_i) </mrow>
+	 	<mrow> \amp = 0\cdot P(X=0)+1\cdot P(X=1)+2\cdot P(X=2) </mrow>
+	 	<mrow> \amp = 0\cdot \frac{1}{4}+1\cdot \frac{2}{4}+2\cdot \frac{1}{4} </mrow>
+	 	<mrow> \amp =1 \, .</mrow>
+	 </md>
+	 This matches the expected value we computed earlier.
+	</p>
+</example>
+
+<p>
+	In the case of indicator functions, this gives a particularly simple expression for the expected value.
+</p>
+
+<corollary xml:id="cor-indicatorexpected">
+	<statement>
+		<p>
+			Given an indicator function <m>I_A:\Omega\mapsto \mathbb{R}</m> for an event <m>A\subseteq \Omega</m>, we have that
+			<me>
+			E[I_A]=P(A) \, .
+			</me>
+			In other words, the expected value of an indicator function is simply the probability of the event it indicates.
+		</p>
+	</statement>
+</corollary>
+
+<proof>
+	<p>
+		We have that
+		<md>
+			<mrow>E[I_A] \amp =\sum_{i=1}^2 x_i P(I_A=x_i) </mrow>
+			<mrow> \amp = 0\cdot P(I_A=0)+1\cdot P(I_A=1) </mrow>
+			<mrow> \amp = P(A) \, .</mrow>
+		</md>
+	</p>
+</proof>
+
+<exercise>
+	<p>
+		Discuss the result and proof above. Does it make sense? Why or why not?
+	</p>
+</exercise>
+
 </section>
