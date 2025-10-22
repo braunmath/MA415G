@@ -2518,7 +2518,106 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.5",
   "title": "Expected Values: Permutations",
-  "body": " Expected Values: Permutations  We next apply the tools we have developed to investigate expected values of random variables defined on permutations.  "
+  "body": " Expected Values: Permutations  We next apply the tools we have developed to investigate expected values of random variables defined on permutations.   As our first example, let be the random variable on with the uniform distribution that counts the number of inversions in a permutation. Here is a plot (note the different scales on the axes!!!) where for each from to , we randomly select permutations and compute the average value of on those subsets. Do you have a guess for what might be? What is your reasoning?   Plot of experimental expected value of versus .   Plot of experimental expected value of inv versus n.      While it isn't obvious from the plot, it turns out that . Here is a plot of our experimental values versus the graph of this function.   Plot of experimental expected value of versus with the function .   Plot of experimental expected value of inv versus n with the function x(x-1)\/4.     Before we consider the case of inversions, let's look at a simpler random variable on permutations. Let be the random variable on with the uniform distribution that counts the number of fixed points of a permutation. In other words, for , let .   Here is a plot where for each from to , we randomly select permutations and compute the average value of on those permutations. What do you think the expected value might be? What is your reasoning?   Plot of experimental expected value of number of fixed points versus .   Plot of experimental expected value of number of fixed points versus n.       If is the random variable on with the uniform distribution that counts the number of fixed points of a permutation, then .     Let be the random variable defined by . Using linearity of expectation, we have that    Thus, on average, a permutation has exactly one fixed point, no matter how large is.  Next, we consider the case of descents in a permutation.    Let be the random variable on with the uniform distribution that counts the number of descents of a permutation. Then .     Let be the random variable defined by Note that half of the permutations in have a descent at position (since for any ordering of the other elements, there are two ways to order and , one with a descent and one without). Using linearity of expectation, we thus have that    We are now in a position to tackle the expected number of inversions.    Let be the random variable on with the uniform distribution that counts the number of inversions of a permutation. Then .     Let be the random variable defined by Note that half of the permutations in have an inversion at the positions (since for any ordering of the other elements, there are two ways to order and , one with an inversion and one without). Using linearity of expectation, we thus have that    Let's consider next the expected number of cycles in a permutation.    Let be the random variable on with the uniform distribution that counts the number of cycles in a permutation. Then , i.e., is the -th harmonic number.     Let be a subset of size , and let be the random variable defined by Note that for a fixed ordering of the elements not in , there are exactly permutations in where forms a cycle, since there are ways to arrange the elements of into a cycle and ways to arrange the other elements. Using linearity of expectation, we thus have that    "
+},
+{
+  "id": "sec-expectationpermutations-3",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-3",
+  "type": "Checkpoint",
+  "number": "4.5.1",
+  "title": "",
+  "body": " As our first example, let be the random variable on with the uniform distribution that counts the number of inversions in a permutation. Here is a plot (note the different scales on the axes!!!) where for each from to , we randomly select permutations and compute the average value of on those subsets. Do you have a guess for what might be? What is your reasoning?   Plot of experimental expected value of versus .   Plot of experimental expected value of inv versus n.    "
+},
+{
+  "id": "sec-expectationpermutations-4",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-4",
+  "type": "Example",
+  "number": "4.5.3",
+  "title": "",
+  "body": " While it isn't obvious from the plot, it turns out that . Here is a plot of our experimental values versus the graph of this function.   Plot of experimental expected value of versus with the function .   Plot of experimental expected value of inv versus n with the function x(x-1)\/4.    "
+},
+{
+  "id": "sec-expectationpermutations-6",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-6",
+  "type": "Checkpoint",
+  "number": "4.5.5",
+  "title": "",
+  "body": " Here is a plot where for each from to , we randomly select permutations and compute the average value of on those permutations. What do you think the expected value might be? What is your reasoning?   Plot of experimental expected value of number of fixed points versus .   Plot of experimental expected value of number of fixed points versus n.    "
+},
+{
+  "id": "thm-expectationfixedpoints",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#thm-expectationfixedpoints",
+  "type": "Theorem",
+  "number": "4.5.7",
+  "title": "",
+  "body": "  If is the random variable on with the uniform distribution that counts the number of fixed points of a permutation, then .   "
+},
+{
+  "id": "sec-expectationpermutations-8",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-8",
+  "type": "Proof",
+  "number": "4.5.1",
+  "title": "",
+  "body": " Let be the random variable defined by . Using linearity of expectation, we have that   "
+},
+{
+  "id": "thm-expecteddescents",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#thm-expecteddescents",
+  "type": "Theorem",
+  "number": "4.5.8",
+  "title": "",
+  "body": "  Let be the random variable on with the uniform distribution that counts the number of descents of a permutation. Then .   "
+},
+{
+  "id": "sec-expectationpermutations-12",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-12",
+  "type": "Proof",
+  "number": "4.5.2",
+  "title": "",
+  "body": " Let be the random variable defined by Note that half of the permutations in have a descent at position (since for any ordering of the other elements, there are two ways to order and , one with a descent and one without). Using linearity of expectation, we thus have that   "
+},
+{
+  "id": "thm-expectedinversions",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#thm-expectedinversions",
+  "type": "Theorem",
+  "number": "4.5.9",
+  "title": "",
+  "body": "  Let be the random variable on with the uniform distribution that counts the number of inversions of a permutation. Then .   "
+},
+{
+  "id": "sec-expectationpermutations-15",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-15",
+  "type": "Proof",
+  "number": "4.5.3",
+  "title": "",
+  "body": " Let be the random variable defined by Note that half of the permutations in have an inversion at the positions (since for any ordering of the other elements, there are two ways to order and , one with an inversion and one without). Using linearity of expectation, we thus have that   "
+},
+{
+  "id": "thm-expectedcycles",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#thm-expectedcycles",
+  "type": "Theorem",
+  "number": "4.5.10",
+  "title": "",
+  "body": "  Let be the random variable on with the uniform distribution that counts the number of cycles in a permutation. Then , i.e., is the -th harmonic number.   "
+},
+{
+  "id": "sec-expectationpermutations-18",
+  "level": "2",
+  "url": "sec-expectationpermutations.html#sec-expectationpermutations-18",
+  "type": "Proof",
+  "number": "4.5.4",
+  "title": "",
+  "body": " Let be a subset of size , and let be the random variable defined by Note that for a fixed ordering of the elements not in , there are exactly permutations in where forms a cycle, since there are ways to arrange the elements of into a cycle and ways to arrange the other elements. Using linearity of expectation, we thus have that   "
 },
 {
   "id": "sec-expectationgraphs",
