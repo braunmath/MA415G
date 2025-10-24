@@ -577,25 +577,89 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P27</title>
         <p>
-            
+            Consider the set <m>\Bin_n</m> of binary strings of length <m>n</m> with the uniform distribution.
+            Let <m>X</m> be the random variable where <m>X(w)</m> is the number of times a consecutive sequence of <m>k</m> copies of <m>1</m> appears in <m>w</m>.
+            <ol>
+                <li>
+                    <p>
+                        Write <m>X</m> as a sum of indicator random variables.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Find <m>E(X)</m>.
+                    </p>
+                </li>
+            </ol>
         </p>
     </problem>
     <problem>
         <title>P28</title>
         <p>
-            
+            Let <m>(\Omega, P)</m> be a finite probability space and let <m>X</m> be a random variable on <m>\Omega</m> such that <m>X(x)\geq 0</m> for every <m>x\in \Omega</m>.
+            We define <m>P(X\geq a)</m> to be the probability that <m>X</m> takes on a value greater than or equal to <m>a</m>, i.e., 
+            <me>
+                P(X\geq a):= \sum_{x \in \Omega, X(x) \geq a} P(x) \, .
+            </me>
+            Prove that for any <m>a > 0</m>, the following inequality, which is known as <em>Markov's Inequality</em>, holds:
+            <me>
+                P(X\geq a)\leq \frac{E(X)}{a} \, .
+            </me>
         </p>
     </problem>
         <problem>
         <title>P29</title>
         <p>
-            
+            In P28 you proved Markov's Inequality, which we will now apply.
+            <ol>
+                <li>
+                    <p>
+                        Consider the set of subsets of <m>[n]</m> with the uniform distribution.
+                        Use Markov's Inequality to prove that at most half of all subsets of <m>\{1, 2, \ldots, n\}</m> contain greater than <m>\frac{n-1}{2}</m> adjacent pairs of the form <m>\{i, i+1\}</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Consider <m>\ss_n</m> with the uniform distribution.
+                        Use <xref ref="thm-expectationfixedpoints"/> and Markov's Inequality to prove that the probability that <m>\pi\in\ss_n</m> has at least <m>k</m> fixed points is less than or equal to <m>1/k</m> for any <m>k\geq 1</m>.
+                    </p>
+                </li>
+            </ol>
         </p>
     </problem>
         <problem>
         <title>Essay 5</title>
         <p>
-            
+            Read the course syllabus on the Canvas homepage for MA 415G.
+            After you read the syllabus, complete the following essay.
+            <ul>
+                <li>
+                    <p>
+                        This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Your essay should respond to the following three questions.
+                        <ul>
+                            <li>
+                                <p>
+Section 3 of the syllabus begins with a quote from Timothy Gowers.
+Given what you have seen so far in combinatorics, do you agree with his assertion about the way that the "important idea of combinatorics" appear? Why or why not?                                </p>
+                            </li>
+                            <li>
+                                <p>
+So far we have investigated techniques for solving enumeration, classification, and expectation problems. Which of these have you enjoyed the most? Which have you enjoyed the least? Why? Give specific examples from the homework and/or notes to illustrate your opinions.                                </p>
+                            </li>
+                            <li>
+                                <p>
+Page 2 of the syllabus lists four mathematical practices that students will develop in MA 415G, in addition to the eight questions of combinatorics. Which of these practices do you feel you have improved on the most so far this semester? Which do you are most in need of further development?                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+            </ul>
+Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).
         </p>
     </problem>
         <problem>
