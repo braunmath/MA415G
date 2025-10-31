@@ -1,5 +1,50 @@
 <section xml:id="sec-matchings">
     <title>Maximum Matching in Graphs</title>
 
+    <p>
+        One of the fundamental ideas of applied math is to find ways to effectively pair or match objects or entities.
+        For example, matching problems arise when we want to pair workers with jobs, students with courses, and other situations where paired assignments are required.
+        The mathematical idea that captures this is the concept of a matching in a graph.
+    </p>
+
+    <definition xml:id="def-matching">
+        <statement>
+            <p>
+                Given a finite graph <m>G</m>, a <em>matching</em> is a set of edges such that no two edges share a common vertex.
+                A <em>maximum matching</em> is a matching that contains the largest possible number of edges. 
+                The size of a maximum matching is called the <em>matching number</em> of the graph.
+            </p>
+        </statement>
+    </definition>
+
+    <example>
+        <p>
+            Let <m>K_n</m> be the complete graph on <m>n</m> vertices. The maximum matching in <m>K_n</m> has size <m>\lfloor n/2 \rfloor</m>, since we can pair up the vertices in pairs, and if there is an odd vertex left over, it cannot be matched.
+        </p>
+    </example>
+
+    <exercise>
+        <p>
+            Consider the Petersen graph shown below. 
+            Find a maximum matching in <m>G</m> and determine its size.
+            How do you know that the matching you found is maximum?
+            <figure xml:id="fig-peterson2">
+    <caption>Drawing of the Petersen graph.</caption>
+    <image source="petersen.png" width="75%"/>
+</figure>
+        </p>
+    </exercise>
+
+    <p>
+        Given a graph <m>G</m>, we will set our task to find a maximum matching in <m>G</m>.
+        This will be the metric we will use to evaluate the "best" matchings -- they will be the matchings that have the largest possible number of edges.
+        Given a matching <m>M</m> in <m>G</m>, we want to try to systematically find a way to find a larger matching, or to determine that no larger matching exists.
+    </p>
+
+    <example>
+        <p>
+            
+        </p>
+    </example>
 
 </section>
