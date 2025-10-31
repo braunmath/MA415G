@@ -26,8 +26,9 @@
     <exercise>
         <p>
             Consider the Petersen graph shown below. 
-            Find a maximum matching in <m>G</m> and determine its size.
-            How do you know that the matching you found is maximum?
+            Consider the matching given by the edges <me>\{01,34,57,68\}</me>.
+            Is this a maximum matching? If not, find a larger matching.
+            How do you know that a matching is maximum?
             <figure xml:id="fig-peterson2">
     <caption>Drawing of the Petersen graph.</caption>
     <image source="petersen.png" width="75%"/>
