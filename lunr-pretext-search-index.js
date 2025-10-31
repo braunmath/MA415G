@@ -2887,7 +2887,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.2",
   "title": "Maximum Matching in Graphs",
-  "body": " Maximum Matching in Graphs  One of the fundamental ideas of applied math is to find ways to effectively pair or match objects or entities. For example, matching problems arise when we want to pair workers with jobs, students with courses, and other situations where paired assignments are required. The mathematical idea that captures this is the concept of a matching in a graph.    Given a finite graph , a matching is a set of edges such that no two edges share a common vertex. A maximum matching is a matching that contains the largest possible number of edges. The size of a maximum matching is called the matching number of the graph.     Let be the complete graph on vertices. The maximum matching in has size , since we can pair up the vertices in pairs, and if there is an odd vertex left over, it cannot be matched.    Consider the Petersen graph shown below. Find a maximum matching in and determine its size. How do you know that the matching you found is maximum?  Drawing of the Petersen graph.      Given a graph , we will set our task to find a maximum matching in . This will be the metric we will use to evaluate the \"best\" matchings -- they will be the matchings that have the largest possible number of edges. Given a matching in , we want to try to systematically find a way to find a larger matching, or to determine that no larger matching exists.      "
+  "body": " Maximum Matching in Graphs  One of the fundamental ideas of applied math is to find ways to effectively pair or match objects or entities. For example, matching problems arise when we want to pair workers with jobs, students with courses, and other situations where paired assignments are required. The mathematical idea that captures this is the concept of a matching in a graph.    Given a finite graph , a matching is a set of edges such that no two edges share a common vertex. A maximum matching is a matching that contains the largest possible number of edges. The size of a maximum matching is called the matching number of the graph.     Let be the complete graph on vertices. The maximum matching in has size , since we can pair up the vertices in pairs, and if there is an odd vertex left over, it cannot be matched.    Consider the Petersen graph shown below. Consider the matching given by the edges . Is this a maximum matching? If not, find a larger matching. How do you know that a matching is maximum?  Drawing of the Petersen graph.      Given a graph , we will set our task to find a maximum matching in . This will be the metric we will use to evaluate the \"best\" matchings -- they will be the matchings that have the largest possible number of edges. Given a matching in , we want to try to systematically find a way to find a larger matching, or to determine that no larger matching exists.      "
 },
 {
   "id": "def-matching",
@@ -2914,7 +2914,7 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "5.2.3",
   "title": "",
-  "body": " Consider the Petersen graph shown below. Find a maximum matching in and determine its size. How do you know that the matching you found is maximum?  Drawing of the Petersen graph.     "
+  "body": " Consider the Petersen graph shown below. Consider the matching given by the edges . Is this a maximum matching? If not, find a larger matching. How do you know that a matching is maximum?  Drawing of the Petersen graph.     "
 },
 {
   "id": "sec-matchings-7",
