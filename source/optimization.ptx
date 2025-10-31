@@ -1,4 +1,10 @@
 <chapter xml:id="ch-optimization" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Optimization</title>
+
+    <!-- include sections -->
+  <xi:include href="optimizationintro.ptx" />
+  <xi:include href="matchings.ptx" />
+  <xi:include href="minimumspanningtrees.ptx" />
+  <xi:include href="modularitymaximization.ptx" />
     
 </chapter>

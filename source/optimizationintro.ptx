@@ -1,0 +1,10 @@
+<section xml:id="sec-optimizationintro">
+    <title>Optimization Questions</title>
+    
+    <p>
+        In our next unit, we will focus on the question of <em>optimization</em>: What is the best ____?
+        In order to answer questions such as this, we will need to define what we mean by "best" and then we will need to develop techniques for finding the best solution to a problem.
+        Our focus will be on three different problems, all related to graphs and networks: maximum matchings, minimum spanning trees, and modularity maximization.
+</p>
+
+</section>
