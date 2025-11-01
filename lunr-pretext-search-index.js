@@ -2887,7 +2887,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.2",
   "title": "Maximum Matching in Graphs",
-  "body": " Maximum Matching in Graphs  One of the fundamental ideas of applied math is to find ways to effectively pair or match objects or entities. For example, matching problems arise when we want to pair workers with jobs, students with courses, and other situations where paired assignments are required. The mathematical idea that captures this is the concept of a matching in a graph.    Given a finite graph , a matching is a set of edges such that no two edges share a common vertex. A maximum matching is a matching that contains the largest possible number of edges. The size of a maximum matching is called the matching number of the graph.     Let be the complete graph on vertices. The maximum matching in has size , since we can pair up the vertices in pairs, and if there is an odd vertex left over, it cannot be matched.    Consider the Petersen graph shown below. Consider the matching given by the edges . Is this a maximum matching? If not, find a larger matching. How do you know that a matching is maximum?  Drawing of the Petersen graph.      Given a graph , we will set our task to find a maximum matching in . This will be the metric we will use to evaluate the \"best\" matchings -- they will be the matchings that have the largest possible number of edges. Given a matching in , we want to try to systematically find a way to find a larger matching, or to determine that no larger matching exists.      "
+  "body": " Maximum Matching in Graphs  One of the fundamental ideas of applied math is to find ways to effectively pair or match objects or entities. For example, matching problems arise when we want to pair workers with jobs, students with courses, and other situations where paired assignments are required. The mathematical idea that captures this is the concept of a matching in a graph.    Given a finite graph , a matching is a set of edges such that no two edges share a common vertex. A maximum matching is a matching that contains the largest possible number of edges. The size of a maximum matching is called the matching number of the graph.     Let be the complete graph on vertices. Any maximum matching in has size , since we can pair up the vertices in pairs, and if there is an odd vertex left over, it cannot be matched.    Consider the Petersen graph shown below. Consider the matching given by the edges . Is this a maximum matching? If not, find a larger matching. How do you know whether or not a matching is maximum?   Drawing of the Petersen graph.     The example above shows that there is a difference between \"maximal\" matchings, i.e., those that cannot be extended to larger matching by adding edges, and \"maximum\" matchings, which have the largest possible number of edges for any matching in the graph. Finding maximum matchings in graphs is a fundamental problem in graph theory and combinatorial optimization.  Thus, given a graph , we will set our task to find a maximum matching in . This will be the metric we will use to evaluate the \"best\" matchings -- we will be seeking the matchings that have the largest possible number of edges. Given a matching in , we want to try to systematically find a way to produce a larger matching, or to determine that no larger matching exists.   Consider the path graph on vertices, with vertices labeled in order. One possible matching is . This matching has two edges. How can we create a larger matching from this one?    Consider the cycle graph on 6 vertices, with vertices labeled in order. One possible matching is . This matching has two edges. How can we create a larger matching from this one?     Let be a graph and a matching in . An augmenting path with respect to is a path in that starts and ends at vertices not covered by , and alternates between edges not in and edges in .     Consider again the Petersen graph shown below with the matching given by the edges . Show that is an augmenting path in this matching. What happens if we remove the edges of the matching along this path and add the other edges of the path to the matching?   Drawing of the Petersen graph.       Given an augmenting path with respect to a matching in a graph , we can create a new matching by removing the edges of along the path and adding the other edges of the path to the matching. The new matching has size .     Since the path starts and ends at vertices not covered by , the first and last edges of the path are not in . Thus, there are an odd number of edges in the path, and there is one more edge not in than there are edges in . When we remove the edges of along the path and add the other edges of the path to the matching, we increase the size of the matching by . What results is a valid matching since no two edges in the new matching share a common vertex; this is because the endpoints of the path are not covered by any edges in the original matching.   The following theorem was proven by Claude Berge in 1957.    A matching in a graph is maximum if and only if there are no augmenting paths with respect to .     Let's suppose that is a matching in and that is maximum. We will show that there are no augmenting paths with respect to . Suppose, for the sake of contradiction, that there is an augmenting path with respect to . By our lemma, we can create a new matching by removing the edges of along the path and adding the other edges of the path to the matching. The new matching has size , which contradicts the assumption that is maximum. Therefore, there are no augmenting paths with respect to .  Next, we will show that if there are no augmenting paths with respect to a matching in , then is maximum. We will do this using the technique of proof by contrapositive : we will show that if is not maximum, then there exists an augmenting path with respect to . Let be a maximal matching in , and note that . Consider the symmetric difference , and consider the subgraph of containing those edges. In , each vertex has degree or , since each vertex is incident to at most one edge from and at most one edge from . Thus, the connected components of are paths and cycles, and if they are cycles, the length of the cycle is even, since the edges alternate between those in and those in . The graph has more elements of than of , so there must be at least one path component in that has more edges from than from . Such a path must start and end with edges from , and thus starts and ends at vertices not covered by . Therefore, this path is an augmenting path with respect to , and we are done.    Proof by contrapositive states that if we want to prove that , it is sufficient to prove that , where is the negation of . Using the following truth table, explain why this proof technique is valid.   Truth Table    P  Q    T  T    T  F    F  T    F  F      Berge's theorem leads to an algorithm for finding maximum matchings in graphs: start with any matching, and repeatedly look for augmenting paths. If an augmenting path is found, use it to create a larger matching. Of course, it is not obvious how to find augmenting paths efficiently, but this can be done and leads to an amazing algorithm called \"Edmonds' blossoming algorithm\", which was developed by Jack Edmonds in the early 1960's:   There remain many interesting open problems related to matchings in graphs, such as problems about rainbow matchings in edge-colored graphs:   "
 },
 {
   "id": "def-matching",
@@ -2905,7 +2905,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "5.2.2",
   "title": "",
-  "body": " Let be the complete graph on vertices. The maximum matching in has size , since we can pair up the vertices in pairs, and if there is an odd vertex left over, it cannot be matched.  "
+  "body": " Let be the complete graph on vertices. Any maximum matching in has size , since we can pair up the vertices in pairs, and if there is an odd vertex left over, it cannot be matched.  "
 },
 {
   "id": "sec-matchings-5",
@@ -2914,16 +2914,88 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "5.2.3",
   "title": "",
-  "body": " Consider the Petersen graph shown below. Consider the matching given by the edges . Is this a maximum matching? If not, find a larger matching. How do you know that a matching is maximum?  Drawing of the Petersen graph.     "
+  "body": " Consider the Petersen graph shown below. Consider the matching given by the edges . Is this a maximum matching? If not, find a larger matching. How do you know whether or not a matching is maximum?   Drawing of the Petersen graph.    "
 },
 {
-  "id": "sec-matchings-7",
+  "id": "sec-matchings-8",
   "level": "2",
-  "url": "sec-matchings.html#sec-matchings-7",
-  "type": "Example",
+  "url": "sec-matchings.html#sec-matchings-8",
+  "type": "Checkpoint",
   "number": "5.2.5",
   "title": "",
-  "body": "   "
+  "body": " Consider the path graph on vertices, with vertices labeled in order. One possible matching is . This matching has two edges. How can we create a larger matching from this one?  "
+},
+{
+  "id": "sec-matchings-9",
+  "level": "2",
+  "url": "sec-matchings.html#sec-matchings-9",
+  "type": "Checkpoint",
+  "number": "5.2.6",
+  "title": "",
+  "body": " Consider the cycle graph on 6 vertices, with vertices labeled in order. One possible matching is . This matching has two edges. How can we create a larger matching from this one?  "
+},
+{
+  "id": "def-augmentingpath",
+  "level": "2",
+  "url": "sec-matchings.html#def-augmentingpath",
+  "type": "Definition",
+  "number": "5.2.7",
+  "title": "",
+  "body": "  Let be a graph and a matching in . An augmenting path with respect to is a path in that starts and ends at vertices not covered by , and alternates between edges not in and edges in .   "
+},
+{
+  "id": "sec-matchings-11",
+  "level": "2",
+  "url": "sec-matchings.html#sec-matchings-11",
+  "type": "Checkpoint",
+  "number": "5.2.8",
+  "title": "",
+  "body": " Consider again the Petersen graph shown below with the matching given by the edges . Show that is an augmenting path in this matching. What happens if we remove the edges of the matching along this path and add the other edges of the path to the matching?   Drawing of the Petersen graph.    "
+},
+{
+  "id": "lem-augmentingpaths",
+  "level": "2",
+  "url": "sec-matchings.html#lem-augmentingpaths",
+  "type": "Lemma",
+  "number": "5.2.10",
+  "title": "",
+  "body": "  Given an augmenting path with respect to a matching in a graph , we can create a new matching by removing the edges of along the path and adding the other edges of the path to the matching. The new matching has size .   "
+},
+{
+  "id": "sec-matchings-13",
+  "level": "2",
+  "url": "sec-matchings.html#sec-matchings-13",
+  "type": "Proof",
+  "number": "5.2.1",
+  "title": "",
+  "body": " Since the path starts and ends at vertices not covered by , the first and last edges of the path are not in . Thus, there are an odd number of edges in the path, and there is one more edge not in than there are edges in . When we remove the edges of along the path and add the other edges of the path to the matching, we increase the size of the matching by . What results is a valid matching since no two edges in the new matching share a common vertex; this is because the endpoints of the path are not covered by any edges in the original matching.  "
+},
+{
+  "id": "thm-maximummatching",
+  "level": "2",
+  "url": "sec-matchings.html#thm-maximummatching",
+  "type": "Theorem",
+  "number": "5.2.11",
+  "title": "",
+  "body": "  A matching in a graph is maximum if and only if there are no augmenting paths with respect to .   "
+},
+{
+  "id": "sec-matchings-16",
+  "level": "2",
+  "url": "sec-matchings.html#sec-matchings-16",
+  "type": "Proof",
+  "number": "5.2.2",
+  "title": "",
+  "body": " Let's suppose that is a matching in and that is maximum. We will show that there are no augmenting paths with respect to . Suppose, for the sake of contradiction, that there is an augmenting path with respect to . By our lemma, we can create a new matching by removing the edges of along the path and adding the other edges of the path to the matching. The new matching has size , which contradicts the assumption that is maximum. Therefore, there are no augmenting paths with respect to .  Next, we will show that if there are no augmenting paths with respect to a matching in , then is maximum. We will do this using the technique of proof by contrapositive : we will show that if is not maximum, then there exists an augmenting path with respect to . Let be a maximal matching in , and note that . Consider the symmetric difference , and consider the subgraph of containing those edges. In , each vertex has degree or , since each vertex is incident to at most one edge from and at most one edge from . Thus, the connected components of are paths and cycles, and if they are cycles, the length of the cycle is even, since the edges alternate between those in and those in . The graph has more elements of than of , so there must be at least one path component in that has more edges from than from . Such a path must start and end with edges from , and thus starts and ends at vertices not covered by . Therefore, this path is an augmenting path with respect to , and we are done.  "
+},
+{
+  "id": "sec-matchings-17",
+  "level": "2",
+  "url": "sec-matchings.html#sec-matchings-17",
+  "type": "Checkpoint",
+  "number": "5.2.12",
+  "title": "",
+  "body": " Proof by contrapositive states that if we want to prove that , it is sufficient to prove that , where is the negation of . Using the following truth table, explain why this proof technique is valid.   Truth Table    P  Q    T  T    T  F    F  T    F  F     "
 },
 {
   "id": "sec-minimumspanningtrees",
