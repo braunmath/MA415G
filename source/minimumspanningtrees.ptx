@@ -235,4 +235,48 @@
         </p>
     </exercise>
 
+    <p>
+        There are many amazing applications of minimum spanning trees.
+        We will explore one such application to data clustering.
+        Suppose that you have a set of data points in <m>\mathbb{R}^n</m> and you want to group them into clusters that are similar to each other.
+        One way to do this is to construct a weighted complete graph where each vertex represents a data point and the weight of an edge between two vertices represents the distance between the corresponding data points.
+        By finding a minimum spanning tree of this weighted complete graph, we can identify clusters of data points that are closely related to each other.
+    </p>
+
+    <p>
+        Let's look at an example (with artificial data) to illustrate this idea.
+        The following figure shows a set of data points in <m>\mathbb{R}^2</m> which I generated using Gaussian distributions around four points in the plane.
+    </p>
+
+    <figure xml:id="fig-mstclusterdata">
+        <caption>Data of four Gaussian clusters.</caption>
+        <image source="mst_cluster_data.png">
+        </image>
+    </figure>
+
+    <p>
+        Consider the weighted complete graph with <m>400</m> vertices corresponding to these data points and <m>\binom{400}{2}=79,800</m> edges corresponding to pairs of points, where the weight of each edge is given by the Euclidean distance between the corresponding data points.
+        The next figure shows a minimum spanning tree of this weighted graph, which has <m>399</m> edges.
+    </p>
+    
+    <figure xml:id="fig-mstclustertree">
+        <caption>MST for data of four Gaussian clusters.</caption>
+        <image source="mst_cluster_tree.png">
+        </image>
+    </figure>
+
+    <p>
+        If we remove the three edges with the largest weights (distances) from this spanning tree, we obtain four connected components, which correspond to the four observable clusters of data points.
+    </p>
+
+    <figure xml:id="fig-mstclustertreecut">
+        <caption>Cut MST for data of four Gaussian clusters.</caption>
+        <image source="mst_cluster_cut_tree.png">
+        </image>
+    </figure>
+
+    <p>
+        This simple example illustrates how minimum spanning trees can be used for data clustering, though in practice there are other much more robust algorithms used to identify clusters in data: <url href="https://en.wikipedia.org/wiki/Cluster_analysis" />
+    </p>
+
 </section>
