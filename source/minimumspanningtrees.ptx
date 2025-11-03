@@ -1,5 +1,238 @@
 <section xml:id="sec-minimumspanningtrees">
     <title>Minimum Spanning Trees in Weighted Graphs</title>
 
+    <p>
+        Our second example of an optimization problem involves the concept of a weighted graph and a minimum spanning tree.
+    </p>
+
+    <definition xml:id="def-weightedgraph">
+        <statement>
+            <p>
+                A <em>weighted graph</em> is a graph in which each edge is assigned a real value, called its <em>weight</em>.
+                We will denote a weighted graph as a pair <m>(G,w)</m>, where <m>G = (V,E)</m> is the underlying graph and <m>w : E \to \mathbb{R}</m> is the weight function that assigns a weight to each edge.
+            </p>
+        </statement>
+    </definition>
+
+    <definition xml:id="def-minspanningtree">
+        <statement>
+            <p>
+                Given a weighted graph <m>(G,w)</m>, a <em>minimum spanning tree</em> is a spanning tree of <m>G</m> that has the smallest possible total weight among all spanning trees of <m>G</m>.
+                In other words, if <m>T = (V, E_T)</m> is a spanning tree of <m>G</m>, then the total weight of <m>T</m> is given by <me>\sum_{e \in E_T} w(e)</me>, and a minimum spanning tree is one that minimizes this sum.
+            </p>
+        </statement>
+    </definition>
+
+        <figure xml:id="minspantree1">
+        <caption>A weighted graph and a minimum spanning tree.</caption>
+        <image source="weightedgraph_minspanningtree_1.png" width="100%"/>
+        </figure>
+
+    <exercise>
+        <p>
+            How might you check that the spanning tree shown in the figure above is indeed a minimum spanning tree for the given weighted graph?
+        </p>
+    </exercise>
+
+    <p>
+        There is a well-known greedy algorithm, called Kruskal's algorithm, that can be used to find a minimum spanning tree in a weighted graph.
+        We will first need to establish some notation.
+    </p>
+
+    <definition xml:id="def-mintreenotation">
+        <statement>
+            <p>
+                Let <m>S\subseteq E</m> be a set of edges in a weighted graph <m>(G,w)</m>.
+                Let <m>G:S</m> denote the subgraph of <m>G</m> that contains all the vertices of <m>G</m> and the edges in <m>S</m>, which we call the <em>spanning subgraph</em> induced by <m>S</m>.
+                We say <m>S</m> is <em>independent</em> if the spanning subgraph <m>G:S</m> is acyclic.
+            </p>
+        </statement>
+    </definition>
+
+    <p>
+        Note that an independent set of edges must be a union of trees, since each connected component of an acyclic graph is a tree.
+        Also, note that if <m>S</m> is independent and has <m>k</m> edges, then the spanning subgraph <m>G:S</m> has <m>n - k</m> connected components, where <m>n</m> is the number of vertices in <m>G</m>.
+    </p>
+
+    <exercise>
+        <p>
+            <ol>
+                <li>
+                    <p>
+                        Draw a picture of <m>K_6:\{12,23, 45\}</m>.
+                        What are the connected components of the spanning subgraph <m>K_6:\{12, 23, 45\}</m>?
+                        Is the set of edges <m>\{12, 23, 45\}</m> independent?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Is it possible to find a non-independent set of edges in the Petersen graph that has four edges? Why or why not?
+                    </p>
+
+                </li>
+            </ol>
+            
+        </p>
+        <figure xml:id="fig-peterson4">
+            <caption>Drawing of the Petersen graph.</caption>
+            <image source="petersen.png" width="75%"/>
+            </figure>
+    </exercise>
+
+    <definition xml:id="def-kruskalalgorithm">
+        <title>Kruskal's Algorithm</title>
+        <statement>
+            <p>
+                Let <m>(G,w)</m> be a weighted graph with <m>n</m> vertices.
+                The algorithm proceeds as follows: 
+                Start with the empty set of edges <m>S = \emptyset</m>.
+            </p>
+            <p>
+                While <m>|S| \lt n - 1</m>, do the following:
+                <ol>
+                    <li>
+                        Find an edge <m>e \in E \setminus S</m> of minimum weight <m>w(e)</m> such that adding <m>e</m> to <m>S</m> connects two components in the spanning subgraph <m>G:S</m>.
+                    </li>
+                    <li>
+                        Add the edge <m>e</m> to the set <m>S</m>.
+                    </li>
+                </ol>
+                When the algorithm terminates, output the spanning tree <m>T = (V, S)</m>.
+            </p>
+        </statement>
+    </definition>
+
+    <p>
+        We will prove below that Kruskal's algorithm always produces a minimum spanning tree, but for the moment let's take this fact for granted and see how the algorithm works.
+    </p>
+
+    <example>
+        <p>
+            Let's apply Kruskal's algorithm to the weighted graph below.
+        </p>
+        <figure xml:id="fig-weighted1">
+            <caption>A weighted graph.</caption>
+            <image source="weightedgraph_1.png" width="80%"/>
+            </figure>
+            <p>
+                We start with the empty set of edges <m>S = \emptyset</m>.
+                Thus, <m>G:S</m> has six connected components, each consisting of a single vertex.
+                <ol>
+                    <li>
+                        <p>
+                            There are three edges of minimum weight <m>2</m>: <m>02,07,17</m>.
+                            We can choose any of these edges to add to <m>S</m>, so we will choose <m>02</m>.
+                            Now, <m>S = \{02\}</m>, and <m>G:S</m> has seven connected components.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We will next select the edge <m>17</m>, which also has weight <m>2</m>.
+                            Now, <m>S = \{02, 17\}</m>, and <m>G:S</m> has six connected components.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We will next select the edge <m>07</m>, which also has weight <m>2</m>.
+                            Now, <m>S = \{02, 17, 07\}</m>, and <m>G:S</m> has five connected components.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <em>Observation:</em> At this point, we have selected all the edges of weight <m>2</m>, and we are not allowed in the future to select the edges <m>01, 12, 27</m> as these choices would introduce a cycle in the spanning subgraph.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We next select the edge <m>05</m>, as it has the next smallest weight of <m>4</m>.
+                            Now, <m>S = \{02, 17, 07, 05\}</m>, and <m>G:S</m> has four connected components.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We next select the edge <m>14</m>, as it has the next smallest weight of <m>5</m>.
+                            Now, <m>S = \{02, 17, 07, 05, 14\}</m>, and <m>G:S</m> has three connected components.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <em>Observation:</em> The smallest remaining edge weight is <m>5</m>, on the edge <m>24</m>, but adding this edge would create a cycle in <m>G:S</m>, so we cannot select this edge.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We next select the edge <m>16</m>, as it has the next smallest weight of <m>8</m> and does not introduce a cycle.
+                            Now, <m>S = \{02, 17, 07, 05, 14, 16\}</m>, and <m>G:S</m> has two connected components.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The final step in our algorithm is to select the edge <m>13</m>, which has weight <m>11</m> and connects the two remaining components.
+                        </p>
+                    </li>
+                </ol> 
+                Thus, the minimum spanning tree produced by Kruskal's algorithm is the spanning tree with edge set <m>S = \{02, 17, 07, 05, 14, 16, 13\}</m>.
+            </p>
+    </example>
+
+    <exercise>
+        <p>
+            Run Kruskal's algorithm on the weighted graph below and verify that the minimum spanning tree is correct.
+        </p>
+        <figure xml:id="minspantree2">
+        <caption>A weighted graph and a minimum spanning tree.</caption>
+        <image source="weightedgraph_minspanningtree_1.png" width="100%"/>
+        </figure>
+    </exercise>
+
+    <p>
+        Note that Kruskal's algorithm can produce different minimum spanning trees depending on the choices made when there are multiple edges of the same minimum weight.
+        For example, if every weight in the graph is equal to <m>1</m>, then any spanning tree is a minimum spanning tree, and Kruskal's algorithm could produce any of them.
+    </p>
+
+    <theorem xml:id="thm-kruskalvalidity">
+        <statement>
+            <p>
+                Kruskal's algorithm always produces a minimum spanning tree for a given weighted graph <m>(G,w)</m>.
+            </p>
+        </statement>
+    </theorem>
+
+    <proof>
+        <p>
+            Let <m>(G,w)</m> be a weighted graph with <m>n</m> vertices, and let <m>T = (V,S)</m> be the spanning tree produced by Kruskal's algorithm.
+            We will first show that <m>T</m> is indeed a spanning tree of <m>G</m>.
+            Since the algorithm terminates when <m>|S| = n - 1</m>, and since we only add edges that connect two components in the spanning subgraph <m>G:S</m>, it follows that <m>G:S</m> is connected and acyclic.
+            Therefore, <m>T</m> is a spanning tree of <m>G</m>.
+        </p>
+        <p>
+            We will now show that <m>T</m> is a minimum spanning tree.
+            Let <m>T'= (V, S')</m> be any other spanning tree of <m>G</m>.
+            Write
+            <me>
+                S=\{e_1,e_2,\ldots,e_{n-1}\}
+            </me>
+            where the edges are listed in the order they were added by Kruskal's algorithm, i.e., <me>w(e_1) \leq w(e_2) \leq \cdots \leq w(e_{n-1})\, .</me>
+            We will write
+            <me>
+                S_k:=\{e_1,\ldots,e_k\}\, .
+            </me>
+            Let <m>T'</m> have edges <me>S' = \{f_1, f_2, \ldots, f_{n-1}\}</me>, written in the order <me>w(f_1) \leq w(f_2) \leq \cdots \leq w(f_{n-1})\, .</me>
+            We will show that 
+            <me>w(e_i) \leq w(f_i)</me> for all <m>1 \leq i \leq n - 1</m>, which will imply that the total weight of <m>T</m> is less than or equal to the total weight of <m>T'</m>.
+            We go by contradiction and suppose that there exists an index <m>k</m> such that <me>w(e_k) \gt w(f_k)</me>, and let <m>k</m> be the smallest such index.
+            Since none of <m>f_1, f_2, \ldots, f_{k}</m> were chosen by Kruskal's algorithm before <m>e_k</m>, it follows that they were already in the components of <m>G:S_{k-1}</m>.
+            Since <m>G:S_{k-1}</m> has <m>n-(k-1)</m> components, we see that <m>G:S'_k</m> has at least <m>n-(k-1)=n-k+1</m> components as well.
+            But, if <m>G:S'_k</m> were acyclic, it would be a union of trees, and hence would have <m>n-k</m> components.
+            This is not possible, and therefore <m>G:S'_k</m> is not acyclic, contradicting the assumption that <m>T'</m> is a spanning tree.
+            Thus, we conclude that <me>w(e_i) \leq w(f_i)</me> for all <m>1 \leq i \leq n - 1</m>, and hence that <m>T</m> is a minimum spanning tree.           
+        </p>
+    </proof>
+
+    <exercise>
+        <p>
+            Discuss the proof above. Does it make sense? Why or why not?
+        </p>
+    </exercise>
 
 </section>

@@ -17,7 +17,9 @@
     <exercise>
         <p>
             which of the following graphs is a tree? 
-            <figure xml:id="fig-tree1">
+            
+        </p>
+        <figure xml:id="fig-tree1">
     <caption>Graph 1.</caption>
     <image source="tree1.png" width="75%"/>
 </figure>
@@ -29,7 +31,6 @@
     <caption>Graph 3.</caption>
     <image source="tree2.png" width="75%"/>
 </figure>
-        </p>
     </exercise>
     <exercise xml:id="ex-hardnotatreecheckpoint">
         <p>
@@ -123,11 +124,12 @@
     <exercise>
         <p>
             Verify that each of the above conditions hold for the following tree.
-            <figure xml:id="fig-tree1again">
+            
+        </p>
+        <figure xml:id="fig-tree1again">
     <caption>A tree.</caption>
     <image source="tree1.png" width="75%"/>
 </figure>
-        </p>
     </exercise>
 
     <p>
@@ -145,11 +147,12 @@
     <exercise>
                 <p>
                     Identify the connected components in the following graph.
-                    <figure xml:id="fig-nontree1components">
+                    
+                </p>
+                <figure xml:id="fig-nontree1components">
     <caption>A graph with multiple connected components.</caption>
     <image source="disconnected.png" width="75%"/>
 </figure>
-                </p>
             </exercise>
 
     <lemma xml:id="lem-connectedcomponentsreduction">
@@ -227,11 +230,12 @@
         <title>Proof of <xref ref="thm-treeclassification"/></title>
         <p>
             We will use the following logical implications to prove the classification:
-            <figure xml:id="fig-treeproofimplications">
+           
+        </p>
+         <figure xml:id="fig-treeproofimplications">
             <caption>Logical implications to establish equivalence.</caption>
             <image source="treeproofimplications.png" width="90%"/>
             </figure>
-        </p>
         <p>
             First, we will prove that if <m>G</m> is connected and acyclic then it also has <m>n-1</m> edges.
             Construct <m>G</m> by starting with the empty graph and adding one edge at a time.
