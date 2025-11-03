@@ -101,14 +101,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.15';
+eBookConfig.runestone_version = '7.9.17';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.65bdf16e03e918ea.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.29d986501a531379.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.3ea59cc2563cc8e9.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.29d986501a531379.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -201,7 +201,213 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-minimumspanningtrees"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">5.3</span><span class="space"> </span><span class="title">Minimum Spanning Trees in Weighted Graphs</span>
 </h2>
-<div class="autopermalink" data-description="Section 5.3: Minimum Spanning Trees in Weighted Graphs"><a href="#sec-minimumspanningtrees" title="Copy heading and permalink for Section 5.3: Minimum Spanning Trees in Weighted Graphs" aria-label="Copy heading and permalink for Section 5.3: Minimum Spanning Trees in Weighted Graphs">🔗</a></div></section></div>
+<div class="para" id="sec-minimumspanningtrees-2">Our second example of an optimization problem involves the concept of a weighted graph and a minimum spanning tree.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-weightedgraph"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="def-weightedgraph-1-1">A <em class="emphasis">weighted graph</em> is a graph in which each edge is assigned a real value, called its <em class="emphasis">weight</em>. We will denote a weighted graph as a pair <span class="process-math">\((G,w)\text{,}\)</span> where <span class="process-math">\(G = (V,E)\)</span> is the underlying graph and <span class="process-math">\(w : E \to \mathbb{R}\)</span> is the weight function that assigns a weight to each edge.<div class="autopermalink" data-description="Paragraph"><a href="#def-weightedgraph-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.3.1"><a href="#def-weightedgraph" title="Copy heading and permalink for Definition 5.3.1" aria-label="Copy heading and permalink for Definition 5.3.1">🔗</a></div></article><article class="definition definition-like" id="def-minspanningtree"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-minspanningtree-1-1">
+<div class="para">Given a weighted graph <span class="process-math">\((G,w)\text{,}\)</span> a <em class="emphasis">minimum spanning tree</em> is a spanning tree of <span class="process-math">\(G\)</span> that has the smallest possible total weight among all spanning trees of <span class="process-math">\(G\text{.}\)</span> In other words, if <span class="process-math">\(T = (V, E_T)\)</span> is a spanning tree of <span class="process-math">\(G\text{,}\)</span> then the total weight of <span class="process-math">\(T\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{e \in E_T} w(e)\text{,}
+\end{equation*}
+</div>
+<div class="para">and a minimum spanning tree is one that minimizes this sum.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-minspanningtree-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.3.2"><a href="#def-minspanningtree" title="Copy heading and permalink for Definition 5.3.2" aria-label="Copy heading and permalink for Definition 5.3.2">🔗</a></div></article><figure class="figure figure-like" id="minspantree1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/weightedgraph_minspanningtree_1.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.3<span class="period">.</span></span><span class="space"> </span>A weighted graph and a minimum spanning tree.<div class="autopermalink" data-description="Figure 5.3.3"><a href="#minspantree1" title="Copy heading and permalink for Figure 5.3.3" aria-label="Copy heading and permalink for Figure 5.3.3">🔗</a></div></figcaption></figure><details id="sec-minimumspanningtrees-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-minimumspanningtrees-6-1">How might you check that the spanning tree shown in the figure above is indeed a minimum spanning tree for the given weighted graph?<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.3.4"><a href="#sec-minimumspanningtrees-6" title="Copy heading and permalink for Checkpoint 5.3.4" aria-label="Copy heading and permalink for Checkpoint 5.3.4">🔗</a></div></article></details><div class="para" id="sec-minimumspanningtrees-7">There is a well-known greedy algorithm, called Kruskal’s algorithm, that can be used to find a minimum spanning tree in a weighted graph. We will first need to establish some notation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-mintreenotation"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.5</span><span class="period">.</span>
+</h3>
+<div class="para" id="def-mintreenotation-1-1">Let <span class="process-math">\(S\subseteq E\)</span> be a set of edges in a weighted graph <span class="process-math">\((G,w)\text{.}\)</span> Let <span class="process-math">\(G:S\)</span> denote the subgraph of <span class="process-math">\(G\)</span> that contains all the vertices of <span class="process-math">\(G\)</span> and the edges in <span class="process-math">\(S\text{,}\)</span> which we call the <em class="emphasis">spanning subgraph</em> induced by <span class="process-math">\(S\text{.}\)</span> We say <span class="process-math">\(S\)</span> is <em class="emphasis">independent</em> if the spanning subgraph <span class="process-math">\(G:S\)</span> is acyclic.<div class="autopermalink" data-description="Paragraph"><a href="#def-mintreenotation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.3.5"><a href="#def-mintreenotation" title="Copy heading and permalink for Definition 5.3.5" aria-label="Copy heading and permalink for Definition 5.3.5">🔗</a></div></article><div class="para" id="sec-minimumspanningtrees-9">Note that an independent set of edges must be a union of trees, since each connected component of an acyclic graph is a tree. Also, note that if <span class="process-math">\(S\)</span> is independent and has <span class="process-math">\(k\)</span> edges, then the spanning subgraph <span class="process-math">\(G:S\)</span> has <span class="process-math">\(n - k\)</span> connected components, where <span class="process-math">\(n\)</span> is the number of vertices in <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-minimumspanningtrees-10" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.3.6</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-minimumspanningtrees-10-1">
+<ol class="decimal" id="sec-minimumspanningtrees-10-1-1">
+<li id="sec-minimumspanningtrees-10-1-1-1">
+<div class="para" id="sec-minimumspanningtrees-10-1-1-1-1">Draw a picture of <span class="process-math">\(K_6:\{12,23, 45\}\text{.}\)</span> What are the connected components of the spanning subgraph <span class="process-math">\(K_6:\{12, 23, 45\}\text{?}\)</span> Is the set of edges <span class="process-math">\(\{12, 23, 45\}\)</span> independent?<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-10-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.3.6.1"><a href="#sec-minimumspanningtrees-10-1-1-1" title="Copy heading and permalink for Item 5.3.6.1" aria-label="Copy heading and permalink for Item 5.3.6.1">🔗</a></div>
+</li>
+<li id="sec-minimumspanningtrees-10-1-1-2">
+<div class="para" id="sec-minimumspanningtrees-10-1-1-2-1">Is it possible to find a non-independent set of edges in the Petersen graph that has four edges? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-10-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.3.6.2"><a href="#sec-minimumspanningtrees-10-1-1-2" title="Copy heading and permalink for Item 5.3.6.2" aria-label="Copy heading and permalink for Item 5.3.6.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-peterson4"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/petersen.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.7<span class="period">.</span></span><span class="space"> </span>Drawing of the Petersen graph.<div class="autopermalink" data-description="Figure 5.3.7"><a href="#fig-peterson4" title="Copy heading and permalink for Figure 5.3.7" aria-label="Copy heading and permalink for Figure 5.3.7">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 5.3.6"><a href="#sec-minimumspanningtrees-10" title="Copy heading and permalink for Checkpoint 5.3.6" aria-label="Copy heading and permalink for Checkpoint 5.3.6">🔗</a></div></article></details><article class="definition definition-like" id="def-kruskalalgorithm"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Kruskal’s Algorithm.</span>
+</h3>
+<div class="para" id="def-kruskalalgorithm-2-1">Let <span class="process-math">\((G,w)\)</span> be a weighted graph with <span class="process-math">\(n\)</span> vertices. The algorithm proceeds as follows: Start with the empty set of edges <span class="process-math">\(S = \emptyset\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-kruskalalgorithm-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="def-kruskalalgorithm-2-2">
+<div class="para">While <span class="process-math">\(|S| \lt n - 1\text{,}\)</span> do the following:</div>
+<ol class="decimal" id="def-kruskalalgorithm-2-2-2">
+<li id="def-kruskalalgorithm-2-2-2-1">
+<div class="para" id="p-derived-def-kruskalalgorithm-2-2-2-1">Find an edge <span class="process-math">\(e \in E \setminus S\)</span> of minimum weight <span class="process-math">\(w(e)\)</span> such that adding <span class="process-math">\(e\)</span> to <span class="process-math">\(S\)</span> connects two components in the spanning subgraph <span class="process-math">\(G:S\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#def-kruskalalgorithm-2-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="def-kruskalalgorithm-2-2-2-2">
+<div class="para" id="p-derived-def-kruskalalgorithm-2-2-2-2">Add the edge <span class="process-math">\(e\)</span> to the set <span class="process-math">\(S\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#def-kruskalalgorithm-2-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="para">When the algorithm terminates, output the spanning tree <span class="process-math">\(T = (V, S)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-kruskalalgorithm-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.3.8: Kruskal’s Algorithm"><a href="#def-kruskalalgorithm" title="Copy heading and permalink for Definition 5.3.8: Kruskal’s Algorithm" aria-label="Copy heading and permalink for Definition 5.3.8: Kruskal’s Algorithm">🔗</a></div></article><div class="para" id="sec-minimumspanningtrees-12">We will prove below that Kruskal’s algorithm always produces a minimum spanning tree, but for the moment let’s take this fact for granted and see how the algorithm works.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-minimumspanningtrees-13" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.9</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="sec-minimumspanningtrees-13-1">Let’s apply Kruskal’s algorithm to the weighted graph below.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-weighted1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/weightedgraph_1.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.10<span class="period">.</span></span><span class="space"> </span>A weighted graph.<div class="autopermalink" data-description="Figure 5.3.10"><a href="#fig-weighted1" title="Copy heading and permalink for Figure 5.3.10" aria-label="Copy heading and permalink for Figure 5.3.10">🔗</a></div></figcaption></figure><div class="para logical" id="sec-minimumspanningtrees-13-3">
+<div class="para">We start with the empty set of edges <span class="process-math">\(S = \emptyset\text{.}\)</span> Thus, <span class="process-math">\(G:S\)</span> has six connected components, each consisting of a single vertex.</div>
+<ol class="decimal" id="sec-minimumspanningtrees-13-3-3">
+<li id="sec-minimumspanningtrees-13-3-3-1">
+<div class="para" id="sec-minimumspanningtrees-13-3-3-1-1">There are three edges of minimum weight <span class="process-math">\(2\text{:}\)</span> <span class="process-math">\(02,07,17\text{.}\)</span> We can choose any of these edges to add to <span class="process-math">\(S\text{,}\)</span> so we will choose <span class="process-math">\(02\text{.}\)</span> Now, <span class="process-math">\(S = \{02\}\text{,}\)</span> and <span class="process-math">\(G:S\)</span> has seven connected components.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-3-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-minimumspanningtrees-13-3-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-minimumspanningtrees-13-3-3-2">
+<div class="para" id="sec-minimumspanningtrees-13-3-3-2-1">We will next select the edge <span class="process-math">\(17\text{,}\)</span> which also has weight <span class="process-math">\(2\text{.}\)</span> Now, <span class="process-math">\(S = \{02, 17\}\text{,}\)</span> and <span class="process-math">\(G:S\)</span> has six connected components.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-3-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-minimumspanningtrees-13-3-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-minimumspanningtrees-13-3-3-3">
+<div class="para" id="sec-minimumspanningtrees-13-3-3-3-1">We will next select the edge <span class="process-math">\(07\text{,}\)</span> which also has weight <span class="process-math">\(2\text{.}\)</span> Now, <span class="process-math">\(S = \{02, 17, 07\}\text{,}\)</span> and <span class="process-math">\(G:S\)</span> has five connected components.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-3-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-minimumspanningtrees-13-3-3-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="sec-minimumspanningtrees-13-3-3-4">
+<div class="para" id="sec-minimumspanningtrees-13-3-3-4-1">
+<em class="emphasis">Observation:</em> At this point, we have selected all the edges of weight <span class="process-math">\(2\text{,}\)</span> and we are not allowed in the future to select the edges <span class="process-math">\(01, 12, 27\)</span> as these choices would introduce a cycle in the spanning subgraph.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-3-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#sec-minimumspanningtrees-13-3-3-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="sec-minimumspanningtrees-13-3-3-5">
+<div class="para" id="sec-minimumspanningtrees-13-3-3-5-1">We next select the edge <span class="process-math">\(05\text{,}\)</span> as it has the next smallest weight of <span class="process-math">\(4\text{.}\)</span> Now, <span class="process-math">\(S = \{02, 17, 07, 05\}\text{,}\)</span> and <span class="process-math">\(G:S\)</span> has four connected components.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-3-3-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#sec-minimumspanningtrees-13-3-3-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+<li id="sec-minimumspanningtrees-13-3-3-6">
+<div class="para" id="sec-minimumspanningtrees-13-3-3-6-1">We next select the edge <span class="process-math">\(14\text{,}\)</span> as it has the next smallest weight of <span class="process-math">\(5\text{.}\)</span> Now, <span class="process-math">\(S = \{02, 17, 07, 05, 14\}\text{,}\)</span> and <span class="process-math">\(G:S\)</span> has three connected components.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-3-3-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6"><a href="#sec-minimumspanningtrees-13-3-3-6" title="Copy heading and permalink for Item 6" aria-label="Copy heading and permalink for Item 6">🔗</a></div>
+</li>
+<li id="sec-minimumspanningtrees-13-3-3-7">
+<div class="para" id="sec-minimumspanningtrees-13-3-3-7-1">
+<em class="emphasis">Observation:</em> The smallest remaining edge weight is <span class="process-math">\(5\text{,}\)</span> on the edge <span class="process-math">\(24\text{,}\)</span> but adding this edge would create a cycle in <span class="process-math">\(G:S\text{,}\)</span> so we cannot select this edge.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-3-3-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7"><a href="#sec-minimumspanningtrees-13-3-3-7" title="Copy heading and permalink for Item 7" aria-label="Copy heading and permalink for Item 7">🔗</a></div>
+</li>
+<li id="sec-minimumspanningtrees-13-3-3-8">
+<div class="para" id="sec-minimumspanningtrees-13-3-3-8-1">We next select the edge <span class="process-math">\(16\text{,}\)</span> as it has the next smallest weight of <span class="process-math">\(8\)</span> and does not introduce a cycle. Now, <span class="process-math">\(S = \{02, 17, 07, 05, 14, 16\}\text{,}\)</span> and <span class="process-math">\(G:S\)</span> has two connected components.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-3-3-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 8"><a href="#sec-minimumspanningtrees-13-3-3-8" title="Copy heading and permalink for Item 8" aria-label="Copy heading and permalink for Item 8">🔗</a></div>
+</li>
+<li id="sec-minimumspanningtrees-13-3-3-9">
+<div class="para" id="sec-minimumspanningtrees-13-3-3-9-1">The final step in our algorithm is to select the edge <span class="process-math">\(13\text{,}\)</span> which has weight <span class="process-math">\(11\)</span> and connects the two remaining components.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-3-3-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 9"><a href="#sec-minimumspanningtrees-13-3-3-9" title="Copy heading and permalink for Item 9" aria-label="Copy heading and permalink for Item 9">🔗</a></div>
+</li>
+</ol>
+<div class="para">Thus, the minimum spanning tree produced by Kruskal’s algorithm is the spanning tree with edge set <span class="process-math">\(S = \{02, 17, 07, 05, 14, 16, 13\}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-13-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.3.9"><a href="#sec-minimumspanningtrees-13" title="Copy heading and permalink for Example 5.3.9" aria-label="Copy heading and permalink for Example 5.3.9">🔗</a></div></article></details><details id="sec-minimumspanningtrees-14" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.3.11</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-minimumspanningtrees-14-1">Run Kruskal’s algorithm on the weighted graph below and verify that the minimum spanning tree is correct.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="minspantree2"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/weightedgraph_minspanningtree_1.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.12<span class="period">.</span></span><span class="space"> </span>A weighted graph and a minimum spanning tree.<div class="autopermalink" data-description="Figure 5.3.12"><a href="#minspantree2" title="Copy heading and permalink for Figure 5.3.12" aria-label="Copy heading and permalink for Figure 5.3.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 5.3.11"><a href="#sec-minimumspanningtrees-14" title="Copy heading and permalink for Checkpoint 5.3.11" aria-label="Copy heading and permalink for Checkpoint 5.3.11">🔗</a></div></article></details><div class="para" id="sec-minimumspanningtrees-15">Note that Kruskal’s algorithm can produce different minimum spanning trees depending on the choices made when there are multiple edges of the same minimum weight. For example, if every weight in the graph is equal to <span class="process-math">\(1\text{,}\)</span> then any spanning tree is a minimum spanning tree, and Kruskal’s algorithm could produce any of them.<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-kruskalvalidity"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.13</span><span class="period">.</span>
+</h3>
+<div class="para" id="thm-kruskalvalidity-1-1">Kruskal’s algorithm always produces a minimum spanning tree for a given weighted graph <span class="process-math">\((G,w)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-kruskalvalidity-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.3.13"><a href="#thm-kruskalvalidity" title="Copy heading and permalink for Theorem 5.3.13" aria-label="Copy heading and permalink for Theorem 5.3.13">🔗</a></div></article><details id="sec-minimumspanningtrees-17" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-minimumspanningtrees-17-1">Let <span class="process-math">\((G,w)\)</span> be a weighted graph with <span class="process-math">\(n\)</span> vertices, and let <span class="process-math">\(T = (V,S)\)</span> be the spanning tree produced by Kruskal’s algorithm. We will first show that <span class="process-math">\(T\)</span> is indeed a spanning tree of <span class="process-math">\(G\text{.}\)</span> Since the algorithm terminates when <span class="process-math">\(|S| = n - 1\text{,}\)</span> and since we only add edges that connect two components in the spanning subgraph <span class="process-math">\(G:S\text{,}\)</span> it follows that <span class="process-math">\(G:S\)</span> is connected and acyclic. Therefore, <span class="process-math">\(T\)</span> is a spanning tree of <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-17-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-minimumspanningtrees-17-2">
+<div class="para">We will now show that <span class="process-math">\(T\)</span> is a minimum spanning tree. Let <span class="process-math">\(T'= (V, S')\)</span> be any other spanning tree of <span class="process-math">\(G\text{.}\)</span> Write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S=\{e_1,e_2,\ldots,e_{n-1}\}
+\end{equation*}
+</div>
+<div class="para">where the edges are listed in the order they were added by Kruskal’s algorithm, i.e.,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w(e_1) \leq w(e_2) \leq \cdots \leq w(e_{n-1})\, .
+\end{equation*}
+</div>
+<div class="para">We will write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S_k:=\{e_1,\ldots,e_k\}\, .
+\end{equation*}
+</div>
+<div class="para">Let <span class="process-math">\(T'\)</span> have edges</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S' = \{f_1, f_2, \ldots, f_{n-1}\}\text{,}
+\end{equation*}
+</div>
+<div class="para">written in the order</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w(f_1) \leq w(f_2) \leq \cdots \leq w(f_{n-1})\, .
+\end{equation*}
+</div>
+<div class="para">We will show that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w(e_i) \leq w(f_i)
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(1 \leq i \leq n - 1\text{,}\)</span> which will imply that the total weight of <span class="process-math">\(T\)</span> is less than or equal to the total weight of <span class="process-math">\(T'\text{.}\)</span> We go by contradiction and suppose that there exists an index <span class="process-math">\(k\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w(e_k) \gt w(f_k)\text{,}
+\end{equation*}
+</div>
+<div class="para">and let <span class="process-math">\(k\)</span> be the smallest such index. Since none of <span class="process-math">\(f_1, f_2, \ldots, f_{k}\)</span> were chosen by Kruskal’s algorithm before <span class="process-math">\(e_k\text{,}\)</span> it follows that they were already in the components of <span class="process-math">\(G:S_{k-1}\text{.}\)</span> Since <span class="process-math">\(G:S_{k-1}\)</span> has <span class="process-math">\(n-(k-1)\)</span> components, we see that <span class="process-math">\(G:S'_k\)</span> has at least <span class="process-math">\(n-(k-1)=n-k+1\)</span> components as well. But, if <span class="process-math">\(G:S'_k\)</span> were acyclic, it would be a union of trees, and hence would have <span class="process-math">\(n-k\)</span> components. This is not possible, and therefore <span class="process-math">\(G:S'_k\)</span> is not acyclic, contradicting the assumption that <span class="process-math">\(T'\)</span> is a spanning tree. Thus, we conclude that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w(e_i) \leq w(f_i)
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(1 \leq i \leq n - 1\text{,}\)</span> and hence that <span class="process-math">\(T\)</span> is a minimum spanning tree.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-17-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.3.1"><a href="#sec-minimumspanningtrees-17" title="Copy heading and permalink for Proof 5.3.1" aria-label="Copy heading and permalink for Proof 5.3.1">🔗</a></div></article></details><details id="sec-minimumspanningtrees-18" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.3.14</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-minimumspanningtrees-18-1">Discuss the proof above. Does it make sense? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-minimumspanningtrees-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.3.14"><a href="#sec-minimumspanningtrees-18" title="Copy heading and permalink for Checkpoint 5.3.14" aria-label="Copy heading and permalink for Checkpoint 5.3.14">🔗</a></div></article></details><div class="autopermalink" data-description="Section 5.3: Minimum Spanning Trees in Weighted Graphs"><a href="#sec-minimumspanningtrees" title="Copy heading and permalink for Section 5.3: Minimum Spanning Trees in Weighted Graphs" aria-label="Copy heading and permalink for Section 5.3: Minimum Spanning Trees in Weighted Graphs">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-matchings.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-modularitymaximization.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

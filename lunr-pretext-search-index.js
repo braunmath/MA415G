@@ -1276,7 +1276,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.3",
   "title": "Trees",
-  "body": " Trees  The simplest connected graphs are the connected graphs that have no cycles. There are many different descriptions of such graphs, meaning that there are many ways to classify this family of graphs.    A graph is acyclic if it has no cycles. A graph on vertices that is connected and acyclic is called a tree .     which of the following graphs is a tree?  Graph 1.     Graph 2.     Graph 3.       Determining whether or not a graph is a tree is not always easy. For example, the following graph is given both visually and as a list of edges. Is the following graph a tree? How might you verify that your answer is correct? Discuss with your group.   Graph 4.    Edges in this graph: (0, 32), (1, 6), (1, 38), (2, 36), (3, 25), (4, 23), (4, 28), (5, 11), (5, 27), (5, 14), (7, 26), (7, 14), (8, 19), (8, 23), (8, 26), (9, 18), (10, 28), (12, 18), (13, 39), (15, 38), (15, 31), (16, 35), (16, 30), (17, 25), (18, 30), (19, 21), (19, 24), (20, 27), (21, 32), (22, 37), (25, 29), (26, 38), (26, 31), (27, 34), (27, 35), (27, 29), (29, 36), (29, 37), (31, 39), (32, 36), (33, 39)   The following theorem lists multiple alternative characterizations of (finite) trees.    Let be a graph on vertices. The following are equivalent.    is a tree, i.e., is connected and acyclic.     is connected and has edges.     is acyclic and has edges.       What this theorem says is that is a tree if it has any two of the properties of being connected, acyclic, or having edges when it has vertices.   Verify that each of the above conditions hold for the following tree.  A tree.      In order to prove , we will need some preliminary definitions and lemmas.    Given a graph and a vertex , the connected component of containing is the set of all vertices that are connected to by a path in . The set of connected components partitions .     Identify the connected components in the following graph.  A graph with multiple connected components.        Adding an edge to a graph can reduce the number of components by at most one.     There are two cases to consider. Suppose we add a new edge to . If and are already in the same connected component, then adding does not change any components. However, if and are in different components, then adding will merge the components containing and into a single component, since now any vertex connected by a path to is also connected by a path to . Thus, this will reduce the number of connected components by one.    Discuss the proof of . Does it make sense? Why or why not? Create a small example to verify that your understanding is correct.     Any connected graph on vertices has at least edges.     Suppose is a graph on vertex set . We construct by starting with the empty graph, i.e., the graph on with no edges, and adding the edges of one at a time. Note that in this case, each individual vertex forms a connected component, hence the empty graph has components. In order for to be connected, every element in must be connected to every other element by a path. Thus, in the process of adding edges one at a time to create , we must merge components into a single component. Each time we add an edge, either there are no components merged or the number of components reduces by one. In order to get from components to one component, we must merge times, which requires at least edges be added.    Discuss the proof of . Does it make sense? Why or why not?     Adding an edge to a connected graph on vertices creates at least one new cycle.     Suppose is a connected graph and is a new edge added to . There exists a simple path in from to , and connecting the endpoints of the path using creates a cycle.    Discuss the proof of . Does it make sense? Why or why not?    Proof of  We will use the following logical implications to prove the classification:  Logical implications to establish equivalence.     First, we will prove that if is connected and acyclic then it also has edges. Construct by starting with the empty graph and adding one edge at a time. Each time we add an edge, if the edge bridges two different connected components, then it merges those components and does not introduce any new cycle. If an edge is added where both of the endpoints of the edge are in the same connected component, then by this introduces a cycle. However, is acyclic, and therefore this cannot happen. Thus, every new edge added results in a merging of components and by the argument in , this results in edges.  Second, we will prove that if is connected with edges, then it is acyclic. Suppose that does contain a cycle . Then removing one of the edges in will not disconnect , since the endpoints of the edge are still connected by the remaining edges of . However, this will result in a graph that is connected with edges, which is impossible by . Therefore, the original graph must be acyclic.  Finally, we will prove that if is acyclic with edges, then it is connected. We again construct by starting with the empty graph and adding edges one at a time. Each time we add an edge, we must add an edge that results in the merging of two connected components, as otherwise implies that there is a cycle, which is not possible since is acyclic. Therefore, we add edges, and each of these edges results in the merging of two connected components. We begin with the empty graph, having components, and thus the result is a graph with one component, which is the same as being connected.    Discuss the proof of . Does it make sense? Why or why not?   There is a lovely corollary to this theorem and the degree sum theorem, which involves the idea of a leaf.    A vertex of degree one in a graph is called a leaf .      Any tree has at least two leaves.     If is a tree, it has vertices and edges. By the degree sum formula, , we have that Since is a tree and is therefore connected, every vertex has degree at least one. Suppose that every vertex has degree at least two. Then This would be a contradiction to the degree sum formula. So, at least two of the vertices must have degree one in the tree.   Observe that we can now solve the problem given in . There are edges in that graph, but there are vertices, and thus it is not a tree.  "
+  "body": " Trees  The simplest connected graphs are the connected graphs that have no cycles. There are many different descriptions of such graphs, meaning that there are many ways to classify this family of graphs.    A graph is acyclic if it has no cycles. A graph on vertices that is connected and acyclic is called a tree .     which of the following graphs is a tree?   Graph 1.     Graph 2.     Graph 3.      Determining whether or not a graph is a tree is not always easy. For example, the following graph is given both visually and as a list of edges. Is the following graph a tree? How might you verify that your answer is correct? Discuss with your group.   Graph 4.    Edges in this graph: (0, 32), (1, 6), (1, 38), (2, 36), (3, 25), (4, 23), (4, 28), (5, 11), (5, 27), (5, 14), (7, 26), (7, 14), (8, 19), (8, 23), (8, 26), (9, 18), (10, 28), (12, 18), (13, 39), (15, 38), (15, 31), (16, 35), (16, 30), (17, 25), (18, 30), (19, 21), (19, 24), (20, 27), (21, 32), (22, 37), (25, 29), (26, 38), (26, 31), (27, 34), (27, 35), (27, 29), (29, 36), (29, 37), (31, 39), (32, 36), (33, 39)   The following theorem lists multiple alternative characterizations of (finite) trees.    Let be a graph on vertices. The following are equivalent.    is a tree, i.e., is connected and acyclic.     is connected and has edges.     is acyclic and has edges.       What this theorem says is that is a tree if it has any two of the properties of being connected, acyclic, or having edges when it has vertices.   Verify that each of the above conditions hold for the following tree.   A tree.     In order to prove , we will need some preliminary definitions and lemmas.    Given a graph and a vertex , the connected component of containing is the set of all vertices that are connected to by a path in . The set of connected components partitions .     Identify the connected components in the following graph.   A graph with multiple connected components.       Adding an edge to a graph can reduce the number of components by at most one.     There are two cases to consider. Suppose we add a new edge to . If and are already in the same connected component, then adding does not change any components. However, if and are in different components, then adding will merge the components containing and into a single component, since now any vertex connected by a path to is also connected by a path to . Thus, this will reduce the number of connected components by one.    Discuss the proof of . Does it make sense? Why or why not? Create a small example to verify that your understanding is correct.     Any connected graph on vertices has at least edges.     Suppose is a graph on vertex set . We construct by starting with the empty graph, i.e., the graph on with no edges, and adding the edges of one at a time. Note that in this case, each individual vertex forms a connected component, hence the empty graph has components. In order for to be connected, every element in must be connected to every other element by a path. Thus, in the process of adding edges one at a time to create , we must merge components into a single component. Each time we add an edge, either there are no components merged or the number of components reduces by one. In order to get from components to one component, we must merge times, which requires at least edges be added.    Discuss the proof of . Does it make sense? Why or why not?     Adding an edge to a connected graph on vertices creates at least one new cycle.     Suppose is a connected graph and is a new edge added to . There exists a simple path in from to , and connecting the endpoints of the path using creates a cycle.    Discuss the proof of . Does it make sense? Why or why not?    Proof of  We will use the following logical implications to prove the classification:   Logical implications to establish equivalence.    First, we will prove that if is connected and acyclic then it also has edges. Construct by starting with the empty graph and adding one edge at a time. Each time we add an edge, if the edge bridges two different connected components, then it merges those components and does not introduce any new cycle. If an edge is added where both of the endpoints of the edge are in the same connected component, then by this introduces a cycle. However, is acyclic, and therefore this cannot happen. Thus, every new edge added results in a merging of components and by the argument in , this results in edges.  Second, we will prove that if is connected with edges, then it is acyclic. Suppose that does contain a cycle . Then removing one of the edges in will not disconnect , since the endpoints of the edge are still connected by the remaining edges of . However, this will result in a graph that is connected with edges, which is impossible by . Therefore, the original graph must be acyclic.  Finally, we will prove that if is acyclic with edges, then it is connected. We again construct by starting with the empty graph and adding edges one at a time. Each time we add an edge, we must add an edge that results in the merging of two connected components, as otherwise implies that there is a cycle, which is not possible since is acyclic. Therefore, we add edges, and each of these edges results in the merging of two connected components. We begin with the empty graph, having components, and thus the result is a graph with one component, which is the same as being connected.    Discuss the proof of . Does it make sense? Why or why not?   There is a lovely corollary to this theorem and the degree sum theorem, which involves the idea of a leaf.    A vertex of degree one in a graph is called a leaf .      Any tree has at least two leaves.     If is a tree, it has vertices and edges. By the degree sum formula, , we have that Since is a tree and is therefore connected, every vertex has degree at least one. Suppose that every vertex has degree at least two. Then This would be a contradiction to the degree sum formula. So, at least two of the vertices must have degree one in the tree.   Observe that we can now solve the problem given in . There are edges in that graph, but there are vertices, and thus it is not a tree.  "
 },
 {
   "id": "def-treeacyclicconnected",
@@ -1294,7 +1294,7 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "3.3.2",
   "title": "",
-  "body": " which of the following graphs is a tree?  Graph 1.     Graph 2.     Graph 3.     "
+  "body": " which of the following graphs is a tree?   Graph 1.     Graph 2.     Graph 3.    "
 },
 {
   "id": "ex-hardnotatreecheckpoint",
@@ -1321,7 +1321,7 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "3.3.9",
   "title": "",
-  "body": " Verify that each of the above conditions hold for the following tree.  A tree.     "
+  "body": " Verify that each of the above conditions hold for the following tree.   A tree.    "
 },
 {
   "id": "def-connectedcomponents",
@@ -1339,7 +1339,7 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "3.3.12",
   "title": "",
-  "body": " Identify the connected components in the following graph.  A graph with multiple connected components.     "
+  "body": " Identify the connected components in the following graph.   A graph with multiple connected components.    "
 },
 {
   "id": "lem-connectedcomponentsreduction",
@@ -1429,7 +1429,7 @@ var ptx_lunr_docs = [
   "type": "Proof",
   "number": "3.3.4",
   "title": "Proof of Theorem 3.3.8.",
-  "body": " Proof of  We will use the following logical implications to prove the classification:  Logical implications to establish equivalence.     First, we will prove that if is connected and acyclic then it also has edges. Construct by starting with the empty graph and adding one edge at a time. Each time we add an edge, if the edge bridges two different connected components, then it merges those components and does not introduce any new cycle. If an edge is added where both of the endpoints of the edge are in the same connected component, then by this introduces a cycle. However, is acyclic, and therefore this cannot happen. Thus, every new edge added results in a merging of components and by the argument in , this results in edges.  Second, we will prove that if is connected with edges, then it is acyclic. Suppose that does contain a cycle . Then removing one of the edges in will not disconnect , since the endpoints of the edge are still connected by the remaining edges of . However, this will result in a graph that is connected with edges, which is impossible by . Therefore, the original graph must be acyclic.  Finally, we will prove that if is acyclic with edges, then it is connected. We again construct by starting with the empty graph and adding edges one at a time. Each time we add an edge, we must add an edge that results in the merging of two connected components, as otherwise implies that there is a cycle, which is not possible since is acyclic. Therefore, we add edges, and each of these edges results in the merging of two connected components. We begin with the empty graph, having components, and thus the result is a graph with one component, which is the same as being connected.  "
+  "body": " Proof of  We will use the following logical implications to prove the classification:   Logical implications to establish equivalence.    First, we will prove that if is connected and acyclic then it also has edges. Construct by starting with the empty graph and adding one edge at a time. Each time we add an edge, if the edge bridges two different connected components, then it merges those components and does not introduce any new cycle. If an edge is added where both of the endpoints of the edge are in the same connected component, then by this introduces a cycle. However, is acyclic, and therefore this cannot happen. Thus, every new edge added results in a merging of components and by the argument in , this results in edges.  Second, we will prove that if is connected with edges, then it is acyclic. Suppose that does contain a cycle . Then removing one of the edges in will not disconnect , since the endpoints of the edge are still connected by the remaining edges of . However, this will result in a graph that is connected with edges, which is impossible by . Therefore, the original graph must be acyclic.  Finally, we will prove that if is acyclic with edges, then it is connected. We again construct by starting with the empty graph and adding edges one at a time. Each time we add an edge, we must add an edge that results in the merging of two connected components, as otherwise implies that there is a cycle, which is not possible since is acyclic. Therefore, we add edges, and each of these edges results in the merging of two connected components. We begin with the empty graph, having components, and thus the result is a graph with one component, which is the same as being connected.  "
 },
 {
   "id": "sec-trees-23",
@@ -3004,7 +3004,115 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.3",
   "title": "Minimum Spanning Trees in Weighted Graphs",
-  "body": " Minimum Spanning Trees in Weighted Graphs  "
+  "body": " Minimum Spanning Trees in Weighted Graphs  Our second example of an optimization problem involves the concept of a weighted graph and a minimum spanning tree.    A weighted graph is a graph in which each edge is assigned a real value, called its weight . We will denote a weighted graph as a pair , where is the underlying graph and is the weight function that assigns a weight to each edge.      Given a weighted graph , a minimum spanning tree is a spanning tree of that has the smallest possible total weight among all spanning trees of . In other words, if is a spanning tree of , then the total weight of is given by , and a minimum spanning tree is one that minimizes this sum.     A weighted graph and a minimum spanning tree.     How might you check that the spanning tree shown in the figure above is indeed a minimum spanning tree for the given weighted graph?   There is a well-known greedy algorithm, called Kruskal's algorithm, that can be used to find a minimum spanning tree in a weighted graph. We will first need to establish some notation.    Let be a set of edges in a weighted graph . Let denote the subgraph of that contains all the vertices of and the edges in , which we call the spanning subgraph induced by . We say is independent if the spanning subgraph is acyclic.    Note that an independent set of edges must be a union of trees, since each connected component of an acyclic graph is a tree. Also, note that if is independent and has edges, then the spanning subgraph has connected components, where is the number of vertices in .      Draw a picture of . What are the connected components of the spanning subgraph ? Is the set of edges independent?    Is it possible to find a non-independent set of edges in the Petersen graph that has four edges? Why or why not?      Drawing of the Petersen graph.      Kruskal's Algorithm   Let be a weighted graph with vertices. The algorithm proceeds as follows: Start with the empty set of edges .  While , do the following:  Find an edge of minimum weight such that adding to connects two components in the spanning subgraph .  Add the edge to the set .  When the algorithm terminates, output the spanning tree .    We will prove below that Kruskal's algorithm always produces a minimum spanning tree, but for the moment let's take this fact for granted and see how the algorithm works.   Let's apply Kruskal's algorithm to the weighted graph below.   A weighted graph.    We start with the empty set of edges . Thus, has six connected components, each consisting of a single vertex.   There are three edges of minimum weight : . We can choose any of these edges to add to , so we will choose . Now, , and has seven connected components.    We will next select the edge , which also has weight . Now, , and has six connected components.    We will next select the edge , which also has weight . Now, , and has five connected components.     Observation: At this point, we have selected all the edges of weight , and we are not allowed in the future to select the edges as these choices would introduce a cycle in the spanning subgraph.    We next select the edge , as it has the next smallest weight of . Now, , and has four connected components.    We next select the edge , as it has the next smallest weight of . Now, , and has three connected components.     Observation: The smallest remaining edge weight is , on the edge , but adding this edge would create a cycle in , so we cannot select this edge.    We next select the edge , as it has the next smallest weight of and does not introduce a cycle. Now, , and has two connected components.    The final step in our algorithm is to select the edge , which has weight and connects the two remaining components.   Thus, the minimum spanning tree produced by Kruskal's algorithm is the spanning tree with edge set .    Run Kruskal's algorithm on the weighted graph below and verify that the minimum spanning tree is correct.   A weighted graph and a minimum spanning tree.     Note that Kruskal's algorithm can produce different minimum spanning trees depending on the choices made when there are multiple edges of the same minimum weight. For example, if every weight in the graph is equal to , then any spanning tree is a minimum spanning tree, and Kruskal's algorithm could produce any of them.    Kruskal's algorithm always produces a minimum spanning tree for a given weighted graph .     Let be a weighted graph with vertices, and let be the spanning tree produced by Kruskal's algorithm. We will first show that is indeed a spanning tree of . Since the algorithm terminates when , and since we only add edges that connect two components in the spanning subgraph , it follows that is connected and acyclic. Therefore, is a spanning tree of .  We will now show that is a minimum spanning tree. Let be any other spanning tree of . Write where the edges are listed in the order they were added by Kruskal's algorithm, i.e., We will write Let have edges , written in the order We will show that for all , which will imply that the total weight of is less than or equal to the total weight of . We go by contradiction and suppose that there exists an index such that , and let be the smallest such index. Since none of were chosen by Kruskal's algorithm before , it follows that they were already in the components of . Since has components, we see that has at least components as well. But, if were acyclic, it would be a union of trees, and hence would have components. This is not possible, and therefore is not acyclic, contradicting the assumption that is a spanning tree. Thus, we conclude that for all , and hence that is a minimum spanning tree.    Discuss the proof above. Does it make sense? Why or why not?   "
+},
+{
+  "id": "def-weightedgraph",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#def-weightedgraph",
+  "type": "Definition",
+  "number": "5.3.1",
+  "title": "",
+  "body": "  A weighted graph is a graph in which each edge is assigned a real value, called its weight . We will denote a weighted graph as a pair , where is the underlying graph and is the weight function that assigns a weight to each edge.   "
+},
+{
+  "id": "def-minspanningtree",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#def-minspanningtree",
+  "type": "Definition",
+  "number": "5.3.2",
+  "title": "",
+  "body": "  Given a weighted graph , a minimum spanning tree is a spanning tree of that has the smallest possible total weight among all spanning trees of . In other words, if is a spanning tree of , then the total weight of is given by , and a minimum spanning tree is one that minimizes this sum.   "
+},
+{
+  "id": "minspantree1",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#minspantree1",
+  "type": "Figure",
+  "number": "5.3.3",
+  "title": "",
+  "body": " A weighted graph and a minimum spanning tree.   "
+},
+{
+  "id": "sec-minimumspanningtrees-6",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#sec-minimumspanningtrees-6",
+  "type": "Checkpoint",
+  "number": "5.3.4",
+  "title": "",
+  "body": " How might you check that the spanning tree shown in the figure above is indeed a minimum spanning tree for the given weighted graph?  "
+},
+{
+  "id": "def-mintreenotation",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#def-mintreenotation",
+  "type": "Definition",
+  "number": "5.3.5",
+  "title": "",
+  "body": "  Let be a set of edges in a weighted graph . Let denote the subgraph of that contains all the vertices of and the edges in , which we call the spanning subgraph induced by . We say is independent if the spanning subgraph is acyclic.   "
+},
+{
+  "id": "sec-minimumspanningtrees-10",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#sec-minimumspanningtrees-10",
+  "type": "Checkpoint",
+  "number": "5.3.6",
+  "title": "",
+  "body": "    Draw a picture of . What are the connected components of the spanning subgraph ? Is the set of edges independent?    Is it possible to find a non-independent set of edges in the Petersen graph that has four edges? Why or why not?      Drawing of the Petersen graph.    "
+},
+{
+  "id": "def-kruskalalgorithm",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#def-kruskalalgorithm",
+  "type": "Definition",
+  "number": "5.3.8",
+  "title": "Kruskal’s Algorithm.",
+  "body": " Kruskal's Algorithm   Let be a weighted graph with vertices. The algorithm proceeds as follows: Start with the empty set of edges .  While , do the following:  Find an edge of minimum weight such that adding to connects two components in the spanning subgraph .  Add the edge to the set .  When the algorithm terminates, output the spanning tree .   "
+},
+{
+  "id": "sec-minimumspanningtrees-13",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#sec-minimumspanningtrees-13",
+  "type": "Example",
+  "number": "5.3.9",
+  "title": "",
+  "body": " Let's apply Kruskal's algorithm to the weighted graph below.   A weighted graph.    We start with the empty set of edges . Thus, has six connected components, each consisting of a single vertex.   There are three edges of minimum weight : . We can choose any of these edges to add to , so we will choose . Now, , and has seven connected components.    We will next select the edge , which also has weight . Now, , and has six connected components.    We will next select the edge , which also has weight . Now, , and has five connected components.     Observation: At this point, we have selected all the edges of weight , and we are not allowed in the future to select the edges as these choices would introduce a cycle in the spanning subgraph.    We next select the edge , as it has the next smallest weight of . Now, , and has four connected components.    We next select the edge , as it has the next smallest weight of . Now, , and has three connected components.     Observation: The smallest remaining edge weight is , on the edge , but adding this edge would create a cycle in , so we cannot select this edge.    We next select the edge , as it has the next smallest weight of and does not introduce a cycle. Now, , and has two connected components.    The final step in our algorithm is to select the edge , which has weight and connects the two remaining components.   Thus, the minimum spanning tree produced by Kruskal's algorithm is the spanning tree with edge set .  "
+},
+{
+  "id": "sec-minimumspanningtrees-14",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#sec-minimumspanningtrees-14",
+  "type": "Checkpoint",
+  "number": "5.3.11",
+  "title": "",
+  "body": " Run Kruskal's algorithm on the weighted graph below and verify that the minimum spanning tree is correct.   A weighted graph and a minimum spanning tree.    "
+},
+{
+  "id": "thm-kruskalvalidity",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#thm-kruskalvalidity",
+  "type": "Theorem",
+  "number": "5.3.13",
+  "title": "",
+  "body": "  Kruskal's algorithm always produces a minimum spanning tree for a given weighted graph .   "
+},
+{
+  "id": "sec-minimumspanningtrees-17",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#sec-minimumspanningtrees-17",
+  "type": "Proof",
+  "number": "5.3.1",
+  "title": "",
+  "body": " Let be a weighted graph with vertices, and let be the spanning tree produced by Kruskal's algorithm. We will first show that is indeed a spanning tree of . Since the algorithm terminates when , and since we only add edges that connect two components in the spanning subgraph , it follows that is connected and acyclic. Therefore, is a spanning tree of .  We will now show that is a minimum spanning tree. Let be any other spanning tree of . Write where the edges are listed in the order they were added by Kruskal's algorithm, i.e., We will write Let have edges , written in the order We will show that for all , which will imply that the total weight of is less than or equal to the total weight of . We go by contradiction and suppose that there exists an index such that , and let be the smallest such index. Since none of were chosen by Kruskal's algorithm before , it follows that they were already in the components of . Since has components, we see that has at least components as well. But, if were acyclic, it would be a union of trees, and hence would have components. This is not possible, and therefore is not acyclic, contradicting the assumption that is a spanning tree. Thus, we conclude that for all , and hence that is a minimum spanning tree.  "
+},
+{
+  "id": "sec-minimumspanningtrees-18",
+  "level": "2",
+  "url": "sec-minimumspanningtrees.html#sec-minimumspanningtrees-18",
+  "type": "Checkpoint",
+  "number": "5.3.14",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
 },
 {
   "id": "sec-modularitymaximization",
