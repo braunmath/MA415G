@@ -3147,8 +3147,53 @@ var ptx_lunr_docs = [
   "url": "sec-modularitymaximization.html",
   "type": "Section",
   "number": "5.4",
-  "title": "Modularity Maximization in Networks and Community Detection",
-  "body": " Modularity Maximization in Networks and Community Detection  "
+  "title": "Intro to Modularity Maximization in Networks and Community Detection",
+  "body": " Intro to Modularity Maximization in Networks and Community Detection  Detecting communities within networks, especially social networks, is a key goal for network scientists and graph theorists. A major driver of this subject was the publication in 2002 of a seminal paper by Newman and Girvan introducing the concept of modularity.   Community structure article header     Newman and Girvan discuss in their paper an example of a karate club studied by Wayne Zachary in the 1970s (An Information Flow Model for Conflict and Fission in Small Groups, Wayne W. Zachary, Journal of Anthropological Research 1977 33:4, 452-473). The network represents friendships between 34 members of the club, which eventually split into two factions due to a conflict between the club's administrator and instructor.   Zachary's karate club network    The goal of community detection algorithms is to identify such factions (or communities) based solely on the network structure, without any knowledge of the actual social dynamics of the agents involved. Using the modularity maximization approach, one can obtain the following partition of Zachary's karate club network, which mirrors the split in the club that occurred in reality.   Zachary's karate club network split into communities.    As another example, here is the network of characters in Victor Hugo's novel \"Les Misérables\".   \"Les Misérables\" character network    Our goal in this section is to learn how to use modularity maximization techniques to detect communities within a network. While modularity maximization is not the only approach to this problem, it is one that connects well with other topics we have seen in this course.  "
+},
+{
+  "id": "fig-communitypaper",
+  "level": "2",
+  "url": "sec-modularitymaximization.html#fig-communitypaper",
+  "type": "Figure",
+  "number": "5.4.1",
+  "title": "",
+  "body": " Community structure article header    "
+},
+{
+  "id": "fig-zacharykarateclub",
+  "level": "2",
+  "url": "sec-modularitymaximization.html#fig-zacharykarateclub",
+  "type": "Figure",
+  "number": "5.4.2",
+  "title": "",
+  "body": " Zachary's karate club network   "
+},
+{
+  "id": "fig-zacharykarateclubcommunities",
+  "level": "2",
+  "url": "sec-modularitymaximization.html#fig-zacharykarateclubcommunities",
+  "type": "Figure",
+  "number": "5.4.3",
+  "title": "",
+  "body": " Zachary's karate club network split into communities.   "
+},
+{
+  "id": "fig-lesmis",
+  "level": "2",
+  "url": "sec-modularitymaximization.html#fig-lesmis",
+  "type": "Figure",
+  "number": "5.4.4",
+  "title": "",
+  "body": " \"Les Misérables\" character network   "
+},
+{
+  "id": "sec-modularity",
+  "level": "1",
+  "url": "sec-modularity.html",
+  "type": "Section",
+  "number": "5.5",
+  "title": "Modularity",
+  "body": " Modularity    "
 },
 {
   "id": "ch-ethics",
