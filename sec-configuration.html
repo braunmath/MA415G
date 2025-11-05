@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: tacoma                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Configuration Model for Random Networks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MA 415G course notes">
+<meta property="book:author" content="Benjamin Braun">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.17';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.3ea59cc2563cc8e9.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.29d986501a531379.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="ma415g.html"><span class="title">MA 415G course notes</span></a></h1>
+<p class="byline">Benjamin Braun</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-modularitymaximization.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-optimization.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-modularity.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\inv}{\mathrm{inv}} \newcommand{\deg}{\mathrm{deg}} \newcommand{\des}{\mathrm{des}} \newcommand{\Des}{\mathrm{Des}} \newcommand{\Inv}{\mathrm{Inv}} \newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} \newcommand{\Bin}{\mathrm{Bin}} \newcommand{\comp}{\mathrm{Comp}} \newcommand{\ss}{\mathfrak{S}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-foundational-questions.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Eight Foundational Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Proofs.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Proofs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="enumeration.html" class="internal"><span class="codenumber">2</span> <span class="title">Enumeration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-binarystrings.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Binary Strings</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-binomialcoefficients.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Binomial Coefficients</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-fibonacci.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Fibonacci Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pauseforenumerationreflection.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Pause for Reflection</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-permutations.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Permutations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-cycles.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Permutations: Cycle Structure and Derangements</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-inversions.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Permutations: Inversions and Descents</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-induction1.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Induction: Part 1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-classification.html" class="internal"><span class="codenumber">3</span> <span class="title">Classification</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-classificationproblems.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Classification Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-graphbasics.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Graphs and Networks</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-trees.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Trees</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-euleriancircuits.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Eulerian Circuits</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-prufercayley.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Prufer Codes and Cayley’s Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-degreesequences.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Degree Sequences</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-stacksortable.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Stack Sortable Permutations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-expectation.html" class="internal"><span class="codenumber">4</span> <span class="title">Expectation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-expectationintro.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Expectation Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-finiteprobability.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Finite Probability Spaces and Random Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-expectationindicators.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Expected Values, Linearity of Expectation, and Indicator Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-expectationsubsets.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Expected Values: Binary Strings and Subsets</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-expectationpermutations.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Expected Values: Permutations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-expectationgraphs.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Expected Values: Graphs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-optimization.html" class="internal"><span class="codenumber">5</span> <span class="title">Optimization</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-optimizationintro.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Optimization Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-matchings.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Maximum Matching in Graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-minimumspanningtrees.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Minimum Spanning Trees in Weighted Graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularitymaximization.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Intro to Modularity Maximization in Networks and Community Detection</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-configuration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">The Configuration Model for Random Networks</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularity.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Communities via Modularity Maximization</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-ethics.html" class="internal"><span class="codenumber">6</span> <span class="title">Ethics</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-samplingandconstruction.html" class="internal"><span class="codenumber">7</span> <span class="title">Sampling and Construction</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-existence.html" class="internal"><span class="codenumber">8</span> <span class="title">Existence</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-estimation.html" class="internal"><span class="codenumber">9</span> <span class="title">Estimation</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-homework.html" class="internal"><span class="codenumber">10</span> <span class="title">Homework Problems and Essays</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-configuration"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.5</span><span class="space"> </span><span class="title">The Configuration Model for Random Networks</span>
+</h2>
+<div class="para" id="sec-configuration-2">The first challenge when attempting to identify communities in a network is to define what a "community" within the network actually is. One intuitive definition is that a community is a group of nodes that are more densely connected to each other than to the rest of the network. However, this definition is somewhat vague, as it does not specify how dense the connections within the community should be, nor does it clarify what it means to be "more densely connected" to each other than to the rest of the network.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-configuration-3">Another idea, which is the basis for modularity, is that a community is a set of vertices that have more internal connections than would be expected in a "similar" random network. Thus, for example, if we had a network and we wanted to see if it naturally split into two communities, we could consider all possible ways to partition the vertices into two groups and, for each partition, determine how far the number of edges within the two groups are above what would be expected in a "similar" random network. Then, the partition that maximizes this distance above the expected value would be considered the "best" division of the network into two communities.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-configuration-4">
+<div class="para">The first problem that we therefore have to solve is to identify a class of networks that are "similar" to the network under consideration, and then to determine how to compute the expected number of edges within a subset of vertices in such a network. This means that we need to do three things:</div>
+<ol class="decimal" id="sec-configuration-4-1">
+<li id="sec-configuration-4-1-1">
+<div class="para" id="sec-configuration-4-1-1-1">identify a random graph model that matches some of the properties of the graph under consideration,<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-configuration-4-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-configuration-4-1-2">
+<div class="para" id="sec-configuration-4-1-2-1">assign a probability distribution to this model, and finally<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-configuration-4-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-configuration-4-1-3">
+<div class="para" id="sec-configuration-4-1-3-1">compute the expected number of edges within a subset of vertices for these networks.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-4-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-configuration-4-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-configuration-5">We will be able to achieve these goals by using the <em class="emphasis">configuration model</em> as our random graph model. The configuration model uses a broader class of networks than only the finite simple graphs we have been exploring so far. Instead, it involves the class of looped multigraphs with a given degree sequence.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-loopedmultigraph"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.5.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="def-loopedmultigraph-1-1">A <em class="emphasis">looped multigraph</em> is a graph that is allowed to have multiple edges between the same pair of vertices as well as edges that connect a vertex to itself, i.e., loops. The <em class="emphasis">degree</em> of a vertex in a looped multigraph is defined as the number of edges incident to that vertex, with loops contributing two to the degree count.<div class="autopermalink" data-description="Paragraph"><a href="#def-loopedmultigraph-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.5.1"><a href="#def-loopedmultigraph" title="Copy heading and permalink for Definition 5.5.1" aria-label="Copy heading and permalink for Definition 5.5.1">🔗</a></div></article><details id="sec-configuration-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.2</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="sec-configuration-7-1">Consider the following looped multigraph on ten vertices where every vertex has degree seven.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-loopedmultigraph"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/loopedmultigraph.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.5.3<span class="period">.</span></span><span class="space"> </span>A looped multigraph.<div class="autopermalink" data-description="Figure 5.5.3"><a href="#fig-loopedmultigraph" title="Copy heading and permalink for Figure 5.5.3" aria-label="Copy heading and permalink for Figure 5.5.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 5.5.2"><a href="#sec-configuration-7" title="Copy heading and permalink for Example 5.5.2" aria-label="Copy heading and permalink for Example 5.5.2">🔗</a></div></article></details><div class="para" id="sec-configuration-8">The configuration model is a random graph model that creates a (usually non-uniform) distribution on all looped multigraphs with a fixed degree sequence. When thinking about the configuration model, it is often helpful to use the "stub" or "half-edge" representation of a looped multigraph. In this representation, each vertex <span class="process-math">\(i\)</span> is assigned <span class="process-math">\(d_i\)</span> "stubs", or partial edges incident to <span class="process-math">\(i\text{,}\)</span> and the looped multigraph is formed by randomly pairing these stubs to create edges. Thus, every looped multigraph in the configuration model is generated by a perfect matching of the set of all stubs.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-configuration-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.5.4</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-configuration-9-1">
+<div class="para">Consider the looped multigraph in the figure below, which is the same as we considered in the previous example.</div>
+<ol class="decimal" id="sec-configuration-9-1-1">
+<li id="sec-configuration-9-1-1-1">
+<div class="para" id="sec-configuration-9-1-1-1-1">Imagine cutting each edge in half to create stubs. How many stubs are there in total? (Remember that every vertex has degree seven.)<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-9-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.5.4.1"><a href="#sec-configuration-9-1-1-1" title="Copy heading and permalink for Item 5.5.4.1" aria-label="Copy heading and permalink for Item 5.5.4.1">🔗</a></div>
+</li>
+<li id="sec-configuration-9-1-1-2">
+<div class="para" id="sec-configuration-9-1-1-2-1">If you cut each of the loops and reconnect the resulting stubs to form edges, can you create a different multigraph with the same degree sequence that has no loops?<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-9-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.5.4.2"><a href="#sec-configuration-9-1-1-2" title="Copy heading and permalink for Item 5.5.4.2" aria-label="Copy heading and permalink for Item 5.5.4.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-loopedmultigraph1"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/loopedmultigraph.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.5.5<span class="period">.</span></span><span class="space"> </span>A looped multigraph.<div class="autopermalink" data-description="Figure 5.5.5"><a href="#fig-loopedmultigraph1" title="Copy heading and permalink for Figure 5.5.5" aria-label="Copy heading and permalink for Figure 5.5.5">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 5.5.4"><a href="#sec-configuration-9" title="Copy heading and permalink for Checkpoint 5.5.4" aria-label="Copy heading and permalink for Checkpoint 5.5.4">🔗</a></div></article></details><article class="definition definition-like" id="def-configurationmodel"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.5.6</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-configurationmodel-1-1">
+<div class="para">Fix a sequence of non-negative integers <span class="process-math">\((d_1, d_2, \ldots, d_n)\)</span> such that the sum <span class="process-math">\(d_1 + d_2 + \cdots + d_n\)</span> is even. The <em class="emphasis">configuration model</em> with degree sequence <span class="process-math">\((d_1, d_2, \ldots, d_n)\)</span> is the probability space where:</div>
+<ul class="disc" id="def-configurationmodel-1-1-5">
+<li id="def-configurationmodel-1-1-5-1">
+<div class="para" id="def-configurationmodel-1-1-5-1-1">the event set consists of all perfect matchings of the set of stubs formed on the vertex set <span class="process-math">\(\{1,2,\ldots,n\}\)</span> where vertex <span class="process-math">\(i\)</span> has <span class="process-math">\(d_i\)</span> stubs, and<div class="autopermalink" data-description="Paragraph"><a href="#def-configurationmodel-1-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-configurationmodel-1-1-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="def-configurationmodel-1-1-5-2">
+<div class="para" id="def-configurationmodel-1-1-5-2-1">the uniform distribution is used for the set of these perfect matchings of stubs.<div class="autopermalink" data-description="Paragraph"><a href="#def-configurationmodel-1-1-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-configurationmodel-1-1-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Each such perfect matching of stubs corresponds to a looped multigraphs on vertex set <span class="process-math">\(\{1, 2, \ldots, n\}\)</span> where vertex <span class="process-math">\(i\)</span> has degree <span class="process-math">\(d_i\text{.}\)</span> Thus, the configuration model induces a probability distribution on the set of looped multigraphs with degree sequence <span class="process-math">\((d_1, d_2, \ldots, d_n)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-configurationmodel-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.5.6"><a href="#def-configurationmodel" title="Copy heading and permalink for Definition 5.5.6" aria-label="Copy heading and permalink for Definition 5.5.6">🔗</a></div></article><div class="para" id="sec-configuration-11">Note that it is possible for two different perfect matchings of stubs to correspond to the same looped multigraph. Thus the configuration model is <em class="emphasis">not</em> the uniform distribution on looped multigraphs with the given degree sequence, rather it is the uniform distribution on perfect matchings of stubs, and this induces a probability distribution on the looped multigraphs. The following example illustrates this point.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-configuration-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.7</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-configuration-12-1">
+<div class="para">Consider the configuration model on two vertices with degree sequence <span class="process-math">\((2,2)\text{.}\)</span> Let’s denote the two vertices as <span class="process-math">\(u\)</span> and <span class="process-math">\(v\text{.}\)</span> Each vertex has two stubs, so we have a total of four stubs: <span class="process-math">\(u_1, u_2\)</span> for vertex <span class="process-math">\(u\)</span> and <span class="process-math">\(v_1, v_2\)</span> for vertex <span class="process-math">\(v\text{.}\)</span> The possible perfect matchings of these stubs are:</div>
+<ul class="disc" id="sec-configuration-12-1-8">
+<li id="sec-configuration-12-1-8-1">
+<div class="para" id="sec-configuration-12-1-8-1-1">
+<span class="process-math">\(\displaystyle \{(u_1, v_1), (u_2, v_2)\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-12-1-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-configuration-12-1-8-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-configuration-12-1-8-2">
+<div class="para" id="sec-configuration-12-1-8-2-1">
+<span class="process-math">\(\displaystyle \{(u_1, v_2), (u_2, v_1)\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-12-1-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-configuration-12-1-8-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-configuration-12-1-8-3">
+<div class="para" id="sec-configuration-12-1-8-3-1">
+<span class="process-math">\(\displaystyle \{(u_1, u_2), (v_1, v_2)\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-12-1-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-configuration-12-1-8-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">The first two matchings correspond to the same simple graph with two edges between <span class="process-math">\(u\)</span> and <span class="process-math">\(v\text{,}\)</span> while the third matching corresponds to a graph with two loops, one on each vertex. Therefore, in the configuration model with degree sequence <span class="process-math">\((2,2)\text{,}\)</span> the network with two edges between <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> has a probability of <span class="process-math">\(2/3\text{,}\)</span> while the network with two loops has a probability of <span class="process-math">\(1/3\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-configuration-12-2">Let’s check this experimentally: using Sagemath with the python networkx library, we can simulate the configuration model with degree sequence <span class="process-math">\((2,2)\)</span> multiple times and observe the frequencies of the resulting graphs. Here is a sample code snippet to perform this simulation where we randomly sample from the configuration model 10000 times.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-12-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="code-box"><pre class="program clipboardable"><code class="language-py">import networkx as nx
+
+D = {}
+
+# Simulate the configuration model 10000 times
+for _ in range(10000):
+    G = Graph(nx.configuration_model([2,2])).copy(immutable=True)
+    if G in D.keys():
+        D[G] += 1
+    else:
+        D[G] = 1
+
+# Display the results
+for g in D.keys():
+    print(D[g])
+    show(g)
+    print()
+
+L = [D[g] for g in D.keys()]
+s = sum(L)
+for i in L:
+    print(N(i/s))
+</code></pre></div>
+<div class="para" id="sec-configuration-12-4">You can copy and paste this code into <a class="external" href="https://sagecell.sagemath.org/" target="_blank"><code class="code-inline tex2jax_ignore">https://sagecell.sagemath.org/</code></a> to test it yourself, and you will see that the results align with our theoretical calculations -- the graph with two parallel edges appears approximately twice as often as the graph with two loops.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-12-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.5.7"><a href="#sec-configuration-12" title="Copy heading and permalink for Example 5.5.7" aria-label="Copy heading and permalink for Example 5.5.7">🔗</a></div></article></details><details id="sec-configuration-13" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.5.8</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-configuration-13-1">
+<ol class="decimal" id="sec-configuration-13-1-1">
+<li id="sec-configuration-13-1-1-1">
+<div class="para" id="sec-configuration-13-1-1-1-1">What is the event set for the configuration model with degree sequence <span class="process-math">\((1,2,3)\)</span> on three vertices?<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-13-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.5.8.1"><a href="#sec-configuration-13-1-1-1" title="Copy heading and permalink for Item 5.5.8.1" aria-label="Copy heading and permalink for Item 5.5.8.1">🔗</a></div>
+</li>
+<li id="sec-configuration-13-1-1-2">
+<div class="para" id="sec-configuration-13-1-1-2-1">What is the probability of each looped multigraph in this configuration model?<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-13-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.5.8.2"><a href="#sec-configuration-13-1-1-2" title="Copy heading and permalink for Item 5.5.8.2" aria-label="Copy heading and permalink for Item 5.5.8.2">🔗</a></div>
+</li>
+<li id="sec-configuration-13-1-1-3">
+<div class="para" id="sec-configuration-13-1-1-3-1">Modify the Sagemath code snippet in the previous example to simulate the configuration model with degree sequence <span class="process-math">\((1,2,3)\)</span> and verify your answer to question 2 experimentally.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-13-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.5.8.3"><a href="#sec-configuration-13-1-1-3" title="Copy heading and permalink for Item 5.5.8.3" aria-label="Copy heading and permalink for Item 5.5.8.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.5.8"><a href="#sec-configuration-13" title="Copy heading and permalink for Checkpoint 5.5.8" aria-label="Copy heading and permalink for Checkpoint 5.5.8">🔗</a></div></article></details><div class="para" id="sec-configuration-14">We can compute the total number of perfect matchings of the stubs in the configuration model with degree sequence <span class="process-math">\((d_1, d_2, \ldots, d_n)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="prop-stubmatchingcount"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.5.9</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="prop-stubmatchingcount-1-1">
+<div class="para">Let <span class="process-math">\((d_1, d_2, \ldots, d_n)\)</span> be a sequence of non-negative integers such that <span class="process-math">\(2m = d_1 + d_2 + \cdots + d_n\)</span> is even, where <span class="process-math">\(m=|E|\)</span> is the number of edges in any looped multigraph with degree sequence <span class="process-math">\((d_1, d_2, \ldots, d_n)\text{.}\)</span> The total number of perfect matchings of the set of <span class="process-math">\(2m\)</span> stubs in the configuration model with degree sequence <span class="process-math">\((d_1, d_2, \ldots, d_n)\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{(2m)!}{2^{m} (m)!} = (2m - 1)!!
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\((2m - 1)!!\)</span> denotes the double factorial of <span class="process-math">\(2m - 1\text{,}\)</span> defined as the product of all odd integers from <span class="process-math">\(1\)</span> to <span class="process-math">\(2m - 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop-stubmatchingcount-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proposition 5.5.9"><a href="#prop-stubmatchingcount" title="Copy heading and permalink for Proposition 5.5.9" aria-label="Copy heading and permalink for Proposition 5.5.9">🔗</a></div></article><details id="sec-configuration-16" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-configuration-16-1">
+<div class="para">List the pairs in the perfect matching one at a time. There are <span class="process-math">\(2m\)</span> choices for the first stub in the first pair and <span class="process-math">\(2m - 1\)</span> choices for the second stub in the first pair. After choosing the first pair, there are <span class="process-math">\(2m - 2\)</span> stubs left, so there are <span class="process-math">\(2m - 2\)</span> choices for the first stub in the second pair and <span class="process-math">\(2m - 3\)</span> choices for the second stub in the second pair. Continuing in this way, we see that the total number of ways to list the pairs is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(2m) \cdot (2m - 1) \cdot (2m - 2) \cdot (2m - 3) \cdots 3 \cdot 2 \cdot 1 = (2m)!
+\end{equation*}
+</div>
+<div class="para">However, in this count, each perfect matching is counted multiple times. Specifically, each perfect matching is counted <span class="process-math">\(2^{m} \cdot (m)!\)</span> times, since:</div>
+<ul class="disc" id="sec-configuration-16-1-8">
+<li id="sec-configuration-16-1-8-1">
+<div class="para" id="sec-configuration-16-1-8-1-1">each of the <span class="process-math">\(m\)</span> pairs can be listed in two different orders, and<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-16-1-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-configuration-16-1-8-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-configuration-16-1-8-2">
+<div class="para" id="sec-configuration-16-1-8-2-1">the <span class="process-math">\(m\)</span> pairs themselves can be listed in any order.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-16-1-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-configuration-16-1-8-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Therefore, the total number of distinct perfect matchings is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{(2m)!}{2^{m} (m)!}\, .
+\end{equation*}
+</div>
+<div class="para">Some additional algebraic manipulation shows that this expression is equal to <span class="process-math">\((2m - 1)!!\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.5.1"><a href="#sec-configuration-16" title="Copy heading and permalink for Proof 5.5.1" aria-label="Copy heading and permalink for Proof 5.5.1">🔗</a></div></article></details><div class="para" id="sec-configuration-17">We next use this fact to determine the expected number of edges between two vertices in this model.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-expectededgesconfiguration"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.10</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="thm-expectededgesconfiguration-1-1">
+<div class="para">Let <span class="process-math">\((d_1, d_2, \ldots, d_n)\)</span> be a sequence of non-negative integers such that <span class="process-math">\(2m = d_1 + d_2 + \cdots + d_n\text{.}\)</span> In the configuration model with degree sequence <span class="process-math">\((d_1, d_2, \ldots, d_n)\text{,}\)</span> the expected number of edges between vertices <span class="process-math">\(i\)</span> and <span class="process-math">\(j\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d_i d_j}{2m - 1}\, . 
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-expectededgesconfiguration-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.5.10"><a href="#thm-expectededgesconfiguration" title="Copy heading and permalink for Theorem 5.5.10" aria-label="Copy heading and permalink for Theorem 5.5.10">🔗</a></div></article><details id="sec-configuration-19" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-configuration-19-1">
+<div class="para">We will use indicator functions to compute the expected number of edges between vertices <span class="process-math">\(i\)</span> and <span class="process-math">\(j\text{.}\)</span> Let <span class="process-math">\(X\)</span> be the random variable that counts the number of edges between vertices <span class="process-math">\(i\)</span> and <span class="process-math">\(j\text{.}\)</span> We can express <span class="process-math">\(X\)</span> as the sum of indicator functions:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X = \sum_{a=1}^{d_i} \sum_{b=1}^{d_j} X_{a,b}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(X_{a,b}\)</span> is the indicator function that is <span class="process-math">\(1\)</span> if the <span class="process-math">\(a\)</span>-th stub of vertex <span class="process-math">\(i\)</span> is matched with the <span class="process-math">\(b\)</span>-th stub of vertex <span class="process-math">\(j\text{,}\)</span> and <span class="process-math">\(0\)</span> otherwise. By the linearity of expectation, we have:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbb{E}[X] = \mathbb{E}\left[\sum_{a=1}^{d_i} \sum_{b=1}^{d_j} X_{a,b}\right] = \sum_{a=1}^{d_i} \sum_{b=1}^{d_j} \mathbb{E}[X_{a,b}]\, .
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(X_{a,b}\)</span> is an indicator function, its expectation is equal to the probability that the <span class="process-math">\(a\)</span>-th stub of vertex <span class="process-math">\(i\)</span> is matched with the <span class="process-math">\(b\)</span>-th stub of vertex <span class="process-math">\(j\text{.}\)</span> The number of perfect matchings where these two stubs are matched together is equal to the total number of perfect matchings of the remaining <span class="process-math">\(2m - 2\)</span> stubs. By our preceding result, this number is <span class="process-math">\((2m - 3)!!\text{.}\)</span> The total number of perfect matchings of all <span class="process-math">\(2m\)</span> stubs is <span class="process-math">\((2m - 1)!!\text{.}\)</span> Thus, the probability that the <span class="process-math">\(a\)</span>-th stub of vertex <span class="process-math">\(i\)</span> is matched with the <span class="process-math">\(b\)</span>-th stub of vertex <span class="process-math">\(j\)</span> is:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbb{P}(X_{a,b} = 1) = \frac{(2m - 3)!!}{(2m - 1)!!} = \frac{1}{2m - 1}\, .
+\end{equation*}
+</div>
+<div class="para">Substituting this back into our expression for the expectation, we get:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbb{E}[X] = \sum_{a=1}^{d_i} \sum_{b=1}^{d_j} \frac{1}{2m - 1} = \frac{d_i d_j}{2m - 1}\, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-19-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.5.2"><a href="#sec-configuration-19" title="Copy heading and permalink for Proof 5.5.2" aria-label="Copy heading and permalink for Proof 5.5.2">🔗</a></div></article></details><div class="para" id="sec-configuration-20">We have now achieved all three of our goals for developing the configuration model and computing the expected number of edges between a pair of vertices. Our task in the next section will be to use the expected number of edges computed above to define the modularity of a partition of a network.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 5.5: The Configuration Model for Random Networks"><a href="#sec-configuration" title="Copy heading and permalink for Section 5.5: The Configuration Model for Random Networks" aria-label="Copy heading and permalink for Section 5.5: The Configuration Model for Random Networks">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-modularitymaximization.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-modularity.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
