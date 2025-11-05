@@ -83,7 +83,7 @@
 </exercise>
 
 <p>
-    The idea of measuring community structure via modularity is to compare the actual number of edges within communities to the expected number of such edges in a random graph drawn from the configuration model with the same degree sequence as the original graph.
+    The idea of measuring community structure via modularity is to compare the actual number of edges within a subset of the vertices to the expected number of such edges in a random multigraph drawn from the configuration model with the same degree sequence.
 </p>
 
 
