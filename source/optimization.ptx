@@ -6,6 +6,7 @@
   <xi:include href="matchings.ptx" />
   <xi:include href="minimumspanningtrees.ptx" />
   <xi:include href="modularitymaximization.ptx" />
+  <xi:include href="configuration.ptx" />
   <xi:include href="modularity.ptx" />
     
 </chapter>
