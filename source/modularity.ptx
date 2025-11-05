@@ -1,6 +1,84 @@
 <section xml:id="sec-modularity">
     <title>Communities via Modularity Maximization</title>
 
+    <p>
+        Our goal now is to use the configuration model as the basis for our detection of communities in a network.
+        For simplicity, we will focus on the case of dividing a network into two communities.
+        We will use in our description of the process the <em>Kronecker delta function</em>, which is defined as
+        <me>
+            \delta_{a,b} = \begin{cases}
+                1 \amp \text{if } a=b, \\
+                0 \amp \text{if } a \neq b.
+            \end{cases}
+        </me>
+    </p>
+
+    <exercise>
+        <p>
+            What is the value of <m>\delta_{3,5}</m>? What is the value of <m>\delta_{7,7}</m>? 
+        </p>
+    </exercise>
+
+        <p>
+        Suppose we have a graph <m>G=(V,E)</m> and we divide the vertex set <m>V</m> into two subsets <m>V_1</m> and <m>V_2</m> such that <m>V_1 \uplus V_2 = V</m>.
+        We want to count the number of edges that fall within either <m>V_1</m> or <m>V_2</m>, so that we can compare this to the expected number of edges within those sets given by the configuration model.
+        We first define a function that indicates to which subset each vertex belongs.
+        Define the function <m>g_i:V\to \{1,2\}</m> by
+                    <me>
+                        g_i=
+                        \begin{cases}
+                        1 \amp \text{if } i\in V_1, \\
+                        2 \amp \text{if } i \in V_2.
+                        \end{cases}
+                    </me>
+        Define further the value <m>A_{i,j}</m> where where <m>A_{i,j}</m> is the number of edges between vertices <m>i\neq j</m> in <m>G</m> and <m>A_{i,i}</m> is twice the number of loops at vertex <m>i</m>.
+        For those of you who have seen some matrix algebra, observe that the values of <m>A_{i,j}</m> are the entries of the adjacency matrix of <m>G</m>.
+        We can count the total number of edges that connect vertices within the same subset as follows:
+        <me>
+            \sum_{\{i,j\}\in E(G)} \delta_{g_i,g_j} = \frac{1}{2}\sum_{i,j} A_{i,j}\delta_{g_i,g_j} \, .
+        </me>
+    </p>
+
+    <exercise>
+        <p>
+            Why does the above sum count the number of edges within <m>V_1</m> and <m>V_2</m>?
+        </p>
+    </exercise>
+
+    <exercise>
+        <p>
+            For the graph below, let <m>V_1=\{0,1,2,3,4\}</m> and <m>V_2=\{5,6,7,8\}</m>.
+            <ol>
+                <li>
+                    <p>
+                        What is the function <m>g_i</m> for each vertex <m>i</m> in the graph?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What is <m>A_{i,j}</m> for the following pairs <m>\{i,j\}</m>? 
+                    </p>
+                    <p>
+                        <m>\{0,1\}, \{3,7\}, \{4,5\}, \{8,8\}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Verify that the formula 
+                        <me>
+                        \frac{1}{2}\sum_{i,j} A_{i,j}\delta_{g_i,g_j} 
+                        </me>
+                        counts the number of edges within <m>V_1</m> and <m>V_2</m>.
+                    </p>
+                </li>
+            </ol>
+        </p>
+        <figure xml:id="configexamplepartition">
+            <caption>Example of a looped multigraph on nine vertices.</caption>
+            <image source="configuration_example_partition.png" width="75%">
+            </image>
+        </figure>
+    </exercise>
 
 
 

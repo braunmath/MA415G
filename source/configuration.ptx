@@ -108,7 +108,7 @@
                     </p>
                 </li>
             </ul> 
-            Each such perfect matching of stubs corresponds to a looped multigraphs on vertex set <m>\{1, 2, \ldots, n\}</m> where vertex <m>i</m> has degree <m>d_i</m>.
+            Each such perfect matching of stubs corresponds to a looped multigraph on vertex set <m>\{1, 2, \ldots, n\}</m> where vertex <m>i</m> has degree <m>d_i</m>.
             Thus, the configuration model induces a probability distribution on the set of looped multigraphs with degree sequence <m>(d_1, d_2, \ldots, d_n)</m>.
         </p>
     </statement>
@@ -116,7 +116,7 @@
 
 <p>
     Note that it is possible for two different perfect matchings of stubs to correspond to the same looped multigraph.
-    Thus the configuration model is <em>not</em> the uniform distribution on looped multigraphs with the given degree sequence, rather it is the uniform distribution on perfect matchings of stubs, and this induces a probability distribution on the looped multigraphs.
+    Thus the configuration model is <em>not</em> the uniform distribution on looped multigraphs with the given degree sequence, rather it is the uniform distribution on perfect matchings of stubs, and this induces a non-uniform probability distribution on the looped multigraphs.
     The following example illustrates this point.
 </p>
 

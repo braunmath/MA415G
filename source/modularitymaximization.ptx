@@ -3,7 +3,7 @@
 
 <p>
     Detecting communities within networks, especially social networks, is a key goal for network scientists and graph theorists.
-    A major driver of this subject was the publication in 2002 of a seminal paper by Newman and Girvan <url href="https://www.pnas.org/doi/full/10.1073/pnas.122653799" /> introducing the concept of modularity.
+    A major driver of this subject was the publication in 2002 of a seminal paper by Girvan and Newman <url href="https://www.pnas.org/doi/full/10.1073/pnas.122653799" /> introducing the concept of modularity.
 </p>
 
 <figure xml:id="fig-communitypaper">
@@ -13,7 +13,7 @@
 </figure>
 
 <p>
-    Newman and Girvan discuss in their paper an example of a karate club studied by Wayne Zachary in the 1970s (An Information Flow Model for Conflict and Fission in Small Groups, Wayne W. Zachary, Journal of Anthropological Research 1977 33:4, 452-473).
+    Girvan and Newman discuss in their paper an example of a karate club studied by Wayne Zachary in the 1970s (An Information Flow Model for Conflict and Fission in Small Groups, Wayne W. Zachary, Journal of Anthropological Research 1977 33:4, 452-473).
     The network represents friendships between 34 members of the club, which eventually split into two factions due to a conflict between the club's administrator and instructor.
 </p>
 
@@ -33,7 +33,7 @@
 </figure>
 
 <p>
-    As another example, here is the network of characters in Victor Hugo's novel "Les Misérables".
+    As another example of a network that is frequently studied using community detection algorithms, here is the network of characters in Victor Hugo's novel "Les Misérables".
 </p>
 
 <figure xml:id="fig-lesmis">
@@ -42,8 +42,8 @@
 </figure>
 
 <p>
-    Our goal in this section is to learn how to use modularity maximization techniques to detect communities within a network.
-    While modularity maximization is not the only approach to this problem, it is one that connects well with other topics we have seen in this course.
+    Our goal in the following sections is to learn how to use the modularity maximization technique to detect communities within a network.
+    While modularity maximization is not the only approach to this problem, it is one that connects well with other topics we have seen in this course, and which is widely used.
 </p>
 
 
