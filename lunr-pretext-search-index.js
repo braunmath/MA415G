@@ -2887,7 +2887,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.2",
   "title": "Maximum Matching in Graphs",
-  "body": " Maximum Matching in Graphs  One of the fundamental ideas of applied math is to find ways to effectively pair or match objects or entities. For example, matching problems arise when we want to pair workers with jobs, students with courses, and other situations where paired assignments are required. The mathematical idea that captures this is the concept of a matching in a graph.    Given a finite graph , a matching is a set of edges such that no two edges share a common vertex. A maximum matching is a matching that contains the largest possible number of edges. The size of a maximum matching is called the matching number of the graph.     Let be the complete graph on vertices. Any maximum matching in has size , since we can pair up the vertices in pairs, and if there is an odd vertex left over, it cannot be matched.    Consider the Petersen graph shown below. Consider the matching given by the edges . Is this a maximum matching? If not, find a larger matching. How do you know whether or not a matching is maximum?   Drawing of the Petersen graph.     The example above shows that there is a difference between \"maximal\" matchings, i.e., those that cannot be extended to larger matching by adding edges, and \"maximum\" matchings, which have the largest possible number of edges for any matching in the graph. Finding maximum matchings in graphs is a fundamental problem in graph theory and combinatorial optimization.  Thus, given a graph , we will set our task to find a maximum matching in . This will be the metric we will use to evaluate the \"best\" matchings -- we will be seeking the matchings that have the largest possible number of edges. Given a matching in , we want to try to systematically find a way to produce a larger matching, or to determine that no larger matching exists.   Consider the path graph on vertices, with vertices labeled in order. One possible matching is . This matching has two edges. How can we create a larger matching from this one?    Consider the cycle graph on 6 vertices, with vertices labeled in order. One possible matching is . This matching has two edges. How can we create a larger matching from this one?     Let be a graph and a matching in . An augmenting path with respect to is a path in that starts and ends at vertices not covered by , and alternates between edges not in and edges in .     Consider again the Petersen graph shown below with the matching given by the edges . Show that is an augmenting path in this matching. What happens if we remove the edges of the matching along this path and add the other edges of the path to the matching?   Drawing of the Petersen graph.       Given an augmenting path with respect to a matching in a graph , we can create a new matching by removing the edges of along the path and adding the other edges of the path to the matching. The new matching has size .     Since the path starts and ends at vertices not covered by , the first and last edges of the path are not in . Thus, there are an odd number of edges in the path, and there is one more edge not in than there are edges in . When we remove the edges of along the path and add the other edges of the path to the matching, we increase the size of the matching by . What results is a valid matching since no two edges in the new matching share a common vertex; this is because the endpoints of the path are not covered by any edges in the original matching.   The following theorem was proven by Claude Berge in 1957.    A matching in a graph is maximum if and only if there are no augmenting paths with respect to .     Let's suppose that is a matching in and that is maximum. We will show that there are no augmenting paths with respect to . Suppose, for the sake of contradiction, that there is an augmenting path with respect to . By our lemma, we can create a new matching by removing the edges of along the path and adding the other edges of the path to the matching. The new matching has size , which contradicts the assumption that is maximum. Therefore, there are no augmenting paths with respect to .  Next, we will show that if there are no augmenting paths with respect to a matching in , then is maximum. We will do this using the technique of proof by contrapositive : we will show that if is not maximum, then there exists an augmenting path with respect to . Let be a maximal matching in , and note that . Consider the symmetric difference , and consider the subgraph of containing those edges. In , each vertex has degree or , since each vertex is incident to at most one edge from and at most one edge from . Thus, the connected components of are paths and cycles, and if they are cycles, the length of the cycle is even, since the edges alternate between those in and those in . The graph has more elements of than of , so there must be at least one path component in that has more edges from than from . Such a path must start and end with edges from , and thus starts and ends at vertices not covered by . Therefore, this path is an augmenting path with respect to , and we are done.    Proof by contrapositive states that if we want to prove that , it is sufficient to prove that , where is the negation of . Using the following truth table, explain why this proof technique is valid.   Truth Table    P  Q    T  T    T  F    F  T    F  F      Berge's theorem leads to an algorithm for finding maximum matchings in graphs: start with any matching, and repeatedly look for augmenting paths. If an augmenting path is found, use it to create a larger matching. Of course, it is not obvious how to find augmenting paths efficiently, but this can be done and leads to an amazing algorithm called \"Edmonds' blossoming algorithm\", which was developed by Jack Edmonds in the early 1960's:   There remain many interesting open problems related to matchings in graphs, such as problems about rainbow matchings in edge-colored graphs:   "
+  "body": " Maximum Matching in Graphs  One of the fundamental ideas of applied math is to find ways to effectively pair or match objects or entities. For example, matching problems arise when we want to pair workers with jobs, students with courses, and other situations where paired assignments are required. The mathematical idea that captures this is the concept of a matching in a graph.    Given a finite graph , a matching is a set of edges such that no two edges share a common vertex. A maximum matching is a matching that contains the largest possible number of edges. The size of a maximum matching is called the matching number of the graph.     Let be the complete graph on vertices. Any maximum matching in has size , since we can pair up the vertices in pairs, and if there is an odd vertex left over, it cannot be matched.    Consider the Petersen graph shown below. Consider the matching given by the edges . Is this a maximum matching? If not, find a larger matching. How do you know whether or not a matching is maximum?   Drawing of the Petersen graph.     The example above shows that there is a difference between \"maximal\" matchings, i.e., those that cannot be extended to larger matching by adding edges, and \"maximum\" matchings, which have the largest possible number of edges for any matching in the graph. Finding maximum matchings in graphs is a fundamental problem in graph theory and combinatorial optimization.  Thus, given a graph , we will set our task to find a maximum matching in . This will be the metric we will use to evaluate the \"best\" matchings -- we will be seeking the matchings that have the largest possible number of edges. Given a matching in , we want to try to systematically find a way to produce a larger matching, or to determine that no larger matching exists.   Consider the path graph on vertices, with vertices labeled in order. One possible matching is . This matching has two edges. How can we create a larger matching from this one?    Consider the cycle graph on 6 vertices, with vertices labeled in order. One possible matching is . This matching has two edges. How can we create a larger matching from this one?     Let be a graph and a matching in . An augmenting path with respect to is a path in that starts and ends at vertices not covered by , and alternates between edges not in and edges in .     Consider again the Petersen graph shown below with the matching given by the edges . Show that is an augmenting path in this matching. What happens if we remove the edges of the matching along this path and add the other edges of the path to the matching?   Drawing of the Petersen graph.       Given an augmenting path with respect to a matching in a graph , we can create a new matching by removing the edges of along the path and adding the other edges of the path to the matching. The new matching has size .     Since the path starts and ends at vertices not covered by , the first and last edges of the path are not in . Thus, there are an odd number of edges in the path, and there is one more edge not in than there are edges in . When we remove the edges of along the path and add the other edges of the path to the matching, we increase the size of the matching by . What results is a valid matching since no two edges in the new matching share a common vertex; this is because the endpoints of the path are not covered by any edges in the original matching.    Discuss the proof above. Does it make sense? Why or why not?   The following theorem was proven by Claude Berge in 1957.    A matching in a graph is maximum if and only if there are no augmenting paths with respect to .     Let's suppose that is a matching in and that is maximum. We will show that there are no augmenting paths with respect to . Suppose, for the sake of contradiction, that there is an augmenting path with respect to . By our lemma, we can create a new matching by removing the edges of along the path and adding the other edges of the path to the matching. The new matching has size , which contradicts the assumption that is maximum. Therefore, there are no augmenting paths with respect to .  Next, we will show that if there are no augmenting paths with respect to a matching in , then is maximum. We will do this using the technique of proof by contrapositive : we will show that if is not maximum, then there exists an augmenting path with respect to . Let be a maximal matching in , and note that . Consider the symmetric difference , and consider the subgraph of containing those edges. In , each vertex has degree or , since each vertex is incident to at most one edge from and at most one edge from . Thus, the connected components of are paths and cycles, and if they are cycles, the length of the cycle is even, since the edges alternate between those in and those in . The graph has more elements of than of , so there must be at least one path component in that has more edges from than from . Such a path must start and end with edges from , and thus starts and ends at vertices not covered by . Therefore, this path is an augmenting path with respect to , and we are done.    Discuss the proof above. Does it make sense? Why or why not?    Proof by contrapositive states that if we want to prove that , it is sufficient to prove that , where is the negation of . Using the following truth table, explain why this proof technique is valid.   Truth Table    P  Q    T  T    T  F    F  T    F  F      Berge's theorem leads to an algorithm for finding maximum matchings in graphs: start with any matching, and repeatedly look for augmenting paths. If an augmenting path is found, use it to create a larger matching. Of course, it is not obvious how to find augmenting paths efficiently, but this can be done and leads to an amazing algorithm called \"Edmonds' blossoming algorithm\", which was developed by Jack Edmonds in the early 1960's:   There remain many interesting open problems related to matchings in graphs, such as problems about rainbow matchings in edge-colored graphs:   "
 },
 {
   "id": "def-matching",
@@ -2971,29 +2971,47 @@ var ptx_lunr_docs = [
   "body": " Since the path starts and ends at vertices not covered by , the first and last edges of the path are not in . Thus, there are an odd number of edges in the path, and there is one more edge not in than there are edges in . When we remove the edges of along the path and add the other edges of the path to the matching, we increase the size of the matching by . What results is a valid matching since no two edges in the new matching share a common vertex; this is because the endpoints of the path are not covered by any edges in the original matching.  "
 },
 {
+  "id": "sec-matchings-14",
+  "level": "2",
+  "url": "sec-matchings.html#sec-matchings-14",
+  "type": "Checkpoint",
+  "number": "5.2.11",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
   "id": "thm-maximummatching",
   "level": "2",
   "url": "sec-matchings.html#thm-maximummatching",
   "type": "Theorem",
-  "number": "5.2.11",
+  "number": "5.2.12",
   "title": "",
   "body": "  A matching in a graph is maximum if and only if there are no augmenting paths with respect to .   "
 },
 {
-  "id": "sec-matchings-16",
+  "id": "sec-matchings-17",
   "level": "2",
-  "url": "sec-matchings.html#sec-matchings-16",
+  "url": "sec-matchings.html#sec-matchings-17",
   "type": "Proof",
   "number": "5.2.2",
   "title": "",
   "body": " Let's suppose that is a matching in and that is maximum. We will show that there are no augmenting paths with respect to . Suppose, for the sake of contradiction, that there is an augmenting path with respect to . By our lemma, we can create a new matching by removing the edges of along the path and adding the other edges of the path to the matching. The new matching has size , which contradicts the assumption that is maximum. Therefore, there are no augmenting paths with respect to .  Next, we will show that if there are no augmenting paths with respect to a matching in , then is maximum. We will do this using the technique of proof by contrapositive : we will show that if is not maximum, then there exists an augmenting path with respect to . Let be a maximal matching in , and note that . Consider the symmetric difference , and consider the subgraph of containing those edges. In , each vertex has degree or , since each vertex is incident to at most one edge from and at most one edge from . Thus, the connected components of are paths and cycles, and if they are cycles, the length of the cycle is even, since the edges alternate between those in and those in . The graph has more elements of than of , so there must be at least one path component in that has more edges from than from . Such a path must start and end with edges from , and thus starts and ends at vertices not covered by . Therefore, this path is an augmenting path with respect to , and we are done.  "
 },
 {
-  "id": "sec-matchings-17",
+  "id": "sec-matchings-18",
   "level": "2",
-  "url": "sec-matchings.html#sec-matchings-17",
+  "url": "sec-matchings.html#sec-matchings-18",
   "type": "Checkpoint",
-  "number": "5.2.12",
+  "number": "5.2.13",
+  "title": "",
+  "body": " Discuss the proof above. Does it make sense? Why or why not?  "
+},
+{
+  "id": "sec-matchings-19",
+  "level": "2",
+  "url": "sec-matchings.html#sec-matchings-19",
+  "type": "Checkpoint",
+  "number": "5.2.14",
   "title": "",
   "body": " Proof by contrapositive states that if we want to prove that , it is sufficient to prove that , where is the negation of . Using the following truth table, explain why this proof technique is valid.   Truth Table    P  Q    T  T    T  F    F  T    F  F     "
 },
@@ -3148,23 +3166,14 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.4",
   "title": "Intro to Modularity Maximization in Networks and Community Detection",
-  "body": " Intro to Modularity Maximization in Networks and Community Detection  Detecting communities within networks, especially social networks, is a key goal for network scientists and graph theorists. A major driver of this subject was the publication in 2002 of a seminal paper by Girvan and Newman introducing the concept of modularity.   Community structure article header     Girvan and Newman discuss in their paper an example of a karate club studied by Wayne Zachary in the 1970s (An Information Flow Model for Conflict and Fission in Small Groups, Wayne W. Zachary, Journal of Anthropological Research 1977 33:4, 452-473). The network represents friendships between 34 members of the club, which eventually split into two factions due to a conflict between the club's administrator and instructor.   Zachary's karate club network    The goal of community detection algorithms is to identify such factions (or communities) based solely on the network structure, without any knowledge of the actual social dynamics of the agents involved. Using the modularity maximization approach, one can obtain the following partition of Zachary's karate club network, which mirrors the split in the club that occurred in reality.   Zachary's karate club network split into communities.    As another example of a network that is frequently studied using community detection algorithms, here is the network of characters in Victor Hugo's novel \"Les Misérables\".   \"Les Misérables\" character network    Our goal in the following sections is to learn how to use the modularity maximization technique to detect communities within a network. While modularity maximization is not the only approach to this problem, it is one that connects well with other topics we have seen in this course, and which is widely used.  "
-},
-{
-  "id": "fig-communitypaper",
-  "level": "2",
-  "url": "sec-modularitymaximization.html#fig-communitypaper",
-  "type": "Figure",
-  "number": "5.4.1",
-  "title": "",
-  "body": " Community structure article header    "
+  "body": " Intro to Modularity Maximization in Networks and Community Detection  Detecting communities within networks, especially social networks, is a key goal for network scientists and graph theorists. While community detection has a long history, a major driver of this subject was the publication in 2004 of the paper \"Finding an Evaluating Community Structure in Networks\" by Newman and Girvan introducing the concept of modularity. Newman and Girvan discuss in their paper an example of a karate club studied by Wayne Zachary in the 1970s (An Information Flow Model for Conflict and Fission in Small Groups, Wayne W. Zachary, Journal of Anthropological Research 1977 33:4, 452-473). The network represents friendships between 34 members of the club, which eventually split into two factions due to a conflict between the club's administrator and instructor.   Zachary's karate club network    The goal of community detection algorithms is to identify such factions (or communities) based solely on the network structure, without any knowledge of the actual social dynamics of the agents involved. Using the modularity maximization approach, one can obtain the following partition of Zachary's karate club network, which mirrors the split in the club that occurred in reality.   Zachary's karate club network split into communities.    As another example of a network that is frequently studied using community detection algorithms, here is the network of characters in Victor Hugo's novel \"Les Misérables\".   \"Les Misérables\" character network, divided into communities using modularity maximization, image from Newman and Girvan 2004 .    Our goal in the following sections is to learn how to use the modularity maximization technique to detect communities within a network. While modularity maximization is not the only approach to this problem, it is one that connects well with other topics we have seen in this course, and which is widely used.  "
 },
 {
   "id": "fig-zacharykarateclub",
   "level": "2",
   "url": "sec-modularitymaximization.html#fig-zacharykarateclub",
   "type": "Figure",
-  "number": "5.4.2",
+  "number": "5.4.1",
   "title": "",
   "body": " Zachary's karate club network   "
 },
@@ -3173,7 +3182,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-modularitymaximization.html#fig-zacharykarateclubcommunities",
   "type": "Figure",
-  "number": "5.4.3",
+  "number": "5.4.2",
   "title": "",
   "body": " Zachary's karate club network split into communities.   "
 },
@@ -3182,9 +3191,9 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-modularitymaximization.html#fig-lesmis",
   "type": "Figure",
-  "number": "5.4.4",
+  "number": "5.4.3",
   "title": "",
-  "body": " \"Les Misérables\" character network   "
+  "body": " \"Les Misérables\" character network, divided into communities using modularity maximization, image from Newman and Girvan 2004 .   "
 },
 {
   "id": "sec-configuration",
@@ -3292,7 +3301,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.6",
   "title": "Communities via Modularity Maximization",
-  "body": " Communities via Modularity Maximization  Our goal now is to use the configuration model as the basis for our detection of communities in a network. For simplicity, we will focus on the case of dividing a network into two communities. We will use in our description of the process the Kronecker delta function , which is defined as    What is the value of ? What is the value of ?   Suppose we have a graph and we divide the vertex set into two subsets and such that . We want to count the number of edges that fall within either or , so that we can compare this to the expected number of edges within those sets given by the configuration model. We first define a function that indicates to which subset each vertex belongs. Define the function by Define further the value where where is the number of edges between vertices in and is twice the number of loops at vertex . For those of you who have seen some matrix algebra, observe that the values of are the entries of the adjacency matrix of .   For the graph below, let and .   What is the function for each vertex in the graph?    What is for the following pairs ?         Example of a looped multigraph on nine vertices.       For the graph below, let and .   Verify that the formula counts the number of edges within and .      Example of a looped multigraph on nine vertices.        Given the setup above, the total number of edges that connect vertices within the same subset is given by:      For any edge that is not a loop, the right-hand side counts it twice, as any pair of distinct numbers shows up twice in the sum. Thus, we divide by two to have that edge contribute one to the sum. When , the value is by definition twice the number of loops at vertex , so dividing by two again gives the correct count of edges.    Does this proof make sense? Why or why not? Does it make sense now why we defined to be twice the number of loops at vertex ?   We can now compare the number of edges within the subsets and to the expected number of such edges in the configuration model with the same degree sequence as . Consider the following facts:   The total number of edges within and is given by , and therefore the fraction of all edges in the network that are contained in and is     The expected total number of edges within and is given by , and therefore the expected fraction of all edges in the network that are contained in and is     Thus, the (approximate) difference between the actual and expected fraction of edges from within and is given by    This leads us to the following definition.   Discuss the facts above. Do these make sense? Why or why not?     Given a network with degree sequence and a partition of the vertex set , the modularity  of the partition is defined as where is the number of edges in .     For the graph below, let and .   Compute the modularity of this partition for this network.      Example of a looped multigraph on nine vertices.       The following Sagemath code will generate a random network with degree sequence D using the configuration model, compute the modularity for every vertex partition, and show a histogram of those values.  import networkx as nx L = [] D = [2,2,3,3,3,4,4,5,6,6,6,6,6,8,8] G = nx.configuration_model(D) M = 0 Se = [] for S in Subsets(Graph(G).vertices()): mod = nx.community.modularity(G,[list(S),[i for i in range(len(T)) if i not in S]]) if mod > M: M = mod Se = S L.append(mod) show(histogram(L)) print(Se) print(M) Graph(G).show(layout='circular')  As an example, one iteration of this yields the following graph, histogram, and maximum modularity obtained with .   Network example for modularity computation.      Histogram of modularity values for every vertex partition of this network.      The general heuristic we will use is the following: the partition of the vertices of with the highest modularity is the one that best represents a partition of the network into communities. To carry this out in practice, we will adjust the definition of the modularity function.  Rather than using the function , we will use the function With this definition, we have that Setting we have that (There are some algebraic simplifications going on to obtain this form, it is not completely obvious.)  Thus, the goal is to maximize the value of over all . This is an example of a discrete optimization problem: we have a degree two multivariate polynomial in the variables , and we want to maximize it over the finite set of points .  "
+  "body": " Communities via Modularity Maximization  Our goal now is to use the configuration model as the basis for our detection of communities in a network. For simplicity, we will focus on the case of dividing a network into two communities. We will use in our description of the process the Kronecker delta function , which is defined as    What is the value of ? What is the value of ?   Suppose we have a graph where and Divide the vertex set into two subsets and such that . We want to count the number of edges that fall within either or , so that we can compare this to the expected number of edges within those sets given by the configuration model. We first define a function that indicates to which subset each vertex belongs. Define the function by Define further the value where where is the number of edges between vertices in and is twice the number of loops at vertex . For those of you who have seen some matrix algebra, observe that the values of are the entries of the adjacency matrix of .   For the graph below, let and .   What is the function for each vertex in the graph?    What is for the following pairs ?         Example of a looped multigraph on nine vertices.       For the graph below, let and .   Verify that the formula counts the number of edges within and .      Example of a looped multigraph on nine vertices.        Given the setup above, the total number of edges that connect vertices within the same subset is given by:      For any edge that is not a loop, the right-hand side counts it twice, as any pair of distinct numbers shows up twice in the sum. Thus, we divide by two to have that edge contribute one to the sum. When , the value is by definition twice the number of loops at vertex , so dividing by two again gives the correct count of edges.    Does this proof make sense? Why or why not? Does it make sense now why we defined to be twice the number of loops at vertex ?   We can now compare the number of edges within the subsets and to the expected number of such edges in the configuration model with the same degree sequence as . Consider the following facts:   The total number of edges within and is given by , and therefore the fraction of all edges in the network that are contained in and is     The expected total number of edges within and is given by , and therefore the expected fraction of all edges in the network that are contained in and is     Thus, the (approximate) difference between the actual and expected fraction of edges from within and is given by       Discuss the facts above. Do these make sense? Why or why not?   This leads us to the following definition.    Given a network with degree sequence and a partition of the vertex set , the modularity  of the partition is defined as where is the number of edges in .     For the graph below, let and .   Compute the modularity of this partition for this network.      Example of a looped multigraph on nine vertices.       The following Sagemath code will generate a random network with degree sequence D using the configuration model, compute the modularity for every vertex partition, and show a histogram of those values.  import networkx as nx L = [] D = [2,2,3,3,3,4,4,5,6,6,6,6,6,8,8] G = nx.configuration_model(D) M = 0 Se = [] for S in Subsets(Graph(G).vertices()): mod = nx.community.modularity(G,[list(S),[i for i in range(len(T)) if i not in S]]) if mod > M: M = mod Se = S L.append(mod) show(histogram(L)) print(Se) print(M) Graph(G).show(layout='circular')  As an example, one iteration of this yields the following graph, histogram, and maximum modularity obtained with .   Network example for modularity computation.      Histogram of modularity values for every vertex partition of this network.      The general heuristic we will use is the following: the partition of the vertices of with the highest modularity is the one that best represents a partition of the network into communities. To carry this out in practice, we will adjust the definition of the modularity function.  Rather than using the function , we will use the function With this definition, we have that    Explain why .   Set    Prove that and similarly    We therefore have that    Justify the right-hand equality in the expression above.   Thus, the goal is to maximize the value of over all . This is an example of a discrete optimization problem: we have a degree two multivariate polynomial in the variables , and we want to maximize it over the finite set of points .  "
 },
 {
   "id": "sec-modularity-3",
@@ -3367,22 +3376,49 @@ var ptx_lunr_docs = [
   "body": "  Given a network with degree sequence and a partition of the vertex set , the modularity  of the partition is defined as where is the number of edges in .   "
 },
 {
-  "id": "sec-modularity-13",
+  "id": "sec-modularity-14",
   "level": "2",
-  "url": "sec-modularity.html#sec-modularity-13",
+  "url": "sec-modularity.html#sec-modularity-14",
   "type": "Checkpoint",
   "number": "5.6.10",
   "title": "",
   "body": " For the graph below, let and .   Compute the modularity of this partition for this network.      Example of a looped multigraph on nine vertices.     "
 },
 {
-  "id": "sec-modularity-14",
+  "id": "sec-modularity-15",
   "level": "2",
-  "url": "sec-modularity.html#sec-modularity-14",
+  "url": "sec-modularity.html#sec-modularity-15",
   "type": "Example",
   "number": "5.6.12",
   "title": "",
   "body": " The following Sagemath code will generate a random network with degree sequence D using the configuration model, compute the modularity for every vertex partition, and show a histogram of those values.  import networkx as nx L = [] D = [2,2,3,3,3,4,4,5,6,6,6,6,6,8,8] G = nx.configuration_model(D) M = 0 Se = [] for S in Subsets(Graph(G).vertices()): mod = nx.community.modularity(G,[list(S),[i for i in range(len(T)) if i not in S]]) if mod > M: M = mod Se = S L.append(mod) show(histogram(L)) print(Se) print(M) Graph(G).show(layout='circular')  As an example, one iteration of this yields the following graph, histogram, and maximum modularity obtained with .   Network example for modularity computation.      Histogram of modularity values for every vertex partition of this network.     "
+},
+{
+  "id": "sec-modularity-18",
+  "level": "2",
+  "url": "sec-modularity.html#sec-modularity-18",
+  "type": "Checkpoint",
+  "number": "5.6.15",
+  "title": "",
+  "body": " Explain why .  "
+},
+{
+  "id": "sec-modularity-20",
+  "level": "2",
+  "url": "sec-modularity.html#sec-modularity-20",
+  "type": "Checkpoint",
+  "number": "5.6.16",
+  "title": "",
+  "body": " Prove that and similarly   "
+},
+{
+  "id": "sec-modularity-22",
+  "level": "2",
+  "url": "sec-modularity.html#sec-modularity-22",
+  "type": "Checkpoint",
+  "number": "5.6.17",
+  "title": "",
+  "body": " Justify the right-hand equality in the expression above.  "
 },
 {
   "id": "sec-modularitycomputation",
@@ -3391,7 +3427,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.7",
   "title": "Algorithms to Maximize Modularity",
-  "body": " Algorithms to Maximize Modularity  "
+  "body": " Algorithms to Maximize Modularity  We have now developed a well-defined problem to solve in order to optimally split a network into one or two communities.   Problem: Given a network where and , find the vertex partition (where it is possible for one of these sets to be empty) that maximizes the modularity function over the set .  "
 },
 {
   "id": "ch-ethics",
