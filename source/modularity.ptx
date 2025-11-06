@@ -33,17 +33,9 @@
                     </me>
         Define further the value <m>A_{i,j}</m> where where <m>A_{i,j}</m> is the number of edges between vertices <m>i\neq j</m> in <m>G</m> and <m>A_{i,i}</m> is twice the number of loops at vertex <m>i</m>.
         For those of you who have seen some matrix algebra, observe that the values of <m>A_{i,j}</m> are the entries of the adjacency matrix of <m>G</m>.
-        We can count the total number of edges that connect vertices within the same subset as follows:
-        <me>
-            \sum_{\{i,j\}\in E(G)} \delta_{g_i,g_j} = \frac{1}{2}\sum_{i,j} A_{i,j}\delta_{g_i,g_j} \, .
-        </me>
     </p>
 
-    <exercise>
-        <p>
-            Why does the above sum count the number of edges within <m>V_1</m> and <m>V_2</m>?
-        </p>
-    </exercise>
+
 
     <exercise>
         <p>
@@ -62,11 +54,24 @@
                         <m>\{0,1\}, \{3,7\}, \{4,5\}, \{8,8\}</m>
                     </p>
                 </li>
+            </ol>
+        </p>
+        <figure xml:id="configexamplepartition1">
+            <caption>Example of a looped multigraph on nine vertices.</caption>
+            <image source="configuration_example_partition.png" width="75%">
+            </image>
+        </figure>
+    </exercise>
+
+    <exercise>
+        <p>
+            For the graph below, let <m>V_1=\{0,1,2,3,4\}</m> and <m>V_2=\{5,6,7,8\}</m>.
+            <ol>
                 <li>
                     <p>
                         Verify that the formula 
                         <me>
-                        \frac{1}{2}\sum_{i,j} A_{i,j}\delta_{g_i,g_j} 
+                        \frac{1}{2}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} 
                         </me>
                         counts the number of edges within <m>V_1</m> and <m>V_2</m>.
                     </p>
@@ -79,6 +84,177 @@
             </image>
         </figure>
     </exercise>
+
+    <theorem xml:id="thm-edgecountconfiguration">
+        <statement>
+            <p>
+            Given the setup above, the total number of edges that connect vertices within the same subset is given by:
+            <me>
+                \sum_{\{i,j\}\in E(G)} \delta_{g_i,g_j} = \frac{1}{2}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} \, .
+            </me>
+            </p>
+        </statement>
+    </theorem>
+
+    <proof>
+        <p>
+        For any edge that is not a loop, the right-hand side counts it twice, as any pair of distinct numbers shows up twice in the sum.
+        Thus, we divide by two to have that edge contribute one to the sum.
+        When <m>i=j</m>, the value <m>A_{i,i}</m> is by definition twice the number of loops at vertex <m>i</m>, so dividing by two again gives the correct count of edges.
+        </p>
+    </proof>
+
+    <exercise>
+        <p>
+            Does this proof make sense? Why or why not? Does it make sense now why we defined <m>A_{i,i}</m> to be twice the number of loops at vertex <m>i</m>?
+        </p>
+    </exercise>
+
+    <p>
+        We can now compare the number of edges within the subsets <m>V_1</m> and <m>V_2</m> to the expected number of such edges in the configuration model with the same degree sequence as <m>G</m>.
+        Consider the following facts:
+        <ol>
+            <li>
+                <p>
+                    The total number of edges within <m>V_1</m> and <m>V_2</m> is given by <m>\frac{1}{2}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j}</m>, and therefore the fraction of all edges in the network that are contained in <m>V_1</m> and <m>V_2</m> is
+                    <me>
+                        \frac{1}{2m}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} \, .
+                    </me>
+                </p>
+            </li>
+            <li>
+                <p>
+                    The expected total number of edges within <m>V_1</m> and <m>V_2</m> is given by <m>\frac{1}{2}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m-1}\delta_{g_i,g_j}</m>, and therefore the expected fraction of all edges in the network that are contained in <m>V_1</m> and <m>V_2</m> is
+                    <me>\frac{1}{2m}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m-1}\delta_{g_i,g_j}\approx \frac{1}{2m}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m}\delta_{g_i,g_j}</me>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Thus, the (approximate) difference between the actual and expected fraction of edges from <m>G</m> within <m>V_1</m> and <m>V_2</m> is given by 
+                    <me>
+                        \frac{1}{2m}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} - \frac{1}{2m}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m}\delta_{g_i,g_j}  \, .
+                    </me>
+                </p>
+            </li>
+        </ol>
+        This leads us to the following definition.
+    </p>
+
+    <exercise>
+        <p>
+            Discuss the facts above. Do these make sense? Why or why not?
+        </p>
+    </exercise>
+    
+    <definition xml:id="def-modularityfunction">
+        <statement>
+            <p>
+                Given a network <m>G</m> with degree sequence <m>(d_1,d_2,\ldots,d_{n})</m> and a partition of the vertex set <m>V=V_1 \uplus V_2</m>, the <em>modularity</em> <m>Q</m> of the partition is defined as
+                <me>
+                    Q = \frac{1}{2m} \sum_{1\leq i,j \leq n} \left( A_{i,j} - \frac{d_i d_j}{2m} \right) \delta_{g_i,g_j} \, ,
+                </me>
+                where <m>m</m> is the number of edges in <m>G</m>.
+            </p>
+        </statement>
+    </definition>
+
+
+    <exercise>
+        <p>
+            For the graph below, let <m>V_1=\{0,1,2,3,4\}</m> and <m>V_2=\{5,6,7,8\}</m>.
+            <ol>
+                <li>
+                    <p>
+                        Compute the modularity of this partition for this network.
+                    </p>
+                </li>
+            </ol>
+        </p>
+        <figure xml:id="configexamplepartition2">
+            <caption>Example of a looped multigraph on nine vertices.</caption>
+            <image source="configuration_example_partition.png" width="75%">
+            </image>
+        </figure>
+    </exercise>
+
+    <example>
+        <p>
+            The following Sagemath code will generate a random network with degree sequence D using the configuration model, compute the modularity for every vertex partition, and show a histogram of those values.
+        </p>
+
+        <program language='python'>
+import networkx as nx
+
+L = []
+
+D = [2,2,3,3,3,4,4,5,6,6,6,6,6,8,8]
+
+G = nx.configuration_model(D)
+
+M = 0
+Se = []
+
+for S in Subsets(Graph(G).vertices()):
+    mod = nx.community.modularity(G,[list(S),[i for i in range(len(T)) if i not in S]])
+    if mod > M:
+        M = mod
+        Se = S
+    L.append(mod)
+
+show(histogram(L))
+print(Se)
+print(M)
+Graph(G).show(layout='circular')
+        </program>
+
+    <p>
+        As an example, one iteration of this yields the following graph, histogram, and maximum modularity <m>0.32986111111111116</m> obtained with <m>V_1=\{2, 3, 6, 7, 11, 12\}</m>.
+    </p>
+    <figure xml:id="modularityexample">
+        <caption>Network example for modularity computation.</caption>
+        <image source="modularity_example_network.png" width="75%">
+        </image>
+    </figure>
+    <figure xml:id="modularityexamplehistogram">
+        <caption>Histogram of modularity values for every vertex partition of this network.</caption>
+        <image source="histogram_modularity_example.png" width="75%">
+        </image>
+    </figure>
+    </example>
+
+    <p>
+        The general heuristic we will use is the following: <em>the partition of the vertices of <m>G</m> with the highest modularity is the one that best represents a partition of the network into communities.</em>
+        To carry this out in practice, we will adjust the definition of the modularity function.
+    </p>
+
+    <p>
+        Rather than using the function <m>g_i</m>, we will use the function
+        <me>
+            s_i = 
+            \begin{cases}
+            +1 \amp \text{if } i\in V_1, \\
+            -1 \amp \text{if } i \in V_2.
+            \end{cases}
+        </me>
+        With this definition, we have that
+        <me>
+            \delta_{g_i,g_j}=\frac{1}{2}(s_is_j+1) \, .
+        </me>
+        Setting 
+        <me>
+            B_{i,j}=A_{i,j}-\frac{d_id_j}{2m}
+        </me>
+        we have that
+        <me>
+            Q = \frac{1}{4m}\sum_{1\leq i,j\leq |V|}B_{i,j}s_is_j \, .
+        </me>
+        (There are some algebraic simplifications going on to obtain this form, it is not completely obvious.)
+    </p>
+    
+    <p>
+        Thus, the goal is to maximize the value of <m>Q</m> over all <m>s\in \{-1,1\}^n</m>.
+        This is an example of a discrete optimization problem: we have a degree two multivariate polynomial in the variables <m>s_1,\ldots,s_n</m>, and we want to maximize it over the finite set of points <m>\{-1,1\}^n</m>.
+    </p>
 
 
 
