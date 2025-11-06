@@ -227,67 +227,7 @@ Graph(G).show(layout='circular')
 
     <p>
         The general heuristic we will use is the following: <em>the partition of the vertices of <m>G</m> with the highest modularity is the one that best represents a partition of the network into communities.</em>
-        To carry out the maximization process in practice, we will adjust the definition of the modularity function.
-    </p>
-
-    <p>
-        Rather than using the function <m>g_i</m>, we will use the function
-        <me>
-            s_i = 
-            \begin{cases}
-            +1 \amp \text{if } i\in V_1, \\
-            -1 \amp \text{if } i \in V_2.
-            \end{cases}
-        </me>
-        With this definition, we have that
-        <me>
-            \delta_{g_i,g_j}=\frac{1}{2}(s_is_j+1) \, .
-        </me>
-    </p>
-
-    <exercise>
-        <p>
-            Explain why <m>\delta_{g_i,g_j}=\frac{1}{2}(s_is_j+1)</m>.
-        </p>
-    </exercise>
-
-    <p>
-        Set 
-        <me>
-            B_{i,j}=A_{i,j}-\frac{d_id_j}{2m} \, .
-        </me>
-    </p>
-
-    <exercise>
-        <p>
-            Prove that 
-            <me>
-            \sum_{1\leq i \leq n} B_{i,j} = 0
-            </me>
-            and similarly
-            <me>
-            \sum_{1\leq j \leq n} B_{i,j} = 0 \, .
-            </me>
-        </p>
-    </exercise>
-
-    <p>
-        We therefore have that
-        <me>
-            Q = \frac{1}{2m}\sum_{1\leq i,j\leq n}B_{i,j}\frac{1}{2}(s_is_j+1) = \frac{1}{4m}\sum_{1\leq i,j\leq n}B_{i,j}s_is_j \, .
-        </me>
-    </p>
-
-    <exercise>
-        <p>
-            Justify both equalities in the expression above.
-        </p>
-    </exercise>
-    
-    <p>
-        Thus, the goal is to maximize the value of <m>Q</m> over all <m>s\in \{-1,1\}^n</m>.
-        This is an example of a discrete optimization problem: we have a degree two multivariate polynomial in the variables <m>s_1,\ldots,s_n</m>, and we want to maximize it over the finite set of points <m>\{-1,1\}^n</m>.
-    </p>
+    </p> 
 
 
 

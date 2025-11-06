@@ -1,5 +1,5 @@
 <section xml:id="sec-modularitycomputation">
-    <title>Algorithms to Maximize Modularity</title>
+    <title>An Algorithm to (Approximately) Maximize Modularity</title>
 
     <p>
         We have now developed a well-defined problem to solve in order to optimally split a network into one or two communities.
@@ -7,19 +7,20 @@
     <p>
         <em>Problem:</em> Given a network <m>G=(V,E)</m> where <m>V=\{1,2,\ldots,n\}</m> and <m>|E|=m</m>, find the vertex partition <m>V=V_1\uplus V_2</m> (where it is possible for one of these sets to be empty) that maximizes the modularity function 
         <me>
-            Q = \frac{1}{4m}\sum_{1\leq i,j\leq |V|}B_{i,j}s_is_j 
+            Q := \frac{1}{2m} \sum_{1\leq i,j \leq n} \left( A_{i,j} - \frac{d_i d_j}{2m} \right) \delta_{g_i,g_j} \, .
         </me>
-        over the set <m>s\in \{-1,1\}^n</m> where
-        <me>
-            B_{i,j}=A_{i,j}-\frac{d_id_j}{2m} \, .
-        </me>    
+        over the set of all such vertex partitions.
     </p>
 
     <p>
         There are many general approaches that have been developed for this type of discrete optimization problem, such as simulated annealing, genetic algorithms, extremal optimization, etc.
-        However, we will consider methods to solve this optimization problem that are specific to modularity maximization.
-        Both of the methods we will consider were introduced by Newman in 2006 in the paper "Modularity and community structure in networks" <url href="https://www.pnas.org/doi/10.1073/pnas.0601602103" />.
-        The first algorithm we will study is a "node-moving" algorithm.
+        In practice, it is very difficult to develop an algorithm that is both efficient and produces the actual maximizer.
+        Instead, most algorithms to solve this optimization problem only provide approximate maximizers -- this is usually good enough in practice.
+    </p>
+    <p>
+        We will consider a simple algorithm to provide an approximate solution to this optimization problem that is specific to modularity maximization, rather than general-purpose discrete optimization algorithms.
+        The method we will consider was introduced by Newman in 2006 in the paper "Modularity and community structure in networks" <url href="https://www.pnas.org/doi/10.1073/pnas.0601602103" />.
+        This method is most effective when combined into a two-stage method, where the first stage uses "spectral methods" involving eigenvector calculations for the modularity matrix <m>B=[B_{i,j}]</m> to find an initial approximate solution, and the node-moving algorithm described below is the second step to make small adjustments to improve the solution found with the spectral method.
     </p>
 
     <definition xml:id="def-nodemovingmodularity">
@@ -82,6 +83,95 @@
         </statement>
     </definition>
 
+    <p>
+        For anyone who is interested in seeing how this looks in code, here is a sample of Sagemath code that you can use in <url href="https://sagecell.sagemath.org/" />.
+        This code snippet will run the node-moving algorithm on a random graph from the configuration model with a degree sequence of your choice.
+    </p>
+
+    <program language="python">
+        <input>
+import networkx as nx
+
+def nodemove(V,i):
+    W = []
+    if i in V[0]:
+        W=[]
+        W.append([j for j in V[0] if j != i])
+        W.append([i]+V[1])
+    else:
+        W=[]
+        W.append([i]+V[0])
+        W.append([j for j in V[1] if j != i])
+    return(W)
+
+def mostdiffnode(G,V,checked):
+    maxdiff = -100
+    for i in Graph(G).vertices():
+        if i not in checked:
+            if N(nx.community.modularity(G,nodemove(V,i))) - N(nx.community.modularity(G,V)) > maxdiff:
+                maxvert = i
+                maxdiff = N(nx.community.modularity(G,nodemove(V,i))) - N(nx.community.modularity(G,V))
+    return(maxvert)
+
+def nodepasspartitions(G,V):
+    n = len(Graph(G).vertices())
+    parts = [V]
+    checked = []
+    while n > len(checked):
+        t = mostdiffnode(G,parts[-1],checked)
+        parts.append(nodemove(parts[-1],t))
+        checked.append(t)
+    return(parts)
+
+def largestmodpart(G,parts):
+    mod = -100
+    for W in parts:
+        if N(nx.community.modularity(G,W)) > mod:
+            largestpart = W
+            mod = N(nx.community.modularity(G,W))
+    return(largestpart)
+
+D = [4,8,2,2,5,7,5,3,3,2,4,5,4,8,8,2,2,2,4]
+
+G = nx.configuration_model(D)
+
+V = [[i for i in range(floor(len(D)/2))],[i for i in range(floor(len(D)/2),len(D))]]
+
+W = largestmodpart(G,nodepasspartitions(G,V))
+
+while sorted([sorted(V[0]),sorted(V[1])]) != sorted([sorted(W[0]),sorted(W[1])]):
+    W1 = largestmodpart(G,nodepasspartitions(G,W))
+    V = W
+    W = W1
+
+Graph(G).show(layout='circular')
+print(sorted([sorted(W[0]),sorted(W[1])]))
+print('estimated max modularity is '+str(N(nx.community.modularity(G,W))))
+        </input>
+    </program>
+
+    <exercise>
+        <p>
+            Discuss the algorithm above. Does it make sense?
+        </p>
+        <p>
+            Run this algorithm on the graph below starting from the partition <m>V_1=\{0,1\}, V_2=\{3,4\}</m>.
+        </p>
+        <figure xml:id="nodemovingexercise">
+            <caption>Graph for the node-moving algorithm checkpoint.</caption>
+            <image source="modularitynodemovingexample.png" width="75%">
+            </image>
+        </figure>
+        <p>
+            You should find that the algorithm terminates at the partition <m>W_1=\{0,2\}, W_2=\{1,3\}</m>.
+        </p>
+    </exercise>
+
+    <p>
+        Note that there is no guarantee that the result of this algorithm is actually a maximizer for modularity -- however, it does provide a way to generate a partition with higher modularity than you started with.
+        There are many interesting algorithms for maximizing modularity, and there are many other approaches beyond modularity to the study of community detection.
+        So, you should view what we have done as an invitation to further study rather than as a comprehensive survey.
+    </p>
 
 
 </section>
