@@ -129,7 +129,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-configuration.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-optimization.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-ethics.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-configuration.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-optimization.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-modularitycomputation.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\inv}{\mathrm{inv}} \newcommand{\deg}{\mathrm{deg}} \newcommand{\des}{\mathrm{des}} \newcommand{\Des}{\mathrm{Des}} \newcommand{\Inv}{\mathrm{Inv}} \newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} \newcommand{\Bin}{\mathrm{Bin}} \newcommand{\comp}{\mathrm{Comp}} \newcommand{\ss}{\mathfrak{S}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -192,6 +192,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularitymaximization.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Intro to Modularity Maximization in Networks and Community Detection</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-configuration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">The Configuration Model for Random Networks</span></a></div></li>
 <li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-modularity.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Communities via Modularity Maximization</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularitycomputation.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Algorithms to Maximize Modularity</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-ethics.html" class="internal"><span class="codenumber">6</span> <span class="title">Ethics</span></a></div></li>
@@ -203,9 +204,244 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-modularity"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">5.6</span><span class="space"> </span><span class="title">Communities via Modularity Maximization</span>
 </h2>
+<div class="para logical" id="sec-modularity-2">
+<div class="para">Our goal now is to use the configuration model as the basis for our detection of communities in a network. For simplicity, we will focus on the case of dividing a network into two communities. We will use in our description of the process the <em class="emphasis">Kronecker delta function</em>, which is defined as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\delta_{a,b} = \begin{cases}
+1 \amp \text{if } a=b, \\
+0 \amp \text{if } a \neq b.
+\end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-modularity-3" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.6.1</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-modularity-3-1">What is the value of <span class="process-math">\(\delta_{3,5}\text{?}\)</span> What is the value of <span class="process-math">\(\delta_{7,7}\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.6.1"><a href="#sec-modularity-3" title="Copy heading and permalink for Checkpoint 5.6.1" aria-label="Copy heading and permalink for Checkpoint 5.6.1">🔗</a></div></article></details><div class="para logical" id="sec-modularity-4">
+<div class="para">Suppose we have a graph <span class="process-math">\(G=(V,E)\)</span> and we divide the vertex set <span class="process-math">\(V\)</span> into two subsets <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> such that <span class="process-math">\(V_1 \uplus V_2 = V\text{.}\)</span> We want to count the number of edges that fall within either <span class="process-math">\(V_1\)</span> or <span class="process-math">\(V_2\text{,}\)</span> so that we can compare this to the expected number of edges within those sets given by the configuration model. We first define a function that indicates to which subset each vertex belongs. Define the function <span class="process-math">\(g_i:V\to \{1,2\}\)</span> by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g_i=
+\begin{cases}
+1 \amp \text{if } i\in V_1, \\
+2 \amp \text{if } i \in V_2.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">Define further the value <span class="process-math">\(A_{i,j}\)</span> where where <span class="process-math">\(A_{i,j}\)</span> is the number of edges between vertices <span class="process-math">\(i\neq j\)</span> in <span class="process-math">\(G\)</span> and <span class="process-math">\(A_{i,i}\)</span> is twice the number of loops at vertex <span class="process-math">\(i\text{.}\)</span> For those of you who have seen some matrix algebra, observe that the values of <span class="process-math">\(A_{i,j}\)</span> are the entries of the adjacency matrix of <span class="process-math">\(G\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-modularity-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.6.2</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-modularity-5-1">
+<div class="para">For the graph below, let <span class="process-math">\(V_1=\{0,1,2,3,4\}\)</span> and <span class="process-math">\(V_2=\{5,6,7,8\}\text{.}\)</span>
+</div>
+<ol class="decimal" id="sec-modularity-5-1-3">
+<li id="sec-modularity-5-1-3-1">
+<div class="para" id="sec-modularity-5-1-3-1-1">What is the function <span class="process-math">\(g_i\)</span> for each vertex <span class="process-math">\(i\)</span> in the graph?<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-5-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.6.2.1"><a href="#sec-modularity-5-1-3-1" title="Copy heading and permalink for Item 5.6.2.1" aria-label="Copy heading and permalink for Item 5.6.2.1">🔗</a></div>
+</li>
+<li id="sec-modularity-5-1-3-2">
+<div class="para" id="sec-modularity-5-1-3-2-1">What is <span class="process-math">\(A_{i,j}\)</span> for the following pairs <span class="process-math">\(\{i,j\}\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-5-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-modularity-5-1-3-2-2">
+<span class="process-math">\(\{0,1\}, \{3,7\}, \{4,5\}, \{8,8\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-5-1-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.6.2.2"><a href="#sec-modularity-5-1-3-2" title="Copy heading and permalink for Item 5.6.2.2" aria-label="Copy heading and permalink for Item 5.6.2.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="configexamplepartition1"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/configuration_example_partition.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.6.3<span class="period">.</span></span><span class="space"> </span>Example of a looped multigraph on nine vertices.<div class="autopermalink" data-description="Figure 5.6.3"><a href="#configexamplepartition1" title="Copy heading and permalink for Figure 5.6.3" aria-label="Copy heading and permalink for Figure 5.6.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 5.6.2"><a href="#sec-modularity-5" title="Copy heading and permalink for Checkpoint 5.6.2" aria-label="Copy heading and permalink for Checkpoint 5.6.2">🔗</a></div></article></details><details id="sec-modularity-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.6.4</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-modularity-6-1">
+<div class="para">For the graph below, let <span class="process-math">\(V_1=\{0,1,2,3,4\}\)</span> and <span class="process-math">\(V_2=\{5,6,7,8\}\text{.}\)</span>
+</div>
+<ol class="decimal" id="sec-modularity-6-1-3"><li id="sec-modularity-6-1-3-1">
+<div class="para logical" id="sec-modularity-6-1-3-1-1">
+<div class="para">Verify that the formula</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{2}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} 
+\end{equation*}
+</div>
+<div class="para">counts the number of edges within <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-6-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.6.4.1"><a href="#sec-modularity-6-1-3-1" title="Copy heading and permalink for Item 5.6.4.1" aria-label="Copy heading and permalink for Item 5.6.4.1">🔗</a></div>
+</li></ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="configexamplepartition"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/configuration_example_partition.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.6.5<span class="period">.</span></span><span class="space"> </span>Example of a looped multigraph on nine vertices.<div class="autopermalink" data-description="Figure 5.6.5"><a href="#configexamplepartition" title="Copy heading and permalink for Figure 5.6.5" aria-label="Copy heading and permalink for Figure 5.6.5">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 5.6.4"><a href="#sec-modularity-6" title="Copy heading and permalink for Checkpoint 5.6.4" aria-label="Copy heading and permalink for Checkpoint 5.6.4">🔗</a></div></article></details><article class="theorem theorem-like" id="thm-edgecountconfiguration"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.6.6</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="thm-edgecountconfiguration-1-1">
+<div class="para">Given the setup above, the total number of edges that connect vertices within the same subset is given by:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{\{i,j\}\in E(G)} \delta_{g_i,g_j} = \frac{1}{2}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-edgecountconfiguration-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.6.6"><a href="#thm-edgecountconfiguration" title="Copy heading and permalink for Theorem 5.6.6" aria-label="Copy heading and permalink for Theorem 5.6.6">🔗</a></div></article><details id="sec-modularity-8" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-modularity-8-1">For any edge that is not a loop, the right-hand side counts it twice, as any pair of distinct numbers shows up twice in the sum. Thus, we divide by two to have that edge contribute one to the sum. When <span class="process-math">\(i=j\text{,}\)</span> the value <span class="process-math">\(A_{i,i}\)</span> is by definition twice the number of loops at vertex <span class="process-math">\(i\text{,}\)</span> so dividing by two again gives the correct count of edges.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 5.6.1"><a href="#sec-modularity-8" title="Copy heading and permalink for Proof 5.6.1" aria-label="Copy heading and permalink for Proof 5.6.1">🔗</a></div></article></details><details id="sec-modularity-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.6.7</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-modularity-9-1">Does this proof make sense? Why or why not? Does it make sense now why we defined <span class="process-math">\(A_{i,i}\)</span> to be twice the number of loops at vertex <span class="process-math">\(i\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.6.7"><a href="#sec-modularity-9" title="Copy heading and permalink for Checkpoint 5.6.7" aria-label="Copy heading and permalink for Checkpoint 5.6.7">🔗</a></div></article></details><div class="para logical" id="sec-modularity-10">
+<div class="para">We can now compare the number of edges within the subsets <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> to the expected number of such edges in the configuration model with the same degree sequence as <span class="process-math">\(G\text{.}\)</span> Consider the following facts:</div>
+<ol class="decimal" id="sec-modularity-10-4">
+<li id="sec-modularity-10-4-1">
+<div class="para logical" id="sec-modularity-10-4-1-1">
+<div class="para">The total number of edges within <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> is given by <span class="process-math">\(\frac{1}{2}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j}\text{,}\)</span> and therefore the fraction of all edges in the network that are contained in <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{2m}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-10-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-modularity-10-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-modularity-10-4-2">
+<div class="para logical" id="sec-modularity-10-4-2-1">
+<div class="para">The expected total number of edges within <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> is given by <span class="process-math">\(\frac{1}{2}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m-1}\delta_{g_i,g_j}\text{,}\)</span> and therefore the expected fraction of all edges in the network that are contained in <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{2m}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m-1}\delta_{g_i,g_j}\approx \frac{1}{2m}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m}\delta_{g_i,g_j}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-10-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-modularity-10-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-modularity-10-4-3">
+<div class="para logical" id="sec-modularity-10-4-3-1">
+<div class="para">Thus, the (approximate) difference between the actual and expected fraction of edges from <span class="process-math">\(G\)</span> within <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{2m}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} - \frac{1}{2m}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m}\delta_{g_i,g_j}  \, .
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-10-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-modularity-10-4-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="para">This leads us to the following definition.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-modularity-11" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.6.8</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-modularity-11-1">Discuss the facts above. Do these make sense? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.6.8"><a href="#sec-modularity-11" title="Copy heading and permalink for Checkpoint 5.6.8" aria-label="Copy heading and permalink for Checkpoint 5.6.8">🔗</a></div></article></details><article class="definition definition-like" id="def-modularityfunction"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.6.9</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="def-modularityfunction-1-1">
+<div class="para">Given a network <span class="process-math">\(G\)</span> with degree sequence <span class="process-math">\((d_1,d_2,\ldots,d_{n})\)</span> and a partition of the vertex set <span class="process-math">\(V=V_1 \uplus V_2\text{,}\)</span> the <em class="emphasis">modularity</em> <span class="process-math">\(Q\)</span> of the partition is defined as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Q = \frac{1}{2m} \sum_{1\leq i,j \leq n} \left( A_{i,j} - \frac{d_i d_j}{2m} \right) \delta_{g_i,g_j} \, ,
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(m\)</span> is the number of edges in <span class="process-math">\(G\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-modularityfunction-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.6.9"><a href="#def-modularityfunction" title="Copy heading and permalink for Definition 5.6.9" aria-label="Copy heading and permalink for Definition 5.6.9">🔗</a></div></article><details id="sec-modularity-13" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.6.10</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-modularity-13-1">
+<div class="para">For the graph below, let <span class="process-math">\(V_1=\{0,1,2,3,4\}\)</span> and <span class="process-math">\(V_2=\{5,6,7,8\}\text{.}\)</span>
+</div>
+<ol class="decimal" id="sec-modularity-13-1-3"><li id="sec-modularity-13-1-3-1">
+<div class="para" id="sec-modularity-13-1-3-1-1">Compute the modularity of this partition for this network.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-13-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.6.10.1"><a href="#sec-modularity-13-1-3-1" title="Copy heading and permalink for Item 5.6.10.1" aria-label="Copy heading and permalink for Item 5.6.10.1">🔗</a></div>
+</li></ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="configexamplepartition2"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/configuration_example_partition.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.6.11<span class="period">.</span></span><span class="space"> </span>Example of a looped multigraph on nine vertices.<div class="autopermalink" data-description="Figure 5.6.11"><a href="#configexamplepartition2" title="Copy heading and permalink for Figure 5.6.11" aria-label="Copy heading and permalink for Figure 5.6.11">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Checkpoint 5.6.10"><a href="#sec-modularity-13" title="Copy heading and permalink for Checkpoint 5.6.10" aria-label="Copy heading and permalink for Checkpoint 5.6.10">🔗</a></div></article></details><details id="sec-modularity-14" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.6.12</span><span class="period">.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="sec-modularity-14-1">The following Sagemath code will generate a random network with degree sequence D using the configuration model, compute the modularity for every vertex partition, and show a histogram of those values.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="code-box"><pre class="program clipboardable"><code class="language-py">import networkx as nx
+
+L = []
+
+D = [2,2,3,3,3,4,4,5,6,6,6,6,6,8,8]
+
+G = nx.configuration_model(D)
+
+M = 0
+Se = []
+
+for S in Subsets(Graph(G).vertices()):
+    mod = nx.community.modularity(G,[list(S),[i for i in range(len(T)) if i not in S]])
+    if mod &gt; M:
+        M = mod
+        Se = S
+    L.append(mod)
+
+show(histogram(L))
+print(Se)
+print(M)
+Graph(G).show(layout='circular')
+</code></pre></div>
+<div class="para" id="sec-modularity-14-3">As an example, one iteration of this yields the following graph, histogram, and maximum modularity <span class="process-math">\(0.32986111111111116\)</span> obtained with <span class="process-math">\(V_1=\{2, 3, 6, 7, 11, 12\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-14-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="modularityexample"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/modularity_example_network.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.6.13<span class="period">.</span></span><span class="space"> </span>Network example for modularity computation.<div class="autopermalink" data-description="Figure 5.6.13"><a href="#modularityexample" title="Copy heading and permalink for Figure 5.6.13" aria-label="Copy heading and permalink for Figure 5.6.13">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="modularityexamplehistogram"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/histogram_modularity_example.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.6.14<span class="period">.</span></span><span class="space"> </span>Histogram of modularity values for every vertex partition of this network.<div class="autopermalink" data-description="Figure 5.6.14"><a href="#modularityexamplehistogram" title="Copy heading and permalink for Figure 5.6.14" aria-label="Copy heading and permalink for Figure 5.6.14">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 5.6.12"><a href="#sec-modularity-14" title="Copy heading and permalink for Example 5.6.12" aria-label="Copy heading and permalink for Example 5.6.12">🔗</a></div></article></details><div class="para" id="sec-modularity-15">The general heuristic we will use is the following: <em class="emphasis">the partition of the vertices of <span class="process-math">\(G\)</span> with the highest modularity is the one that best represents a partition of the network into communities.</em> To carry this out in practice, we will adjust the definition of the modularity function.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-modularity-16">
+<div class="para">Rather than using the function <span class="process-math">\(g_i\text{,}\)</span> we will use the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+s_i = 
+\begin{cases}
++1 \amp \text{if } i\in V_1, \\
+-1 \amp \text{if } i \in V_2.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">With this definition, we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\delta_{g_i,g_j}=\frac{1}{2}(s_is_j+1) \, .
+\end{equation*}
+</div>
+<div class="para">Setting</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B_{i,j}=A_{i,j}-\frac{d_id_j}{2m}
+\end{equation*}
+</div>
+<div class="para">we have that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Q = \frac{1}{4m}\sum_{1\leq i,j\leq |V|}B_{i,j}s_is_j \, .
+\end{equation*}
+</div>
+<div class="para">(There are some algebraic simplifications going on to obtain this form, it is not completely obvious.)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-modularity-17">Thus, the goal is to maximize the value of <span class="process-math">\(Q\)</span> over all <span class="process-math">\(s\in \{-1,1\}^n\text{.}\)</span> This is an example of a discrete optimization problem: we have a degree two multivariate polynomial in the variables <span class="process-math">\(s_1,\ldots,s_n\text{,}\)</span> and we want to maximize it over the finite set of points <span class="process-math">\(\{-1,1\}^n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="autopermalink" data-description="Section 5.6: Communities via Modularity Maximization"><a href="#sec-modularity" title="Copy heading and permalink for Section 5.6: Communities via Modularity Maximization" aria-label="Copy heading and permalink for Section 5.6: Communities via Modularity Maximization">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="sec-configuration.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-ethics.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-configuration.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-modularitycomputation.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

@@ -192,6 +192,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularitymaximization.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Intro to Modularity Maximization in Networks and Community Detection</span></a></div></li>
 <li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-configuration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">The Configuration Model for Random Networks</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularity.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Communities via Modularity Maximization</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularitycomputation.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Algorithms to Maximize Modularity</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-ethics.html" class="internal"><span class="codenumber">6</span> <span class="title">Ethics</span></a></div></li>
@@ -278,11 +279,11 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Item"><a href="#def-configurationmodel-1-1-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="para">Each such perfect matching of stubs corresponds to a looped multigraphs on vertex set <span class="process-math">\(\{1, 2, \ldots, n\}\)</span> where vertex <span class="process-math">\(i\)</span> has degree <span class="process-math">\(d_i\text{.}\)</span> Thus, the configuration model induces a probability distribution on the set of looped multigraphs with degree sequence <span class="process-math">\((d_1, d_2, \ldots, d_n)\text{.}\)</span>
+<div class="para">Each such perfect matching of stubs corresponds to a looped multigraph on vertex set <span class="process-math">\(\{1, 2, \ldots, n\}\)</span> where vertex <span class="process-math">\(i\)</span> has degree <span class="process-math">\(d_i\text{.}\)</span> Thus, the configuration model induces a probability distribution on the set of looped multigraphs with degree sequence <span class="process-math">\((d_1, d_2, \ldots, d_n)\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def-configurationmodel-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 5.5.6"><a href="#def-configurationmodel" title="Copy heading and permalink for Definition 5.5.6" aria-label="Copy heading and permalink for Definition 5.5.6">🔗</a></div></article><div class="para" id="sec-configuration-11">Note that it is possible for two different perfect matchings of stubs to correspond to the same looped multigraph. Thus the configuration model is <em class="emphasis">not</em> the uniform distribution on looped multigraphs with the given degree sequence, rather it is the uniform distribution on perfect matchings of stubs, and this induces a probability distribution on the looped multigraphs. The following example illustrates this point.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 5.5.6"><a href="#def-configurationmodel" title="Copy heading and permalink for Definition 5.5.6" aria-label="Copy heading and permalink for Definition 5.5.6">🔗</a></div></article><div class="para" id="sec-configuration-11">Note that it is possible for two different perfect matchings of stubs to correspond to the same looped multigraph. Thus the configuration model is <em class="emphasis">not</em> the uniform distribution on looped multigraphs with the given degree sequence, rather it is the uniform distribution on perfect matchings of stubs, and this induces a non-uniform probability distribution on the looped multigraphs. The following example illustrates this point.<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="sec-configuration-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.7</span><span class="period">.</span>
@@ -344,12 +345,12 @@ for i in L:
 </h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-configuration-13-1">
 <ol class="decimal" id="sec-configuration-13-1-1">
 <li id="sec-configuration-13-1-1-1">
-<div class="para" id="sec-configuration-13-1-1-1-1">What is the event set for the configuration model with degree sequence <span class="process-math">\((1,2,3)\)</span> on three vertices?<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-13-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-configuration-13-1-1-1-1">What is the event set for the configuration model with degree sequence <span class="process-math">\((1,2,3)\)</span> on three vertices? (Hint: there are fifteen perfect matchings, hence fifteen events.)<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-13-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 5.5.8.1"><a href="#sec-configuration-13-1-1-1" title="Copy heading and permalink for Item 5.5.8.1" aria-label="Copy heading and permalink for Item 5.5.8.1">🔗</a></div>
 </li>
 <li id="sec-configuration-13-1-1-2">
-<div class="para" id="sec-configuration-13-1-1-2-1">What is the probability of each looped multigraph in this configuration model?<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-13-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-configuration-13-1-1-2-1">What is the probability of each looped multigraph in this configuration model? (Hint: there are three looped multigraphs with degree sequence <span class="process-math">\((1,2,3)\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#sec-configuration-13-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 5.5.8.2"><a href="#sec-configuration-13-1-1-2" title="Copy heading and permalink for Item 5.5.8.2" aria-label="Copy heading and permalink for Item 5.5.8.2">🔗</a></div>
 </li>
