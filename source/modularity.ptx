@@ -20,7 +20,8 @@
     </exercise>
 
         <p>
-        Suppose we have a graph <m>G=(V,E)</m> and we divide the vertex set <m>V</m> into two subsets <m>V_1</m> and <m>V_2</m> such that <m>V_1 \uplus V_2 = V</m>.
+        Suppose we have a graph <m>G=(V,E)</m> where <m>V=\{1,2,\ldots,n\}</m> and <m>|E|=m</m>
+        Divide the vertex set <m>V</m> into two subsets <m>V_1</m> and <m>V_2</m> such that <m>V_1 \uplus V_2 = V</m>.
         We want to count the number of edges that fall within either <m>V_1</m> or <m>V_2</m>, so that we can compare this to the expected number of edges within those sets given by the configuration model.
         We first define a function that indicates to which subset each vertex belongs.
         Define the function <m>g_i:V\to \{1,2\}</m> by
@@ -71,7 +72,7 @@
                     <p>
                         Verify that the formula 
                         <me>
-                        \frac{1}{2}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} 
+                        \frac{1}{2}\sum_{1\leq i,j \leq n} A_{i,j}\delta_{g_i,g_j} 
                         </me>
                         counts the number of edges within <m>V_1</m> and <m>V_2</m>.
                     </p>
@@ -90,7 +91,7 @@
             <p>
             Given the setup above, the total number of edges that connect vertices within the same subset is given by:
             <me>
-                \sum_{\{i,j\}\in E(G)} \delta_{g_i,g_j} = \frac{1}{2}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} \, .
+                \sum_{\{i,j\}\in E(G)} \delta_{g_i,g_j} = \frac{1}{2}\sum_{1\leq i,j \leq n} A_{i,j}\delta_{g_i,g_j} \, .
             </me>
             </p>
         </statement>
@@ -116,28 +117,27 @@
         <ol>
             <li>
                 <p>
-                    The total number of edges within <m>V_1</m> and <m>V_2</m> is given by <m>\frac{1}{2}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j}</m>, and therefore the fraction of all edges in the network that are contained in <m>V_1</m> and <m>V_2</m> is
+                    The total number of edges within <m>V_1</m> and <m>V_2</m> is given by <m>\frac{1}{2}\sum_{1\leq i,j \leq n} A_{i,j}\delta_{g_i,g_j}</m>, and therefore the fraction of all edges in the network that are contained in <m>V_1</m> and <m>V_2</m> is
                     <me>
-                        \frac{1}{2m}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} \, .
+                        \frac{1}{2m}\sum_{1\leq i,j \leq n} A_{i,j}\delta_{g_i,g_j} \, .
                     </me>
                 </p>
             </li>
             <li>
                 <p>
-                    The expected total number of edges within <m>V_1</m> and <m>V_2</m> is given by <m>\frac{1}{2}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m-1}\delta_{g_i,g_j}</m>, and therefore the expected fraction of all edges in the network that are contained in <m>V_1</m> and <m>V_2</m> is
-                    <me>\frac{1}{2m}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m-1}\delta_{g_i,g_j}\approx \frac{1}{2m}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m}\delta_{g_i,g_j}</me>
+                    The expected total number of edges within <m>V_1</m> and <m>V_2</m> is given by <m>\frac{1}{2}\sum_{1\leq i,j \leq n} \frac{d_id_j}{2m-1}\delta_{g_i,g_j}</m>, and therefore the expected fraction of all edges in the network that are contained in <m>V_1</m> and <m>V_2</m> is
+                    <me>\frac{1}{2m}\sum_{1\leq i,j \leq n} \frac{d_id_j}{2m-1}\delta_{g_i,g_j}\approx \frac{1}{2m}\sum_{1\leq i,j \leq n} \frac{d_id_j}{2m}\delta_{g_i,g_j}</me>
                 </p>
             </li>
             <li>
                 <p>
                     Thus, the (approximate) difference between the actual and expected fraction of edges from <m>G</m> within <m>V_1</m> and <m>V_2</m> is given by 
                     <me>
-                        \frac{1}{2m}\sum_{1\leq i,j \leq |V|} A_{i,j}\delta_{g_i,g_j} - \frac{1}{2m}\sum_{1\leq i,j \leq |V|} \frac{d_id_j}{2m}\delta_{g_i,g_j}  \, .
+                        \frac{1}{2m}\sum_{1\leq i,j \leq n} A_{i,j}\delta_{g_i,g_j} - \frac{1}{2m}\sum_{1\leq i,j \leq n} \frac{d_id_j}{2m}\delta_{g_i,g_j}  \, .
                     </me>
                 </p>
             </li>
         </ol>
-        This leads us to the following definition.
     </p>
 
     <exercise>
@@ -145,6 +145,10 @@
             Discuss the facts above. Do these make sense? Why or why not?
         </p>
     </exercise>
+
+    <p>
+        This leads us to the following definition.
+    </p>
     
     <definition xml:id="def-modularityfunction">
         <statement>
@@ -240,22 +244,52 @@ Graph(G).show(layout='circular')
         <me>
             \delta_{g_i,g_j}=\frac{1}{2}(s_is_j+1) \, .
         </me>
-        Setting 
-        <me>
-            B_{i,j}=A_{i,j}-\frac{d_id_j}{2m}
-        </me>
-        we have that
-        <me>
-            Q = \frac{1}{4m}\sum_{1\leq i,j\leq |V|}B_{i,j}s_is_j \, .
-        </me>
-        (There are some algebraic simplifications going on to obtain this form, it is not completely obvious.)
     </p>
+
+    <exercise>
+        <p>
+            Explain why <m>\delta_{g_i,g_j}=\frac{1}{2}(s_is_j+1)</m>.
+        </p>
+    </exercise>
+
+    <p>
+        Set 
+        <me>
+            B_{i,j}=A_{i,j}-\frac{d_id_j}{2m} \, .
+        </me>
+    </p>
+
+    <exercise>
+        <p>
+            Prove that 
+            <me>
+            \sum_{1\leq i \leq n} B_{i,j} = 0
+            </me>
+            and similarly
+            <me>
+            \sum_{1\leq j \leq n} B_{i,j} = 0 \, .
+            </me>
+        </p>
+    </exercise>
+
+    <p>
+        We therefore have that
+        <me>
+            Q = \frac{1}{2m}\sum_{1\leq i,j\leq n}B_{i,j}\frac{1}{2}(s_is_j+1) = \frac{1}{4m}\sum_{1\leq i,j\leq n}B_{i,j}s_is_j \, .
+        </me>
+    </p>
+
+    <exercise>
+        <p>
+            Justify the right-hand equality in the expression above.
+        </p>
+    </exercise>
     
     <p>
         Thus, the goal is to maximize the value of <m>Q</m> over all <m>s\in \{-1,1\}^n</m>.
         This is an example of a discrete optimization problem: we have a degree two multivariate polynomial in the variables <m>s_1,\ldots,s_n</m>, and we want to maximize it over the finite set of points <m>\{-1,1\}^n</m>.
     </p>
 
-
+    
 
 </section>

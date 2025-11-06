@@ -1,7 +1,17 @@
 <section xml:id="sec-modularitycomputation">
     <title>Algorithms to Maximize Modularity</title>
 
-
+    <p>
+        We have now developed a well-defined problem to solve in order to optimally split a network into one or two communities.
+    </p>
+    <p>
+        <em>Problem:</em> Given a network <m>G=(V,E)</m> where <m>V=\{1,2,\ldots,n\}</m> and <m>|E|=m</m>, find the vertex partition <m>V=V_1\uplus V_2</m> (where it is possible for one of these sets to be empty) that maximizes the modularity function 
+        <me>
+            Q = \frac{1}{4m}\sum_{1\leq i,j\leq |V|}B_{i,j}s_is_j 
+        </me>
+        over the set <m>s\in \{-1,1\}^n</m>.        
+    </p>
+    
 
 
 </section>
