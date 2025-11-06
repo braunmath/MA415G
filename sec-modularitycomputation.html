@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Algorithms to Maximize Modularity</title>
+<title>An Algorithm to (Approximately) Maximize Modularity</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -192,7 +192,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularitymaximization.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Intro to Modularity Maximization in Networks and Community Detection</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-configuration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">The Configuration Model for Random Networks</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularity.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Communities via Modularity Maximization</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-modularitycomputation.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Algorithms to Maximize Modularity</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-modularitycomputation.html" class="internal"><span class="codenumber">5.7</span> <span class="title">An Algorithm to (Approximately) Maximize Modularity</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-ethics.html" class="internal"><span class="codenumber">6</span> <span class="title">Ethics</span></a></div></li>
@@ -202,7 +202,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-homework.html" class="internal"><span class="codenumber">10</span> <span class="title">Homework Problems and Essays</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-modularitycomputation"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.7</span><span class="space"> </span><span class="title">Algorithms to Maximize Modularity</span>
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.7</span><span class="space"> </span><span class="title">An Algorithm to (Approximately) Maximize Modularity</span>
 </h2>
 <div class="para" id="sec-modularitycomputation-2">We have now developed a well-defined problem to solve in order to optimally split a network into one or two communities.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularitycomputation-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -211,14 +211,146 @@ eBookConfig.enable_chatcodes =  false;
 <em class="emphasis">Problem:</em> Given a network <span class="process-math">\(G=(V,E)\)</span> where <span class="process-math">\(V=\{1,2,\ldots,n\}\)</span> and <span class="process-math">\(|E|=m\text{,}\)</span> find the vertex partition <span class="process-math">\(V=V_1\uplus V_2\)</span> (where it is possible for one of these sets to be empty) that maximizes the modularity function</div>
 <div class="displaymath process-math">
 \begin{equation*}
-Q = \frac{1}{4m}\sum_{1\leq i,j\leq |V|}B_{i,j}s_is_j 
+Q := \frac{1}{2m} \sum_{1\leq i,j \leq n} \left( A_{i,j} - \frac{d_i d_j}{2m} \right) \delta_{g_i,g_j} \, .
 \end{equation*}
 </div>
-<div class="para">over the set <span class="process-math">\(s\in \{-1,1\}^n\text{.}\)</span>
-</div>
+<div class="para">over the set of all such vertex partitions.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-modularitycomputation-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Section 5.7: Algorithms to Maximize Modularity"><a href="#sec-modularitycomputation" title="Copy heading and permalink for Section 5.7: Algorithms to Maximize Modularity" aria-label="Copy heading and permalink for Section 5.7: Algorithms to Maximize Modularity">🔗</a></div></section></div>
+<div class="para" id="sec-modularitycomputation-4">There are many general approaches that have been developed for this type of discrete optimization problem, such as simulated annealing, genetic algorithms, extremal optimization, etc. In practice, it is very difficult to develop an algorithm that is both efficient and produces the actual maximizer. Instead, most algorithms to solve this optimization problem only provide approximate maximizers -- this is usually good enough in practice.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularitycomputation-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-modularitycomputation-5">We will consider a simple algorithm to provide an approximate solution to this optimization problem that is specific to modularity maximization, rather than general-purpose discrete optimization algorithms. The method we will consider was introduced by Newman in 2006 in the paper "Modularity and community structure in networks" <a class="external" href="https://www.pnas.org/doi/10.1073/pnas.0601602103" target="_blank"><code class="code-inline tex2jax_ignore">https://www.pnas.org/doi/10.1073/pnas.0601602103</code></a>. This method is most effective when combined into a two-stage method, where the first stage uses "spectral methods" involving eigenvector calculations for the modularity matrix <span class="process-math">\(B=[B_{i,j}]\)</span> to find an initial approximate solution, and the node-moving algorithm described below is the second step to make small adjustments to improve the solution found with the spectral method.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularitycomputation-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-nodemovingmodularity"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.7.1</span><span class="period">.</span><span class="space"> </span><span class="title">Node-Moving Algorithm.</span>
+</h3>
+<div class="para logical" id="def-nodemovingmodularity-2-1">
+<div class="para">Let <span class="process-math">\(G\)</span> be a network.</div>
+<ol class="decimal" id="def-nodemovingmodularity-2-1-2">
+<li id="def-nodemovingmodularity-2-1-2-1">
+<div class="para" id="def-nodemovingmodularity-2-1-2-1-1">Select a random partition of the vertices <span class="process-math">\(V=V_1\uplus V_2\)</span> into roughly equally-sized groups.<div class="autopermalink" data-description="Paragraph"><a href="#def-nodemovingmodularity-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#def-nodemovingmodularity-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="def-nodemovingmodularity-2-1-2-2">
+<div class="para" id="def-nodemovingmodularity-2-1-2-2-1">A <em class="emphasis">pass</em> of the node-moving algorithm is defined as follows.<div class="autopermalink" data-description="Paragraph"><a href="#def-nodemovingmodularity-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="def-nodemovingmodularity-2-1-2-2-2">
+<li id="def-nodemovingmodularity-2-1-2-2-2-1">
+<div class="para" id="def-nodemovingmodularity-2-1-2-2-2-1-1">For each node in the network, calculate the change in the modularity if that node were moved to the other set in the partition.<div class="autopermalink" data-description="Paragraph"><a href="#def-nodemovingmodularity-2-1-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.a"><a href="#def-nodemovingmodularity-2-1-2-2-2-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
+</li>
+<li id="def-nodemovingmodularity-2-1-2-2-2-2">
+<div class="para" id="def-nodemovingmodularity-2-1-2-2-2-2-1">Select the node that most increases (or least decreases) the modularity and move it.<div class="autopermalink" data-description="Paragraph"><a href="#def-nodemovingmodularity-2-1-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.b"><a href="#def-nodemovingmodularity-2-1-2-2-2-2" title="Copy heading and permalink for Item 2.b" aria-label="Copy heading and permalink for Item 2.b">🔗</a></div>
+</li>
+<li id="def-nodemovingmodularity-2-1-2-2-2-3">
+<div class="para" id="def-nodemovingmodularity-2-1-2-2-2-3-1">Repeat the first two steps, however, you are not allowed to move a node once it has been moved during the pass.<div class="autopermalink" data-description="Paragraph"><a href="#def-nodemovingmodularity-2-1-2-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.c"><a href="#def-nodemovingmodularity-2-1-2-2-2-3" title="Copy heading and permalink for Item 2.c" aria-label="Copy heading and permalink for Item 2.c">🔗</a></div>
+</li>
+<li id="def-nodemovingmodularity-2-1-2-2-2-4">
+<div class="para" id="def-nodemovingmodularity-2-1-2-2-2-4-1">After all nodes have been moved, the pass ends.<div class="autopermalink" data-description="Paragraph"><a href="#def-nodemovingmodularity-2-1-2-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.d"><a href="#def-nodemovingmodularity-2-1-2-2-2-4" title="Copy heading and permalink for Item 2.d" aria-label="Copy heading and permalink for Item 2.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Item 2"><a href="#def-nodemovingmodularity-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="def-nodemovingmodularity-2-1-2-3">
+<div class="para" id="def-nodemovingmodularity-2-1-2-3-1">At the completion of one pass, go through all of the partitions obtained during that pass (including the original partition) and select the partition <span class="process-math">\(V=W_1\uplus W_2\)</span> with the maximum modularity.<div class="autopermalink" data-description="Paragraph"><a href="#def-nodemovingmodularity-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="def-nodemovingmodularity-2-1-2-3-2">
+<li id="def-nodemovingmodularity-2-1-2-3-2-1">
+<div class="para" id="def-nodemovingmodularity-2-1-2-3-2-1-1">If the partition <span class="process-math">\(V_1\uplus V_2\)</span> is different than <span class="process-math">\(W_1\uplus W_2\text{,}\)</span> repeat another pass using <span class="process-math">\(W_1\uplus W_2\)</span> as the starting partition.<div class="autopermalink" data-description="Paragraph"><a href="#def-nodemovingmodularity-2-1-2-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.a"><a href="#def-nodemovingmodularity-2-1-2-3-2-1" title="Copy heading and permalink for Item 3.a" aria-label="Copy heading and permalink for Item 3.a">🔗</a></div>
+</li>
+<li id="def-nodemovingmodularity-2-1-2-3-2-2">
+<div class="para" id="def-nodemovingmodularity-2-1-2-3-2-2-1">If the partition <span class="process-math">\(V_1\uplus V_2\)</span> is the same as <span class="process-math">\(W_1\uplus W_2\text{,}\)</span> then we cannot improve the modularity with a pass, and the algorithm terminates with <span class="process-math">\(W_1\uplus W_2\)</span> as output.<div class="autopermalink" data-description="Paragraph"><a href="#def-nodemovingmodularity-2-1-2-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.b"><a href="#def-nodemovingmodularity-2-1-2-3-2-2" title="Copy heading and permalink for Item 3.b" aria-label="Copy heading and permalink for Item 3.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Item 3"><a href="#def-nodemovingmodularity-2-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-nodemovingmodularity-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.7.1: Node-Moving Algorithm"><a href="#def-nodemovingmodularity" title="Copy heading and permalink for Definition 5.7.1: Node-Moving Algorithm" aria-label="Copy heading and permalink for Definition 5.7.1: Node-Moving Algorithm">🔗</a></div></article><div class="para" id="sec-modularitycomputation-7">For anyone who is interested in seeing how this looks in code, here is a sample of Sagemath code that you can use in <a class="external" href="https://sagecell.sagemath.org/" target="_blank"><code class="code-inline tex2jax_ignore">https://sagecell.sagemath.org/</code></a>. This code snippet will run the node-moving algorithm on a random graph from the configuration model with a degree sequence of your choice.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularitycomputation-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="code-box"><pre class="program clipboardable"><code class="language-py">import networkx as nx
+
+def nodemove(V,i):
+    W = []
+    if i in V[0]:
+        W=[]
+        W.append([j for j in V[0] if j != i])
+        W.append([i]+V[1])
+    else:
+        W=[]
+        W.append([i]+V[0])
+        W.append([j for j in V[1] if j != i])
+    return(W)
+
+def mostdiffnode(G,V,checked):
+    maxdiff = -100
+    for i in Graph(G).vertices():
+        if i not in checked:
+            if N(nx.community.modularity(G,nodemove(V,i))) - N(nx.community.modularity(G,V)) &gt; maxdiff:
+                maxvert = i
+                maxdiff = N(nx.community.modularity(G,nodemove(V,i))) - N(nx.community.modularity(G,V))
+    return(maxvert)
+
+def nodepasspartitions(G,V):
+    n = len(Graph(G).vertices())
+    parts = [V]
+    checked = []
+    while n &gt; len(checked):
+        t = mostdiffnode(G,parts[-1],checked)
+        parts.append(nodemove(parts[-1],t))
+        checked.append(t)
+    return(parts)
+
+def largestmodpart(G,parts):
+    mod = -100
+    for W in parts:
+        if N(nx.community.modularity(G,W)) &gt; mod:
+            largestpart = W
+            mod = N(nx.community.modularity(G,W))
+    return(largestpart)
+
+D = [4,8,2,2,5,7,5,3,3,2,4,5,4,8,8,2,2,2,4]
+
+G = nx.configuration_model(D)
+
+V = [[i for i in range(floor(len(D)/2))],[i for i in range(floor(len(D)/2),len(D))]]
+
+W = largestmodpart(G,nodepasspartitions(G,V))
+
+while sorted([sorted(V[0]),sorted(V[1])]) != sorted([sorted(W[0]),sorted(W[1])]):
+    W1 = largestmodpart(G,nodepasspartitions(G,W))
+    V = W
+    W = W1
+
+Graph(G).show(layout='circular')
+print(sorted([sorted(W[0]),sorted(W[1])]))
+print('estimated max modularity is '+str(N(nx.community.modularity(G,W))))
+</code></pre></div>
+<details id="sec-modularitycomputation-9" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.7.2</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-modularitycomputation-9-1">Discuss the algorithm above. Does it make sense?<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularitycomputation-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-modularitycomputation-9-2">Run this algorithm on the graph below starting from the partition <span class="process-math">\(V_1=\{0,1\}, V_2=\{3,4\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularitycomputation-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="nodemovingexercise"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/modularitynodemovingexample.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.7.3<span class="period">.</span></span><span class="space"> </span>Graph for the node-moving algorithm checkpoint.<div class="autopermalink" data-description="Figure 5.7.3"><a href="#nodemovingexercise" title="Copy heading and permalink for Figure 5.7.3" aria-label="Copy heading and permalink for Figure 5.7.3">🔗</a></div></figcaption></figure><div class="para" id="sec-modularitycomputation-9-4">You should find that the algorithm terminates at the partition <span class="process-math">\(W_1=\{0,2\}, W_2=\{1,3\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularitycomputation-9-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.7.2"><a href="#sec-modularitycomputation-9" title="Copy heading and permalink for Checkpoint 5.7.2" aria-label="Copy heading and permalink for Checkpoint 5.7.2">🔗</a></div></article></details><div class="para" id="sec-modularitycomputation-10">Note that there is no guarantee that the result of this algorithm is actually a maximizer for modularity -- however, it does provide a way to generate a partition with higher modularity than you started with. There are many interesting algorithms for maximizing modularity, and there are many other approaches beyond modularity to the study of community detection. So, you should view what we have done as an invitation to further study rather than as a comprehensive survey.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularitycomputation-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 5.7: An Algorithm to (Approximately) Maximize Modularity"><a href="#sec-modularitycomputation" title="Copy heading and permalink for Section 5.7: An Algorithm to (Approximately) Maximize Modularity" aria-label="Copy heading and permalink for Section 5.7: An Algorithm to (Approximately) Maximize Modularity">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-modularity.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-ethics.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

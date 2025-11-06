@@ -192,7 +192,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularitymaximization.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Intro to Modularity Maximization in Networks and Community Detection</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-configuration.html" class="internal"><span class="codenumber">5.5</span> <span class="title">The Configuration Model for Random Networks</span></a></div></li>
 <li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-modularity.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Communities via Modularity Maximization</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularitycomputation.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Algorithms to Maximize Modularity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-modularitycomputation.html" class="internal"><span class="codenumber">5.7</span> <span class="title">An Algorithm to (Approximately) Maximize Modularity</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-ethics.html" class="internal"><span class="codenumber">6</span> <span class="title">Ethics</span></a></div></li>
@@ -231,7 +231,7 @@ g_i=
 \end{cases}
 \end{equation*}
 </div>
-<div class="para">Define further the value <span class="process-math">\(A_{i,j}\)</span> where where <span class="process-math">\(A_{i,j}\)</span> is the number of edges between vertices <span class="process-math">\(i\neq j\)</span> in <span class="process-math">\(G\)</span> and <span class="process-math">\(A_{i,i}\)</span> is twice the number of loops at vertex <span class="process-math">\(i\text{.}\)</span> For those of you who have seen some matrix algebra, observe that the values of <span class="process-math">\(A_{i,j}\)</span> are the entries of the adjacency matrix of <span class="process-math">\(G\text{.}\)</span>
+<div class="para">Define further for <span class="process-math">\(i\neq j\)</span> the value <span class="process-math">\(A_{i,j}\)</span> to be the number of edges between vertices <span class="process-math">\(i\)</span> and <span class="process-math">\(j\)</span> in <span class="process-math">\(G\text{,}\)</span> while <span class="process-math">\(A_{i,i}\)</span> is defined to be twice the number of loops at vertex <span class="process-math">\(i\text{.}\)</span> For those of you who have seen some matrix algebra, observe that the values of <span class="process-math">\(A_{i,j}\)</span> are the entries of the adjacency matrix of <span class="process-math">\(G\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -350,13 +350,11 @@ g_i=
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.6.9</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="def-modularityfunction-1-1">
-<div class="para">Given a network <span class="process-math">\(G\)</span> with degree sequence <span class="process-math">\((d_1,d_2,\ldots,d_{n})\)</span> and a partition of the vertex set <span class="process-math">\(V=V_1 \uplus V_2\text{,}\)</span> the <em class="emphasis">modularity</em> <span class="process-math">\(Q\)</span> of the partition is defined as</div>
+<div class="para">Given a network <span class="process-math">\(G\)</span> with degree sequence <span class="process-math">\((d_1,d_2,\ldots,d_{n})\)</span> and a partition of the vertex set <span class="process-math">\(V=V_1 \uplus V_2\text{,}\)</span> the <em class="emphasis">modularity</em> of the partition is defined as</div>
 <div class="displaymath process-math">
 \begin{equation*}
-Q = \frac{1}{2m} \sum_{1\leq i,j \leq n} \left( A_{i,j} - \frac{d_i d_j}{2m} \right) \delta_{g_i,g_j} \, ,
+Q := \frac{1}{2m} \sum_{1\leq i,j \leq n} \left( A_{i,j} - \frac{d_i d_j}{2m} \right) \delta_{g_i,g_j} \, .
 \end{equation*}
-</div>
-<div class="para">where <span class="process-math">\(m\)</span> is the number of edges in <span class="process-math">\(G\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def-modularityfunction-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -404,71 +402,7 @@ Graph(G).show(layout='circular')
 </div>
 <figure class="figure figure-like" id="modularityexample"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/modularity_example_network.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.6.13<span class="period">.</span></span><span class="space"> </span>Network example for modularity computation.<div class="autopermalink" data-description="Figure 5.6.13"><a href="#modularityexample" title="Copy heading and permalink for Figure 5.6.13" aria-label="Copy heading and permalink for Figure 5.6.13">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="modularityexamplehistogram"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/histogram_modularity_example.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.6.14<span class="period">.</span></span><span class="space"> </span>Histogram of modularity values for every vertex partition of this network.<div class="autopermalink" data-description="Figure 5.6.14"><a href="#modularityexamplehistogram" title="Copy heading and permalink for Figure 5.6.14" aria-label="Copy heading and permalink for Figure 5.6.14">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 5.6.12"><a href="#sec-modularity-15" title="Copy heading and permalink for Example 5.6.12" aria-label="Copy heading and permalink for Example 5.6.12">🔗</a></div></article></details><div class="para" id="sec-modularity-16">The general heuristic we will use is the following: <em class="emphasis">the partition of the vertices of <span class="process-math">\(G\)</span> with the highest modularity is the one that best represents a partition of the network into communities.</em> To carry this out in practice, we will adjust the definition of the modularity function.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="sec-modularity-17">
-<div class="para">Rather than using the function <span class="process-math">\(g_i\text{,}\)</span> we will use the function</div>
-<div class="displaymath process-math">
-\begin{equation*}
-s_i = 
-\begin{cases}
-+1 \amp \text{if } i\in V_1, \\
--1 \amp \text{if } i \in V_2.
-\end{cases}
-\end{equation*}
-</div>
-<div class="para">With this definition, we have that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\delta_{g_i,g_j}=\frac{1}{2}(s_is_j+1) \, .
-\end{equation*}
-</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<details id="sec-modularity-18" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.6.15</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-modularity-18-1">Explain why <span class="process-math">\(\delta_{g_i,g_j}=\frac{1}{2}(s_is_j+1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Checkpoint 5.6.15"><a href="#sec-modularity-18" title="Copy heading and permalink for Checkpoint 5.6.15" aria-label="Copy heading and permalink for Checkpoint 5.6.15">🔗</a></div></article></details><div class="para logical" id="sec-modularity-19">
-<div class="para">Set</div>
-<div class="displaymath process-math">
-\begin{equation*}
-B_{i,j}=A_{i,j}-\frac{d_id_j}{2m} \, .
-\end{equation*}
-</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<details id="sec-modularity-20" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.6.16</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="sec-modularity-20-1">
-<div class="para">Prove that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\sum_{1\leq i \leq n} B_{i,j} = 0
-\end{equation*}
-</div>
-<div class="para">and similarly</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\sum_{1\leq j \leq n} B_{i,j} = 0 \, .
-\end{equation*}
-</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-20-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Checkpoint 5.6.16"><a href="#sec-modularity-20" title="Copy heading and permalink for Checkpoint 5.6.16" aria-label="Copy heading and permalink for Checkpoint 5.6.16">🔗</a></div></article></details><div class="para logical" id="sec-modularity-21">
-<div class="para">We therefore have that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-Q = \frac{1}{2m}\sum_{1\leq i,j\leq n}B_{i,j}\frac{1}{2}(s_is_j+1) = \frac{1}{4m}\sum_{1\leq i,j\leq n}B_{i,j}s_is_j \, .
-\end{equation*}
-</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<details id="sec-modularity-22" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.6.17</span><span class="period">.</span>
-</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-modularity-22-1">Justify the right-hand equality in the expression above.<div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-22-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Checkpoint 5.6.17"><a href="#sec-modularity-22" title="Copy heading and permalink for Checkpoint 5.6.17" aria-label="Copy heading and permalink for Checkpoint 5.6.17">🔗</a></div></article></details><div class="para" id="sec-modularity-23">Thus, the goal is to maximize the value of <span class="process-math">\(Q\)</span> over all <span class="process-math">\(s\in \{-1,1\}^n\text{.}\)</span> This is an example of a discrete optimization problem: we have a degree two multivariate polynomial in the variables <span class="process-math">\(s_1,\ldots,s_n\text{,}\)</span> and we want to maximize it over the finite set of points <span class="process-math">\(\{-1,1\}^n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.6.14<span class="period">.</span></span><span class="space"> </span>Histogram of modularity values for every vertex partition of this network.<div class="autopermalink" data-description="Figure 5.6.14"><a href="#modularityexamplehistogram" title="Copy heading and permalink for Figure 5.6.14" aria-label="Copy heading and permalink for Figure 5.6.14">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 5.6.12"><a href="#sec-modularity-15" title="Copy heading and permalink for Example 5.6.12" aria-label="Copy heading and permalink for Example 5.6.12">🔗</a></div></article></details><div class="para" id="sec-modularity-16">The general heuristic we will use is the following: <em class="emphasis">the partition of the vertices of <span class="process-math">\(G\)</span> with the highest modularity is the one that best represents a partition of the network into communities.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec-modularity-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Section 5.6: Communities via Modularity Maximization"><a href="#sec-modularity" title="Copy heading and permalink for Section 5.6: Communities via Modularity Maximization" aria-label="Copy heading and permalink for Section 5.6: Communities via Modularity Maximization">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
