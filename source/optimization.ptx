@@ -8,5 +8,6 @@
   <xi:include href="modularitymaximization.ptx" />
   <xi:include href="configuration.ptx" />
   <xi:include href="modularity.ptx" />
+  <xi:include href="modularitycomputation.ptx" />
     
 </chapter>
