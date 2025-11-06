@@ -32,7 +32,7 @@
                         2 \amp \text{if } i \in V_2.
                         \end{cases}
                     </me>
-        Define further the value <m>A_{i,j}</m> where where <m>A_{i,j}</m> is the number of edges between vertices <m>i\neq j</m> in <m>G</m> and <m>A_{i,i}</m> is twice the number of loops at vertex <m>i</m>.
+        Define further for <m>i\neq j</m> the value <m>A_{i,j}</m> to be the number of edges between vertices <m>i</m> and <m>j</m> in <m>G</m>, while <m>A_{i,i}</m> is defined to be twice the number of loops at vertex <m>i</m>.
         For those of you who have seen some matrix algebra, observe that the values of <m>A_{i,j}</m> are the entries of the adjacency matrix of <m>G</m>.
     </p>
 
@@ -153,11 +153,10 @@
     <definition xml:id="def-modularityfunction">
         <statement>
             <p>
-                Given a network <m>G</m> with degree sequence <m>(d_1,d_2,\ldots,d_{n})</m> and a partition of the vertex set <m>V=V_1 \uplus V_2</m>, the <em>modularity</em> <m>Q</m> of the partition is defined as
+                Given a network <m>G</m> with degree sequence <m>(d_1,d_2,\ldots,d_{n})</m> and a partition of the vertex set <m>V=V_1 \uplus V_2</m>, the <em>modularity</em> of the partition is defined as
                 <me>
-                    Q = \frac{1}{2m} \sum_{1\leq i,j \leq n} \left( A_{i,j} - \frac{d_i d_j}{2m} \right) \delta_{g_i,g_j} \, ,
+                    Q := \frac{1}{2m} \sum_{1\leq i,j \leq n} \left( A_{i,j} - \frac{d_i d_j}{2m} \right) \delta_{g_i,g_j} \, .
                 </me>
-                where <m>m</m> is the number of edges in <m>G</m>.
             </p>
         </statement>
     </definition>
@@ -228,7 +227,7 @@ Graph(G).show(layout='circular')
 
     <p>
         The general heuristic we will use is the following: <em>the partition of the vertices of <m>G</m> with the highest modularity is the one that best represents a partition of the network into communities.</em>
-        To carry this out in practice, we will adjust the definition of the modularity function.
+        To carry out the maximization process in practice, we will adjust the definition of the modularity function.
     </p>
 
     <p>
@@ -281,7 +280,7 @@ Graph(G).show(layout='circular')
 
     <exercise>
         <p>
-            Justify the right-hand equality in the expression above.
+            Justify both equalities in the expression above.
         </p>
     </exercise>
     
@@ -290,6 +289,6 @@ Graph(G).show(layout='circular')
         This is an example of a discrete optimization problem: we have a degree two multivariate polynomial in the variables <m>s_1,\ldots,s_n</m>, and we want to maximize it over the finite set of points <m>\{-1,1\}^n</m>.
     </p>
 
-    
+
 
 </section>

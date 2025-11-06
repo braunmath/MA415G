@@ -9,9 +9,79 @@
         <me>
             Q = \frac{1}{4m}\sum_{1\leq i,j\leq |V|}B_{i,j}s_is_j 
         </me>
-        over the set <m>s\in \{-1,1\}^n</m>.        
+        over the set <m>s\in \{-1,1\}^n</m> where
+        <me>
+            B_{i,j}=A_{i,j}-\frac{d_id_j}{2m} \, .
+        </me>    
     </p>
-    
+
+    <p>
+        There are many general approaches that have been developed for this type of discrete optimization problem, such as simulated annealing, genetic algorithms, extremal optimization, etc.
+        However, we will consider methods to solve this optimization problem that are specific to modularity maximization.
+        Both of the methods we will consider were introduced by Newman in 2006 in the paper "Modularity and community structure in networks" <url href="https://www.pnas.org/doi/10.1073/pnas.0601602103" />.
+        The first algorithm we will study is a "node-moving" algorithm.
+    </p>
+
+    <definition xml:id="def-nodemovingmodularity">
+        <title>Node-Moving Algorithm</title>     
+        <statement>
+            <p>
+                Let <m>G</m> be a network.
+                <ol>
+                    <li>
+                        <p>
+                            Select a random partition of the vertices <m>V=V_1\uplus V_2</m> into roughly equally-sized groups.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            A <em>pass</em> of the node-moving algorithm is defined as follows.
+                        </p>
+                    <ol>
+                    <li>
+                        <p>
+                            For each node in the network, calculate the change in the modularity if that node were moved to the other set in the partition.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Select the node that most increases (or least decreases) the modularity and move it.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Repeat the first two steps, however, you are not allowed to move a node once it has been moved during the pass.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            After all nodes have been moved, the pass ends.
+                        </p>
+                    </li>
+                    </ol>
+                    </li>   
+                    <li>
+                        <p>
+                            At the completion of one pass, go through all of the partitions obtained during that pass (including the original partition) and select the partition <m>V=W_1\uplus W_2</m> with the maximum modularity.
+                        </p>
+                    <ol>
+                    <li>
+                        <p>
+                            If the partition <m>V_1\uplus V_2</m> is different than <m>W_1\uplus W_2</m>, repeat another pass using <m>W_1\uplus W_2</m> as the starting partition.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            If the partition <m>V_1\uplus V_2</m> is the same as <m>W_1\uplus W_2</m>, then we cannot improve the modularity with a pass, and the algorithm terminates with <m>W_1\uplus W_2</m> as output.
+                        </p>
+                    </li>
+                    </ol>
+                </li>
+            </ol>
+            </p>
+        </statement>
+    </definition>
+
 
 
 </section>

@@ -55,7 +55,7 @@
     </p>
     <figure xml:id="fig-loopedmultigraph">
     <caption>A looped multigraph.</caption>
-    <image source="loopedmultigraph.png">
+    <image source="loopedmultigraph.png" width="75%">
     </image>
 </figure>
 </example>
@@ -249,6 +249,12 @@ for i in L:
     </p>
 </proof>
 
+<exercise>
+    <p>
+        Discuss the proof above. Does it make sense? Why or why not?
+    </p>
+</exercise>
+
 <p>
     We next use this fact to determine the expected number of edges between two vertices in this model.
 </p>
@@ -292,6 +298,12 @@ for i in L:
         </me>
     </p>
 </proof>
+
+<exercise>
+    <p>
+        Discuss the proof above. Does it make sense? Why or why not?
+    </p>
+</exercise>
 
 <p>
     We have now achieved all three of our goals for developing the configuration model and computing the expected number of edges between a pair of vertices.
