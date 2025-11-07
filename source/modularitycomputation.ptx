@@ -131,7 +131,7 @@ def largestmodpart(G,parts):
             mod = N(nx.community.modularity(G,W))
     return(largestpart)
 
-D = [4,8,2,2,5,7,5,3,3,2,4,5,4,8,8,2,2,2,4]
+D = 5*[1]+[ZZ.random_element(1,20) for _ in range(20)]+10*[1]+[ZZ.random_element(1,20) for _ in range(10)]+10*[1]+[ZZ.random_element(1,20) for _ in range(10)]+5*[1]
 
 G = nx.configuration_model(D)
 
@@ -139,14 +139,20 @@ V = [[i for i in range(floor(len(D)/2))],[i for i in range(floor(len(D)/2),len(D
 
 W = largestmodpart(G,nodepasspartitions(G,V))
 
+count = 0
+
 while sorted([sorted(V[0]),sorted(V[1])]) != sorted([sorted(W[0]),sorted(W[1])]):
     W1 = largestmodpart(G,nodepasspartitions(G,W))
+    print('modularity update: '+str(N(nx.community.modularity(G,W1))))
     V = W
     W = W1
+    count += 1
+    print(str(count)+' passes')
 
 Graph(G).show(layout='circular')
 print(sorted([sorted(W[0]),sorted(W[1])]))
 print('estimated max modularity is '+str(N(nx.community.modularity(G,W))))
+print('number of passes: '+str(count))
         </input>
     </program>
 
