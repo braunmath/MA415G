@@ -357,6 +357,7 @@ After you watch this video, complete the following essay.
         <p>
             You should consider the following questions:
         </p>
+    </li>
     <ol>
         <li>
             <p>
@@ -375,7 +376,6 @@ After you watch this video, complete the following essay.
             </p>
         </li>
     </ol>
-    </li>
 </ul>        
   
 Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).
@@ -688,25 +688,82 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P33</title>
         <p>
-            
+            Consider the cycle <m>C_{10}</m> with vertices <m>\{1,2,3,\ldots,10\}</m>.
+            Let <m>M</m> be the matching containing the edges <m>\{1,2\}</m> and <m>\{5,6\}</m>.
+            Find a sequence of augmenting paths <m>P_1,P_2,\ldots</m> to create a sequence of matchings <m>M_1,M_2,\ldots</m> that start with <m>M</m> and end with a maximum matching.
+            Give brief explanations of the steps in your process.
         </p>
     </problem>
         <problem>
         <title>P34</title>
         <p>
-            
+            Let <m>K_5</m> be the complete graph on vertices <m>\{1,2,3,4,5\}</m>.
+            For each edge <m>e=\{i\lt j\}</m> in <m>K_5</m>, define the weight function <m>w(e):=3j-i</m>.
+            Apply Kruskal's algorithm to find a minimal spanning tree of this graph.
+            Give brief explanations of the steps in your process.
         </p>
     </problem>
         <problem>
         <title>P35</title>
         <p>
-            
+            Suppose that <m>(G,w)</m> is a finite graph with edge weight function <m>w</m> where the value of <m>w</m> is distinct for each edge; in other words, every edge has a unique weight.
+            Prove that the minimum spanning tree of <m>G</m> is unique.
         </p>
     </problem>
         <problem>
         <title>Essay 6</title>
         <p>
-            
+            <p>
+            Read the document "A Framework for Ethical Decision Making" from the Markkula Center for Applied Ethics, which you can read either on the web or as a pdf:
+            <ul>
+                <li>
+                    <p>
+                        web page version: <url href="https://www.scu.edu/ethics/ethics-resources/a-framework-for-ethical-decision-making/" />
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        pdf version: <url href="https://www.scu.edu/media/ethics-center/ethical-decision-making/A-Framework-for-Ethical-Decision-Making-2025.pdf" />
+                    </p>
+                </li>
+            </ul>
+            After you finish the reading, complete the following essay.
+            <ul>
+                <li>
+                    <p>
+                        This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Your essay should respond to the following three questions.
+                        <ul>
+                            <li>
+                                <p>
+                                    The article presents six ethical lenses that can be used when considering ethical decision making: the rights lens, justice lens, utilitarian lens, common good lens, virtue lens, and care ethics lens.
+                                    Which <em>two of these lenses</em> resonate most strongly with your personal thoughts about ethics? Why?
+                                    Which of these lenses do you feel least connected to at this moment? Why?                                    
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    The article presents a sequence of ten questions to consider in the process of ethical decision making.
+                                    Suppose you are working as a member of a team, for example in a professional or personal context, and your team is going through the ethical implications of different options for resolving an issue.
+                                    Which <em>two of these questions</em> do you think would be most challenging to engage in conversation with the other people on your team?
+                                    Why?
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    What was one aspect of this document that you found surprising or unexpected? What made it stand out to you?
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+            </ul>
+Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).
+        </p>
         </p>
     </problem>
         <problem>
