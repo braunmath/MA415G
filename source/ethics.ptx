@@ -3,6 +3,7 @@
     <title>Ethics</title>
 
     <!-- include sections -->
-  <xi:include href="ethicsintro.ptx" />
+  <xi:include href="ethicallenses.ptx" />
+  <xi:include href="ethicsnetworks.ptx" />
     
 </chapter>
