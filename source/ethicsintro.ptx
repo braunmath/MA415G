@@ -1,0 +1,80 @@
+<section xml:id="sec-ethicsintro">
+    <title>Ethics in Mathematical Practice</title>
+    
+    <p>
+        In this section, we will consider questions regarding ethical decision making in mathematical practice related to technology and network science.
+        We will use two main resources for this work.
+        The first is a guide to Ethics in Technology Practice developed by faculty and staff at the Markkula Center for Applied Ethics: <url href="https://www.scu.edu/ethics-in-technology-practice/" />
+        The second resource is the 2021 special issue of the journal <em>Social Networks</em> devoted to the topic of "Recent ethical challenges in social network analysis":<url href="https://www.sciencedirect.com/journal/social-networks/vol/67/suppl/C" />
+    </p>
+
+    <p>
+        For Essay 6, students in this course read "A Framework for Ethical Decision Making", published by the Markkula Center for Applied Ethics: <url href="https://www.scu.edu/ethics/ethics-resources/a-framework-for-ethical-decision-making/" />
+        The framework from the Markkula Center provides six ethical lenses through which we can reflect on ethical dimensions of situations and problems: the rights lens, the justice lens, the utilitarian lens, the common good lens, the virtue lens, and the care ethics lens.
+        The framework then provides a sequence of ten questions to use when engaging in ethical decision making.
+    </p>
+
+    <p>
+        Let us begin by considering the Markkula Center web page "Overview of Ethics in Tech Practice" by Shannon Vallor, Irina Raicu, Brian Green: <url href="https://www.scu.edu/ethics-in-technology-practice/overview-of-ethics-in-tech-practice/" />
+        One of the first distinctions made in this overview is between <em>Formal</em> and <em>Practical</em> Ethics.
+        (Instructor describe this difference.)
+    </p>
+
+    <exercise>
+        <p>
+           Discuss with your group: does this distinction between formal and practical ethics make sense? 
+           Why or why not?
+        </p>
+    </exercise>
+
+    <p>
+        The overview later introduces the metaphor that "Ethical Issues are Like Birds".
+        (Instructor review that section of the webpage.)
+    </p>
+
+    <exercise>
+        <p>
+            Discuss with your group: do you have any previous training on the practical experience and skills needed to assess ethical dimensions of situations or problems you encounter?
+            If so, was that training effective?
+            Do you regularly consider ethical issues in your academic work? If not, why not?
+        </p>
+    </exercise>
+
+    <p>
+        Let's review the six ethical lenses in the Markkula Center framework in more detail, using the extended description given in "Technology and Engineering Practice: Ethical Lenses to Look Through": <url href="https://www.scu.edu/ethics-in-technology-practice/ethical-lenses/" />
+        For each of the six ethical lenses:
+        <ol>
+            <li>
+                <p>
+                    The instructor will review the first paragraph of the Overview section, and
+                </p>
+            </li>
+            <li>
+                <p>
+                    Students will discuss with their groups the "Questions for Technologists that Illuminate the Ethical Landscape" at the end of the corresponding section.
+                </p>
+            </li>
+        </ol>
+    </p>
+
+    <p>
+        We will next discuss two case studies.
+    </p>
+
+    <exercise>
+        <p>
+            With your group, read the case study "AI Social Media Moderation" and discuss the questions provided: <url href="https://www.scu.edu/ethics-in-technology-practice/case-studies/ai-social-media-moderation/" />
+        </p>
+    </exercise>
+
+    <exercise>
+        <p>
+            With your group, read the case study "Surveillance, Safety, and Smart Cities" and discuss the questions provided: <url href="https://www.scu.edu/ethics-in-technology-practice/case-studies/surveillance-safety-and-smart-cities/" />
+        </p>
+    </exercise>
+
+    <p>
+        We will next discuss ethical considerations directly related to network science.
+    </p>
+
+</section>
