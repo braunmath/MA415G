@@ -3489,8 +3489,8 @@ var ptx_lunr_docs = [
   "url": "sec-ethicsnetworks.html",
   "type": "Section",
   "number": "6.2",
-  "title": "Ethical Lenses",
-  "body": " Ethical Lenses  The second resource we will consider is the 2021 special issue of the journal Social Networks devoted to the topic of \"Recent ethical challenges in social network analysis\": There are multiple interesting papers in this volume of the journal, but we will focus our discussion on the following paper, for which a PDF version is available on the Canvas page for this course.   Paola Tubaro, Louise Ryan, Antonio A. Casilli, Alessio D’Angelo, Social network analysis: New ethical approaches through collective reflexivity. Introduction to the special issue of Social Networks, Social Networks, Volume 67, 2021, Pages 1-8, ISSN 0378-8733.        "
+  "title": "Ethics in Social Network Analysis",
+  "body": " Ethics in Social Network Analysis  The second resource we will consider is the 2021 special issue of the journal Social Networks devoted to the topic of \"Recent ethical challenges in social network analysis\": There are multiple interesting papers in this volume of the journal, but we will focus our discussion on the following paper, for which a PDF version is available on the Canvas page for this course.   Paola Tubaro, Louise Ryan, Antonio A. Casilli, Alessio D’Angelo, Social network analysis: New ethical approaches through collective reflexivity. Introduction to the special issue of Social Networks, Social Networks, Volume 67, 2021, Pages 1-8, ISSN 0378-8733.        "
 },
 {
   "id": "ch-samplingandconstruction",
