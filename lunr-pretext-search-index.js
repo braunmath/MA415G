@@ -3439,49 +3439,58 @@ var ptx_lunr_docs = [
   "body": " Discuss the algorithm above. Does it make sense?  Run this algorithm on the graph below starting from the partition .   Graph for the node-moving algorithm checkpoint.     You should find that the algorithm terminates at the partition .  "
 },
 {
-  "id": "sec-ethicsintro",
+  "id": "sec-ethicallenses",
   "level": "1",
-  "url": "sec-ethicsintro.html",
+  "url": "sec-ethicallenses.html",
   "type": "Section",
   "number": "6.1",
-  "title": "Ethics in Mathematical Practice",
-  "body": " Ethics in Mathematical Practice  In this section, we will consider questions regarding ethical decision making in mathematical practice related to technology and network science. We will use two main resources for this work. The first is a guide to Ethics in Technology Practice developed by faculty and staff at the Markkula Center for Applied Ethics: The second resource is the 2021 special issue of the journal Social Networks devoted to the topic of \"Recent ethical challenges in social network analysis\":   For Essay 6, students in this course read \"A Framework for Ethical Decision Making\", published by the Markkula Center for Applied Ethics: The framework from the Markkula Center provides six ethical lenses through which we can reflect on ethical dimensions of situations and problems: the rights lens, the justice lens, the utilitarian lens, the common good lens, the virtue lens, and the care ethics lens. The framework then provides a sequence of ten questions to use when engaging in ethical decision making.  Let us begin by considering the Markkula Center web page \"Overview of Ethics in Tech Practice\" by Shannon Vallor, Irina Raicu, Brian Green: One of the first distinctions made in this overview is between Formal and Practical Ethics. (Instructor describe this difference.)   Discuss with your group: does this distinction between formal and practical ethics make sense? Why or why not?   The overview later introduces the metaphor that \"Ethical Issues are Like Birds\". (Instructor review that section of the webpage.)   Discuss with your group: do you have any previous training on the practical experience and skills needed to assess ethical dimensions of situations or problems you encounter? If so, was that training effective? Do you regularly consider ethical issues in your academic work? If not, why not?   Let's review the six ethical lenses in the Markkula Center framework in more detail, using the extended description given in \"Technology and Engineering Practice: Ethical Lenses to Look Through\": For each of the six ethical lenses:   The instructor will review the first paragraph of the Overview section, and    Students will discuss with their groups the \"Questions for Technologists that Illuminate the Ethical Landscape\" at the end of the corresponding section.     We will next discuss two case studies.   With your group, read the case study \"AI Social Media Moderation\" and discuss the questions provided:     With your group, read the case study \"Surveillance, Safety, and Smart Cities\" and discuss the questions provided:    We will next discuss ethical considerations directly related to network science.  "
+  "title": "Ethical Lenses",
+  "body": " Ethical Lenses  In this section, we will consider questions regarding ethical decision making in mathematical practice related to technology and network science. We will use two main resources for this work. The first is a guide to Ethics in Technology Practice developed by faculty and staff at the Markkula Center for Applied Ethics: The second resource is the 2021 special issue of the journal Social Networks devoted to the topic of \"Recent ethical challenges in social network analysis\":   For Essay 6, students in this course read \"A Framework for Ethical Decision Making\", published by the Markkula Center for Applied Ethics: The framework from the Markkula Center provides six ethical lenses through which we can reflect on ethical dimensions of situations and problems: the rights lens, the justice lens, the utilitarian lens, the common good lens, the virtue lens, and the care ethics lens. The framework then provides a sequence of ten questions to use when engaging in ethical decision making.  Let us begin by considering the Markkula Center web page \"Overview of Ethics in Tech Practice\" by Shannon Vallor, Irina Raicu, Brian Green: One of the first distinctions made in this overview is between Formal and Practical Ethics. (Instructor describe this difference.)   Discuss with your group: does this distinction between formal and practical ethics make sense? Why or why not?   The overview later introduces the metaphor that \"Ethical Issues are Like Birds\". (Instructor review that section of the webpage.)   Discuss with your group: do you have any previous training on the practical experience and skills needed to assess ethical dimensions of situations or problems you encounter? If so, was that training effective? Do you regularly consider ethical issues in your academic work? If not, why not?   Let's review the six ethical lenses in the Markkula Center framework in more detail, using the extended description given in \"Technology and Engineering Practice: Ethical Lenses to Look Through\": For each of the six ethical lenses:   The instructor will review the first paragraph of the Overview section, and    Students will discuss with their groups the \"Questions for Technologists that Illuminate the Ethical Landscape\" at the end of the corresponding section.     We will next discuss two case studies.   With your group, read the case study \"AI Social Media Moderation\" and discuss the questions provided:     With your group, read the case study \"Surveillance, Safety, and Smart Cities\" and discuss the questions provided:    In the next section, we will discuss ethical considerations directly related to network science.  "
 },
 {
-  "id": "sec-ethicsintro-5",
+  "id": "sec-ethicallenses-5",
   "level": "2",
-  "url": "sec-ethicsintro.html#sec-ethicsintro-5",
+  "url": "sec-ethicallenses.html#sec-ethicallenses-5",
   "type": "Checkpoint",
   "number": "6.1.1",
   "title": "",
   "body": " Discuss with your group: does this distinction between formal and practical ethics make sense? Why or why not?  "
 },
 {
-  "id": "sec-ethicsintro-7",
+  "id": "sec-ethicallenses-7",
   "level": "2",
-  "url": "sec-ethicsintro.html#sec-ethicsintro-7",
+  "url": "sec-ethicallenses.html#sec-ethicallenses-7",
   "type": "Checkpoint",
   "number": "6.1.2",
   "title": "",
   "body": " Discuss with your group: do you have any previous training on the practical experience and skills needed to assess ethical dimensions of situations or problems you encounter? If so, was that training effective? Do you regularly consider ethical issues in your academic work? If not, why not?  "
 },
 {
-  "id": "sec-ethicsintro-10",
+  "id": "sec-ethicallenses-10",
   "level": "2",
-  "url": "sec-ethicsintro.html#sec-ethicsintro-10",
+  "url": "sec-ethicallenses.html#sec-ethicallenses-10",
   "type": "Checkpoint",
   "number": "6.1.3",
   "title": "",
   "body": " With your group, read the case study \"AI Social Media Moderation\" and discuss the questions provided:   "
 },
 {
-  "id": "sec-ethicsintro-11",
+  "id": "sec-ethicallenses-11",
   "level": "2",
-  "url": "sec-ethicsintro.html#sec-ethicsintro-11",
+  "url": "sec-ethicallenses.html#sec-ethicallenses-11",
   "type": "Checkpoint",
   "number": "6.1.4",
   "title": "",
   "body": " With your group, read the case study \"Surveillance, Safety, and Smart Cities\" and discuss the questions provided:   "
+},
+{
+  "id": "sec-ethicsnetworks",
+  "level": "1",
+  "url": "sec-ethicsnetworks.html",
+  "type": "Section",
+  "number": "6.2",
+  "title": "Ethical Lenses",
+  "body": " Ethical Lenses  The second resource we will consider is the 2021 special issue of the journal Social Networks devoted to the topic of \"Recent ethical challenges in social network analysis\": There are multiple interesting papers in this volume of the journal, but we will focus our discussion on the following paper, for which a PDF version is available on the Canvas page for this course.   Paola Tubaro, Louise Ryan, Antonio A. Casilli, Alessio D’Angelo, Social network analysis: New ethical approaches through collective reflexivity. Introduction to the special issue of Social Networks, Social Networks, Volume 67, 2021, Pages 1-8, ISSN 0378-8733.        "
 },
 {
   "id": "ch-samplingandconstruction",
