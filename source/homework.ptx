@@ -673,14 +673,14 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P31</title>
         <p>
-            Given an Erdos-Renyi random graph <m>G(n,p)</m>, let <m>X</m> be the random variable that counts the number of paths of length <m>2</m> in <m>G(n,p)</m> (that is, sequences of three vertices <m>(u,v,w)</m> such that <m>\{u,v\}</m> and <m>\{v,w\}</m> are edges in <m>G(n,p)</m>).
+            Given an Erdos-Renyi random graph <m>G(n,p)</m>, let <m>X</m> be the random variable that counts the number of paths of length <m>2</m> in <m>G(n,p)</m> (that is, sequences of three distinct vertices <m>(u,v,w)</m> such that <m>\{u,v\}</m> and <m>\{v,w\}</m> are edges in <m>G(n,p)</m>).
             Find the expected value of <m>X</m>.
         </p>
     </problem>
         <problem>
         <title>P32</title>
         <p>
-            A <m>4</m>-cycle in a graph is a sequence of four vertices <m>(v_1,v_2,v_3,v_4)</m> such that the edges <m>\{v_1,v_2\}</m>, <m>\{v_2,v_3\}</m>, <m>\{v_3,v_4\}</m>, and <m>\{v_4,v_1\}</m> are all in the graph.
+            A <m>4</m>-cycle in a graph is a sequence of four distinct vertices <m>(v_1,v_2,v_3,v_4)</m> such that the edges <m>\{v_1,v_2\}</m>, <m>\{v_2,v_3\}</m>, <m>\{v_3,v_4\}</m>, and <m>\{v_4,v_1\}</m> are all in the graph.
             Given an Erdos-Renyi random graph <m>G(n,p)</m>, let <m>X</m> be the random variable that counts the number of <m>4</m>-cycles in <m>G(n,p)</m>.
             Find the expected value of <m>X</m>.
         </p>
