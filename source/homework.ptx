@@ -673,7 +673,7 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P31</title>
         <p>
-            Given an Erdos-Renyi random graph <m>G(n,p)</m>, let <m>X</m> be the random variable that counts the number of paths of length <m>2</m> in <m>G(n,p)</m> (that is, sequences of three distinct vertices <m>(u,v,w)</m> such that <m>\{u,v\}</m> and <m>\{v,w\}</m> are edges in <m>G(n,p)</m>).
+            Given an Erdos-Renyi random graph <m>G(n,p)</m>, let <m>X</m> be the random variable that counts the number of paths of length <m>2</m> in <m>G(n,p)</m> (that is, sets of three distinct vertices <m>\{u,v,w\}</m> such that <m>\{u,v\}</m> and <m>\{v,w\}</m> are edges in <m>G(n,p)</m>).
             Find the expected value of <m>X</m>.
         </p>
     </problem>
