@@ -116,7 +116,7 @@
             </figure>
             <p>
                 We start with the empty set of edges <m>S = \emptyset</m>.
-                Thus, <m>G:S</m> has six connected components, each consisting of a single vertex.
+                Thus, <m>G:S</m> has eight connected components, each consisting of a single vertex.
                 <ol>
                     <li>
                         <p>
@@ -221,7 +221,7 @@
             We will show that 
             <me>w(e_i) \leq w(f_i)</me> for all <m>1 \leq i \leq n - 1</m>, which will imply that the total weight of <m>T</m> is less than or equal to the total weight of <m>T'</m>.
             We go by contradiction and suppose that there exists an index <m>k</m> such that <me>w(e_k) \gt w(f_k)</me>, and let <m>k</m> be the smallest such index.
-            Since none of <m>f_1, f_2, \ldots, f_{k}</m> were chosen by Kruskal's algorithm before <m>e_k</m>, it follows that they were already in the components of <m>G:S_{k-1}</m>.
+            Since none of <m>f_1, f_2, \ldots, f_{k}</m> were chosen by Kruskal's algorithm to be <m>e_k</m>, it follows that they were already in the components of <m>G:S_{k-1}</m>.
             Since <m>G:S_{k-1}</m> has <m>n-(k-1)</m> components, we see that <m>G:S'_k</m> has at least <m>n-(k-1)=n-k+1</m> components as well.
             But, if <m>G:S'_k</m> were acyclic, it would be a union of trees, and hence would have <m>n-k</m> components.
             This is not possible, and therefore <m>G:S'_k</m> is not acyclic, contradicting the assumption that <m>T'</m> is a spanning tree.

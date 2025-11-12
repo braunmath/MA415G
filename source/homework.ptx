@@ -693,16 +693,16 @@ Your grade is based on completion only (in other words, if you complete the assi
             Find a sequence of augmenting paths <m>P_1,P_2,\ldots</m> to create a sequence of matchings <m>M_1,M_2,\ldots</m> that start with <m>M</m> and end with a maximum matching.
             Give brief explanations of the steps in your process.
         </p>
-    </problem>
+        </problem>
         <problem>
         <title>P34</title>
         <p>
             Let <m>K_5</m> be the complete graph on vertices <m>\{1,2,3,4,5\}</m>.
             For each edge <m>e=\{i\lt j\}</m> in <m>K_5</m>, define the weight function <m>w(e):=3j-i</m>.
-            Apply Kruskal's algorithm to find a minimal spanning tree of this graph.
+            Apply Kruskal's algorithm to find a minimum spanning tree of this graph.
             Give brief explanations of the steps in your process.
         </p>
-    </problem>
+        </problem>
         <problem>
         <title>P35</title>
         <p>
