@@ -769,19 +769,24 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P36</title>
         <p>
-            
+            Consider the configuration model for the degree sequence <m>(2,2,2)</m>.
+            Find all the looped multigraphs for this degree sequence and compute the probability for this looped multigraph in the configuration model.
+            Explain all of your work to obtain your solution.
         </p>
     </problem>
         <problem>
         <title>P37</title>
         <p>
-            
+           Consider the network with vertices <m>\{1,2,3\}</m> and edges (some appearing more than once) <m>\{12,12,13,13,13,23,33\}</m> (this means there is a single loop at <m>3</m>).
+           Compute the modularity function (as given in Definition 5.6.9) for the vertex partition <m>V_1=\{1\}</m> and <m>V_2=\{2,3\}</m>.
         </p>
     </problem>
         <problem>
         <title>P38</title>
         <p>
-            
+            Modify the code from Example 5.5.7 and run it in <url href="https://sagecell.sagemath.org/" /> to sample <m>10,000</m> times from the configuration model with degree sequence <m>(2,2,3,3)</m>.
+            How many looped multigraphs did you find?
+            Are you guaranteed to see every possible looped multigraph in your sample? Why or why not?
         </p>
     </problem>
         <problem>
