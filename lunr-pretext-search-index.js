@@ -3490,7 +3490,34 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "6.2",
   "title": "Ethics in Social Network Analysis",
-  "body": " Ethics in Social Network Analysis  The second resource we will consider is the 2021 special issue of the journal Social Networks devoted to the topic of \"Recent ethical challenges in social network analysis\": There are multiple interesting papers in this volume of the journal, but we will focus our discussion on the following paper, for which a PDF version is available on the Canvas page for this course.   Paola Tubaro, Louise Ryan, Antonio A. Casilli, Alessio D’Angelo, Social network analysis: New ethical approaches through collective reflexivity. Introduction to the special issue of Social Networks, Social Networks, Volume 67, 2021, Pages 1-8, ISSN 0378-8733.        "
+  "body": " Ethics in Social Network Analysis  The second resource we will consider is the 2021 special issue of the journal Social Networks devoted to the topic of \"Recent ethical challenges in social network analysis\": There are multiple interesting papers in this volume of the journal, but we will focus our discussion on the following paper, for which a PDF version is available on the Canvas page for this course.   Paola Tubaro, Louise Ryan, Antonio A. Casilli, Alessio D’Angelo, Social network analysis: New ethical approaches through collective reflexivity. Introduction to the special issue of Social Networks, Social Networks, Volume 67, 2021, Pages 1-8, ISSN 0378-8733.    Throughout this article, the abbreviation \"SNA\" is used for \"Social Network Analysis\".  Let's begin with a review of what SNA is. The instructor will review the first paragraph or two of as an overview.  Next: the instructor will review some of the practical applications of SNA listed in .   Consider the example of Longitudinal SNA in Schools. What type of ethical questions might one need to consider for such studies? Which of the six ethical lenses might be helpful for addressing such questions?    Consider the example of Security Applications. What type of ethical questions might one need to consider for such studies? Which of the six ethical lenses might be helpful for addressing such questions?   We will next discuss some aspects of the paper by Tubaro et. al. The instructor will next read the third paragraph of the section titled \"The difficult relationship between SNA and research ethics\" and the first paragraph of the section titled \"Digitization and its challenges to SNA research\".   Informed by the six ethical lenses, what types of ethical questions do you might be asked about confidentiality prior to conducting a social network study? Are there ways in which the six ethical lenses conflict with each other in this context? Do any of the lenses complement or reinforce each other in this context?   "
+},
+{
+  "id": "sec-ethicsnetworks-5",
+  "level": "2",
+  "url": "sec-ethicsnetworks.html#sec-ethicsnetworks-5",
+  "type": "Checkpoint",
+  "number": "6.2.1",
+  "title": "",
+  "body": " Consider the example of Longitudinal SNA in Schools. What type of ethical questions might one need to consider for such studies? Which of the six ethical lenses might be helpful for addressing such questions?  "
+},
+{
+  "id": "sec-ethicsnetworks-6",
+  "level": "2",
+  "url": "sec-ethicsnetworks.html#sec-ethicsnetworks-6",
+  "type": "Checkpoint",
+  "number": "6.2.2",
+  "title": "",
+  "body": " Consider the example of Security Applications. What type of ethical questions might one need to consider for such studies? Which of the six ethical lenses might be helpful for addressing such questions?  "
+},
+{
+  "id": "sec-ethicsnetworks-8",
+  "level": "2",
+  "url": "sec-ethicsnetworks.html#sec-ethicsnetworks-8",
+  "type": "Checkpoint",
+  "number": "6.2.3",
+  "title": "",
+  "body": " Informed by the six ethical lenses, what types of ethical questions do you might be asked about confidentiality prior to conducting a social network study? Are there ways in which the six ethical lenses conflict with each other in this context? Do any of the lenses complement or reinforce each other in this context?  "
 },
 {
   "id": "ch-samplingandconstruction",
