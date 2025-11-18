@@ -792,19 +792,76 @@ Your grade is based on completion only (in other words, if you complete the assi
         <problem>
         <title>P39</title>
         <p>
-            
+            <url href="https://en.wikipedia.org/wiki/Second_neighborhood_problem">Seymour's second neighborhood problem</url> is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone.
+            Let <m>G</m> be a graph without loops or multiple edges.
+            Assign to every edge a direction, that is, for each edge <m>\{i,j\}</m>, either direct the edge from <m>i</m> to <m>j</m> or the opposite.
+            This turns <m>G</m> into a <em>directed graph</em>.
+        </p>
+        <p>
+            The <em>first neighborhood</em> of a vertex <m>v</m> in a directed graph is the set of all vertices that are at distance one from <m>v</m> (this means there must be an edge pointing from <m>v</m> to the neighbor).
+            The <em>second neighborhood</em> of <m>v</m> is the set of all vertices that are at distance two from <m>v</m>.
+            Note that these two sets are disjoint, and neither contains <m>v</m>.
+        </p>
+        <p>
+            The open problem is as follows: For every directed graph <m>G</m>, does there exist a vertex <m>v</m> such that the second neighborhood is at least as large as the first neighborhood?
+        </p>
+        <p>
+            Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this!
+            Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better.
+            Why do you think it might be true?  
+            Why might it be false?
+            Are there any properties of directed graphs that support your comments?
+            Are there any directed graphs for which this is obviously true?
+            You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these.
+            However, you need to provide a narrative in sentences/paragraphs explaining your thinking and the results of your investigations.
+            (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)
         </p>
     </problem>
         <problem>
         <title>P40</title>
         <p>
-            
+            <url href="https://en.wikipedia.org/wiki/No-three-in-line_problem">The no-three-in-a-line problem</url> is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone.
+            See the wikipedia page for an explanation of the problem.
+        </p>
+        <p>
+            Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this!
+            Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better.
+            Why do you think it might be true?  
+            Why might it be false?
+            Are there any properties of grids that support your comments?
+            Are there any grids for which the answer is obvious?
+            You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these.
+            However, you need to provide a narrative in sentences/paragraphs explaining your thinking and the results of your investigations.
+            (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)
         </p>
     </problem>
         <problem>
         <title>End-of-Class Reflection</title>
         <p>
-            
+            Type a 1000 word essay in response to the following prompt.
+This is the equivalent of 4 pages in 12 point Times New Roman font, double-spaced.
+
+<ol>
+<li>
+    <p>What were <em>six</em> of the most important discoveries or realizations you made in this class?
+In other words, what are you taking away from this class that you think might stick with you over time  and/or influence you in the future?
+What have you experienced that might have a long-term effect on you intellectually or personally?
+These can include things you had not realized about mathematics or society, specific homework problems or theorems, etc.
+These can be things that made sense to you, or topics where you were confused, points that you agreed/disagreed with in the readings or class discussions, issues that arose while working on your assignments, etc.
+    </p>
+</li>
+<li>
+    <p>
+        Explain why these six discoveries or realizations are important to you.
+    </p>
+</li>
+<li>
+    <p>
+        You should include a combination of observations about <em>both</em> mathematics <em>and</em> your habits, practices, and beliefs about mathematics.
+    </p>
+</li>
+</ol>
+This assignment grade is based only on completion (i.e. if you turn it in, it meets the length requirement, and it appropriately responds to the prompt above, then you get full credit). 
         </p>
     </problem>
 
