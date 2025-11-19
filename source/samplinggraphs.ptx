@@ -55,7 +55,7 @@
                 show(histogram(max_degrees,bins=n))
             </input>
         </program>
-                Observe that the average maximum degree appears to be around <m>32</m>, and if you want to generate a random graph on <m>50</m> vertices with maximum degree less than around <m>25</m>, it might be difficult to find such an object using this method.
+                Observe that the average maximum degree appears to be around <m>32</m>, and if you want to generate a random graph on <m>50</m> vertices with maximum degree less than around <m>25</m>, it might be difficult to find such an object using the uniform distribution with <m>p=0.5</m>.
     </p>
 
     <exercise>
@@ -122,7 +122,7 @@ sum([points(seq) for seq in degree_sequences])
         Our response to this challenge of data visualization is to replace each column of dots by a box-and-whiskers plot showing the distribution of the <m>i</m>-th degree in the sequence.
         This is done by the following code, and now we will run this on <m>10,000</m> samples instead of only <m>1,000</m>.
         We will use the pandas and seaborn packages for Python for the data visualization.
-        Unfortunately, Sagecell does not provide enough computational support for this, but you can run it on your own at <url href="https://cocalc.com/" /> or through a local Sagemath install.
+        Unfortunately, Sagecell does not provide enough computational support for this, but if you would like to run additional experiments you can run it at <url href="https://cocalc.com/" /> or through a local Sagemath install.
         <program language="python">
             <input>
 import pandas as pd
@@ -151,21 +151,46 @@ ax = sns.boxplot(data=data)
     <image source="er_random_degreeseq.png" width="100%"/>
 </figure>
 Note that for the largest degree (the value of <m>d_0</m> in this code, for which the boxplot is on the far left), the distribution is centered at <m>32</m>, which matches our earlier experimental data.
-    These box-and-whisker plots make it clear that the typical degree sequence of a graph sampled from <m>G(50,0.5)</m> passes through a very narrow range of values.
+    These box-and-whisker plots strongly suggest that the typical degree sequence of a graph sampled from <m>G(50,0.5)</m> passes through a very narrow range of values.
     </p>
 
     <exercise>
         <p>
             Discuss the box-and-whisker plots above.
-            Does it make sense how they were constructed?
-            What do the boxes mean, what do the lines mean, and what do the dots mean?
-            What extra information does this give you beyond the scatterpoint diagram?
+            <ol>
+                <li>
+                    <p>
+                        This plot shows that the average value of the eighth-largest degree of a graph in our sample is <m>27</m>.
+                        Does this make sense to you from the plot above?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Does it make sense how this plot was constructed?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What do the boxes mean, what do the lines mean, and what do the dots mean?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What extra information does this give you beyond the scatterpoint diagram?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        What does this tell you about the typical value of the fourth-smallest degree in a graph in our sample?
+                    </p>
+                </li>
+            </ol>
         </p>
     </exercise>
 
     <p>
         The problem with sampling from an Erdos-Renyi graph is exactly the bias toward certain structural qualities of the graph, which is caused by the underlying binomial distribution.
-        This is articulated clearly in the following quote from: Fosdick, Bailey K., Daniel B. Larremore, Joel Nishimura, and Johan Ugander. "Configuring Random Graph Models with Fixed Degree Sequences." SIAM Review 60, no. 2 (2018): 315-55. <url href="http://www.jstor.org/stable/45109418" />
+        This is articulated clearly in the following quote from Bailey K. Fosdick, Daniel B. Larremore, Joel Nishimura, and Johan Ugander in "Configuring Random Graph Models with Fixed Degree Sequences," SIAM Review 60, no. 2 (2018): 315-55. <url href="http://www.jstor.org/stable/45109418" />
         <figure xml:id="fig-er_quote">
     <caption>Quote regarding sampling from graph models.</caption>
     <image source="graphsamplingquote.png" width="100%"/>
@@ -173,23 +198,30 @@ Note that for the largest degree (the value of <m>d_0</m> in this code, for whic
     </p>
 
     <p>
-        Thus, to sample graphs that have a degree distribution with a different shape than those produced by Erdos-Renyi graphs, we want to sample from either the configuration model or some variant thereof.
-        We will consider some experiments using random graphs with a fixed degree sequence generated with almost the uniform distribution, using an algorithm from: Bayati, M., Kim, J.H. \amp Saberi, A. A Sequential Algorithm for Generating Random Graphs. Algorithmica 58, 860-910 (2010). <url href="https://doi.org/10.1007/s00453-009-9340-1" />
-        This is called using the Python Networkx package as random_degree_sequence_graph, via <url href="https://networkx.org/documentation/stable/reference/generated/networkx.generators.degree_seq.random_degree_sequence_graph.html#networkx.generators.degree_seq.random_degree_sequence_graph" />.
+        Thus, to sample graphs that have a degree distribution with a different shape than those produced by Erdos-Renyi graphs, we want to sample from either the configuration model we defined previously or one of the many variants of this model.
+        We will consider some experiments using random graphs with a fixed degree sequence generated with almost the uniform distribution, using an algorithm from: Bayati, M., Kim, J.H. &amp; Saberi, A. A Sequential Algorithm for Generating Random Graphs. Algorithmica 58, 860-910 (2010). <url href="https://doi.org/10.1007/s00453-009-9340-1" />
+        This is called using the Python Networkx package as <url href="https://networkx.org/documentation/stable/reference/generated/networkx.generators.degree_seq.random_degree_sequence_graph.html#networkx.generators.degree_seq.random_degree_sequence_graph">random_degree_sequence_graph</url>.
+        
+    </p>
+    <p> 
         Note that we will no longer be looking at measurements related to the degree sequence, because we have fixed it.
         However, we might now look at something like number of spanning trees.
-        The following code will generate <m>5,000</m> random graphs having <m>20</m> vertices of degree <m>3</m>, to evaluate in <url href="https://sagecell.sagemath.org/" />.
+        The following code will generate <m>3,000</m> random graphs with <m>20</m> vertices, where each vertex is of degree <m>3</m>, to evaluate in <url href="https://sagecell.sagemath.org/" />.
+        It will compute the number of spanning trees for each graph in our sample, show an example of the first graph sampled, and display a histogram of the spanning tree counts for these <m>3,000</m> graphs.
         <program language="python">
             <input>
 import networkx as nx
 import numpy
 
-sample_size = 5000
+sample_size = 3000
 
 spanning_tree_counts = []
 
-for _ in range(sample_size):
+for j in range(sample_size):
     G = Graph(nx.random_degree_sequence_graph(20*[3])).copy(immutable=True)
+    if j == 0:
+        G.show(layout='circular')
+        print("number of spanning trees for this graph is: "+str(G.spanning_trees_count()))
     spanning_tree_counts.append(G.spanning_trees_count())
 
 print("mean is: "+str(numpy.mean(spanning_tree_counts)))
@@ -197,8 +229,37 @@ print("standard deviation is: "+str(numpy.std(spanning_tree_counts)))
 show(histogram(spanning_tree_counts,bins=30))
             </input>
         </program>
-        Note that the average number of spanning trees in a graph in our sample from this model is around <m>3.6-3.8</m> million, and the standard deviation is around <m>0.9-1.0</m> million.
+        Note that the average number of spanning trees in a graph in our sample from this model is around <m>3.6</m>-<m>3.8</m> million, and the standard deviation is around <m>0.9</m>-<m>1.0</m> million.
         Thus, there is a wide variety of behavior in terms of the number of spanning trees for graphs with <m>20</m> vertices of degree <m>3</m>, and these are graphs that you will probably never sample using the Erdos-Renyi model.
+    </p>
+
+    <p>
+        If the number of spanning trees seems large for these graphs, keep in mind that for a graph with <m>20</m> vertices each having degree <m>3</m>, such a graph has <m>30</m> edges.
+        A tree on such a graph has <m>19</m> edges.
+        Thus, there are <m>\binom{30}{19}=54,627,300</m> sets of <m>19</m> edges in one of these graphs.
+        Our experimental data is suggesting that, on average, the fraction of such sets that form a spanning tree is
+        <me>
+            \frac{3,700,000}{54,627,300}\approx 0.06773
+        </me>
+        which means that on average <m>6.7</m>% of the sets of <m>19</m> edges in one of these graphs is a spanning tree.
+    </p>
+
+    <p>
+        We can do a <em>very coarse estimate</em> to compare this with what we know about the Erdos-Renyi model and our computations of expected value.
+        In <m>G(20,0.5)</m> the expected average degree is <m>p(n-1)=\frac{19}{2}=9.5</m>, which is significantly higher than <m>3</m>.
+        The expected number of edges is <m>p\binom{n}{2}=\frac{1}{2}\binom{20}{2}=95</m> and thus in a typical graph the number of subsets with <m>19</m> edges is approximately
+        <me>
+            \binom{95}{19}=45,038,039,715,653,129,145
+        </me>
+        and the typical number of spanning trees is approximately 
+        <me>
+            p^{n-1}n^{n-2}=(\frac{1}{2})^{19}20^{18}=500,000,000,000,000,000 \, .
+        </me>
+        Thus, the fraction of sets of <m>19</m> edges in a sample drawn from the Erdos-Renyi model that forms a spanning tree is typically
+        <me>
+            \frac{500,000,000,000,000,000}{45,038,039,715,653,129,145} \approx 0.111
+        </me>
+        which is equivalent to saying that <m>1.1</m>% of the sets of <m>19</m> edges in one of these graphs is a spanning tree.
     </p>
 
     <exercise>
@@ -208,13 +269,13 @@ show(histogram(spanning_tree_counts,bins=30))
     </exercise>
 
     <p>
-        One other technique for sampling from connected, loopless, simple (no multiple edges) graphs with a fixed degree sequence is to use <em>Markov Chain Monte Carlo</em> simulation.
+        A technique for sampling from connected, loopless, simple (no multiple edges) graphs with a fixed degree sequence is to use <em>Markov Chain Monte Carlo</em> simulation.
         This is done as follows.
         Define the graph of graphs <m>\mathcal{G}(\mathbf{d})</m> to be the directed graph with vertex set all connected graphs with degree sequence <m>\mathbf{d}</m>.
 A connected graph <m>G</m> has an arrow to <m>G'</m> in <m>\mathcal{G}(\mathbf{d})</m> if <m>G'</m> is obtained from <m>G</m> via a double-edge swap, i.e., if there exist edges <m>uv</m> and <m>xy</m> in <m>G</m> such that replacing these edges with <m>ux</m> and <m>vy</m> produces <m>G'</m>. 
     </p>
         <figure xml:id="fig-doubleedgeswap">
-    <caption>Figure showing a double-edge swap, taking from: Benjamin Braun, Kaitlin Bruegge, Matthew Kahle. "Facets of Random Symmetric Edge Polytopes, Degree Sequences, and Clustering", Discrete Mathematics \amp Theoretical Computer Science, December 11, 2023, vol. 25:2.</caption>
+    <caption>Figure showing a double-edge swap, taking from: Benjamin Braun, Kaitlin Bruegge, Matthew Kahle. "Facets of Random Symmetric Edge Polytopes, Degree Sequences, and Clustering", Discrete Mathematics &amp; Theoretical Computer Science, December 11, 2023, vol. 25:2.</caption>
     <image source="doubleedgeswap.png" width="100%"/>
 </figure>
 <p>

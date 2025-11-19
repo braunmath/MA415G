@@ -18,8 +18,6 @@
     <xi:include href="./optimization.ptx" />
     <xi:include href="./ethics.ptx" />
     <xi:include href="./samplingandconstruction.ptx" />
-    <xi:include href="./existence.ptx" />
-    <xi:include href="./estimation.ptx" />
     <xi:include href="./homework.ptx" />
 
     <!-- Include backmatter -->

@@ -3,6 +3,5 @@
 
         <!-- include sections -->
   <xi:include href="samplinggraphs.ptx" />
-  <xi:include href="samplingspanningtrees.ptx" />
     
 </chapter>

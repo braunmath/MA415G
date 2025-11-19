@@ -1,7 +1,7 @@
 <section xml:id="sec-foundational-questions">
       <title>Eight Foundational Questions</title>
       <p> We will be studying combinatorics and graph theory. 
-      We will be addressing the following eight foundational questions of combinatorics and graph theory:
+      We will be addressing the first six of the following eight foundational questions of combinatorics and graph theory:
       <ol>
         <li>Enumeration: How many ____ are there?</li>
         <li>Classification: Which objects have ____ property?</li>
