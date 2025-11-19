@@ -1,0 +1,173 @@
+<section xml:id="sec-samplinggraphs">
+    <title>Sampling From Graph Models</title>
+    
+    <p>
+        It is frequently the case that we need to generate examples of graphs and networks.
+        The random graph models that we have seen so far in this course provide models from which we can draw samples.
+        In this section, we will discuss how this is done and what the results are.
+        We will begin by sampling from the Erdos-Renyi model of random graphs, which is the random graph model <m>G(n,p)</m> for graphs on <m>n</m> vertices where each edge is included independently with probability <m>p\in (0,1)</m>.
+    </p>
+
+    <p>
+        There are many subtleties involved in making random choices.
+        For example, computationally, how does one generate a "random" value in the interval <m>(0,1)</m>, which is required when determining whether or not an edge is included?
+        While we will not go into detail about how this is done, the answer is that for non-secure applications one can use a pseudorandom number generator <url href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator" />.
+        For example, in Python a random number in <m>(0,1)</m> is generated using the Mersenne Twister <url href="https://en.wikipedia.org/wiki/Mersenne_Twister" />.
+        Using this in combination with Walker's alias method <url href="https://en.wikipedia.org/wiki/Alias_method" /> gives an effective algorithm to sample reasonably randomly from any finite probability distribution.
+        For our purposes, we will assume that all of this is correctly implemented in software that is used for experiments.
+    </p>
+
+
+    <algorithm xml:id="alg-ersample">
+        <statement>
+            <p>
+                To sample from the Erdos-Renyi model <m>G(n,p)</m>, for each possible edge in the graph, compute a random value in <m>(0,1)</m> and include the edge if the value is less than <m>p</m>.
+            </p>
+        </statement>
+    </algorithm>
+
+    <exercise>
+        <p>
+            Does it make sense how a random element is sampled from <m>G(n,p)</m>?
+        </p>
+    </exercise>
+
+    <p>
+        In Sagemath, the command to draw a single random element of <m>G(n,p)</m> is graphs.RandomGNP(n,p).
+        Let's do some experiments to see what qualities the resulting graphs have.
+        We will first look at the maximum degree using <url href="https://sagecell.sagemath.org/" />.
+        The following code plots a histogram of the max degrees for a sample of <m>10,000</m> random graphs drawn from <m>G(50,0.5)</m>, i.e., the uniform distribution on graphs with <m>50</m> vertices.
+        <program language="python">
+            <input>
+                n = 50
+
+                p = 0.5
+
+                sample_size = 10000
+
+                max_degrees = []
+
+                for _ in range(sample_size):
+                    G = graphs.RandomGNP(n,p)
+                    m = max(G.degree_sequence())
+                    max_degrees.append(m)
+
+                show(histogram(max_degrees,bins=n))
+            </input>
+        </program>
+                Observe that the average maximum degree appears to be around <m>32</m>, and if you want to generate a random graph on <m>50</m> vertices with maximum degree less than around <m>25</m>, it might be difficult to find such an object using this method.
+    </p>
+
+    <exercise>
+        <p>
+            Does the above histogram make sense? What implications do you see for sampling from the Erdos-Renyi model?
+        </p>
+    </exercise>
+
+    <p>
+        We can look at a similar situation when we consider the full degree sequence.
+        The following code does the following:
+        <ol>
+            <li>
+                <p>
+                    Generate <m>1,000</m> random graphs from <m>G(50,0.5)</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Compute each of their degree sequences sorted from largest to smallest degree.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Plot the degree sequence as points <m>(0,d_0), (1,d_1), \ldots</m>.
+                </p>
+            </li>
+        </ol>
+        Let's see what this looks like by copying the following code into Sagecell and running it.
+        <program language="python">
+            <input>
+n = 50
+
+p = 0.5
+
+sample_size = 1000
+
+degree_sequences = []
+
+for _ in range(sample_size):
+    G = graphs.RandomGNP(n,p)
+    seq = sorted(G.degree_sequence())
+    seq.reverse()
+    degree_sequences.append(enumerate(seq))
+
+sum([points(seq) for seq in degree_sequences])
+
+            </input>
+        </program>
+    </p>
+    <p>
+        Observe that there is a challenge here, because many of the points corresponding to the degrees are overlapping.
+        Thus, we don't have any sense of the density of how many dots are on top of each other.
+    </p>
+
+    <exercise>
+        <p>
+            Discuss the scatterplot above. Does it make sense that some points are "secretly" appearing multiple times on top of each other?
+            Where do you think the highest density of repetition of points is?
+        </p>
+    </exercise>
+        
+    <p>
+        Our response to this challenge of data visualization is to replace each column of dots by a box-and-whiskers plot showing the distribution of the <m>i</m>-th degree in the sequence.
+        This is done by the following code, and now we will run this on <m>10,000</m> samples instead of only <m>1,000</m>.
+        We will use the pandas and seaborn packages for Python for the data visualization.
+        Unfortunately, Sagecell does not provide enough computational support for this, but you can run it on your own at <url href="https://cocalc.com/" /> or through a local Sagemath install.
+        <program language="python">
+            <input>
+import pandas as pd
+import seaborn as sns
+
+n = 50
+
+p = 0.5
+
+sample_size = 10000
+
+degree_sequences = []
+
+for _ in range(sample_size):
+    G = graphs.RandomGNP(n,p)
+    seq = sorted(G.degree_sequence())
+    seq.reverse()
+    degree_sequences.append(seq)
+
+data = pd.DataFrame(degree_sequences,columns=range(n))
+ax = sns.boxplot(data=data)
+            </input>
+        </program>
+        <figure xml:id="fig-er_degreesequence_boxplots">
+    <caption>Boxplots for the degree sequence sample.</caption>
+    <image source="er_random_degreeseq.png" width="75%"/>
+</figure>
+Note that for the largest degree (the value of <m>d_0</m> in this code, for which the boxplot is on the far left), the distribution is centered at <m>32</m>, which matches our earlier experimental data.
+    These box-and-whisker plots make it clear that the typical degree sequence of a graph sampled from <m>G(50,0.5)</m> passes through a very narrow range of values.
+    </p>
+
+    <exercise>
+        <p>
+            Discuss the box-and-whisker plots above.
+            Does it make sense how they were constructed?
+            What do the boxes mean, what do the lines mean, and what do the dots mean?
+            What extra information does this give you beyond the scatterpoint diagram?
+        </p>
+    </exercise>
+
+    <p>
+        This leads to a question: what if you want to sample graphs that have a degree distribution with a different shape than those produced by Erdos-Renyi graphs?
+        For this, we will use a <em>Markov Chain Monte Carlo (MCMC)</em> approach.
+    </p>
+    
+
+
+</section>

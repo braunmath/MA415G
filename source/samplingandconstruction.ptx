@@ -1,4 +1,8 @@
 <chapter xml:id="ch-samplingandconstruction" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Sampling and Construction</title>
+
+        <!-- include sections -->
+  <xi:include href="samplinggraphs.ptx" />
+  <xi:include href="samplingspanningtrees.ptx" />
     
 </chapter>
