@@ -3538,13 +3538,76 @@ var ptx_lunr_docs = [
   "body": " This paragraph states \"there is very little consensus among researchers as to the best and most effective ethical frameworks\". Do you believe that it is necessary to find consensus of this type? Or is it appropriate to have multiple ethical lenses and to have researchers engage in discussion regarding which is most appropriate for a given ethical dilemma?  Do you feel it is reasonable to expect individuals and teams to maintain a state of reflexivity in their research practices? Why or why not?  "
 },
 {
-  "id": "ch-samplingandconstruction",
+  "id": "sec-samplinggraphs",
   "level": "1",
-  "url": "ch-samplingandconstruction.html",
-  "type": "Chapter",
-  "number": "7",
-  "title": "Sampling and Construction",
-  "body": " Sampling and Construction  "
+  "url": "sec-samplinggraphs.html",
+  "type": "Section",
+  "number": "7.1",
+  "title": "Sampling From Graph Models",
+  "body": " Sampling From Graph Models  It is frequently the case that we need to generate examples of graphs and networks. The random graph models that we have seen so far in this course provide models from which we can draw samples. In this section, we will discuss how this is done and what the results are. We will begin by sampling from the Erdos-Renyi model of random graphs, which is the random graph model for graphs on vertices where each edge is included independently with probability .  There are many subtleties involved in making random choices. For example, computationally, how does one generate a \"random\" value in the interval , which is required when determining whether or not an edge is included? While we will not go into detail about how this is done, the answer is that for non-secure applications one can use a pseudorandom number generator . For example, in Python a random number in is generated using the Mersenne Twister . Using this in combination with Walker's alias method gives an effective algorithm to sample reasonably randomly from any finite probability distribution. For our purposes, we will assume that all of this is correctly implemented in software that is used for experiments.    To sample from the Erdos-Renyi model , for each possible edge in the graph, compute a random value in and include the edge if the value is less than .     Does it make sense how a random element is sampled from ?   In Sagemath, the command to draw a single random element of is graphs.RandomGNP(n,p). Let's do some experiments to see what qualities the resulting graphs have. We will first look at the maximum degree using . The following code plots a histogram of the max degrees for a sample of random graphs drawn from , i.e., the uniform distribution on graphs with vertices.  n = 50 p = 0.5 sample_size = 10000 max_degrees = [] for _ in range(sample_size): G = graphs.RandomGNP(n,p) m = max(G.degree_sequence()) max_degrees.append(m) show(histogram(max_degrees,bins=n))  Observe that the average maximum degree appears to be around , and if you want to generate a random graph on vertices with maximum degree less than around , it might be difficult to find such an object using this method.   Does the above histogram make sense? What implications do you see for sampling from the Erdos-Renyi model?   We can look at a similar situation when we consider the full degree sequence. The following code does the following:   Generate random graphs from .    Compute each of their degree sequences sorted from largest to smallest degree.    Plot the degree sequence as points .   Let's see what this looks like by copying the following code into Sagecell and running it.  n = 50 p = 0.5 sample_size = 1000 degree_sequences = [] for _ in range(sample_size): G = graphs.RandomGNP(n,p) seq = sorted(G.degree_sequence()) seq.reverse() degree_sequences.append(enumerate(seq)) sum([points(seq) for seq in degree_sequences])    Observe that there is a challenge here, because many of the points corresponding to the degrees are overlapping. Thus, we don't have any sense of the density of how many dots are on top of each other.   Discuss the scatterplot above. Does it make sense that some points are \"secretly\" appearing multiple times on top of each other? Where do you think the highest density of repetition of points is?   Our response to this challenge of data visualization is to replace each column of dots by a box-and-whiskers plot showing the distribution of the -th degree in the sequence. This is done by the following code, and now we will run this on samples instead of only . We will use the pandas and seaborn packages for Python for the data visualization. Unfortunately, Sagecell does not provide enough computational support for this, but you can run it on your own at or through a local Sagemath install.  import pandas as pd import seaborn as sns n = 50 p = 0.5 sample_size = 10000 degree_sequences = [] for _ in range(sample_size): G = graphs.RandomGNP(n,p) seq = sorted(G.degree_sequence()) seq.reverse() degree_sequences.append(seq) data = pd.DataFrame(degree_sequences,columns=range(n)) ax = sns.boxplot(data=data)    Boxplots for the degree sequence sample.   Note that for the largest degree (the value of in this code, for which the boxplot is on the far left), the distribution is centered at , which matches our earlier experimental data. These box-and-whisker plots make it clear that the typical degree sequence of a graph sampled from passes through a very narrow range of values.   Discuss the box-and-whisker plots above. Does it make sense how they were constructed? What do the boxes mean, what do the lines mean, and what do the dots mean? What extra information does this give you beyond the scatterpoint diagram?   This leads to a question: what if you want to sample graphs that have a degree distribution with a different shape than those produced by Erdos-Renyi graphs? For this, we will use a Markov Chain Monte Carlo (MCMC) approach.  "
+},
+{
+  "id": "alg-ersample",
+  "level": "2",
+  "url": "sec-samplinggraphs.html#alg-ersample",
+  "type": "Algorithm",
+  "number": "7.1.1",
+  "title": "",
+  "body": "  To sample from the Erdos-Renyi model , for each possible edge in the graph, compute a random value in and include the edge if the value is less than .   "
+},
+{
+  "id": "sec-samplinggraphs-5",
+  "level": "2",
+  "url": "sec-samplinggraphs.html#sec-samplinggraphs-5",
+  "type": "Checkpoint",
+  "number": "7.1.2",
+  "title": "",
+  "body": " Does it make sense how a random element is sampled from ?  "
+},
+{
+  "id": "sec-samplinggraphs-7",
+  "level": "2",
+  "url": "sec-samplinggraphs.html#sec-samplinggraphs-7",
+  "type": "Checkpoint",
+  "number": "7.1.3",
+  "title": "",
+  "body": " Does the above histogram make sense? What implications do you see for sampling from the Erdos-Renyi model?  "
+},
+{
+  "id": "sec-samplinggraphs-10",
+  "level": "2",
+  "url": "sec-samplinggraphs.html#sec-samplinggraphs-10",
+  "type": "Checkpoint",
+  "number": "7.1.4",
+  "title": "",
+  "body": " Discuss the scatterplot above. Does it make sense that some points are \"secretly\" appearing multiple times on top of each other? Where do you think the highest density of repetition of points is?  "
+},
+{
+  "id": "fig-er_degreesequence_boxplots",
+  "level": "2",
+  "url": "sec-samplinggraphs.html#fig-er_degreesequence_boxplots",
+  "type": "Figure",
+  "number": "7.1.5",
+  "title": "",
+  "body": " Boxplots for the degree sequence sample.   "
+},
+{
+  "id": "sec-samplinggraphs-12",
+  "level": "2",
+  "url": "sec-samplinggraphs.html#sec-samplinggraphs-12",
+  "type": "Checkpoint",
+  "number": "7.1.6",
+  "title": "",
+  "body": " Discuss the box-and-whisker plots above. Does it make sense how they were constructed? What do the boxes mean, what do the lines mean, and what do the dots mean? What extra information does this give you beyond the scatterpoint diagram?  "
+},
+{
+  "id": "sec-samplingspanningtrees",
+  "level": "1",
+  "url": "sec-samplingspanningtrees.html",
+  "type": "Section",
+  "number": "7.2",
+  "title": "Sampling Spanning Trees",
+  "body": " Sampling Spanning Trees    "
 },
 {
   "id": "ch-existence",

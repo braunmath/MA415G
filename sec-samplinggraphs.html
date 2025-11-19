@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Eight Foundational Questions</title>
+<title>Sampling From Graph Models</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -129,7 +129,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="introduction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="introduction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-Proofs.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-samplingandconstruction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-samplingandconstruction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-samplingspanningtrees.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\inv}{\mathrm{inv}} \newcommand{\deg}{\mathrm{deg}} \newcommand{\des}{\mathrm{des}} \newcommand{\Des}{\mathrm{Des}} \newcommand{\Inv}{\mathrm{Inv}} \newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} \newcommand{\Bin}{\mathrm{Bin}} \newcommand{\comp}{\mathrm{Comp}} \newcommand{\ss}{\mathfrak{S}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -140,10 +140,10 @@ eBookConfig.enable_chatcodes =  false;
 <div class="ptx-page">
 <div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
-<li class="toc-item toc-chapter contains-active">
+<li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
-<ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-foundational-questions.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Eight Foundational Questions</span></a></div></li>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-foundational-questions.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Eight Foundational Questions</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-Proofs.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Proofs</span></a></div></li>
 </ul>
 </li>
@@ -202,10 +202,10 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ethicsnetworks.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Ethics in Social Network Analysis</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
+<li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-samplingandconstruction.html" class="internal"><span class="codenumber">7</span> <span class="title">Sampling and Construction</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-samplinggraphs.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sampling From Graph Models</span></a></div></li>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-samplinggraphs.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sampling From Graph Models</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-samplingspanningtrees.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Sampling Spanning Trees</span></a></div></li>
 </ul>
 </li>
@@ -213,50 +213,117 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-estimation.html" class="internal"><span class="codenumber">9</span> <span class="title">Estimation</span></a></div></li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-homework.html" class="internal"><span class="codenumber">10</span> <span class="title">Homework Problems and Essays</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-foundational-questions"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1</span><span class="space"> </span><span class="title">Eight Foundational Questions</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-samplinggraphs"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">7.1</span><span class="space"> </span><span class="title">Sampling From Graph Models</span>
 </h2>
-<div class="para logical" id="sec-foundational-questions-2">
-<div class="para">We will be studying combinatorics and graph theory. We will be addressing the following eight foundational questions of combinatorics and graph theory:</div>
-<ol class="decimal" id="sec-foundational-questions-2-1">
-<li id="sec-foundational-questions-2-1-1">
-<div class="para" id="p-derived-sec-foundational-questions-2-1-1">Enumeration: How many ____ are there?</div>
-<div class="autopermalink" data-description="Item 1"><a href="#sec-foundational-questions-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+<div class="para" id="sec-samplinggraphs-2">It is frequently the case that we need to generate examples of graphs and networks. The random graph models that we have seen so far in this course provide models from which we can draw samples. In this section, we will discuss how this is done and what the results are. We will begin by sampling from the Erdos-Renyi model of random graphs, which is the random graph model <span class="process-math">\(G(n,p)\)</span> for graphs on <span class="process-math">\(n\)</span> vertices where each edge is included independently with probability <span class="process-math">\(p\in (0,1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-samplinggraphs-3">There are many subtleties involved in making random choices. For example, computationally, how does one generate a "random" value in the interval <span class="process-math">\((0,1)\text{,}\)</span> which is required when determining whether or not an edge is included? While we will not go into detail about how this is done, the answer is that for non-secure applications one can use a pseudorandom number generator <a class="external" href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator" target="_blank"><code class="code-inline tex2jax_ignore">https://en.wikipedia.org/wiki/Pseudorandom_number_generator</code></a>. For example, in Python a random number in <span class="process-math">\((0,1)\)</span> is generated using the Mersenne Twister <a class="external" href="https://en.wikipedia.org/wiki/Mersenne_Twister" target="_blank"><code class="code-inline tex2jax_ignore">https://en.wikipedia.org/wiki/Mersenne_Twister</code></a>. Using this in combination with Walker’s alias method <a class="external" href="https://en.wikipedia.org/wiki/Alias_method" target="_blank"><code class="code-inline tex2jax_ignore">https://en.wikipedia.org/wiki/Alias_method</code></a> gives an effective algorithm to sample reasonably randomly from any finite probability distribution. For our purposes, we will assume that all of this is correctly implemented in software that is used for experiments.<div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="algorithm theorem-like" id="alg-ersample"><h3 class="heading">
+<span class="type">Algorithm</span><span class="space"> </span><span class="codenumber">7.1.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="alg-ersample-1-1">To sample from the Erdos-Renyi model <span class="process-math">\(G(n,p)\text{,}\)</span> for each possible edge in the graph, compute a random value in <span class="process-math">\((0,1)\)</span> and include the edge if the value is less than <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#alg-ersample-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Algorithm 7.1.1"><a href="#alg-ersample" title="Copy heading and permalink for Algorithm 7.1.1" aria-label="Copy heading and permalink for Algorithm 7.1.1">🔗</a></div></article><details id="sec-samplinggraphs-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.1.2</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-samplinggraphs-5-1">Does it make sense how a random element is sampled from <span class="process-math">\(G(n,p)\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 7.1.2"><a href="#sec-samplinggraphs-5" title="Copy heading and permalink for Checkpoint 7.1.2" aria-label="Copy heading and permalink for Checkpoint 7.1.2">🔗</a></div></article></details><div class="para" id="sec-samplinggraphs-6">In Sagemath, the command to draw a single random element of <span class="process-math">\(G(n,p)\)</span> is graphs.RandomGNP(n,p). Let’s do some experiments to see what qualities the resulting graphs have. We will first look at the maximum degree using <a class="external" href="https://sagecell.sagemath.org/" target="_blank"><code class="code-inline tex2jax_ignore">https://sagecell.sagemath.org/</code></a>. The following code plots a histogram of the max degrees for a sample of <span class="process-math">\(10,000\)</span> random graphs drawn from <span class="process-math">\(G(50,0.5)\text{,}\)</span> i.e., the uniform distribution on graphs with <span class="process-math">\(50\)</span> vertices. <div class="code-box"><pre class="program clipboardable"><code class="language-py">n = 50
+
+p = 0.5
+
+sample_size = 10000
+
+max_degrees = []
+
+for _ in range(sample_size):
+    G = graphs.RandomGNP(n,p)
+    m = max(G.degree_sequence())
+    max_degrees.append(m)
+
+show(histogram(max_degrees,bins=n))
+</code></pre></div> Observe that the average maximum degree appears to be around <span class="process-math">\(32\text{,}\)</span> and if you want to generate a random graph on <span class="process-math">\(50\)</span> vertices with maximum degree less than around <span class="process-math">\(25\text{,}\)</span> it might be difficult to find such an object using this method.<div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-samplinggraphs-7" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.1.3</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-samplinggraphs-7-1">Does the above histogram make sense? What implications do you see for sampling from the Erdos-Renyi model?<div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 7.1.3"><a href="#sec-samplinggraphs-7" title="Copy heading and permalink for Checkpoint 7.1.3" aria-label="Copy heading and permalink for Checkpoint 7.1.3">🔗</a></div></article></details><div class="para logical" id="sec-samplinggraphs-8">
+<div class="para">We can look at a similar situation when we consider the full degree sequence. The following code does the following:</div>
+<ol class="decimal" id="sec-samplinggraphs-8-1">
+<li id="sec-samplinggraphs-8-1-1">
+<div class="para" id="sec-samplinggraphs-8-1-1-1">Generate <span class="process-math">\(1,000\)</span> random graphs from <span class="process-math">\(G(50,0.5)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-8-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-samplinggraphs-8-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
 </li>
-<li id="sec-foundational-questions-2-1-2">
-<div class="para" id="p-derived-sec-foundational-questions-2-1-2">Classification: Which objects have ____ property?</div>
-<div class="autopermalink" data-description="Item 2"><a href="#sec-foundational-questions-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+<li id="sec-samplinggraphs-8-1-2">
+<div class="para" id="sec-samplinggraphs-8-1-2-1">Compute each of their degree sequences sorted from largest to smallest degree.<div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-8-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-samplinggraphs-8-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
 </li>
-<li id="sec-foundational-questions-2-1-3">
-<div class="para" id="p-derived-sec-foundational-questions-2-1-3">Expectation: How likely is ____?</div>
-<div class="autopermalink" data-description="Item 3"><a href="#sec-foundational-questions-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
-</li>
-<li id="sec-foundational-questions-2-1-4">
-<div class="para" id="p-derived-sec-foundational-questions-2-1-4">Optimization: What is the best ____?</div>
-<div class="autopermalink" data-description="Item 4"><a href="#sec-foundational-questions-2-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
-</li>
-<li id="sec-foundational-questions-2-1-5">
-<div class="para" id="p-derived-sec-foundational-questions-2-1-5">Ethics: What are the ethical implications that arise when applying ____ to the physical, biological, health, or social sciences?</div>
-<div class="autopermalink" data-description="Item 5"><a href="#sec-foundational-questions-2-1-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
-</li>
-<li id="sec-foundational-questions-2-1-6">
-<div class="para" id="p-derived-sec-foundational-questions-2-1-6">Sampling and Construction: How do I generate examples of ____?</div>
-<div class="autopermalink" data-description="Item 6"><a href="#sec-foundational-questions-2-1-6" title="Copy heading and permalink for Item 6" aria-label="Copy heading and permalink for Item 6">🔗</a></div>
-</li>
-<li id="sec-foundational-questions-2-1-7">
-<div class="para" id="p-derived-sec-foundational-questions-2-1-7">Existence: Does ____ exist?</div>
-<div class="autopermalink" data-description="Item 7"><a href="#sec-foundational-questions-2-1-7" title="Copy heading and permalink for Item 7" aria-label="Copy heading and permalink for Item 7">🔗</a></div>
-</li>
-<li id="sec-foundational-questions-2-1-8">
-<div class="para" id="p-derived-sec-foundational-questions-2-1-8">Estimation: Approximately how many ____ are there?</div>
-<div class="autopermalink" data-description="Item 8"><a href="#sec-foundational-questions-2-1-8" title="Copy heading and permalink for Item 8" aria-label="Copy heading and permalink for Item 8">🔗</a></div>
+<li id="sec-samplinggraphs-8-1-3">
+<div class="para" id="sec-samplinggraphs-8-1-3-1">Plot the degree sequence as points <span class="process-math">\((0,d_0), (1,d_1), \ldots\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-8-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-samplinggraphs-8-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-foundational-questions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Let’s see what this looks like by copying the following code into Sagecell and running it. <div class="code-box"><pre class="program clipboardable"><code class="language-py">n = 50
+
+p = 0.5
+
+sample_size = 1000
+
+degree_sequences = []
+
+for _ in range(sample_size):
+    G = graphs.RandomGNP(n,p)
+    seq = sorted(G.degree_sequence())
+    seq.reverse()
+    degree_sequences.append(enumerate(seq))
+
+sum([points(seq) for seq in degree_sequences])
+</code></pre></div>
 </div>
-<div class="autopermalink" data-description="Section 1.1: Eight Foundational Questions"><a href="#sec-foundational-questions" title="Copy heading and permalink for Section 1.1: Eight Foundational Questions" aria-label="Copy heading and permalink for Section 1.1: Eight Foundational Questions">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-samplinggraphs-9">Observe that there is a challenge here, because many of the points corresponding to the degrees are overlapping. Thus, we don’t have any sense of the density of how many dots are on top of each other.<div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-samplinggraphs-10" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.1.4</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-samplinggraphs-10-1">Discuss the scatterplot above. Does it make sense that some points are "secretly" appearing multiple times on top of each other? Where do you think the highest density of repetition of points is?<div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 7.1.4"><a href="#sec-samplinggraphs-10" title="Copy heading and permalink for Checkpoint 7.1.4" aria-label="Copy heading and permalink for Checkpoint 7.1.4">🔗</a></div></article></details><div class="para" id="sec-samplinggraphs-11">Our response to this challenge of data visualization is to replace each column of dots by a box-and-whiskers plot showing the distribution of the <span class="process-math">\(i\)</span>-th degree in the sequence. This is done by the following code, and now we will run this on <span class="process-math">\(10,000\)</span> samples instead of only <span class="process-math">\(1,000\text{.}\)</span> We will use the pandas and seaborn packages for Python for the data visualization. Unfortunately, Sagecell does not provide enough computational support for this, but you can run it on your own at <a class="external" href="https://cocalc.com/" target="_blank"><code class="code-inline tex2jax_ignore">https://cocalc.com/</code></a> or through a local Sagemath install. <div class="code-box"><pre class="program clipboardable"><code class="language-py">import pandas as pd
+import seaborn as sns
+
+n = 50
+
+p = 0.5
+
+sample_size = 10000
+
+degree_sequences = []
+
+for _ in range(sample_size):
+    G = graphs.RandomGNP(n,p)
+    seq = sorted(G.degree_sequence())
+    seq.reverse()
+    degree_sequences.append(seq)
+
+data = pd.DataFrame(degree_sequences,columns=range(n))
+ax = sns.boxplot(data=data)
+</code></pre></div> <figure class="figure figure-like" id="fig-er_degreesequence_boxplots"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/er_random_degreeseq.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.5<span class="period">.</span></span><span class="space"> </span>Boxplots for the degree sequence sample.<div class="autopermalink" data-description="Figure 7.1.5"><a href="#fig-er_degreesequence_boxplots" title="Copy heading and permalink for Figure 7.1.5" aria-label="Copy heading and permalink for Figure 7.1.5">🔗</a></div></figcaption></figure> Note that for the largest degree (the value of <span class="process-math">\(d_0\)</span> in this code, for which the boxplot is on the far left), the distribution is centered at <span class="process-math">\(32\text{,}\)</span> which matches our earlier experimental data. These box-and-whisker plots make it clear that the typical degree sequence of a graph sampled from <span class="process-math">\(G(50,0.5)\)</span> passes through a very narrow range of values.<div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-samplinggraphs-12" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.1.6</span><span class="period">.</span>
+</h3></summary><article class="exercise exercise-like knowl__content"><div class="para" id="sec-samplinggraphs-12-1">Discuss the box-and-whisker plots above. Does it make sense how they were constructed? What do the boxes mean, what do the lines mean, and what do the dots mean? What extra information does this give you beyond the scatterpoint diagram?<div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 7.1.6"><a href="#sec-samplinggraphs-12" title="Copy heading and permalink for Checkpoint 7.1.6" aria-label="Copy heading and permalink for Checkpoint 7.1.6">🔗</a></div></article></details><div class="para" id="sec-samplinggraphs-13">This leads to a question: what if you want to sample graphs that have a degree distribution with a different shape than those produced by Erdos-Renyi graphs? For this, we will use a <em class="emphasis">Markov Chain Monte Carlo (MCMC)</em> approach.<div class="autopermalink" data-description="Paragraph"><a href="#sec-samplinggraphs-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 7.1: Sampling From Graph Models"><a href="#sec-samplinggraphs" title="Copy heading and permalink for Section 7.1: Sampling From Graph Models" aria-label="Copy heading and permalink for Section 7.1: Sampling From Graph Models">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="introduction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-Proofs.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="ch-samplingandconstruction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-samplingspanningtrees.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
