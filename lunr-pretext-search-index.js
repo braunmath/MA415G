@@ -7,7 +7,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.1",
   "title": "Eight Foundational Questions",
-  "body": " Eight Foundational Questions  We will be studying combinatorics and graph theory. We will be addressing the following eight foundational questions of combinatorics and graph theory:  Enumeration: How many ____ are there?  Classification: Which objects have ____ property?  Expectation: How likely is ____?  Optimization: What is the best ____?  Ethics: What are the ethical implications that arise when applying ____ to the physical, biological, health, or social sciences?  Sampling and Construction: How do I generate examples of ____?  Existence: Does ____ exist?  Estimation: Approximately how many ____ are there?    "
+  "body": " Eight Foundational Questions  We will be studying combinatorics and graph theory. We will be addressing the first six of the following eight foundational questions of combinatorics and graph theory:  Enumeration: How many ____ are there?  Classification: Which objects have ____ property?  Expectation: How likely is ____?  Optimization: What is the best ____?  Ethics: What are the ethical implications that arise when applying ____ to the physical, biological, health, or social sciences?  Sampling and Construction: How do I generate examples of ____?  Existence: Does ____ exist?  Estimation: Approximately how many ____ are there?    "
 },
 {
   "id": "sec-Proofs",
@@ -3544,7 +3544,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "7.1",
   "title": "Sampling From Graph Models",
-  "body": " Sampling From Graph Models  It is frequently the case that we need to generate examples of graphs and networks. The random graph models that we have seen so far in this course provide models from which we can draw samples. In this section, we will discuss how this is done and what the results are. We will begin by sampling from the Erdos-Renyi model of random graphs, which is the random graph model for graphs on vertices where each edge is included independently with probability .  There are many subtleties involved in making random choices. For example, computationally, how does one generate a \"random\" value in the interval , which is required when determining whether or not an edge is included? While we will not go into detail about how this is done, the answer is that for non-secure applications one can use a pseudorandom number generator . For example, in Python a random number in is generated using the Mersenne Twister . Using this in combination with Walker's alias method gives an effective algorithm to sample reasonably randomly from any finite probability distribution. For our purposes, we will assume that all of this is correctly implemented in software that is used for experiments.    To sample from the Erdos-Renyi model , for each possible edge in the graph, compute a random value in and include the edge if the value is less than .     Does it make sense how a random element is sampled from ?   In Sagemath, the command to draw a single random element of is graphs.RandomGNP(n,p). Let's do some experiments to see what qualities the resulting graphs have. We will first look at the maximum degree using . The following code plots a histogram of the max degrees for a sample of random graphs drawn from , i.e., the uniform distribution on graphs with vertices.  n = 50 p = 0.5 sample_size = 10000 max_degrees = [] for _ in range(sample_size): G = graphs.RandomGNP(n,p) m = max(G.degree_sequence()) max_degrees.append(m) show(histogram(max_degrees,bins=n))  Observe that the average maximum degree appears to be around , and if you want to generate a random graph on vertices with maximum degree less than around , it might be difficult to find such an object using this method.   Does the above histogram make sense? What implications do you see for sampling from the Erdos-Renyi model?   We can look at a similar situation when we consider the full degree sequence. The following code does the following:   Generate random graphs from .    Compute each of their degree sequences sorted from largest to smallest degree.    Plot the degree sequence as points .   Let's see what this looks like by copying the following code into Sagecell and running it.  n = 50 p = 0.5 sample_size = 1000 degree_sequences = [] for _ in range(sample_size): G = graphs.RandomGNP(n,p) seq = sorted(G.degree_sequence()) seq.reverse() degree_sequences.append(enumerate(seq)) sum([points(seq) for seq in degree_sequences])    Observe that there is a challenge here, because many of the points corresponding to the degrees are overlapping. Thus, we don't have any sense of the density of how many dots are on top of each other.   Discuss the scatterplot above. Does it make sense that some points are \"secretly\" appearing multiple times on top of each other? Where do you think the highest density of repetition of points is?   Our response to this challenge of data visualization is to replace each column of dots by a box-and-whiskers plot showing the distribution of the -th degree in the sequence. This is done by the following code, and now we will run this on samples instead of only . We will use the pandas and seaborn packages for Python for the data visualization. Unfortunately, Sagecell does not provide enough computational support for this, but you can run it on your own at or through a local Sagemath install.  import pandas as pd import seaborn as sns n = 50 p = 0.5 sample_size = 10000 degree_sequences = [] for _ in range(sample_size): G = graphs.RandomGNP(n,p) seq = sorted(G.degree_sequence()) seq.reverse() degree_sequences.append(seq) data = pd.DataFrame(degree_sequences,columns=range(n)) ax = sns.boxplot(data=data)    Boxplots for the degree sequence sample.   Note that for the largest degree (the value of in this code, for which the boxplot is on the far left), the distribution is centered at , which matches our earlier experimental data. These box-and-whisker plots make it clear that the typical degree sequence of a graph sampled from passes through a very narrow range of values.   Discuss the box-and-whisker plots above. Does it make sense how they were constructed? What do the boxes mean, what do the lines mean, and what do the dots mean? What extra information does this give you beyond the scatterpoint diagram?   The problem with sampling from an Erdos-Renyi graph is exactly the bias toward certain structural qualities of the graph, which is caused by the underlying binomial distribution. This is articulated clearly in the following quote from: Fosdick, Bailey K., Daniel B. Larremore, Joel Nishimura, and Johan Ugander. \"Configuring Random Graph Models with Fixed Degree Sequences.\" SIAM Review 60, no. 2 (2018): 315-55.   Quote regarding sampling from graph models.     Thus, to sample graphs that have a degree distribution with a different shape than those produced by Erdos-Renyi graphs, we want to sample from either the configuration model or some variant thereof. We will consider some experiments using random graphs with a fixed degree sequence generated with almost the uniform distribution, using an algorithm from: Bayati, M., Kim, J.H. \\amp Saberi, A. A Sequential Algorithm for Generating Random Graphs. Algorithmica 58, 860-910 (2010). This is called using the Python Networkx package as random_degree_sequence_graph, via . Note that we will no longer be looking at measurements related to the degree sequence, because we have fixed it. However, we might now look at something like number of spanning trees. The following code will generate random graphs having vertices of degree , to evaluate in .  import networkx as nx import numpy sample_size = 5000 spanning_tree_counts = [] for _ in range(sample_size): G = Graph(nx.random_degree_sequence_graph(20*[3])).copy(immutable=True) spanning_tree_counts.append(G.spanning_trees_count()) print(\"mean is: \"+str(numpy.mean(spanning_tree_counts))) print(\"standard deviation is: \"+str(numpy.std(spanning_tree_counts))) show(histogram(spanning_tree_counts,bins=30))  Note that the average number of spanning trees in a graph in our sample from this model is around million, and the standard deviation is around million. Thus, there is a wide variety of behavior in terms of the number of spanning trees for graphs with vertices of degree , and these are graphs that you will probably never sample using the Erdos-Renyi model.   Discuss the example above. Does it make sense?   One other technique for sampling from connected, loopless, simple (no multiple edges) graphs with a fixed degree sequence is to use Markov Chain Monte Carlo simulation. This is done as follows. Define the graph of graphs to be the directed graph with vertex set all connected graphs with degree sequence . A connected graph has an arrow to in if is obtained from via a double-edge swap, i.e., if there exist edges and in such that replacing these edges with and produces .   Figure showing a double-edge swap, taking from: Benjamin Braun, Kaitlin Bruegge, Matthew Kahle. \"Facets of Random Symmetric Edge Polytopes, Degree Sequences, and Clustering\", Discrete Mathematics \\amp Theoretical Computer Science, December 11, 2023, vol. 25:2.    If performing a particular double-edge swap on would produce a graph that is outside the space (i.e. the new graph has a loop or multiedge or is disconnected), that swap will correspond to a loop on the vertex in . It is shown in the paper by Fosdick et. al. referenced above that is regular, strongly connected, and aperiodic, which means that samples asymptotically obey a uniform distribution.  So, to sample using double-edge swaps, one would first create a graph with the degree sequence you want using the reverse of the Havel-Hakimi process. Then, one would repeatedly do random double-edge swaps to produce a \"random walk\" through the graph.   Starting with the Petersen graph, do a sequence (by hand) of double-edge swaps to sample from the space of finite simple graphs with degree sequence .   Petersen graph      The most important take-away from this discussion is:   When you want to randomly sample combinatorial objects, it is equally important to consider the model for your sampling as the objects themselves.   Just because you have one process for producing random objects does not mean that it is the right one for your application .  "
+  "body": " Sampling From Graph Models  It is frequently the case that we need to generate examples of graphs and networks. The random graph models that we have seen so far in this course provide models from which we can draw samples. In this section, we will discuss how this is done and what the results are. We will begin by sampling from the Erdos-Renyi model of random graphs, which is the random graph model for graphs on vertices where each edge is included independently with probability .  There are many subtleties involved in making random choices. For example, computationally, how does one generate a \"random\" value in the interval , which is required when determining whether or not an edge is included? While we will not go into detail about how this is done, the answer is that for non-secure applications one can use a pseudorandom number generator . For example, in Python a random number in is generated using the Mersenne Twister . Using this in combination with Walker's alias method gives an effective algorithm to sample reasonably randomly from any finite probability distribution. For our purposes, we will assume that all of this is correctly implemented in software that is used for experiments.    To sample from the Erdos-Renyi model , for each possible edge in the graph, compute a random value in and include the edge if the value is less than .     Does it make sense how a random element is sampled from ?   In Sagemath, the command to draw a single random element of is graphs.RandomGNP(n,p). Let's do some experiments to see what qualities the resulting graphs have. We will first look at the maximum degree using . The following code plots a histogram of the max degrees for a sample of random graphs drawn from , i.e., the uniform distribution on graphs with vertices.  n = 50 p = 0.5 sample_size = 10000 max_degrees = [] for _ in range(sample_size): G = graphs.RandomGNP(n,p) m = max(G.degree_sequence()) max_degrees.append(m) show(histogram(max_degrees,bins=n))  Observe that the average maximum degree appears to be around , and if you want to generate a random graph on vertices with maximum degree less than around , it might be difficult to find such an object using the uniform distribution with .   Does the above histogram make sense? What implications do you see for sampling from the Erdos-Renyi model?   We can look at a similar situation when we consider the full degree sequence. The following code does the following:   Generate random graphs from .    Compute each of their degree sequences sorted from largest to smallest degree.    Plot the degree sequence as points .   Let's see what this looks like by copying the following code into Sagecell and running it.  n = 50 p = 0.5 sample_size = 1000 degree_sequences = [] for _ in range(sample_size): G = graphs.RandomGNP(n,p) seq = sorted(G.degree_sequence()) seq.reverse() degree_sequences.append(enumerate(seq)) sum([points(seq) for seq in degree_sequences])    Observe that there is a challenge here, because many of the points corresponding to the degrees are overlapping. Thus, we don't have any sense of the density of how many dots are on top of each other.   Discuss the scatterplot above. Does it make sense that some points are \"secretly\" appearing multiple times on top of each other? Where do you think the highest density of repetition of points is?   Our response to this challenge of data visualization is to replace each column of dots by a box-and-whiskers plot showing the distribution of the -th degree in the sequence. This is done by the following code, and now we will run this on samples instead of only . We will use the pandas and seaborn packages for Python for the data visualization. Unfortunately, Sagecell does not provide enough computational support for this, but if you would like to run additional experiments you can run it at or through a local Sagemath install.  import pandas as pd import seaborn as sns n = 50 p = 0.5 sample_size = 10000 degree_sequences = [] for _ in range(sample_size): G = graphs.RandomGNP(n,p) seq = sorted(G.degree_sequence()) seq.reverse() degree_sequences.append(seq) data = pd.DataFrame(degree_sequences,columns=range(n)) ax = sns.boxplot(data=data)    Boxplots for the degree sequence sample.   Note that for the largest degree (the value of in this code, for which the boxplot is on the far left), the distribution is centered at , which matches our earlier experimental data. These box-and-whisker plots strongly suggest that the typical degree sequence of a graph sampled from passes through a very narrow range of values.   Discuss the box-and-whisker plots above.   This plot shows that the average value of the eighth-largest degree of a graph in our sample is . Does this make sense to you from the plot above?    Does it make sense how this plot was constructed?    What do the boxes mean, what do the lines mean, and what do the dots mean?    What extra information does this give you beyond the scatterpoint diagram?    What does this tell you about the typical value of the fourth-smallest degree in a graph in our sample?      The problem with sampling from an Erdos-Renyi graph is exactly the bias toward certain structural qualities of the graph, which is caused by the underlying binomial distribution. This is articulated clearly in the following quote from Bailey K. Fosdick, Daniel B. Larremore, Joel Nishimura, and Johan Ugander in \"Configuring Random Graph Models with Fixed Degree Sequences,\" SIAM Review 60, no. 2 (2018): 315-55.   Quote regarding sampling from graph models.     Thus, to sample graphs that have a degree distribution with a different shape than those produced by Erdos-Renyi graphs, we want to sample from either the configuration model we defined previously or one of the many variants of this model. We will consider some experiments using random graphs with a fixed degree sequence generated with almost the uniform distribution, using an algorithm from: Bayati, M., Kim, J.H. & Saberi, A. A Sequential Algorithm for Generating Random Graphs. Algorithmica 58, 860-910 (2010). This is called using the Python Networkx package as random_degree_sequence_graph .  Note that we will no longer be looking at measurements related to the degree sequence, because we have fixed it. However, we might now look at something like number of spanning trees. The following code will generate random graphs with vertices, where each vertex is of degree , to evaluate in . It will compute the number of spanning trees for each graph in our sample, show an example of the first graph sampled, and display a histogram of the spanning tree counts for these graphs.  import networkx as nx import numpy sample_size = 3000 spanning_tree_counts = [] for j in range(sample_size): G = Graph(nx.random_degree_sequence_graph(20*[3])).copy(immutable=True) if j == 0: G.show(layout='circular') print(\"number of spanning trees for this graph is: \"+str(G.spanning_trees_count())) spanning_tree_counts.append(G.spanning_trees_count()) print(\"mean is: \"+str(numpy.mean(spanning_tree_counts))) print(\"standard deviation is: \"+str(numpy.std(spanning_tree_counts))) show(histogram(spanning_tree_counts,bins=30))  Note that the average number of spanning trees in a graph in our sample from this model is around - million, and the standard deviation is around - million. Thus, there is a wide variety of behavior in terms of the number of spanning trees for graphs with vertices of degree , and these are graphs that you will probably never sample using the Erdos-Renyi model.  If the number of spanning trees seems large for these graphs, keep in mind that for a graph with vertices each having degree , such a graph has edges. A tree on such a graph has edges. Thus, there are sets of edges in one of these graphs. Our experimental data is suggesting that, on average, the fraction of such sets that form a spanning tree is which means that on average % of the sets of edges in one of these graphs is a spanning tree.  We can do a very coarse estimate to compare this with what we know about the Erdos-Renyi model and our computations of expected value. In the expected average degree is , which is significantly higher than . The expected number of edges is and thus in a typical graph the number of subsets with edges is approximately and the typical number of spanning trees is approximately Thus, the fraction of sets of edges in a sample drawn from the Erdos-Renyi model that forms a spanning tree is typically which is equivalent to saying that % of the sets of edges in one of these graphs is a spanning tree.   Discuss the example above. Does it make sense?   A technique for sampling from connected, loopless, simple (no multiple edges) graphs with a fixed degree sequence is to use Markov Chain Monte Carlo simulation. This is done as follows. Define the graph of graphs to be the directed graph with vertex set all connected graphs with degree sequence . A connected graph has an arrow to in if is obtained from via a double-edge swap, i.e., if there exist edges and in such that replacing these edges with and produces .   Figure showing a double-edge swap, taking from: Benjamin Braun, Kaitlin Bruegge, Matthew Kahle. \"Facets of Random Symmetric Edge Polytopes, Degree Sequences, and Clustering\", Discrete Mathematics & Theoretical Computer Science, December 11, 2023, vol. 25:2.    If performing a particular double-edge swap on would produce a graph that is outside the space (i.e. the new graph has a loop or multiedge or is disconnected), that swap will correspond to a loop on the vertex in . It is shown in the paper by Fosdick et. al. referenced above that is regular, strongly connected, and aperiodic, which means that samples asymptotically obey a uniform distribution.  So, to sample using double-edge swaps, one would first create a graph with the degree sequence you want using the reverse of the Havel-Hakimi process. Then, one would repeatedly do random double-edge swaps to produce a \"random walk\" through the graph.   Starting with the Petersen graph, do a sequence (by hand) of double-edge swaps to sample from the space of finite simple graphs with degree sequence .   Petersen graph      The most important take-away from this discussion is:   When you want to randomly sample combinatorial objects, it is equally important to consider the model for your sampling as the objects themselves.   Just because you have one process for producing random objects does not mean that it is the right one for your application .  "
 },
 {
   "id": "alg-ersample",
@@ -3598,7 +3598,7 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "7.1.6",
   "title": "",
-  "body": " Discuss the box-and-whisker plots above. Does it make sense how they were constructed? What do the boxes mean, what do the lines mean, and what do the dots mean? What extra information does this give you beyond the scatterpoint diagram?  "
+  "body": " Discuss the box-and-whisker plots above.   This plot shows that the average value of the eighth-largest degree of a graph in our sample is . Does this make sense to you from the plot above?    Does it make sense how this plot was constructed?    What do the boxes mean, what do the lines mean, and what do the dots mean?    What extra information does this give you beyond the scatterpoint diagram?    What does this tell you about the typical value of the fourth-smallest degree in a graph in our sample?     "
 },
 {
   "id": "fig-er_quote",
@@ -3610,9 +3610,9 @@ var ptx_lunr_docs = [
   "body": " Quote regarding sampling from graph models.   "
 },
 {
-  "id": "sec-samplinggraphs-15",
+  "id": "sec-samplinggraphs-18",
   "level": "2",
-  "url": "sec-samplinggraphs.html#sec-samplinggraphs-15",
+  "url": "sec-samplinggraphs.html#sec-samplinggraphs-18",
   "type": "Checkpoint",
   "number": "7.1.8",
   "title": "",
@@ -3625,50 +3625,23 @@ var ptx_lunr_docs = [
   "type": "Figure",
   "number": "7.1.9",
   "title": "",
-  "body": " Figure showing a double-edge swap, taking from: Benjamin Braun, Kaitlin Bruegge, Matthew Kahle. \"Facets of Random Symmetric Edge Polytopes, Degree Sequences, and Clustering\", Discrete Mathematics \\amp Theoretical Computer Science, December 11, 2023, vol. 25:2.   "
+  "body": " Figure showing a double-edge swap, taking from: Benjamin Braun, Kaitlin Bruegge, Matthew Kahle. \"Facets of Random Symmetric Edge Polytopes, Degree Sequences, and Clustering\", Discrete Mathematics & Theoretical Computer Science, December 11, 2023, vol. 25:2.   "
 },
 {
-  "id": "sec-samplinggraphs-20",
+  "id": "sec-samplinggraphs-23",
   "level": "2",
-  "url": "sec-samplinggraphs.html#sec-samplinggraphs-20",
+  "url": "sec-samplinggraphs.html#sec-samplinggraphs-23",
   "type": "Checkpoint",
   "number": "7.1.10",
   "title": "",
   "body": " Starting with the Petersen graph, do a sequence (by hand) of double-edge swaps to sample from the space of finite simple graphs with degree sequence .   Petersen graph     "
 },
 {
-  "id": "sec-samplingspanningtrees",
-  "level": "1",
-  "url": "sec-samplingspanningtrees.html",
-  "type": "Section",
-  "number": "7.2",
-  "title": "Sampling Spanning Trees",
-  "body": " Sampling Spanning Trees    "
-},
-{
-  "id": "ch-existence",
-  "level": "1",
-  "url": "ch-existence.html",
-  "type": "Chapter",
-  "number": "8",
-  "title": "Existence",
-  "body": " Existence  "
-},
-{
-  "id": "ch-estimation",
-  "level": "1",
-  "url": "ch-estimation.html",
-  "type": "Chapter",
-  "number": "9",
-  "title": "Estimation",
-  "body": " Estimation  "
-},
-{
   "id": "ch-homework",
   "level": "1",
   "url": "ch-homework.html",
   "type": "Chapter",
-  "number": "10",
+  "number": "8",
   "title": "Homework Problems and Essays",
   "body": " Homework Problems and Essays   P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that        P2  How many binary strings of length are there with exactly two ones and zeros? Express your answer as either a function of or as a recursive expression. Give an argument, i.e., a proof, explaining why your solution is correct.    Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P3  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have     P4  Give a combinatorial proof showing that     P5   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these. However, you need to provide a narrative in sentences\/paragraphs explaining your thinking and the results of your investigations. (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)    P6  For each positive integer , express in terms of Fibonacci numbers the number of sequences with each , such that     P7     Find a relationship between the Fibonacci numbers and the number of compositions of where every part is an odd number. Prove that your answer is correct.     A subset is called large if we have that for every . So, for example, is large while is not large. We define that the emptyset is large. Let be the number of large subsets of (including the emptyset). Find a relationship between and the Fibonacci numbers and prove that your answer is correct.       P8  In this problem you will prove that holds for all . Let denote the number of ways to select elements from and write them in a linear order, i.e., write them as a permutation.   Prove that using only the combinatorial interpretation of .    Prove that     Using the previous two parts of this problem, prove that        P9  Prove that Note that , and thus this shows that is approximately .    P10  A permutation is an involution if all cycles have length or . Let denote the number of involutions in . Prove that where and .    P11  A permutation is called connected if for every . Let denote the number of connected permutations in . Prove that     Essay 2  Read the following blog post by Keith Weber, a professor of math education at Rutgers University who studies how undergraduate students understand proofs in mathematics: After you read this article, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   The article describes four expectations that professors have for students, but which are usually mis-communicated. For each of these four expectations , do you respond more like the students in their surveys, or more like the professors? Why?    The discussion at the end of the article has some recommendations for faculty in their courses. Which of these recommendations do you think you would find most helpful for your learning, and why?    What is one thing you might change about your approach to your math courses after reading this article? Why is this the thing you would choose to change?      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P12  Recall that is the number of permutations in with inversions, and is the number of permutations in with descents. Give a combinatorial proof that and     P13     In the first part of this problem, you will prove by induction that    First, verify the base case for the induction argument, i.e., check that this is true for .    Second, assume that this is true for all values less than . In particular, this means that we assume we have already verified that To prove that the induction step holds, use this to prove that the equation holds for as follows: write and then substitute the formula for the case and simplify with algebra.    Explain in your own words why this shows that the formula is true for any positive integer .       Prove by induction that    Comment for those who are interested: These two formulas are ones that students learn (and typically forget) in Calculus I. However, these are special cases of a beautiful formula called Faulhaber's formula which is a formula for the sum of the -th powers of the first positive integers: .    P14     A graph is called -regular if every vertex has degree . How many edges does a -regular graph on vertices have?    Does there exist a -regular graph on vertices? Why or why not?       P15  A graph is bipartite if the vertex set of can be partitioned as in such a way that every edge in has one endpoint in and one in . Prove that is bipartite if and only if every cycle in has an even number of edges.    P16  Suppose a tree has exactly one vertex of degree for each and all other vertices have degree .   How many vertices does have?    For each , explain how to construct an example of a tree with this property.       P17  A graceful labeling of a tree on vertices is a mapping so that for each edge , the value of is distinct from the value on any other edge. The path graph of length , denoted , is the graph with vertex set and edges for every . Show that every has a graceful labeling.  NOTE: A well-known and extremely challenging unsolved conjecture is that all trees admit graceful labelings. This is known for some trees but not all trees.    Essay 3  Watch the following YouTube video from Numberphile (13 minutes, published 29 Jan 2024): After you watch this video, complete the following essay.   This will be an essay of length 500 words, which is equivalent to 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced.    Write a critical review of this Numberphile video. Imagine that you are writing your review for a journal for undergraduates in mathematics and the sciences, so your primary audience is undergraduate math\/cs\/engineering\/etc majors and minors.    Like any critic, you will respond positively to some things and negatively to others. Unlike many critics, you need to justify your opinions and provide detailed explanations for your claims.    You should consider the following questions:     Does the video effectively communicate the mathematics it discusses? Why or why not? Justify your claims with specific details about the video.    We have discussed multiple approaches\/themes to enumeration in this course, for example, recursions, bijections, systematic listing, etc. Which of these approaches\/themes to enumeration are used in this video? Be detailed, give specific examples from the video!    Is the mathematics clearly explained? If yes, what did they do especially well? If no, what made it unclear? Again, justify your claims with specific examples from the video.    Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P18     Find the sequences of edges to build the tree corresponding to the Prufer code , and explain your reasoning for how you find the edge at each step.    Find the Prufer code for the tree pictured below. Explain how you find the array step-by-step as you go through the algorithm.      Tree for homework problem.      P19  Fix a connected graph on vertex set . Let and be two spanning trees of . Prove that there exists a sequence of spanning trees of  such that is obtained from by deleting an edge from and adding an edge from .    P20  Let be a sequence of positive integers. Using Prufer codes , prove that the number of spanning trees of where the degree of vertex is is     P21  For each of the following sequences, (1) construct the corresponding threshold graph and (2) compute its degree sequence.   SIIISSISI    IIIISIIIISS    SSSSIISS       P22  For each of the following degree sequences, (1) compute the corrected Durfee number and (2) determine whether or not it is the degree sequence of a threshold graph. If it is a threshold graph, find a sequence of S and I operations that produce a graph with this degree sequence. Explain your reasoning.                     P23  For each of the following sequences, use the Havel-Hakimi test to determine whether or not it is a graphic sequence. Show your work and explain your solution.                     Essay 4  Read the following article from Quanta magazine: After you read this article, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   Was this article effective at communicating the mathematics of the bunkbed conjecture? Why or why not? (Give specific examples from the article to justify your claims!)    What was something you thought was interesting about the article? Why was it interesting to you?    What do you personally think the answer should be to the questions raised at the end of the article about proofs that are only true with high probability? Be detailed with your reasoning! It is acceptable to have a mix of responses to this issue, but you need to clearly explain your thoughts.      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P24  Apply the bubble sort algorithm to the following permutation. Show your work step-by-step.     P25  Apply the stack sorting algorithm to the following permutation. Show your work step-by-step.     P26     Find a bijection between the set of stack-sortable permutations in and the set of -avoiding permutations in . Explain why your bijection is correct.    Find a bijection between the set of stack-sortable permutations in and the set of -avoiding permutations in . Explain why your bijection is correct.       P27  Consider the set of binary strings of length with the uniform distribution. Let be the random variable where is the number of times a consecutive sequence of copies of appears in .   Write as a sum of indicator random variables.    Find .       P28  Let be a finite probability space and let be a random variable on such that for every . We define to be the probability that takes on a value greater than or equal to , i.e., Prove that for any , the following inequality, which is known as Markov's Inequality , holds:     P29  In P28 you proved Markov's Inequality, which we will now apply.   Consider the set of subsets of with the uniform distribution. Use Markov's Inequality to prove that at most half of all subsets of contain greater than adjacent pairs of the form .    Consider with the uniform distribution. Use and Markov's Inequality to prove that the probability that has at least fixed points is less than or equal to for any .       Essay 5  Read the course syllabus on the Canvas homepage for MA 415G. After you read the syllabus, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   Section 3 of the syllabus begins with a quote from Timothy Gowers. Given what you have seen so far in combinatorics, do you agree with his assertion about the way that the \"important idea of combinatorics\" appear? Why or why not?    So far we have investigated techniques for solving enumeration, classification, and expectation problems. Which of these have you enjoyed the most? Which have you enjoyed the least? Why? Give specific examples from the homework and\/or notes to illustrate your opinions.    Page 2 of the syllabus lists four mathematical practices that students will develop in MA 415G, in addition to the eight questions of combinatorics. Which of these practices do you feel you have improved on the most so far this semester? Which do you are most in need of further development?      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).    P30  Fix a positive integer . Given an Erdos-Renyi random graph , let be the random variable that counts the number of vertices of degree . Find the expected value of .    P31  Given an Erdos-Renyi random graph , let be the random variable that counts the number of paths of length in (that is, sets of three distinct vertices such that and are edges in ). Find the expected value of .    P32  A -cycle in a graph is a set of four distinct vertices such that the edges , , , and are all in the graph. Given an Erdos-Renyi random graph , let be the random variable that counts the number of -cycles in . Find the expected value of .    P33  Consider the cycle with vertices . Let be the matching containing the edges and . Find a sequence of augmenting paths to create a sequence of matchings that start with and end with a maximum matching. Give brief explanations of the steps in your process.    P34  Let be the complete graph on vertices . For each edge in , define the weight function . Apply Kruskal's algorithm to find a minimum spanning tree of this graph. Give brief explanations of the steps in your process.    P35  Suppose that is a finite graph with edge weight function where the value of is distinct for each edge; in other words, every edge has a unique weight. Prove that the minimum spanning tree of is unique.    Essay 6   Read the document \"A Framework for Ethical Decision Making\" from the Markkula Center for Applied Ethics, which you can read either on the web or as a pdf:   web page version:     pdf version:    After you finish the reading, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   The article presents six ethical lenses that can be used when considering ethical decision making: the rights lens, justice lens, utilitarian lens, common good lens, virtue lens, and care ethics lens. Which two of these lenses resonate most strongly with your personal thoughts about ethics? Why? Which of these lenses do you feel least connected to at this moment? Why?    The article presents a sequence of ten questions to consider in the process of ethical decision making. Suppose you are working as a member of a team, for example in a professional or personal context, and your team is going through the ethical implications of different options for resolving an issue. Which two of these questions do you think would be most challenging to engage in conversation with the other people on your team? Why?    What was one aspect of this document that you found surprising or unexpected? What made it stand out to you?      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).     P36  Consider the configuration model for the degree sequence . Find all the looped multigraphs for this degree sequence and compute the probability for this looped multigraph in the configuration model. Explain all of your work to obtain your solution.    P37  Consider the network with vertices and edges (some appearing more than once) (this means there is a single loop at ). Compute the modularity function (as given in Definition 5.6.9) for the vertex partition and .    P38  Modify the code from Example 5.5.7 and run it in to sample times from the configuration model with degree sequence . How many looped multigraphs did you find? Are you guaranteed to see every possible looped multigraph in your sample? Why or why not?    P39   Seymour's second neighborhood problem is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Let be a graph without loops or multiple edges. Assign to every edge a direction, that is, for each edge , either direct the edge from to or the opposite. This turns into a directed graph .  The first neighborhood of a vertex in a directed graph is the set of all vertices that are at distance one from (this means there must be an edge pointing from to the neighbor). The second neighborhood of is the set of all vertices that are at distance two from . Note that these two sets are disjoint, and neither contains .  The open problem is as follows: For every directed graph , does there exist a vertex such that the second neighborhood is at least as large as the first neighborhood?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of directed graphs that support your comments? Are there any directed graphs for which this is obviously true? You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these. However, you need to provide a narrative in sentences\/paragraphs explaining your thinking and the results of your investigations. (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)    P40   The no-three-in-a-line problem is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. See the wikipedia page for an explanation of the problem.  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of grids that support your comments? Are there any grids for which the answer is obvious? You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these. However, you need to provide a narrative in sentences\/paragraphs explaining your thinking and the results of your investigations. (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)    End-of-Class Reflection  Type a 1000 word essay in response to the following prompt. This is the equivalent of 4 pages in 12 point Times New Roman font, double-spaced.   What were six of the most important discoveries or realizations you made in this class? In other words, what are you taking away from this class that you think might stick with you over time and\/or influence you in the future? What have you experienced that might have a long-term effect on you intellectually or personally? These can include things you had not realized about mathematics or society, specific homework problems or theorems, etc. These can be things that made sense to you, or topics where you were confused, points that you agreed\/disagreed with in the readings or class discussions, issues that arose while working on your assignments, etc.    Explain why these six discoveries or realizations are important to you.    You should include a combination of observations about both mathematics and your habits, practices, and beliefs about mathematics.   This assignment grade is based only on completion (i.e. if you turn it in, it meets the length requirement, and it appropriately responds to the prompt above, then you get full credit).   "
 },
@@ -3677,7 +3650,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-2",
   "type": "Problem",
-  "number": "10.0.1",
+  "number": "8.0.1",
   "title": "P1.",
   "body": " P1  Define an -ary string to be an ordered list of length where each entry is an element of . We denote by the set of -ary strings of length .   Systematically list the elements of and explain using written sentences what your system is for listing all of these elements.    Give a recursive proof, following the structure of the recursive proof of , that      "
 },
@@ -3686,7 +3659,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-3",
   "type": "Problem",
-  "number": "10.0.2",
+  "number": "8.0.2",
   "title": "P2.",
   "body": " P2  How many binary strings of length are there with exactly two ones and zeros? Express your answer as either a function of or as a recursive expression. Give an argument, i.e., a proof, explaining why your solution is correct.  "
 },
@@ -3695,7 +3668,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-4",
   "type": "Problem",
-  "number": "10.0.3",
+  "number": "8.0.3",
   "title": "Essay 1.",
   "body": " Essay 1  Write an essay in which you reflect on a meaningful mathematical experience from your past. This might be a positive experience or it might be a negative experience, but it should be something that was influential in your mathematical life, and you should explicitly discuss how mathematical ideas\/concepts were involved in this experience . As a prompt for your writing, consider some of the following questions (you do not need to respond to all of these, rather use them to help you get your writing started).  Was this influential because of the mathematical content you learned, or because of a personal experience that took place in a mathematical context, or because it changed how you thought about yourself with regard to mathematics, or something else entirely?  Did this experience cause you to take on future challenges, or to avoid certain challenges?  What was different about this experience from other similar experiences that makes this one stand out in your memory?  This assignment should be 500 words, which is equivalent to two pages, 12 point Times New Roman, double spaced. Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).  "
 },
@@ -3704,7 +3677,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-5",
   "type": "Problem",
-  "number": "10.0.4",
+  "number": "8.0.4",
   "title": "P3.",
   "body": " P3  In this problem, we explore another property of binomial coefficients. Equations such as this are known as combinatorial identities , because they are equalities of expressions involving combinatorial values. Using the technique of disjoint union decompositions, prove that for any , we have   "
 },
@@ -3713,7 +3686,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-6",
   "type": "Problem",
-  "number": "10.0.5",
+  "number": "8.0.5",
   "title": "P4.",
   "body": " P4  Give a combinatorial proof showing that   "
 },
@@ -3722,7 +3695,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-7",
   "type": "Problem",
-  "number": "10.0.6",
+  "number": "8.0.6",
   "title": "P5.",
   "body": " P5   Singmaster's conjecture is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Note that the number appears infinitely many times in the triangle of binomial coefficients. The open problem is as follows: Is there a fixed integer such that every positive integer other than shows up at most times in the triangle of binomial coefficients?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of binomial coefficients that support your comments? Are there any positive integers for which this is obviously true? You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these. However, you need to provide a narrative in sentences\/paragraphs explaining your thinking and the results of your investigations. (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)  "
 },
@@ -3731,7 +3704,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-8",
   "type": "Problem",
-  "number": "10.0.7",
+  "number": "8.0.7",
   "title": "P6.",
   "body": " P6  For each positive integer , express in terms of Fibonacci numbers the number of sequences with each , such that   "
 },
@@ -3740,7 +3713,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-9",
   "type": "Problem",
-  "number": "10.0.8",
+  "number": "8.0.8",
   "title": "P7.",
   "body": " P7     Find a relationship between the Fibonacci numbers and the number of compositions of where every part is an odd number. Prove that your answer is correct.     A subset is called large if we have that for every . So, for example, is large while is not large. We define that the emptyset is large. Let be the number of large subsets of (including the emptyset). Find a relationship between and the Fibonacci numbers and prove that your answer is correct.     "
 },
@@ -3749,7 +3722,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-10",
   "type": "Problem",
-  "number": "10.0.9",
+  "number": "8.0.9",
   "title": "P8.",
   "body": " P8  In this problem you will prove that holds for all . Let denote the number of ways to select elements from and write them in a linear order, i.e., write them as a permutation.   Prove that using only the combinatorial interpretation of .    Prove that     Using the previous two parts of this problem, prove that      "
 },
@@ -3758,7 +3731,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-11",
   "type": "Problem",
-  "number": "10.0.10",
+  "number": "8.0.10",
   "title": "P9.",
   "body": " P9  Prove that Note that , and thus this shows that is approximately .  "
 },
@@ -3767,7 +3740,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-12",
   "type": "Problem",
-  "number": "10.0.11",
+  "number": "8.0.11",
   "title": "P10.",
   "body": " P10  A permutation is an involution if all cycles have length or . Let denote the number of involutions in . Prove that where and .  "
 },
@@ -3776,7 +3749,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-13",
   "type": "Problem",
-  "number": "10.0.12",
+  "number": "8.0.12",
   "title": "P11.",
   "body": " P11  A permutation is called connected if for every . Let denote the number of connected permutations in . Prove that   "
 },
@@ -3785,7 +3758,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-14",
   "type": "Problem",
-  "number": "10.0.13",
+  "number": "8.0.13",
   "title": "Essay 2.",
   "body": " Essay 2  Read the following blog post by Keith Weber, a professor of math education at Rutgers University who studies how undergraduate students understand proofs in mathematics: After you read this article, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   The article describes four expectations that professors have for students, but which are usually mis-communicated. For each of these four expectations , do you respond more like the students in their surveys, or more like the professors? Why?    The discussion at the end of the article has some recommendations for faculty in their courses. Which of these recommendations do you think you would find most helpful for your learning, and why?    What is one thing you might change about your approach to your math courses after reading this article? Why is this the thing you would choose to change?      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).  "
 },
@@ -3794,7 +3767,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-15",
   "type": "Problem",
-  "number": "10.0.14",
+  "number": "8.0.14",
   "title": "P12.",
   "body": " P12  Recall that is the number of permutations in with inversions, and is the number of permutations in with descents. Give a combinatorial proof that and   "
 },
@@ -3803,7 +3776,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-16",
   "type": "Problem",
-  "number": "10.0.15",
+  "number": "8.0.15",
   "title": "P13.",
   "body": " P13     In the first part of this problem, you will prove by induction that    First, verify the base case for the induction argument, i.e., check that this is true for .    Second, assume that this is true for all values less than . In particular, this means that we assume we have already verified that To prove that the induction step holds, use this to prove that the equation holds for as follows: write and then substitute the formula for the case and simplify with algebra.    Explain in your own words why this shows that the formula is true for any positive integer .       Prove by induction that    Comment for those who are interested: These two formulas are ones that students learn (and typically forget) in Calculus I. However, these are special cases of a beautiful formula called Faulhaber's formula which is a formula for the sum of the -th powers of the first positive integers: .  "
 },
@@ -3812,7 +3785,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-17",
   "type": "Problem",
-  "number": "10.0.16",
+  "number": "8.0.16",
   "title": "P14.",
   "body": " P14     A graph is called -regular if every vertex has degree . How many edges does a -regular graph on vertices have?    Does there exist a -regular graph on vertices? Why or why not?     "
 },
@@ -3821,7 +3794,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-18",
   "type": "Problem",
-  "number": "10.0.17",
+  "number": "8.0.17",
   "title": "P15.",
   "body": " P15  A graph is bipartite if the vertex set of can be partitioned as in such a way that every edge in has one endpoint in and one in . Prove that is bipartite if and only if every cycle in has an even number of edges.  "
 },
@@ -3830,7 +3803,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-19",
   "type": "Problem",
-  "number": "10.0.18",
+  "number": "8.0.18",
   "title": "P16.",
   "body": " P16  Suppose a tree has exactly one vertex of degree for each and all other vertices have degree .   How many vertices does have?    For each , explain how to construct an example of a tree with this property.     "
 },
@@ -3839,7 +3812,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-20",
   "type": "Problem",
-  "number": "10.0.19",
+  "number": "8.0.19",
   "title": "P17.",
   "body": " P17  A graceful labeling of a tree on vertices is a mapping so that for each edge , the value of is distinct from the value on any other edge. The path graph of length , denoted , is the graph with vertex set and edges for every . Show that every has a graceful labeling.  NOTE: A well-known and extremely challenging unsolved conjecture is that all trees admit graceful labelings. This is known for some trees but not all trees.  "
 },
@@ -3848,7 +3821,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-21",
   "type": "Problem",
-  "number": "10.0.20",
+  "number": "8.0.20",
   "title": "Essay 3.",
   "body": " Essay 3  Watch the following YouTube video from Numberphile (13 minutes, published 29 Jan 2024): After you watch this video, complete the following essay.   This will be an essay of length 500 words, which is equivalent to 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced.    Write a critical review of this Numberphile video. Imagine that you are writing your review for a journal for undergraduates in mathematics and the sciences, so your primary audience is undergraduate math\/cs\/engineering\/etc majors and minors.    Like any critic, you will respond positively to some things and negatively to others. Unlike many critics, you need to justify your opinions and provide detailed explanations for your claims.    You should consider the following questions:     Does the video effectively communicate the mathematics it discusses? Why or why not? Justify your claims with specific details about the video.    We have discussed multiple approaches\/themes to enumeration in this course, for example, recursions, bijections, systematic listing, etc. Which of these approaches\/themes to enumeration are used in this video? Be detailed, give specific examples from the video!    Is the mathematics clearly explained? If yes, what did they do especially well? If no, what made it unclear? Again, justify your claims with specific examples from the video.    Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).  "
 },
@@ -3857,7 +3830,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-22",
   "type": "Problem",
-  "number": "10.0.21",
+  "number": "8.0.21",
   "title": "P18.",
   "body": " P18     Find the sequences of edges to build the tree corresponding to the Prufer code , and explain your reasoning for how you find the edge at each step.    Find the Prufer code for the tree pictured below. Explain how you find the array step-by-step as you go through the algorithm.      Tree for homework problem.    "
 },
@@ -3866,7 +3839,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-23",
   "type": "Problem",
-  "number": "10.0.23",
+  "number": "8.0.23",
   "title": "P19.",
   "body": " P19  Fix a connected graph on vertex set . Let and be two spanning trees of . Prove that there exists a sequence of spanning trees of  such that is obtained from by deleting an edge from and adding an edge from .  "
 },
@@ -3875,7 +3848,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-24",
   "type": "Problem",
-  "number": "10.0.24",
+  "number": "8.0.24",
   "title": "P20.",
   "body": " P20  Let be a sequence of positive integers. Using Prufer codes , prove that the number of spanning trees of where the degree of vertex is is   "
 },
@@ -3884,7 +3857,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-25",
   "type": "Problem",
-  "number": "10.0.25",
+  "number": "8.0.25",
   "title": "P21.",
   "body": " P21  For each of the following sequences, (1) construct the corresponding threshold graph and (2) compute its degree sequence.   SIIISSISI    IIIISIIIISS    SSSSIISS     "
 },
@@ -3893,7 +3866,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-26",
   "type": "Problem",
-  "number": "10.0.26",
+  "number": "8.0.26",
   "title": "P22.",
   "body": " P22  For each of the following degree sequences, (1) compute the corrected Durfee number and (2) determine whether or not it is the degree sequence of a threshold graph. If it is a threshold graph, find a sequence of S and I operations that produce a graph with this degree sequence. Explain your reasoning.                   "
 },
@@ -3902,7 +3875,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-27",
   "type": "Problem",
-  "number": "10.0.27",
+  "number": "8.0.27",
   "title": "P23.",
   "body": " P23  For each of the following sequences, use the Havel-Hakimi test to determine whether or not it is a graphic sequence. Show your work and explain your solution.                   "
 },
@@ -3911,7 +3884,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-28",
   "type": "Problem",
-  "number": "10.0.28",
+  "number": "8.0.28",
   "title": "Essay 4.",
   "body": " Essay 4  Read the following article from Quanta magazine: After you read this article, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   Was this article effective at communicating the mathematics of the bunkbed conjecture? Why or why not? (Give specific examples from the article to justify your claims!)    What was something you thought was interesting about the article? Why was it interesting to you?    What do you personally think the answer should be to the questions raised at the end of the article about proofs that are only true with high probability? Be detailed with your reasoning! It is acceptable to have a mix of responses to this issue, but you need to clearly explain your thoughts.      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).  "
 },
@@ -3920,7 +3893,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-29",
   "type": "Problem",
-  "number": "10.0.29",
+  "number": "8.0.29",
   "title": "P24.",
   "body": " P24  Apply the bubble sort algorithm to the following permutation. Show your work step-by-step.   "
 },
@@ -3929,7 +3902,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-30",
   "type": "Problem",
-  "number": "10.0.30",
+  "number": "8.0.30",
   "title": "P25.",
   "body": " P25  Apply the stack sorting algorithm to the following permutation. Show your work step-by-step.   "
 },
@@ -3938,7 +3911,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-31",
   "type": "Problem",
-  "number": "10.0.31",
+  "number": "8.0.31",
   "title": "P26.",
   "body": " P26     Find a bijection between the set of stack-sortable permutations in and the set of -avoiding permutations in . Explain why your bijection is correct.    Find a bijection between the set of stack-sortable permutations in and the set of -avoiding permutations in . Explain why your bijection is correct.     "
 },
@@ -3947,7 +3920,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-32",
   "type": "Problem",
-  "number": "10.0.32",
+  "number": "8.0.32",
   "title": "P27.",
   "body": " P27  Consider the set of binary strings of length with the uniform distribution. Let be the random variable where is the number of times a consecutive sequence of copies of appears in .   Write as a sum of indicator random variables.    Find .     "
 },
@@ -3956,7 +3929,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-33",
   "type": "Problem",
-  "number": "10.0.33",
+  "number": "8.0.33",
   "title": "P28.",
   "body": " P28  Let be a finite probability space and let be a random variable on such that for every . We define to be the probability that takes on a value greater than or equal to , i.e., Prove that for any , the following inequality, which is known as Markov's Inequality , holds:   "
 },
@@ -3965,7 +3938,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-34",
   "type": "Problem",
-  "number": "10.0.34",
+  "number": "8.0.34",
   "title": "P29.",
   "body": " P29  In P28 you proved Markov's Inequality, which we will now apply.   Consider the set of subsets of with the uniform distribution. Use Markov's Inequality to prove that at most half of all subsets of contain greater than adjacent pairs of the form .    Consider with the uniform distribution. Use and Markov's Inequality to prove that the probability that has at least fixed points is less than or equal to for any .     "
 },
@@ -3974,7 +3947,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-35",
   "type": "Problem",
-  "number": "10.0.35",
+  "number": "8.0.35",
   "title": "Essay 5.",
   "body": " Essay 5  Read the course syllabus on the Canvas homepage for MA 415G. After you read the syllabus, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   Section 3 of the syllabus begins with a quote from Timothy Gowers. Given what you have seen so far in combinatorics, do you agree with his assertion about the way that the \"important idea of combinatorics\" appear? Why or why not?    So far we have investigated techniques for solving enumeration, classification, and expectation problems. Which of these have you enjoyed the most? Which have you enjoyed the least? Why? Give specific examples from the homework and\/or notes to illustrate your opinions.    Page 2 of the syllabus lists four mathematical practices that students will develop in MA 415G, in addition to the eight questions of combinatorics. Which of these practices do you feel you have improved on the most so far this semester? Which do you are most in need of further development?      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).  "
 },
@@ -3983,7 +3956,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-36",
   "type": "Problem",
-  "number": "10.0.36",
+  "number": "8.0.36",
   "title": "P30.",
   "body": " P30  Fix a positive integer . Given an Erdos-Renyi random graph , let be the random variable that counts the number of vertices of degree . Find the expected value of .  "
 },
@@ -3992,7 +3965,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-37",
   "type": "Problem",
-  "number": "10.0.37",
+  "number": "8.0.37",
   "title": "P31.",
   "body": " P31  Given an Erdos-Renyi random graph , let be the random variable that counts the number of paths of length in (that is, sets of three distinct vertices such that and are edges in ). Find the expected value of .  "
 },
@@ -4001,7 +3974,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-38",
   "type": "Problem",
-  "number": "10.0.38",
+  "number": "8.0.38",
   "title": "P32.",
   "body": " P32  A -cycle in a graph is a set of four distinct vertices such that the edges , , , and are all in the graph. Given an Erdos-Renyi random graph , let be the random variable that counts the number of -cycles in . Find the expected value of .  "
 },
@@ -4010,7 +3983,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-39",
   "type": "Problem",
-  "number": "10.0.39",
+  "number": "8.0.39",
   "title": "P33.",
   "body": " P33  Consider the cycle with vertices . Let be the matching containing the edges and . Find a sequence of augmenting paths to create a sequence of matchings that start with and end with a maximum matching. Give brief explanations of the steps in your process.  "
 },
@@ -4019,7 +3992,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-40",
   "type": "Problem",
-  "number": "10.0.40",
+  "number": "8.0.40",
   "title": "P34.",
   "body": " P34  Let be the complete graph on vertices . For each edge in , define the weight function . Apply Kruskal's algorithm to find a minimum spanning tree of this graph. Give brief explanations of the steps in your process.  "
 },
@@ -4028,7 +4001,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-41",
   "type": "Problem",
-  "number": "10.0.41",
+  "number": "8.0.41",
   "title": "P35.",
   "body": " P35  Suppose that is a finite graph with edge weight function where the value of is distinct for each edge; in other words, every edge has a unique weight. Prove that the minimum spanning tree of is unique.  "
 },
@@ -4037,7 +4010,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-42",
   "type": "Problem",
-  "number": "10.0.42",
+  "number": "8.0.42",
   "title": "Essay 6.",
   "body": " Essay 6   Read the document \"A Framework for Ethical Decision Making\" from the Markkula Center for Applied Ethics, which you can read either on the web or as a pdf:   web page version:     pdf version:    After you finish the reading, complete the following essay.   This will be an essay of length at least 500 words, which is equivalent to at least 2 typed pages with 1 inch margins, 12 point Times New Roman font, double spaced. (You can write a longer essay if needed.)    Your essay should respond to the following three questions.   The article presents six ethical lenses that can be used when considering ethical decision making: the rights lens, justice lens, utilitarian lens, common good lens, virtue lens, and care ethics lens. Which two of these lenses resonate most strongly with your personal thoughts about ethics? Why? Which of these lenses do you feel least connected to at this moment? Why?    The article presents a sequence of ten questions to consider in the process of ethical decision making. Suppose you are working as a member of a team, for example in a professional or personal context, and your team is going through the ethical implications of different options for resolving an issue. Which two of these questions do you think would be most challenging to engage in conversation with the other people on your team? Why?    What was one aspect of this document that you found surprising or unexpected? What made it stand out to you?      Your grade is based on completion only (in other words, if you complete the assignment and it meets the length requirement and responds appropriately to the prompt, then you get full credit).   "
 },
@@ -4046,7 +4019,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-43",
   "type": "Problem",
-  "number": "10.0.43",
+  "number": "8.0.43",
   "title": "P36.",
   "body": " P36  Consider the configuration model for the degree sequence . Find all the looped multigraphs for this degree sequence and compute the probability for this looped multigraph in the configuration model. Explain all of your work to obtain your solution.  "
 },
@@ -4055,7 +4028,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-44",
   "type": "Problem",
-  "number": "10.0.44",
+  "number": "8.0.44",
   "title": "P37.",
   "body": " P37  Consider the network with vertices and edges (some appearing more than once) (this means there is a single loop at ). Compute the modularity function (as given in Definition 5.6.9) for the vertex partition and .  "
 },
@@ -4064,7 +4037,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-45",
   "type": "Problem",
-  "number": "10.0.45",
+  "number": "8.0.45",
   "title": "P38.",
   "body": " P38  Modify the code from Example 5.5.7 and run it in to sample times from the configuration model with degree sequence . How many looped multigraphs did you find? Are you guaranteed to see every possible looped multigraph in your sample? Why or why not?  "
 },
@@ -4073,7 +4046,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-46",
   "type": "Problem",
-  "number": "10.0.46",
+  "number": "8.0.46",
   "title": "P39.",
   "body": " P39   Seymour's second neighborhood problem is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. Let be a graph without loops or multiple edges. Assign to every edge a direction, that is, for each edge , either direct the edge from to or the opposite. This turns into a directed graph .  The first neighborhood of a vertex in a directed graph is the set of all vertices that are at distance one from (this means there must be an edge pointing from to the neighbor). The second neighborhood of is the set of all vertices that are at distance two from . Note that these two sets are disjoint, and neither contains .  The open problem is as follows: For every directed graph , does there exist a vertex such that the second neighborhood is at least as large as the first neighborhood?  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of directed graphs that support your comments? Are there any directed graphs for which this is obviously true? You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these. However, you need to provide a narrative in sentences\/paragraphs explaining your thinking and the results of your investigations. (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)  "
 },
@@ -4082,7 +4055,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-47",
   "type": "Problem",
-  "number": "10.0.47",
+  "number": "8.0.47",
   "title": "P40.",
   "body": " P40   The no-three-in-a-line problem is an open problem in mathematics, meaning that it is a problem that has not been solved by anyone. See the wikipedia page for an explanation of the problem.  Make as much progress as you can on this open problem; I don't expect you to find a solution, but you should spend 2-3 hours thinking about this! Your goal is to do something more than check examples; the examples should lead you to make some interesting observations about the problem, to understand it a bit better. Why do you think it might be true? Why might it be false? Are there any properties of grids that support your comments? Are there any grids for which the answer is obvious? You can do this using only pencil and paper, or using mostly computational experiments, or you can use a mix of these. However, you need to provide a narrative in sentences\/paragraphs explaining your thinking and the results of your investigations. (Seriously, write down everything you're thinking and every idea you try, even if it doesn't go anywhere.)  "
 },
@@ -4091,7 +4064,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "ch-homework.html#ch-homework-48",
   "type": "Problem",
-  "number": "10.0.48",
+  "number": "8.0.48",
   "title": "End-of-Class Reflection.",
   "body": " End-of-Class Reflection  Type a 1000 word essay in response to the following prompt. This is the equivalent of 4 pages in 12 point Times New Roman font, double-spaced.   What were six of the most important discoveries or realizations you made in this class? In other words, what are you taking away from this class that you think might stick with you over time and\/or influence you in the future? What have you experienced that might have a long-term effect on you intellectually or personally? These can include things you had not realized about mathematics or society, specific homework problems or theorems, etc. These can be things that made sense to you, or topics where you were confused, points that you agreed\/disagreed with in the readings or class discussions, issues that arose while working on your assignments, etc.    Explain why these six discoveries or realizations are important to you.    You should include a combination of observations about both mathematics and your habits, practices, and beliefs about mathematics.   This assignment grade is based only on completion (i.e. if you turn it in, it meets the length requirement, and it appropriately responds to the prompt above, then you get full credit).  "
 }
