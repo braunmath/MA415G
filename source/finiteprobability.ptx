@@ -12,7 +12,7 @@
 		We refer to the elements of <m>\Omega</m> as <em>events</em>.
 		A <em>probability distribution</em> on <m>\Omega</m> is a function
 		<me>
-		P:\Omega\mapsto \mathbb{R_{\geq 0}}
+		P:\Omega\mapsto \mathbb{R}_{\geq 0}
 		</me>
 		such that 
 		<me>
