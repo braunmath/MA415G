@@ -257,7 +257,7 @@ show(histogram(spanning_tree_counts,bins=30))
         </me>
         Thus, the fraction of sets of <m>19</m> edges in a sample drawn from the Erdos-Renyi model that forms a spanning tree is typically
         <me>
-            \frac{500,000,000,000,000,000}{45,038,039,715,653,129,145} \approx 0.111
+            \frac{500,000,000,000,000,000}{45,038,039,715,653,129,145} \approx 0.0111
         </me>
         which is equivalent to saying that <m>1.1</m>% of the sets of <m>19</m> edges in one of these graphs is a spanning tree.
     </p>
@@ -275,7 +275,7 @@ show(histogram(spanning_tree_counts,bins=30))
 A connected graph <m>G</m> has an arrow to <m>G'</m> in <m>\mathcal{G}(\mathbf{d})</m> if <m>G'</m> is obtained from <m>G</m> via a double-edge swap, i.e., if there exist edges <m>uv</m> and <m>xy</m> in <m>G</m> such that replacing these edges with <m>ux</m> and <m>vy</m> produces <m>G'</m>. 
     </p>
         <figure xml:id="fig-doubleedgeswap">
-    <caption>Figure showing a double-edge swap, taking from: Benjamin Braun, Kaitlin Bruegge, Matthew Kahle. "Facets of Random Symmetric Edge Polytopes, Degree Sequences, and Clustering", Discrete Mathematics &amp; Theoretical Computer Science, December 11, 2023, vol. 25:2.</caption>
+    <caption>Figure showing a double-edge swap, taken from: Benjamin Braun, Kaitlin Bruegge, Matthew Kahle. "Facets of Random Symmetric Edge Polytopes, Degree Sequences, and Clustering", Discrete Mathematics &amp; Theoretical Computer Science, December 11, 2023, vol. 25:2.</caption>
     <image source="doubleedgeswap.png" width="100%"/>
 </figure>
 <p>
